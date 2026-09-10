@@ -1,0 +1,16 @@
+┌──────────┬───────────┬──────┬───┬─────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File         │Title                                   │
+├──────────┼───────────┼──────┼───┼─────────────┼────────────────────────────────────────┤
+│ c2c8ef28 │�� CRITICAL│OPEN  │—  │cmtest/app.py│OS Command Injection via Unsanitized ...│
+│ 6d68c64d │🔴 CRITICAL│OPEN  │—  │cmtest/app.py│Remote Code Execution via Insecure De...│
+│ 75b9ab79 │🟠 HIGH    │OPEN  │—  │cmtest/app.py│Arbitrary File Write via Path Travers...│
+│ b6cfe795 │🟠 HIGH    │OPEN  │—  │cmtest/app.py│Arbitrary File Read via Path Traversa...│
+│ 2b8d62b6 │🟠 HIGH    │OPEN  │—  │cmtest/app.py│SQL Injection via Unsanitized `userna...│
+│ bc5fbf48 │🟠 HIGH    │OPEN  │—  │cmtest/app.py│Server-Side Request Forgery (SSRF) in...│
+│ 93fc93c6 │🟡 MEDIUM  │OPEN  │—  │cmtest/app.py│Reflected Cross-Site Scripting (XSS) ...│
+│ c6aa404c │🟡 MEDIUM  │OPEN  │—  │cmtest/app.py│Open Redirect via Unvalidated `target...│
+└──────────┴───────────┴──────┴───┴─────────────┴────────────────────────────────────────┘
+
+8 finding(s): 2 CRITICAL, 4 HIGH, 2 MEDIUM · ✅ 0 fixed, 🔴 8 open
+📋 Report generated at 2026-09-10 08:43:58 UTC
+2026-09-10T08:43:58Z [INFO]  �� Session log: /home/hongbocheng/.codemender/logs/20260910T084358Z_pending.log

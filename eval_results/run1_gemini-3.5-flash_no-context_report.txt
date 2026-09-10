@@ -1,0 +1,15 @@
+┌──────────┬───────────┬──────┬───┬──────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File      │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────┼────────────────────────────────────────┤
+│ 2efadcfe │🔴 CRITICAL│OPEN  │—  │src/app.py│OS Command Injection in Network Diagn...│
+│ a02cf229 │🔴 CRITICAL│OPEN  │—  │src/app.py│Insecure Deserialization via pickle (...│
+│ f2070a0a │🟠 HIGH    │OPEN  │—  │src/app.py│Arbitrary File Read via Path Traversa...│
+│ e94d7916 │🟠 HIGH    │OPEN  │—  │src/app.py│SQL Injection in User Registry Lookup...│
+│ 02b7f04a │🟠 HIGH    │OPEN  │—  │src/app.py│Server-Side Request Forgery (SSRF) in...│
+│ bcf594f9 │🟠 HIGH    │OPEN  │—  │src/app.py│Arbitrary File Write / Path Traversal...│
+│ c65cdbe2 │🟡 MEDIUM  │OPEN  │—  │src/app.py│Reflected Cross-Site Scripting (XSS) ...│
+│ f49eb4e5 │🟡 MEDIUM  │OPEN  │—  │src/app.py│Open Redirect via Navigation Service ...│
+└──────────┴───────────┴──────┴───┴──────────┴────────────────────────────────────────┘
+
+8 finding(s): 2 CRITICAL, 4 HIGH, 2 MEDIUM · ✅ 0 fixed, 🔴 8 open
+📋 Report generated at 2026-09-10 08:15:56 UTC

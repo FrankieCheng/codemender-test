@@ -1,0 +1,18 @@
+┌──────────┬───────────┬──────┬───┬──────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File      │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────┼────────────────────────────────────────┤
+│ 45cf4eb8 │🔴 CRITICAL│OPEN  │—  │src/app.py│OS Command Injection via Unsanitized ...│
+│ 137e2d9b │🔴 CRITICAL│OPEN  │—  │src/app.py│Remote Code Execution via Insecure De...│
+│ f5a6f2ab │🔴 CRITICAL│OPEN  │—  │src/app.py│Arbitrary File Upload and Path Traver...│
+│ 59c549e5 │🟠 HIGH    │OPEN  │—  │src/app.py│SQL Injection via Unsanitized Usernam...│
+│ aa361ce9 │🟠 HIGH    │OPEN  │—  │src/app.py│Arbitrary File Read via Path Traversa...│
+│ 254bd09c │🟠 HIGH    │OPEN  │—  │src/app.py│Server-Side Request Forgery (SSRF) vi...│
+│ aeecf5cd │🟠 HIGH    │OPEN  │—  │src/app.py│Interactive Debugger Console Enabled ...│
+│ e21834cf │🟡 MEDIUM  │OPEN  │—  │src/app.py│Reflected Cross-Site Scripting (XSS) ...│
+│ c9f46803 │🟡 MEDIUM  │OPEN  │—  │src/app.py│Open Redirect via Unvalidated Target ...│
+│ 0e3da7d7 │🟡 MEDIUM  │OPEN  │—  │src/app.py│Denial of Service via Unbounded Multi...│
+│ f0ee5dd1 │🟡 MEDIUM  │OPEN  │—  │src/app.py│Sensitive Session Cookie Configured W...│
+└──────────┴───────────┴──────┴───┴──────────┴────────────────────────────────────────┘
+
+11 finding(s): 3 CRITICAL, 4 HIGH, 4 MEDIUM · ✅ 0 fixed, 🔴 11 open
+📋 Report generated at 2026-09-10 08:32:38 UTC

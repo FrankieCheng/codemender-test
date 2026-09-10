@@ -1,0 +1,19 @@
+┌──────────┬───────────┬──────┬───┬─────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File         │Title                                   │
+├──────────┼───────────┼──────┼───┼─────────────┼────────────────────────────────────────┤
+│ de4ac03c │🔴 CRITICAL│OPEN  │—  │cmtest/app.py│OS Command Injection in Network Diagn...│
+│ b445a010 │🔴 CRITICAL│OPEN  │—  │cmtest/app.py│Insecure Deserialization via Python P...│
+│ 68aa065d │🔴 CRITICAL│OPEN  │—  │cmtest/app.py│Arbitrary File Write / Path Traversal...│
+│ 5cfe0d02 │🟠 HIGH    │OPEN  │—  │cmtest/app.py│SQL Injection in User Lookup Endpoint   │
+│ 8e5d2fd4 │🟠 HIGH    │OPEN  │—  │cmtest/app.py│Arbitrary File Read / Path Traversal ...│
+│ 4bd64bcf │🟠 HIGH    │OPEN  │—  │cmtest/app.py│Server-Side Request Forgery (SSRF) in...│
+│ e4645f97 │🟠 HIGH    │OPEN  │—  │cmtest/app.py│Interactive Debugger Enabled with Arb...│
+│ c99fa696 │🟡 MEDIUM  │OPEN  │—  │cmtest/app.py│Reflected Cross-Site Scripting (XSS) ...│
+│ c55c0aaf │🟡 MEDIUM  │OPEN  │—  │cmtest/app.py│Open URL Redirection in Navigation En...│
+│ c7c64aae │🟡 MEDIUM  │OPEN  │—  │cmtest/app.py│Denial of Service via Unlimited Multi...│
+│ 5dc0017f │🔵 LOW     │OPEN  │—  │cmtest/app.py│Insecure Session Cookie Missing Secur...│
+└──────────┴───────────┴──────┴───┴─────────────┴────────────────────────────────────────┘
+
+11 finding(s): 3 CRITICAL, 4 HIGH, 3 MEDIUM, 1 LOW · ✅ 0 fixed, 🔴 11 open
+📋 Report generated at 2026-09-10 08:47:24 UTC
+2026-09-10T08:47:24Z [INFO]  📄 Session log: /home/hongbocheng/.codemender/logs/20260910T084724Z_pending.log

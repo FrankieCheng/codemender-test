@@ -1,0 +1,90 @@
+[
+  {
+    "finding_id": "c2c8ef28-0000-0000-0000-000000000001",
+    "session_id": "ChBiZGYxODZhZTI1OTczYTA0EAgaATAqBG1haW4",
+    "title": "OS Command Injection via Unsanitized `host` Parameter in `/diagnostics/ping`",
+    "file_path": "cmtest/app.py",
+    "severity": "CRITICAL",
+    "confidence": 100,
+    "vuln_type": "Command Injection",
+    "vuln_id": "CWE-78",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "6d68c64d-0000-0000-0000-000000000002",
+    "session_id": "ChBiZGYxODZhZTI1OTczYTA0EAgaATAqBG1haW4",
+    "title": "Remote Code Execution via Insecure Deserialization in `/profile/restore`",
+    "file_path": "cmtest/app.py",
+    "severity": "CRITICAL",
+    "confidence": 100,
+    "vuln_type": "Insecure Deserialization",
+    "vuln_id": "CWE-502",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "75b9ab79-0000-0000-0000-000000000003",
+    "session_id": "ChBiZGYxODZhZTI1OTczYTA0EAgaATAqBG1haW4",
+    "title": "Arbitrary File Write via Path Traversal in `/upload/raw`",
+    "file_path": "cmtest/app.py",
+    "severity": "HIGH",
+    "confidence": 100,
+    "vuln_type": "Path Traversal",
+    "vuln_id": "CWE-22",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "b6cfe795-0000-0000-0000-000000000004",
+    "session_id": "ChBiZGYxODZhZTI1OTczYTA0EAgaATAqBG1haW4",
+    "title": "Arbitrary File Read via Path Traversal in `/download`",
+    "file_path": "cmtest/app.py",
+    "severity": "HIGH",
+    "confidence": 100,
+    "vuln_type": "Path Traversal",
+    "vuln_id": "CWE-22",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "2b8d62b6-0000-0000-0000-000000000005",
+    "session_id": "ChBiZGYxODZhZTI1OTczYTA0EAgaATAqBG1haW4",
+    "title": "SQL Injection via Unsanitized `username` Parameter in `/api/users/lookup`",
+    "file_path": "cmtest/app.py",
+    "severity": "HIGH",
+    "confidence": 100,
+    "vuln_type": "SQL Injection",
+    "vuln_id": "CWE-89",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "bc5fbf48-0000-0000-0000-000000000006",
+    "session_id": "ChBiZGYxODZhZTI1OTczYTA0EAgaATAqBG1haW4",
+    "title": "Server-Side Request Forgery (SSRF) in `/services/proxy`",
+    "file_path": "cmtest/app.py",
+    "severity": "HIGH",
+    "confidence": 100,
+    "vuln_type": "Server-Side Request Forgery (SSRF)",
+    "vuln_id": "CWE-918",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "93fc93c6-0000-0000-0000-000000000007",
+    "session_id": "ChBiZGYxODZhZTI1OTczYTA0EAgaATAqBG1haW4",
+    "title": "Reflected Cross-Site Scripting (XSS) in `/search`",
+    "file_path": "cmtest/app.py",
+    "severity": "MEDIUM",
+    "confidence": 100,
+    "vuln_type": "Cross-Site Scripting (XSS)",
+    "vuln_id": "CWE-79",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "c6aa404c-0000-0000-0000-000000000008",
+    "session_id": "ChBiZGYxODZhZTI1OTczYTA0EAgaATAqBG1haW4",
+    "title": "Open Redirect via Unvalidated `target` Parameter in `/navigate`",
+    "file_path": "cmtest/app.py",
+    "severity": "MEDIUM",
+    "confidence": 100,
+    "vuln_type": "Open Redirect",
+    "vuln_id": "CWE-601",
+    "status": "OPEN"
+  }
+]

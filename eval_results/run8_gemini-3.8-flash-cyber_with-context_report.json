@@ -1,0 +1,123 @@
+[
+  {
+    "finding_id": "de4ac03c-0000-0000-0000-000000000001",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "OS Command Injection in Network Diagnostics Endpoint",
+    "file_path": "cmtest/app.py",
+    "severity": "CRITICAL",
+    "confidence": 100,
+    "vuln_type": "Command Injection",
+    "vuln_id": "CWE-78",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "b445a010-0000-0000-0000-000000000002",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Insecure Deserialization via Python Pickle in Profile Restore Endpoint",
+    "file_path": "cmtest/app.py",
+    "severity": "CRITICAL",
+    "confidence": 100,
+    "vuln_type": "Insecure Deserialization",
+    "vuln_id": "CWE-502",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "68aa065d-0000-0000-0000-000000000003",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Arbitrary File Write / Path Traversal via File Upload",
+    "file_path": "cmtest/app.py",
+    "severity": "CRITICAL",
+    "confidence": 100,
+    "vuln_type": "Path Traversal",
+    "vuln_id": "CWE-22",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "5cfe0d02-0000-0000-0000-000000000004",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "SQL Injection in User Lookup Endpoint",
+    "file_path": "cmtest/app.py",
+    "severity": "HIGH",
+    "confidence": 100,
+    "vuln_type": "SQL Injection",
+    "vuln_id": "CWE-89",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "8e5d2fd4-0000-0000-0000-000000000005",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Arbitrary File Read / Path Traversal in Document Download Endpoint",
+    "file_path": "cmtest/app.py",
+    "severity": "HIGH",
+    "confidence": 100,
+    "vuln_type": "Path Traversal",
+    "vuln_id": "CWE-22",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "4bd64bcf-0000-0000-0000-000000000006",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Server-Side Request Forgery (SSRF) in Remote Content Proxy",
+    "file_path": "cmtest/app.py",
+    "severity": "HIGH",
+    "confidence": 100,
+    "vuln_type": "Server-Side Request Forgery (SSRF)",
+    "vuln_id": "CWE-918",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "e4645f97-0000-0000-0000-000000000007",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Interactive Debugger Enabled with Arbitrary Code Execution (DebuggedApplication evalex)",
+    "file_path": "cmtest/app.py",
+    "severity": "HIGH",
+    "confidence": 95,
+    "vuln_type": "Active Debug Code",
+    "vuln_id": "CWE-489",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "c99fa696-0000-0000-0000-000000000008",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Reflected Cross-Site Scripting (XSS) in Search Endpoint",
+    "file_path": "cmtest/app.py",
+    "severity": "MEDIUM",
+    "confidence": 100,
+    "vuln_type": "Cross-Site Scripting (XSS)",
+    "vuln_id": "CWE-79",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "c55c0aaf-0000-0000-0000-000000000009",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Open URL Redirection in Navigation Endpoint",
+    "file_path": "cmtest/app.py",
+    "severity": "MEDIUM",
+    "confidence": 100,
+    "vuln_type": "Open Redirect",
+    "vuln_id": "CWE-601",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "c7c64aae-0000-0000-0000-000000000010",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Denial of Service via Unlimited Multipart Form Parts (CVE-2023-25577)",
+    "file_path": "cmtest/app.py",
+    "severity": "MEDIUM",
+    "confidence": 90,
+    "vuln_type": "Uncontrolled Resource Consumption",
+    "vuln_id": "CWE-400",
+    "status": "OPEN"
+  },
+  {
+    "finding_id": "5dc0017f-0000-0000-0000-000000000011",
+    "session_id": "ChA0ZTdmOTJiNzBmZWE3ZjY4EAgaATAqBG1haW4",
+    "title": "Insecure Session Cookie Missing Secure and HttpOnly Flags",
+    "file_path": "cmtest/app.py",
+    "severity": "LOW",
+    "confidence": 85,
+    "vuln_type": "Sensitive Cookie in HTTPS Session Without Secure Attribute",
+    "vuln_id": "CWE-614",
+    "status": "OPEN"
+  }
+]
