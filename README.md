@@ -101,21 +101,21 @@ Executing [`grounding-truth/poc_exploit.py`](grounding-truth/poc_exploit.py) aga
 
 | Run ID | Target Scope | Model | Mode | Context (`-c`) | Findings | Severity (`C / H / M / L`) | Unique CWEs | Files Hit | Wall Time |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [`js_01_quick_35flash_c0`](eval_results/nodejs_juiceshop/js_01_quick_35flash_c0_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | Quick | `c0_none` | 16 | 1 / 12 / 3 / 0 | 12 | 12 | 290.9s |
-| [`js_02_quick_35flash_c3`](eval_results/nodejs_juiceshop/js_02_quick_35flash_c3_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | 21 | 3 / 11 / 5 / 2 | 16 | 14 | 258.5s |
-| [`js_03_quick_38flash_c0`](eval_results/nodejs_juiceshop/js_03_quick_38flash_c0_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c0_none` | 24 | 4 / 13 / 7 / 0 | 15 | 15 | 412.2s |
-| [`js_04_quick_38flash_c1_sca`](eval_results/nodejs_juiceshop/js_04_quick_38flash_c1_sca_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c1_sca` | 25 | 8 / 9 / 7 / 1 | 15 | 14 | 269.6s |
-| [`js_05_quick_38flash_c2_sast`](eval_results/nodejs_juiceshop/js_05_quick_38flash_c2_sast_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 22 | 6 / 12 / 4 / 0 | 14 | 15 | 380.4s |
-| [`js_06_quick_38flash_c3_hybrid`](eval_results/nodejs_juiceshop/js_06_quick_38flash_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | **30** | 6 / 16 / 6 / 2 | 19 | 15 | 331.4s |
-| [`js_07_quick_4argon_c0`](eval_results/nodejs_juiceshop/js_07_quick_4argon_c0_report.json) | `juice-shop-bench` | `gemini-4-argon` | Quick | `c0_none` | 23 | 5 / 13 / 4 / 1 | 15 | 15 | 257.1s |
-| [`js_08_quick_4argon_c3`](eval_results/nodejs_juiceshop/js_08_quick_4argon_c3_report.json) | `juice-shop-bench` | `gemini-4-argon` | Quick | `c3_hybrid_max` | 23 | 6 / 12 / 4 / 1 | 16 | 14 | 316.0s |
-| [`js_09_deep_35flash_c3`](eval_results/nodejs_juiceshop/js_09_deep_35flash_c3_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **58** | 12 / 29 / 16 / 1 | 21 | 14 | 151.6s |
-| [`js_10_deep_38flash_c0`](eval_results/nodejs_juiceshop/js_10_deep_38flash_c0_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | **113** | 18 / 55 / 32 / 8 | 31 | 16 | 248.1s |
-| [`js_11_deep_38flash_c3_hybrid`](eval_results/nodejs_juiceshop/js_11_deep_38flash_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **118** | **19 / 58 / 36 / 5** | **35** | **16** | **223.7s** |
-| [`js_12_deep_4argon_c3`](eval_results/nodejs_juiceshop/js_12_deep_4argon_c3_report.json) | `juice-shop-bench` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **75** | 15 / 38 / 19 / 3 | 27 | 16 | 277.6s |
-| [`js_13_deep_38flash_c1_sca`](eval_results/nodejs_juiceshop/js_13_deep_38flash_c1_sca_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c1_sca` | **100** | 15 / 49 / 31 / 5 | 25 | 15 | 250.3s |
-| [`js_14_deep_38flash_bash_c3`](eval_results/nodejs_juiceshop/js_14_deep_38flash_bash_c3_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep` + bash) | `c3_hybrid_max` | **97** | 17 / 48 / 27 / 5 | 31 | 15 | 417.6s |
-| [`js_15_deep_38flash_highrisk_c3`](eval_results/nodejs_juiceshop/js_15_deep_38flash_highrisk_c3_report.json) | `juice-shop-high-risk` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **116** | **20 / 49 / 36 / 11** | **31** | **30** | 535.9s |
+| [`js_01_3.8-flash_quick_c0_none`](eval_results/nodejs_juiceshop/js_01_3.8-flash_quick_c0_none_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c0_none` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`js_02_3.8-flash_quick_c3_hybrid`](eval_results/nodejs_juiceshop/js_02_3.8-flash_quick_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`js_03_3.8-flash_deep_c3_hybrid`](eval_results/nodejs_juiceshop/js_03_3.8-flash_deep_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **25** | 5 / 17 / 3 / 0 | 14 | 15 | 201.7s |
+| [`js_04_3.5-flash_deep_c3_hybrid`](eval_results/nodejs_juiceshop/js_04_3.5-flash_deep_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **28** | 8 / 19 / 1 / 0 | 19 | 15 | 245.7s |
+| [`js_05_4-argon_deep_c3_hybrid`](eval_results/nodejs_juiceshop/js_05_4-argon_deep_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **49** | 15 / 20 / 14 / 0 | 28 | 16 | 250.4s |
+| [`js_06_3.8-flash_quick_c1_sca`](eval_results/nodejs_juiceshop/js_06_3.8-flash_quick_c1_sca_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c1_sca` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`js_07_3.8-flash_quick_c2_sast`](eval_results/nodejs_juiceshop/js_07_3.8-flash_quick_c2_sast_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`js_08_3.8-flash_deep_c0_none`](eval_results/nodejs_juiceshop/js_08_3.8-flash_deep_c0_none_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | 19 | 4 / 12 / 3 / 0 | 13 | 13 | 600.0s *(T/O)* |
+| [`js_09_3.5-flash_quick_c0_none`](eval_results/nodejs_juiceshop/js_09_3.5-flash_quick_c0_none_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | Quick | `c0_none` | 6 | 2 / 4 / 0 / 0 | 5 | 5 | 480.0s *(T/O)* |
+| [`js_10_4-argon_quick_c0_none`](eval_results/nodejs_juiceshop/js_10_4-argon_quick_c0_none_report.json) | `juice-shop-bench` | `gemini-4-argon` | Quick | `c0_none` | 20 | 6 / 10 / 4 / 0 | 12 | 16 | 348.5s |
+| [`js_11_3.5-flash_quick_c3_hybrid`](eval_results/nodejs_juiceshop/js_11_3.5-flash_quick_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | 13 | 5 / 7 / 1 / 0 | 8 | 11 | 480.0s *(T/O)* |
+| [`js_12_4-argon_quick_c3_hybrid`](eval_results/nodejs_juiceshop/js_12_4-argon_quick_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-4-argon` | Quick | `c3_hybrid_max` | **35** | 9 / 17 / 8 / 1 | 23 | 17 | 385.4s |
+| [`js_13_high_risk_deep_optimal`](eval_results/nodejs_juiceshop/js_13_high_risk_deep_optimal_report.json) | `juice-shop-high-risk` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **50** | 6 / 39 / 5 / 0 | 28 | 33 | 504.4s |
+| [`js_14_full_core_deep_optimal`](eval_results/nodejs_juiceshop/js_14_full_core_deep_optimal_report.json) | `juice-shop-core` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **60** | 6 / 52 / 2 / 0 | 30 | 44 | 906.2s |
+| [`js_15_high_risk_4-argon_deep`](eval_results/nodejs_juiceshop/js_15_high_risk_4-argon_deep_report.json) | `juice-shop-high-risk` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **91** | 16 / 46 / 26 / 3 | 39 | 38 | 552.6s |
 
 ---
 
@@ -123,21 +123,21 @@ Executing [`grounding-truth/poc_exploit.py`](grounding-truth/poc_exploit.py) aga
 
 | Run ID | Target Scope | Model | Mode | Context (`-c`) | Findings | Severity (`C / H / M / L`) | Unique CWEs | Files Hit | Wall Time |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [`mall_01_quick_35flash_c0`](eval_results/java_mall/mall_01_quick_35flash_c0_report.json) | `mall-bench` | `gemini-3.5-flash` | Quick | `c0_none` | 13 | 0 / 5 / 6 / 2 | 12 | 9 | 369.5s |
-| [`mall_02_quick_35flash_c3`](eval_results/java_mall/mall_02_quick_35flash_c3_report.json) | `mall-bench` | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | 11 | 1 / 4 / 5 / 1 | 9 | 9 | 263.4s |
-| [`mall_03_quick_38flash_c0`](eval_results/java_mall/mall_03_quick_38flash_c0_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c0_none` | 10 | 2 / 3 / 5 / 0 | 8 | 7 | 420.0s |
-| [`mall_04_quick_38flash_c1_sca`](eval_results/java_mall/mall_04_quick_38flash_c1_sca_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c1_sca` | 11 | 2 / 4 / 3 / 2 | 10 | 7 | 420.0s |
-| [`mall_05_quick_38flash_c2_sast`](eval_results/java_mall/mall_05_quick_38flash_c2_sast_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 14 | 1 / 5 / 8 / 0 | 7 | 9 | 420.0s |
-| [`mall_06_quick_38flash_c3_hybrid`](eval_results/java_mall/mall_06_quick_38flash_c3_hybrid_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | **16** | 3 / 8 / 4 / 1 | 12 | 10 | 438.9s |
-| [`mall_07_quick_4argon_c0`](eval_results/java_mall/mall_07_quick_4argon_c0_report.json) | `mall-bench` | `gemini-4-argon` | Quick | `c0_none` | 10 | 1 / 4 / 4 / 1 | 9 | 8 | 480.0s |
-| [`mall_08_quick_4argon_c3`](eval_results/java_mall/mall_08_quick_4argon_c3_report.json) | `mall-bench` | `gemini-4-argon` | Quick | `c3_hybrid_max` | 15 | 2 / 7 / 5 / 1 | 9 | 12 | 350.0s |
-| [`mall_09_deep_35flash_c3`](eval_results/java_mall/mall_09_deep_35flash_c3_report.json) | `mall-bench` | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **35** | 3 / 15 / 12 / 5 | 17 | 16 | 177.2s |
-| [`mall_10_deep_38flash_c0`](eval_results/java_mall/mall_10_deep_38flash_c0_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | **75** | 4 / 25 / 35 / 11 | 27 | 18 | 280.1s |
-| [`mall_11_deep_38flash_c3_hybrid`](eval_results/java_mall/mall_11_deep_38flash_c3_hybrid_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **80** | 7 / 32 / 31 / 10 | **29** | 18 | **252.9s** |
-| [`mall_12_deep_4argon_c3`](eval_results/java_mall/mall_12_deep_4argon_c3_report.json) | `mall-bench` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **90** | **8 / 36 / 36 / 10** | **29** | **19** | **326.8s** |
-| [`mall_13_deep_38flash_c1_sca`](eval_results/java_mall/mall_13_deep_38flash_c1_sca_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c1_sca` | **73** | 7 / 23 / 35 / 8 | 27 | 18 | 283.1s |
-| [`mall_14_deep_38flash_bash_c3`](eval_results/java_mall/mall_14_deep_38flash_bash_c3_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep` + bash) | `c3_hybrid_max` | **75** | 6 / 31 / 28 / 10 | 24 | 18 | 290.1s |
-| [`mall_15_deep_38flash_highrisk_c3`](eval_results/java_mall/mall_15_deep_38flash_highrisk_c3_report.json) | `mall-high-risk` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **59** | 6 / 24 / 22 / 7 | 23 | 17 | 671.8s |
+| [`mall_01_3.8-flash_quick_c0_none`](eval_results/java_mall/mall_01_3.8-flash_quick_c0_none_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c0_none` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`mall_02_3.8-flash_quick_c3_hybrid`](eval_results/java_mall/mall_02_3.8-flash_quick_c3_hybrid_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`mall_03_3.8-flash_deep_c3_hybrid`](eval_results/java_mall/mall_03_3.8-flash_deep_c3_hybrid_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | 13 | 2 / 11 / 0 / 0 | 8 | 10 | 171.1s |
+| [`mall_04_3.5-flash_deep_c3_hybrid`](eval_results/java_mall/mall_04_3.5-flash_deep_c3_hybrid_report.json) | `mall-bench` | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | 16 | 1 / 10 / 4 / 1 | 7 | 9 | 206.2s |
+| [`mall_05_4-argon_deep_c3_hybrid`](eval_results/java_mall/mall_05_4-argon_deep_c3_hybrid_report.json) | `mall-bench` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **35** | 7 / 19 / 9 / 0 | 10 | 12 | 310.9s |
+| [`mall_06_3.8-flash_quick_c1_sca`](eval_results/java_mall/mall_06_3.8-flash_quick_c1_sca_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c1_sca` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`mall_07_3.8-flash_quick_c2_sast`](eval_results/java_mall/mall_07_3.8-flash_quick_c2_sast_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`mall_08_3.8-flash_deep_c0_none`](eval_results/java_mall/mall_08_3.8-flash_deep_c0_none_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | 7 | 2 / 5 / 0 / 0 | 6 | 6 | 161.8s |
+| [`mall_09_3.5-flash_quick_c0_none`](eval_results/java_mall/mall_09_3.5-flash_quick_c0_none_report.json) | `mall-bench` | `gemini-3.5-flash` | Quick | `c0_none` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`mall_10_4-argon_quick_c0_none`](eval_results/java_mall/mall_10_4-argon_quick_c0_none_report.json) | `mall-bench` | `gemini-4-argon` | Quick | `c0_none` | 10 | 5 / 4 / 1 / 0 | 9 | 8 | 285.0s |
+| [`mall_11_3.5-flash_quick_c3_hybrid`](eval_results/java_mall/mall_11_3.5-flash_quick_c3_hybrid_report.json) | `mall-bench` | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
+| [`mall_12_4-argon_quick_c3_hybrid`](eval_results/java_mall/mall_12_4-argon_quick_c3_hybrid_report.json) | `mall-bench` | `gemini-4-argon` | Quick | `c3_hybrid_max` | **29** | 9 / 11 / 7 / 2 | 16 | 17 | 446.4s |
+| [`mall_13_high_risk_deep_optimal`](eval_results/java_mall/mall_13_high_risk_deep_optimal_report.json) | `mall-high-risk` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **27** | 4 / 16 / 7 / 0 | 12 | 17 | 718.7s |
+| [`mall_14_full_core_deep_optimal`](eval_results/java_mall/mall_14_full_core_deep_optimal_report.json) | `mall-core` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **32** | 4 / 24 / 4 / 0 | 13 | 23 | 1336.6s |
+| [`mall_15_high_risk_4-argon_deep`](eval_results/java_mall/mall_15_high_risk_4-argon_deep_report.json) | `mall-high-risk` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **61** | 9 / 38 / 14 / 0 | 18 | 22 | 300.8s |
 
 ---
 

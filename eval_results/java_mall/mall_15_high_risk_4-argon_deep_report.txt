@@ -1,0 +1,68 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 86a23d4a │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Payment Verification Bypass and Arbit...│
+│ 08192924 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Payment Bypass via Unverified Trade N...│
+│ 68342155 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Unverified Payment Callback and Missi...│
+│ 53c308f7 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Insecure OTP Generation Using Predict...│
+│ 82447ce3 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Weak JWT Signing Secret in ...│
+│ 85498fb9 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Payment Callback Forgery and Payment ...│
+│ 6f82d5de │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Verification Code (OTP) Directly Retu...│
+│ 30ee41c8 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Weak JWT Signing Secret Ena...│
+│ 9dabba3b │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Missing Authentication on Admin Regis...│
+│ d7b44dc3 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Incomplete Payment Callback Verificat...│
+│ 54640251 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Amount and Merchant AppId Ver...│
+│ df1317da │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Mass Assignment and Stored XSS in Mem...│
+│ 0a4b832b │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Stored Cross-Site Scripting (XSS) via...│
+│ 0f8fce72 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Stored Cross-Site Scripting (XSS) via...│
+│ 51d0750d │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ 2eaf21dc │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ 00e50b28 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Cleartext and Unauthenticated Docker ...│
+│ c30bcd1f │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Missing OTP Brute-Force Protection an...│
+│ 708459d7 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Unauthenticated Account Enumeration a...│
+│ 99a0c310 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default Credentials for Dru...│
+│ dad8d561 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Weak Database Password and ...│
+│ 46f12218 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default Credentials and Unr...│
+│ 426e7269 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default Database Root Crede...│
+│ bc70029f │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Unauthenticated Access to Actuator, D...│
+│ bd0c3a80 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ 0c99c6f8 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ 8f1dd1a0 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Weak Password Recovery and Unauthenti...│
+│ f13b8ac7 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default Credentials and Mis...│
+│ 02c75d2d │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Database Root Credentials a...│
+│ 4355885a │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default Credentials for Dru...│
+│ 8ff056af │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Weak Database Credentials a...│
+│ ff1466ca │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Unrestricted File Upload via Overly P...│
+│ 97122972 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Aliyun OSS Callback Signature...│
+│ b9714410 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Overly Permissive CORS Policy Allowin...│
+│ 67458c23 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Aliyun OSS Cloud Credential...│
+│ e218b3dc │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Unauthenticated Administrator Account...│
+│ 9777ed5c │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Mass Assignment and Arbitrary Admin P...│
+│ 53698aad │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Default Credentials and Unrestricted ...│
+│ c03df112 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Database Root Credentials a...│
+│ 36a0501c │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default MinIO Administrativ...│
+│ 777c3836 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Unrestricted File Upload and Stored X...│
+│ 1cfa86fb │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Arbitrary Object Overwrite and Path M...│
+│ 4c9a5f24 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Weak Database Credentials, ...│
+│ 832f205c │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default MinIO Credentials i...│
+│ cef2c9ee │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Unauthenticated Aliyun OSS Upload Pol...│
+│ ae4fb951 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Cryptographic Signature Verif...│
+│ 180b765c │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Overly Permissive CORS Policy with Cr...│
+│ 0a4748e6 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Authentication and Order Owne...│
+│ 9b94b8ad │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Authentication and Order Owne...│
+│ ca3f74fc │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ 2021cb8d │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ 2cf03b6f │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Exposure of Sensitive Password Hash i...│
+│ 756cce06 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Authorization Check in OmsPor...│
+│ 90644ef9 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Authorization Check in OmsPor...│
+│ ed96389f │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded RabbitMQ Credentials and Un...│
+│ 32e1e1f4 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded RabbitMQ Credentials and Un...│
+│ 713ee8d8 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Principal Verification and Us...│
+│ 2d6e5e03 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Sensitive Data Exposure of Administra...│
+│ fb62a870 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Sensitive Data Exposure of Administra...│
+│ c2b945cb │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Unauthenticated Redis Connection Conf...│
+│ c817c400 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Arbitrary Object Deletion without Own...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+61 finding(s): 9 CRITICAL, 38 HIGH, 14 MEDIUM · ✅ 0 fixed, 🔴 61 open
+📋 Report generated at 2026-10-15 04:01:37 UTC
