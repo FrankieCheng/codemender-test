@@ -1,0 +1,118 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench...
+🎯 Scoping scan to 3 provided file(s) and their immediate dependency closure:
+     • PROJECT_FILE_INDEX.md
+     • package.json
+     • insecurity.ts
+⚠️  WARNING: Impact expansion truncated (11 candidate files identified, capped at 10).
+   1-Hop Impacted Neighbors: 10 file(s)
+     • server.ts (Tier 1: same package import of 'insecurity')
+     • user.ts (Tier 2: sibling module import of 'insecurity')
+     • b2bOrder.ts (Tier 2: sibling module import of 'insecurity')
+     • dataErasure.ts (Tier 2: sibling module import of 'insecurity')
+     • fileServer.ts (Tier 2: sibling module import of 'insecurity')
+     • login.ts (Tier 2: sibling module import of 'insecurity')
+     • profileImageUrlUpload.ts (Tier 2: sibling module import of 'insecurity')
+     • redirect.ts (Tier 2: sibling module import of 'insecurity')
+     • showProductReviews.ts (Tier 2: sibling module import of 'insecurity')
+     • updateProductReviews.ts (Tier 2: sibling module import of 'insecurity')
+   Scoped target files: 13 (provided: 3, neighbors: 10)
+   Found 13 source files
+🚀 Starting FIND session (mode: SCAN)...
+   Server: https://aiplatform.googleapis.com
+   Session: ChBiY2NiZDQ2YzljOTBjYmVhEAgaATAqBG1haW4
+   Operation: ChBiY2NiZDQ2YzljOTBjYmVhEAgaATAqBG1haW4
+📂 Scan target: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench
+🔒 Sandbox roots (agent can only access these directories):
+   • /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench
+
+📡 Waiting for server (https://aiplatform.googleapis.com)...
+────────────────────────────────────────────────────────────
+2026-10-15T02:32:07Z [INFO]  🔧 [Step 1] read_file → …/scoped_targets/juice-shop-bench/PROJECT_FILE_INDEX.md
+2026-10-15T02:32:07Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:32:07Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-bench/package.json
+2026-10-15T02:32:07Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:13Z [INFO]     📤 Result submitted (submit 6.065s)
+2026-10-15T02:32:19Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-bench/lib/insecurity.ts
+2026-10-15T02:32:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:19Z [INFO]  🔧 [Step 4] read_file → …/juice-shop-bench/models/user.ts
+2026-10-15T02:32:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:19Z [INFO]  🔧 [Step 5] read_file → …/juice-shop-bench/routes/b2bOrder.ts
+2026-10-15T02:32:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:19Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-bench/routes/dataErasure.ts
+2026-10-15T02:32:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:19Z [INFO]  🔧 [Step 7] read_file → …/juice-shop-bench/routes/fileServer.ts
+2026-10-15T02:32:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:19Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-bench/routes/fileUpload.ts
+2026-10-15T02:32:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:19Z [INFO]  🔧 [Step 9] read_file → …/juice-shop-bench/routes/login.ts
+2026-10-15T02:32:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:19Z [INFO]  🔧 [Step 10] read_file → …/juice-shop-bench/routes/profileImageUrlUpload.ts
+2026-10-15T02:32:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:32:24Z [INFO]     📤 Result submitted (submit 4.79s)
+2026-10-15T02:33:12Z [INFO]  🔧 [Step 11] read_file → …/juice-shop-bench/routes/redirect.ts
+2026-10-15T02:33:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:33:12Z [INFO]  🔧 [Step 12] read_file → …/juice-shop-bench/routes/search.ts
+2026-10-15T02:33:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:33:12Z [INFO]  🔧 [Step 13] read_file → …/juice-shop-bench/routes/showProductReviews.ts
+2026-10-15T02:33:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:33:12Z [INFO]  🔧 [Step 14] read_file → …/juice-shop-bench/routes/trackOrder.ts
+2026-10-15T02:33:12Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:33:12Z [INFO]  🔧 [Step 15] read_file → …/juice-shop-bench/routes/updateProductReviews.ts
+2026-10-15T02:33:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:33:12Z [INFO]  🔧 [Step 16] read_file → …/juice-shop-bench/routes/userProfile.ts
+2026-10-15T02:33:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:33:12Z [INFO]  🔧 [Step 17] read_file → …/juice-shop-bench/views/promotionVideo.pug
+2026-10-15T02:33:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:33:12Z [INFO]  🔧 [Step 18] read_file → …/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T02:33:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:33:17Z [INFO]     📤 Result submitted (submit 5.024s)
+2026-10-15T02:33:58Z [INFO]  🔧 [Step 19] read_file → …/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T02:33:58Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:34:03Z [INFO]     📤 Result submitted (submit 5.323s)
+2026-10-15T02:38:23Z [INFO]  ✅ Completed 19 tool steps in 6m22s | Tokens: 2.0M in / 20k out / 2.0M total
+────────────────────────────────────────────────────────────
+
+🔒 Found 35 vulnerabilities:
+
+ID        SEVERITY    TYPE                                                                                              FILE                                                             TITLE                                                                                                                                               CONFIDENCE
+────────  ────────    ────                                                                                              ────                                                             ─────                                                                                                                                               ──────────
+371356fa  🔴 CRITICAL  IMPROPERLY CONTROLLED MODIFICATION OF DYNAMICALLY-DETERMINED OBJECT ATTRIBUTES (MASS ASSIGNMENT)  scoped_targets/juice-shop-bench/server.ts                        Privilege Escalation via Mass Assignment on User Registration Endpoint (POST /api/Users)                                                            100%
+4929f8b3  🔴 CRITICAL  SQL INJECTION                                                                                     scoped_targets/juice-shop-bench/routes/login.ts                  SQL Injection in Login Authentication Handler                                                                                                       100%
+fb4780f6  🔴 CRITICAL  SQL INJECTION                                                                                     scoped_targets/juice-shop-bench/routes/search.ts                 UNION-Based SQL Injection in Product Search Endpoint                                                                                                100%
+e35a7f3f  🔴 CRITICAL  CODE INJECTION                                                                                    scoped_targets/juice-shop-bench/routes/b2bOrder.ts               Remote Code Execution and Sandbox Escape in B2B Order Handler                                                                                       100%
+58d60987  🔴 CRITICAL  PATH TRAVERSAL                                                                                    scoped_targets/juice-shop-bench/routes/fileUpload.ts             Arbitrary File Overwrite via Path Traversal (Zip Slip) in ZIP Upload Extraction                                                                     100%
+ea999f17  🔴 CRITICAL  CODE INJECTION                                                                                    scoped_targets/juice-shop-bench/routes/userProfile.ts            Code Injection (eval), Server-Side Template Injection (SSTI), and CSP Header Injection in User Profile                                              100%
+8642fa25  🔴 CRITICAL  USE OF HARD-CODED CREDENTIALS                                                                     scoped_targets/juice-shop-bench/lib/insecurity.ts                Hardcoded RSA Private Key for JWT Signing in Insecurity Module                                                                                      100%
+2c9106a7  🔴 CRITICAL  CWE-347                                                                                           scoped_targets/juice-shop-bench/lib/insecurity.ts                JWT Algorithm Confusion (RS256 to HS256) and Signature Bypass (alg: none) in JWT Verification                                                       100%
+08eb23f1  🔴 CRITICAL  CWE-347                                                                                           scoped_targets/juice-shop-bench/lib/insecurity.ts                Forged JWT Acceptance and Insecure Cookie Attributes in updateAuthenticatedUsers Middleware                                                         100%
+d95b463c  🟠 HIGH      CWE-1395                                                                                          scoped_targets/juice-shop-bench/package.json                     Use of Vulnerable and Outdated Third-Party Dependencies (jsonwebtoken 0.4.0, express-jwt 0.1.3, sanitize-html 1.4.2, notevil 1.3.3, marsdb 0.6.11)  100%
+e733d0c9  🟠 HIGH      CROSS-SITE REQUEST FORGERY (CSRF)                                                                 scoped_targets/juice-shop-bench/server.ts                        Cross-Site Request Forgery (CSRF) on State-Changing User Endpoints (/rest/user/change-password, /profile, /dataerasure)                             95%
+2fe1dd25  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                                     scoped_targets/juice-shop-bench/routes/login.ts                  Hardcoded Plaintext User Credentials in Pre-Login Verification                                                                                      100%
+7e10d62a  🟠 HIGH      XML EXTERNAL ENTITY (XXE)                                                                         scoped_targets/juice-shop-bench/routes/fileUpload.ts             XML External Entity (XXE) Injection in XML File Upload Handler                                                                                      100%
+02aa7bac  🟠 HIGH      DESERIALIZATION OF UNTRUSTED DATA                                                                 scoped_targets/juice-shop-bench/routes/fileUpload.ts             Unsafe YAML Deserialization and YAML Bomb Denial of Service in YAML Upload Handler                                                                  95%
+af77d93e  🟠 HIGH      CWE-158                                                                                           scoped_targets/juice-shop-bench/routes/fileServer.ts             Access Control Bypass via Poison Null Byte Injection in Public File Server                                                                          100%
+e581d4a9  🟠 HIGH      PATH TRAVERSAL                                                                                    scoped_targets/juice-shop-bench/routes/dataErasure.ts            Arbitrary File Read (LFI) via Express Render Layout Parameter Injection in Data Erasure Endpoint                                                    100%
+a939a64c  🟠 HIGH      SERVER-SIDE REQUEST FORGERY (SSRF)                                                                scoped_targets/juice-shop-bench/routes/profileImageUrlUpload.ts  Server-Side Request Forgery (SSRF) in Profile Image URL Upload                                                                                      100%
+2b8961d3  🟠 HIGH      CWE-943                                                                                           scoped_targets/juice-shop-bench/routes/showProductReviews.ts     NoSQL Injection and Event-Loop Denial of Service via $where Clause in Product Reviews                                                               100%
+15c555ae  🟠 HIGH      CWE-943                                                                                           scoped_targets/juice-shop-bench/routes/trackOrder.ts             NoSQL Injection and Cross-Site Scripting (XSS) in Order Tracking Endpoint                                                                           100%
+b11cc287  🟠 HIGH      CWE-943                                                                                           scoped_targets/juice-shop-bench/routes/updateProductReviews.ts   NoSQL Operator Injection and Insecure Direct Object Reference (IDOR) in Update Product Reviews                                                      100%
+3433c561  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                                     scoped_targets/juice-shop-bench/lib/insecurity.ts                Hardcoded HMAC Secret Key in Insecurity Module                                                                                                      100%
+31c11034  🟠 HIGH      CWE-328                                                                                           scoped_targets/juice-shop-bench/lib/insecurity.ts                Use of Weak Unsalted MD5 Cryptographic Hash Function                                                                                                100%
+2f17b159  🟠 HIGH      CROSS-SITE SCRIPTING (XSS)                                                                        scoped_targets/juice-shop-bench/lib/insecurity.ts                Bypassable HTML Sanitization in sanitizeHtml and sanitizeLegacy Functions                                                                           100%
+98d5cf15  🟠 HIGH      CROSS-SITE SCRIPTING (XSS)                                                                        scoped_targets/juice-shop-bench/models/user.ts                   Stored Cross-Site Scripting (XSS) and Weak Unsalted MD5 Password Hashing in User Model Setters                                                      100%
+71eaf27f  🟠 HIGH      CWE-548                                                                                           scoped_targets/juice-shop-bench/server.ts                        Unauthenticated Directory Listing and Sensitive File Exposure on /ftp, /encryptionkeys, and /support/logs                                           100%
+0c7508d5  🟠 HIGH      MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                                      scoped_targets/juice-shop-bench/server.ts                        Missing Authentication and Access Control on Product Modification Endpoint (PUT /api/Products/:id)                                                  100%
+3a11cbb0  🟡 MEDIUM    AUTHENTICATION BYPASS BY SPOOFING                                                                 scoped_targets/juice-shop-bench/server.ts                        Rate Limit Bypass via Spoofable X-Forwarded-For Header on Password Reset Endpoint                                                                   100%
+4538dbd0  🟡 MEDIUM    CWE-942                                                                                           scoped_targets/juice-shop-bench/server.ts                        Overly Permissive Wildcard CORS Configuration and Missing CSRF Protection                                                                           95%
+769f0a29  🟡 MEDIUM    USE OF HARD-CODED CREDENTIALS                                                                     scoped_targets/juice-shop-bench/server.ts                        Hardcoded Weak Cookie Parser Secret in Server Configuration                                                                                         100%
+04c87338  🟡 MEDIUM    UNRESTRICTED UPLOAD OF FILE WITH DANGEROUS TYPE                                                   scoped_targets/juice-shop-bench/routes/fileUpload.ts             Unrestricted File Upload Type Validation in checkFileType Middleware                                                                                95%
+5ec92ac4  🟡 MEDIUM    CWE-345                                                                                           scoped_targets/juice-shop-bench/lib/insecurity.ts                Cryptographically Unsigned Coupon Generation Allowing Arbitrary Discount Forgery                                                                    100%
+690297ad  🟡 MEDIUM    URL REDIRECTION TO UNTRUSTED SITE ('OPEN REDIRECT')                                               scoped_targets/juice-shop-bench/routes/redirect.ts               Open Redirect via Substring Allowlist Bypass in Redirect Route                                                                                      100%
+cb270bae  🟡 MEDIUM    CROSS-SITE SCRIPTING (XSS)                                                                        scoped_targets/juice-shop-bench/views/promotionVideo.pug         Cross-Site Scripting (XSS) via Unescaped Script Block in Promotion Video Template                                                                   90%
+40d57b9f  🟡 MEDIUM    URL REDIRECTION TO UNTRUSTED SITE ('OPEN REDIRECT')                                               scoped_targets/juice-shop-bench/lib/insecurity.ts                Improper URL Allowlist Validation via Substring Match in isRedirectAllowed                                                                          100%
+a5c815c4  🔵 LOW       CWE-200                                                                                           scoped_targets/juice-shop-bench/server.ts                        Unauthenticated Exposure of Internal Prometheus Metrics Endpoint (/metrics)                                                                         95%
+
+Summary: 9 CRITICAL, 17 HIGH, 8 MEDIUM, 1 LOW
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T02:38:24Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_12_4-argon_quick_c3_hybrid/logs/20261015T023200Z_ChBiY2NiZDQ2YzljOTBjYmVhEAgaATAqBG1haW4.log

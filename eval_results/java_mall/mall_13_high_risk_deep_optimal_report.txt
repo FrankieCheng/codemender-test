@@ -1,0 +1,34 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 58507f24 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│JWT Signature Verification Bypass via...│
+│ d04b4d82 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Payment Callback Forgery via Missing ...│
+│ 85498fb9 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Payment Callback Forgery and Unauthor...│
+│ 30ee41c8 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded JWT Secret Key Enables Auth...│
+│ 5edf9332 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Arbitrary Order Payment Manipulation ...│
+│ 99a0c310 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default Credentials in Drui...│
+│ bd0c3a80 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ 0c99c6f8 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ 82447ce3 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded JWT Secret Key Enables Auth...│
+│ 5fcf1805 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Sensitive Actuator and Druid Endpoint...│
+│ 51d0750d │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Direct Object Reference (IDO...│
+│ b347ee13 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Use of Cryptographically Weak PRNG (j...│
+│ be3f5317 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Sensitive Verification Code Leaked in...│
+│ 609c08a1 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Use of Default Credentials for Druid ...│
+│ dc84cc76 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Insecure Deserialization via Jackson ...│
+│ f13b8ac7 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Default Credentials Configured for Dr...│
+│ 14e80462 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Unrestricted File Upload Leading to S...│
+│ 9dabba3b │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Sensitive Actuator, Druid, and Upload...│
+│ 0672b0e9 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Use of Default Credentials for Druid ...│
+│ 53698aad │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-high-ri...│Druid StatViewServlet Configured with...│
+│ 445130c3 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Missing Expiration Validation Allows ...│
+│ dad8d561 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Plaintext Weak Database Cre...│
+│ b9714410 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Overly Permissive CORS Configuration ...│
+│ fd3196d0 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Default Administrative Credentials Co...│
+│ 36a0501c │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Default Credentials in MinI...│
+│ 6bd18ab5 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Hardcoded Database Credentials in Dat...│
+│ 180b765c │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-high-ri...│Permissive CORS Configuration with Wi...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+27 finding(s): 4 CRITICAL, 16 HIGH, 7 MEDIUM · ✅ 0 fixed, 🔴 27 open
+📋 Report generated at 2026-10-15 02:16:17 UTC

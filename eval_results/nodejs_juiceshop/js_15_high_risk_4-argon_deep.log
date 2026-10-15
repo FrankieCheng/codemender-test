@@ -1,0 +1,512 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 49 total files discovered
+   Tier 1 Sifter: 49 candidate files in 49 batches to scan with 16 workers
+[1/49 batches] ✅ scoped_targets/juice-shop-high-risk/models/complaint.ts (5.4s) | 4.0k tok - 0 vulnerabilities
+2026-10-15T03:47:31Z [INFO]  🔧 [Step 1] grep_search → pattern="basketItem|BasketItem" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:31Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T03:47:31Z [INFO]  🔧 [Step 1] grep_search → pattern="webhook" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T03:47:31Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:47:31Z [INFO]  🔧 [Step 2] grep_search → pattern="webhook" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T03:47:31Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+[2/49 batches] ✅ scoped_targets/juice-shop-high-risk/models/card.ts (7.2s) | 4.3k tok - 0 vulnerabilities
+2026-10-15T03:47:32Z [INFO]  🔧 [Step 1] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:47:32Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:47:32Z [INFO]  🔧 [Step 2] grep_search → pattern="security\\.|insecurity" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T03:47:32Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:47:32Z [INFO]  🔧 [Step 3] grep_search → pattern="security\\.|insecurity" path=…/scoped_targets/juice-shop-high-risk/models
+2026-10-15T03:47:32Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:47:32Z [INFO]  🔧 [Step 4] grep_search → pattern="security\\.|insecurity" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:32Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T03:47:32Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T03:47:32Z [INFO]     ✅ Tool completed: read_file (took 2ms)
+2026-10-15T03:47:33Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:47:33Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:47:33Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/lib/utils.ts
+2026-10-15T03:47:33Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:47:34Z [INFO]  🔧 [Step 1] grep_search → pattern="UserModel" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:34Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:47:34Z [INFO]  🔧 [Step 1] grep_search → pattern="retrieveBasket" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:34Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:47:34Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:47:34Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:47:34Z [INFO]  🔧 [Step 2] grep_search → pattern="Feedback" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:34Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:47:34Z [INFO]  🔧 [Step 3] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:47:34Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[3/49 batches] ✅ scoped_targets/juice-shop-high-risk/models/index.ts (10.4s) | 5.0k tok - 0 vulnerabilities
+2026-10-15T03:47:35Z [INFO]  🔧 [Step 1] grep_search → pattern="utils\\." path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T03:47:35Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T03:47:36Z [INFO]     📤 Result submitted (submit 4.907s)
+2026-10-15T03:47:36Z [INFO]     📤 Result submitted (submit 5.045s)
+2026-10-15T03:47:37Z [INFO]     📤 Result submitted (submit 4.795s)
+2026-10-15T03:47:37Z [INFO]     📤 Result submitted (submit 4.862s)
+2026-10-15T03:47:37Z [INFO]  🔧 [Step 1] grep_search → pattern="b2bOrder" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:37Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:47:37Z [INFO]     📤 Result submitted (submit 4.812s)
+2026-10-15T03:47:38Z [INFO]     📤 Result submitted (submit 4.573s)
+2026-10-15T03:47:38Z [INFO]     📤 Result submitted (submit 4.486s)
+2026-10-15T03:47:39Z [INFO]     📤 Result submitted (submit 4.694s)
+2026-10-15T03:47:39Z [INFO]     📤 Result submitted (submit 4.59s)
+2026-10-15T03:47:40Z [INFO]  🔧 [Step 1] grep_search → pattern="applyCoupon" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:40Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:47:40Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:47:40Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:47:43Z [INFO]     📤 Result submitted (submit 5.353s)
+2026-10-15T03:47:43Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/lib/challengeUtils.ts
+2026-10-15T03:47:43Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_15_high_risk_4-argon_deep/artifacts/ChBkZTNlNjBiMTk3MzMwNTE4EAgaATAqBG1haW4/challengeUtils.ts: no such file or directory (took 0s)
+2026-10-15T03:47:44Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/userProfile.ts
+2026-10-15T03:47:44Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:47:44Z [INFO]     📤 Result submitted (submit 4.534s)
+2026-10-15T03:47:46Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T03:47:46Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:47:46Z [INFO]  🔧 [Step 4] grep_search → pattern="2fa|twoFactor" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:46Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:47:47Z [INFO]  🔧 [Step 1] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:47:47Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:47:47Z [INFO]  🔧 [Step 2] grep_search → pattern="dataErasure|hbs|view engine|engine" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:47Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T03:47:47Z [INFO]  🔧 [Step 3] list_dir → …/scoped_targets/juice-shop-high-risk/views
+2026-10-15T03:47:47Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T03:47:48Z [INFO]     📤 Result submitted (submit 4.838s)
+2026-10-15T03:47:49Z [INFO]     📤 Result submitted (submit 5.006s)
+2026-10-15T03:47:51Z [INFO]     📤 Result submitted (submit 5.041s)
+2026-10-15T03:47:51Z [INFO]  🔧 [Step 3] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:51Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:47:51Z [INFO]     📤 Result submitted (submit 4.763s)
+2026-10-15T03:47:53Z [INFO]  🔧 [Step 4] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:53Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[4/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/createProductReviews.ts (21.2s) | 10.7k tok - 1 vulnerabilities
+2026-10-15T03:47:56Z [INFO]     📤 Result submitted (submit 4.601s)
+2026-10-15T03:47:56Z [INFO]  ✅ Completed 3 tool steps in 32s | Tokens: 14k in / 130 out / 15k total
+[5/49 batches] ✅ scoped_targets/juice-shop-high-risk/lib/webhook.ts (32.2s) | 15.3k tok - 0 vulnerabilities
+2026-10-15T03:47:58Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:47:58Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:47:58Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/routes/login.ts
+2026-10-15T03:47:58Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:47:58Z [INFO]     📤 Result submitted (submit 5.035s)
+[6/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/captcha.ts (34.8s) | 13.1k tok - 2 vulnerabilities
+2026-10-15T03:48:01Z [INFO]  🔧 [Step 4] read_file → …/juice-shop-high-risk/views/dataErasureForm.hbs
+2026-10-15T03:48:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:48:01Z [INFO]  🔧 [Step 5] read_file → …/juice-shop-high-risk/views/dataErasureResult.hbs
+2026-10-15T03:48:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:48:03Z [INFO]  🔧 [Step 4] grep_search → pattern="/rest/basket" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:03Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:48:03Z [INFO]     📤 Result submitted (submit 5.468s)
+2026-10-15T03:48:06Z [INFO]     📤 Result submitted (submit 4.772s)
+2026-10-15T03:48:07Z [INFO]     📤 Result submitted (submit 4.831s)
+[7/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/changePassword.ts (43.6s) | 21.6k tok - 2 vulnerabilities
+[8/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/easterEgg.ts (8.5s) | 4.0k tok - 0 vulnerabilities
+2026-10-15T03:48:09Z [INFO]  ✅ Completed 1 tool steps in 45s | Tokens: 17k in / 1k out / 20k total
+[9/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/b2bOrder.ts (45.2s) | 20.2k tok - 1 vulnerabilities
+2026-10-15T03:48:11Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/basketItems.ts
+2026-10-15T03:48:11Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:48:11Z [INFO]  🔧 [Step 3] grep_search → pattern="(downloadToFile|version\\(|ctfFlag|parseJsonCustom|extractFilename)" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T03:48:11Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T03:48:11Z [INFO]  🔧 [Step 4] grep_search → pattern="utils\\." path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:11Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T03:48:13Z [INFO]  🔧 [Step 7] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:48:13Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[10/49 batches] 🚨 scoped_targets/juice-shop-high-risk/package.json (50s) | 24.0k tok - 5 vulnerabilities
+2026-10-15T03:48:16Z [INFO]     📤 Result submitted (submit 4.701s)
+2026-10-15T03:48:17Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/lib/xml.ts
+2026-10-15T03:48:17Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_15_high_risk_4-argon_deep/artifacts/ChBhZDZmYjNkNzI3MWUyMDRlEAgaATAqBG1haW4/xml.ts: no such file or directory (took 0s)
+2026-10-15T03:48:17Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:48:17Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:48:17Z [INFO]     📤 Result submitted (submit 4.868s)
+2026-10-15T03:48:17Z [INFO]  ✅ Completed 1 tool steps in 53s | Tokens: 38k in / 2k out / 42k total
+[11/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/basketItems.ts (53.3s) | 42.8k tok - 3 vulnerabilities
+2026-10-15T03:48:22Z [INFO]     📤 Result submitted (submit 4.91s)
+2026-10-15T03:48:22Z [INFO]  🔧 [Step 1] grep_search → pattern="serveKeyFiles|encryptionkeys" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:22Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:48:23Z [INFO]  🔧 [Step 5] read_file → …/juice-shop-high-risk/routes/redirect.ts
+2026-10-15T03:48:23Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:48:23Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T03:48:23Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:48:23Z [INFO]  🔧 [Step 7] read_file → …/juice-shop-high-risk/models/feedback.ts
+2026-10-15T03:48:23Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:48:23Z [INFO]  ✅ Completed 1 tool steps in 59s | Tokens: 14k in / 914 out / 15k total
+[12/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/basket.ts (58.5s) | 15.8k tok - 1 vulnerabilities
+2026-10-15T03:48:24Z [INFO]  🔧 [Step 6] grep_search → pattern="dataerasure|dataErasure|lfrChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T03:48:24Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T03:48:24Z [INFO]  🔧 [Step 7] grep_search → pattern="dataerasure|dataErasure|lfrChallenge" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T03:48:24Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T03:48:25Z [INFO]  🔧 [Step 5] read_file → …/juice-shop-high-risk/routes/basket.ts
+2026-10-15T03:48:25Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:48:26Z [INFO]     📤 Result submitted (submit 4.795s)
+2026-10-15T03:48:28Z [INFO]     📤 Result submitted (submit 4.942s)
+2026-10-15T03:48:28Z [INFO]  🔧 [Step 3] grep_search → pattern="fileUpload|handleZipFileUpload|handleXmlUpload|handleYamlUpload" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:28Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[13/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/dataExport.ts (32.2s) | 15.0k tok - 2 vulnerabilities
+2026-10-15T03:48:29Z [INFO]     📤 Result submitted (submit 4.705s)
+2026-10-15T03:48:29Z [INFO]     📤 Result submitted (submit 4.627s)
+2026-10-15T03:48:32Z [INFO]     📤 Result submitted (submit 4.498s)
+2026-10-15T03:48:33Z [INFO]  🔧 [Step 1] grep_search → pattern="deluxe" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:33Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:48:35Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:35Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:48:38Z [INFO]     📤 Result submitted (submit 5.351s)
+2026-10-15T03:48:39Z [INFO]  ✅ Completed 2 tool steps in 1m15s | Tokens: 51k in / 2k out / 56k total
+[14/49 batches] 🚨 scoped_targets/juice-shop-high-risk/models/user.ts (1m14.8s) | 56.8k tok - 3 vulnerabilities
+2026-10-15T03:48:39Z [INFO]  🔧 [Step 4] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:39Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:48:40Z [INFO]     📤 Result submitted (submit 4.916s)
+2026-10-15T03:48:44Z [INFO]  🔧 [Step 1] grep_search → pattern="serveLogFiles|support/logs" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:44Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:48:44Z [INFO]     📤 Result submitted (submit 4.912s)
+2026-10-15T03:48:47Z [INFO]  🔧 [Step 1] grep_search → pattern="placeOrder" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:47Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:48:49Z [INFO]     📤 Result submitted (submit 4.773s)
+2026-10-15T03:48:49Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:48:49Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[15/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/fileServer.ts (42.4s) | 21.9k tok - 2 vulnerabilities
+[16/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/likeProductReviews.ts (32.6s) | 14.3k tok - 2 vulnerabilities
+2026-10-15T03:48:52Z [INFO]     📤 Result submitted (submit 5.128s)
+2026-10-15T03:48:55Z [INFO]     📤 Result submitted (submit 5.361s)
+2026-10-15T03:48:56Z [INFO]  ✅ Completed 4 tool steps in 1m32s | Tokens: 49k in / 1k out / 51k total
+[17/49 batches] 🚨 scoped_targets/juice-shop-high-risk/models/feedback.ts (1m31.6s) | 52.0k tok - 2 vulnerabilities
+2026-10-15T03:49:00Z [INFO]  🔧 [Step 1] grep_search → pattern="PaymentMethod" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:00Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[18/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/login.ts (30.8s) | 14.4k tok - 1 vulnerabilities
+2026-10-15T03:49:00Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:00Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:49:01Z [INFO]  🔧 [Step 1] grep_search → pattern="profileImageFileUpload" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:01Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:49:01Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:49:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:49:05Z [INFO]     📤 Result submitted (submit 4.945s)
+2026-10-15T03:49:05Z [INFO]     📤 Result submitted (submit 4.453s)
+2026-10-15T03:49:06Z [INFO]     📤 Result submitted (submit 5.964s)
+2026-10-15T03:49:07Z [INFO]  🔧 [Step 6] grep_search → pattern="uploadToMemory" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:07Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:49:08Z [INFO]  🔧 [Step 1] grep_search → pattern="serveQuarantineFiles|quarantine" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:08Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:49:11Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:49:11Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:49:12Z [INFO]     📤 Result submitted (submit 5.334s)
+2026-10-15T03:49:13Z [INFO]     📤 Result submitted (submit 5.008s)
+2026-10-15T03:49:13Z [INFO]  🔧 [Step 3] grep_search → pattern="basket" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:13Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:49:14Z [INFO]  🔧 [Step 3] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:49:14Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:49:14Z [INFO]  🔧 [Step 4] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:14Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:49:14Z [INFO]  ✅ Completed 5 tool steps in 1m42s | Tokens: 51k in / 1k out / 54k total
+[19/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/coupon.ts (1m41.7s) | 54.6k tok - 1 vulnerabilities
+2026-10-15T03:49:14Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/ctf.key
+2026-10-15T03:49:14Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_15_high_risk_4-argon_deep/artifacts/ChA4YmY5ODFhOWE5Y2FmZjQ5EAgaATAqBG1haW4/ctf.key: no such file or directory (took 1ms)
+2026-10-15T03:49:16Z [INFO]     📤 Result submitted (submit 4.779s)
+2026-10-15T03:49:16Z [INFO]  🔧 [Step 3] list_dir → …/scoped_targets/juice-shop-high-risk/encryptionkeys
+2026-10-15T03:49:16Z [WARN]     ⚠️ Tool error: list_dir: readdir error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/encryptionkeys: no such file or directory (took 1ms)
+2026-10-15T03:49:17Z [INFO]  ✅ Completed 7 tool steps in 1m41s | Tokens: 102k in / 2k out / 108k total
+[20/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/dataErasure.ts (1m41s) | 108.5k tok - 2 vulnerabilities
+2026-10-15T03:49:18Z [INFO]  ✅ Completed 1 tool steps in 1m54s | Tokens: 98k in / 6k out / 107k total
+[21/49 batches] 🚨 scoped_targets/juice-shop-high-risk/server.ts (1m53.8s) | 108.0k tok - 9 vulnerabilities
+2026-10-15T03:49:18Z [INFO]     📤 Result submitted (submit 4.466s)
+2026-10-15T03:49:18Z [INFO]     📤 Result submitted (submit 4.712s)
+2026-10-15T03:49:19Z [INFO]     📤 Result submitted (submit 5.546s)
+2026-10-15T03:49:22Z [INFO]     📤 Result submitted (submit 5.475s)
+2026-10-15T03:49:24Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:24Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:49:25Z [INFO]  🔧 [Step 4] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:49:25Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:49:27Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T03:49:27Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:49:27Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:49:27Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:49:28Z [INFO]     📤 Result submitted (submit 4.878s)
+2026-10-15T03:49:30Z [INFO]     📤 Result submitted (submit 4.766s)
+2026-10-15T03:49:31Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:49:31Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[22/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/profileImageUrlUpload.ts (33.8s) | 15.1k tok - 2 vulnerabilities
+2026-10-15T03:49:32Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:49:32Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:49:33Z [INFO]  ✅ Completed 3 tool steps in 1m17s | Tokens: 19k in / 160 out / 21k total
+[23/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/keyServer.ts (1m17.2s) | 21.1k tok - 0 vulnerabilities
+2026-10-15T03:49:33Z [INFO]     📤 Result submitted (submit 5.628s)
+2026-10-15T03:49:35Z [INFO]  ✅ Completed 7 tool steps in 2m11s | Tokens: 118k in / 3k out / 124k total
+[24/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/2fa.ts (2m10.9s) | 125.0k tok - 3 vulnerabilities
+2026-10-15T03:49:36Z [INFO]     📤 Result submitted (submit 4.947s)
+2026-10-15T03:49:37Z [INFO]     📤 Result submitted (submit 4.997s)
+2026-10-15T03:49:38Z [INFO]  🔧 [Step 3] grep_search → pattern="resetPassword" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:38Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:49:38Z [INFO]  🔧 [Step 1] grep_search → pattern="imageCaptcha" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:38Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[25/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/search.ts (20.7s) | 12.1k tok - 1 vulnerabilities
+2026-10-15T03:49:43Z [INFO]     📤 Result submitted (submit 4.704s)
+2026-10-15T03:49:43Z [INFO]     📤 Result submitted (submit 4.629s)
+2026-10-15T03:49:47Z [INFO]  🔧 [Step 1] grep_search → pattern="updateUserProfile" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:47Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:49:47Z [INFO]  ✅ Completed 3 tool steps in 54s | Tokens: 20k in / 152 out / 21k total
+[26/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/payment.ts (53.6s) | 21.0k tok - 0 vulnerabilities
+2026-10-15T03:49:48Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:49:48Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:49:51Z [INFO]     📤 Result submitted (submit 4.74s)
+2026-10-15T03:49:53Z [INFO]     📤 Result submitted (submit 5.344s)
+2026-10-15T03:49:56Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/views/userProfile.pug
+2026-10-15T03:49:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:49:58Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/userProfile.ts
+2026-10-15T03:49:58Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:49:58Z [INFO]  ✅ Completed 3 tool steps in 40s | Tokens: 38k in / 131 out / 40k total
+[27/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/resetPassword.ts (39.9s) | 40.4k tok - 0 vulnerabilities
+2026-10-15T03:50:01Z [INFO]     📤 Result submitted (submit 5.076s)
+2026-10-15T03:50:02Z [INFO]     📤 Result submitted (submit 4.848s)
+2026-10-15T03:50:03Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/routes/dataErasure.ts
+2026-10-15T03:50:03Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:50:03Z [INFO]  🔧 [Step 7] grep_search → pattern="utils\\." path=…/juice-shop-high-risk/lib/startup
+2026-10-15T03:50:03Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/lib/startup: no such file or directory (took 0s)
+[28/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/trackOrder.ts (34s) | 13.6k tok - 3 vulnerabilities
+2026-10-15T03:50:09Z [INFO]     📤 Result submitted (submit 5.724s)
+2026-10-15T03:50:09Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T03:50:09Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:50:09Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/errorHandler.ts
+2026-10-15T03:50:09Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_15_high_risk_4-argon_deep/artifacts/ChBiM2Q4NjQ0NmFhNGNmODAzEAgaATAqBG1haW4/errorHandler.ts: no such file or directory (took 1ms)
+2026-10-15T03:50:10Z [INFO]  🔧 [Step 1] grep_search → pattern="verify\\." path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:50:10Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:50:11Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/fileServer.ts
+2026-10-15T03:50:11Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:50:12Z [INFO]  ✅ Completed 6 tool steps in 2m1s | Tokens: 110k in / 4k out / 118k total
+[29/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/fileUpload.ts (2m1.5s) | 118.0k tok - 4 vulnerabilities
+2026-10-15T03:50:14Z [INFO]     📤 Result submitted (submit 4.961s)
+[30/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/showProductReviews.ts (42s) | 12.5k tok - 1 vulnerabilities
+2026-10-15T03:50:15Z [INFO]     📤 Result submitted (submit 5.019s)
+2026-10-15T03:50:15Z [INFO]     📤 Result submitted (submit 5.438s)
+2026-10-15T03:50:16Z [INFO]     📤 Result submitted (submit 5.044s)
+2026-10-15T03:50:20Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/views/promotionVideo.pug
+2026-10-15T03:50:20Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:50:20Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/lib/utils.ts
+2026-10-15T03:50:20Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:50:21Z [INFO]  🔧 [Step 2] grep_search → pattern="(jsonwebtoken|jws)" path=…/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:50:21Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:50:23Z [INFO]  🔧 [Step 1] grep_search → pattern="wallet|Wallet" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:50:23Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:50:23Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/models/wallet.ts
+2026-10-15T03:50:23Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_15_high_risk_4-argon_deep/artifacts/ChBhZjJiNGY3ZGI1ZWRmYjA2EAgaATAqBG1haW4/wallet.ts: no such file or directory (took 0s)
+2026-10-15T03:50:23Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/routes/dataErasure.ts
+2026-10-15T03:50:23Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:50:24Z [INFO]     📤 Result submitted (submit 4.93s)
+2026-10-15T03:50:26Z [INFO]     📤 Result submitted (submit 4.966s)
+[31/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/updateProductReviews.ts (49.8s) | 12.2k tok - 2 vulnerabilities
+2026-10-15T03:50:28Z [INFO]     📤 Result submitted (submit 4.88s)
+2026-10-15T03:50:28Z [INFO]     📤 Result submitted (submit 4.974s)
+2026-10-15T03:50:32Z [INFO]  🔧 [Step 7] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:50:32Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:50:32Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/routes/userProfile.ts
+2026-10-15T03:50:32Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:50:32Z [INFO]  🔧 [Step 5] grep_search → pattern="/ftp" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:50:32Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:50:33Z [INFO]  🔧 [Step 3] grep_search → pattern="appendUserId" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:50:33Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T03:50:34Z [INFO]  ✅ Completed 7 tool steps in 3m10s | Tokens: 357k in / 7k out / 368k total
+[32/49 batches] 🚨 scoped_targets/juice-shop-high-risk/lib/insecurity.ts (3m9.6s) | 368.9k tok - 11 vulnerabilities
+2026-10-15T03:50:34Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/routes/dataErasure.ts
+2026-10-15T03:50:34Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:50:37Z [INFO]     📤 Result submitted (submit 5.005s)
+2026-10-15T03:50:37Z [INFO]  ✅ Completed 1 tool steps in 49s | Tokens: 22k in / 1k out / 25k total
+[33/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/userProfile.ts (49.1s) | 25.7k tok - 2 vulnerabilities
+2026-10-15T03:50:37Z [INFO]     📤 Result submitted (submit 5.707s)
+2026-10-15T03:50:38Z [INFO]     📤 Result submitted (submit 4.998s)
+2026-10-15T03:50:38Z [INFO]  ✅ Completed 7 tool steps in 3m14s | Tokens: 173k in / 2k out / 179k total
+[34/49 batches] 🚨 scoped_targets/juice-shop-high-risk/lib/utils.ts (3m14.4s) | 179.0k tok - 2 vulnerabilities
+2026-10-15T03:50:39Z [INFO]     📤 Result submitted (submit 4.888s)
+2026-10-15T03:50:43Z [INFO]  ✅ Completed 3 tool steps in 1m2s | Tokens: 33k in / 1k out / 36k total
+[35/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/updateUserProfile.ts (1m1.9s) | 36.1k tok - 1 vulnerabilities
+2026-10-15T03:50:44Z [INFO]  🔧 [Step 3] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:50:44Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:50:46Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:50:46Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:50:46Z [INFO]  🔧 [Step 9] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:50:46Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:50:48Z [INFO]  ✅ Completed 1 tool steps in 20s | Tokens: 10k in / 93 out / 10k total
+[36/49 batches] ✅ scoped_targets/juice-shop-high-risk/views/dataErasureResult.hbs (20s) | 10.8k tok - 0 vulnerabilities
+2026-10-15T03:50:49Z [INFO]     📤 Result submitted (submit 5.189s)
+2026-10-15T03:50:50Z [INFO]  🔧 [Step 1] grep_search → pattern="promotionVideo" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T03:50:50Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T03:50:51Z [INFO]     📤 Result submitted (submit 4.937s)
+2026-10-15T03:50:51Z [INFO]  🔧 [Step 2] grep_search → pattern="dataerasure|hbs|handlebars|view engine" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:50:51Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:50:52Z [INFO]     📤 Result submitted (submit 5.435s)
+2026-10-15T03:50:52Z [INFO]  ✅ Completed 2 tool steps in 42s | Tokens: 27k in / 952 out / 29k total
+[37/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/videoHandler.ts (42.2s) | 29.8k tok - 1 vulnerabilities
+2026-10-15T03:50:53Z [INFO]  🔧 [Step 4] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:50:53Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:50:54Z [INFO]  ✅ Completed 5 tool steps in 2m14s | Tokens: 124k in / 3k out / 130k total
+[38/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/order.ts (2m13.8s) | 130.7k tok - 4 vulnerabilities
+2026-10-15T03:50:55Z [INFO]     📤 Result submitted (submit 5.075s)
+2026-10-15T03:50:56Z [INFO]     📤 Result submitted (submit 4.877s)
+2026-10-15T03:50:59Z [INFO]     📤 Result submitted (submit 5.757s)
+2026-10-15T03:51:00Z [INFO]  🔧 [Step 4] read_file → …/express/lib/response.js
+2026-10-15T03:51:00Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_15_high_risk_4-argon_deep/artifacts/ChA1ZDI0NmY5NTNiZjE5MzNhEAgaATAqBG1haW4/response.js: no such file or directory (took 1ms)
+2026-10-15T03:51:01Z [INFO]  ✅ Completed 2 tool steps in 1m1s | Tokens: 47k in / 2k out / 51k total
+[39/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/verify.ts (1m0.9s) | 51.5k tok - 3 vulnerabilities
+2026-10-15T03:51:01Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/videoHandler.ts
+2026-10-15T03:51:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:51:03Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T03:51:03Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:51:05Z [INFO]     📤 Result submitted (submit 4.862s)
+2026-10-15T03:51:06Z [INFO]     📤 Result submitted (submit 5.002s)
+2026-10-15T03:51:06Z [INFO]  🔧 [Step 10] grep_search → pattern="uploadToMemory" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:51:06Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:51:09Z [INFO]     📤 Result submitted (submit 5.725s)
+2026-10-15T03:51:12Z [INFO]     📤 Result submitted (submit 5.043s)
+2026-10-15T03:51:12Z [INFO]  🔧 [Step 3] grep_search → pattern="performRedirect|errorHandler" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:51:12Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:51:13Z [INFO]  🔧 [Step 5] grep_search → pattern="quarantine" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T03:51:13Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T03:51:14Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:51:14Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:51:16Z [INFO]  🔧 [Step 4] grep_search → pattern="hbs|handlebars" path=…/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T03:51:16Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T03:51:16Z [INFO]  ✅ Completed 2 tool steps in 41s | Tokens: 17k in / 121 out / 17k total
+[40/49 batches] ✅ scoped_targets/juice-shop-high-risk/views/promotionVideo.pug (40.7s) | 17.7k tok - 0 vulnerabilities
+2026-10-15T03:51:17Z [INFO]     📤 Result submitted (submit 4.947s)
+2026-10-15T03:51:17Z [INFO]     📤 Result submitted (submit 4.751s)
+2026-10-15T03:51:18Z [INFO]     📤 Result submitted (submit 4.678s)
+2026-10-15T03:51:21Z [INFO]     📤 Result submitted (submit 5.034s)
+2026-10-15T03:51:24Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:51:24Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:51:27Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T03:51:27Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:51:28Z [INFO]  🔧 [Step 11] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:51:28Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:51:30Z [INFO]     📤 Result submitted (submit 5.493s)
+2026-10-15T03:51:32Z [INFO]     📤 Result submitted (submit 4.824s)
+2026-10-15T03:51:33Z [INFO]     📤 Result submitted (submit 5.972s)
+2026-10-15T03:51:41Z [INFO]  ✅ Completed 4 tool steps in 1m25s | Tokens: 48k in / 913 out / 50k total
+[41/49 batches] 🚨 scoped_targets/juice-shop-high-risk/views/dataErasureForm.hbs (1m25.2s) | 50.8k tok - 1 vulnerabilities
+2026-10-15T03:51:41Z [INFO]  🔧 [Step 7] read_file → …/juice-shop-high-risk/routes/keyServer.ts
+2026-10-15T03:51:41Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:51:46Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/routes/userProfile.ts
+2026-10-15T03:51:46Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:51:47Z [INFO]     📤 Result submitted (submit 5.522s)
+2026-10-15T03:51:51Z [INFO]     📤 Result submitted (submit 5.018s)
+2026-10-15T03:51:59Z [INFO]  ✅ Completed 5 tool steps in 1m46s | Tokens: 44k in / 1k out / 46k total
+[42/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/wallet.ts (1m45.6s) | 46.7k tok - 1 vulnerabilities
+2026-10-15T03:52:02Z [INFO]  ✅ Completed 7 tool steps in 3m0s | Tokens: 61k in / 354 out / 64k total
+[43/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/quarantineServer.ts (3m0.3s) | 64.6k tok - 0 vulnerabilities
+2026-10-15T03:52:16Z [INFO]  ✅ Completed 11 tool steps in 3m22s | Tokens: 193k in / 2k out / 197k total
+[44/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/profileImageFileUpload.ts (3m22.3s) | 197.7k tok - 2 vulnerabilities
+2026-10-15T03:52:20Z [INFO]  ✅ Completed 1 tool steps in 3m56s | Tokens: 19k in / 1k out / 21k total
+[45/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/logfileServer.ts (3m56s) | 21.1k tok - 2 vulnerabilities
+2026-10-15T03:52:35Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T03:52:35Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:52:39Z [INFO]     📤 Result submitted (submit 4.65s)
+2026-10-15T03:53:26Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/updateUserProfile.ts
+2026-10-15T03:53:26Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:53:31Z [INFO]     📤 Result submitted (submit 4.869s)
+2026-10-15T03:53:57Z [INFO]  ✅ Completed 3 tool steps in 5m59s | Tokens: 30k in / 1k out / 33k total
+[46/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/deluxe.ts (5m59.4s) | 33.1k tok - 1 vulnerabilities
+2026-10-15T03:54:30Z [INFO]  ✅ Completed 2 tool steps in 6m19s | Tokens: 31k in / 1k out / 34k total
+[47/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/imageCaptcha.ts (6m18.8s) | 34.9k tok - 2 vulnerabilities
+2026-10-15T03:54:50Z [INFO]  ✅ Completed 3 tool steps in 5m35s | Tokens: 28k in / 937 out / 30k total
+[48/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/redirect.ts (5m35.2s) | 30.3k tok - 1 vulnerabilities
+2026-10-15T03:56:34Z [INFO]  ✅ Completed 2 tool steps in 5m56s | Tokens: 41k in / 2k out / 44k total
+[49/49 batches] 🚨 scoped_targets/juice-shop-high-risk/views/userProfile.pug (5m55.6s) | 44.9k tok - 2 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 49 files in 49 batches (0 pruned at Tier 0, 49 succeeded, 0 failed) in 9m12s
+   Session: ChA1NzY0ZmJjOTNhNzVlYzRiEAgaATAqBG1haW4
+   Total tokens consumed: 2.4M (in: 2.2M, cached: 1.4M, out: 82.5k, thinking: 68.5k)
+
+🔒 Found 91 vulnerabilities:
+
+ID        SEVERITY    TYPE                                                                                  FILE                                                                  TITLE                                                                                                                                           CONFIDENCE
+────────  ────────    ────                                                                                  ────                                                                  ─────                                                                                                                                           ──────────
+ae61a614  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/createProductReviews.ts    Broken Access Control and Author Spoofing in Product Review Creation                                                                            100%
+bb99cde9  🟡 MEDIUM    CWE-804, CWE-294                                                                      scoped_targets/juice-shop-high-risk/routes/captcha.ts                 CAPTCHA Replay Bypass via Missing Token Invalidation in verifyCaptcha                                                                           95%
+112150f9  🟡 MEDIUM    CWE-200, CWE-804                                                                      scoped_targets/juice-shop-high-risk/routes/captcha.ts                 Disclosure of CAPTCHA Answer in HTTP Response in captchas                                                                                       95%
+40091b8c  🟠 HIGH      CWE-620, CWE-287                                                                      scoped_targets/juice-shop-high-risk/routes/changePassword.ts          Unverified Password Change via Omitted Current Password Parameter                                                                               100%
+55acef83  🟡 MEDIUM    CWE-598, CWE-200                                                                      scoped_targets/juice-shop-high-risk/routes/changePassword.ts          Exposure of Plaintext Passwords in URL Query Parameters and Sensitive User Attributes in Response                                               90%
+64f83602  🔴 CRITICAL  IMPROPER CONTROL OF GENERATION OF CODE ('CODE INJECTION')                             scoped_targets/juice-shop-high-risk/routes/b2bOrder.ts                Arbitrary Code Injection and Sandbox Escape in B2B Order Handler                                                                                100%
+d20643e7  🔴 CRITICAL  CWE-1395                                                                              scoped_targets/juice-shop-high-risk/package.json                      Use of Known Vulnerable Third-Party Dependencies in package.json (jsonwebtoken 0.4.0, express-jwt 0.1.3, sanitize-html 1.4.2, notevil, marsdb)  95%
+7be9f4a4  🔴 CRITICAL  CWE-347                                                                               scoped_targets/juice-shop-high-risk/package.json                      Vulnerable JWT Dependencies Pinned (express-jwt 0.1.3 and jsonwebtoken 0.4.0 - CVE-2015-9235)                                                   95%
+895021a7  🟠 HIGH      CROSS-SITE SCRIPTING (XSS) VIA VULNERABLE DEPENDENCY                                  scoped_targets/juice-shop-high-risk/package.json                      Pinned Vulnerable Dependency sanitize-html 1.4.2 Allowing XSS Sanitization Bypass (CVE-2016-1000237)                                            95%
+97d3ae1a  🔴 CRITICAL  IMPROPER CONTROL OF GENERATION OF CODE ('CODE INJECTION')                             scoped_targets/juice-shop-high-risk/package.json                      Vulnerable Dependencies marsdb and notevil Enabling Sandbox Escape and NoSQL/Code Injection                                                     95%
+a6787815  🟠 HIGH      DESERIALIZATION OF UNTRUSTED DATA                                                     scoped_targets/juice-shop-high-risk/package.json                      Outdated js-yaml v3 Dependency with Unsafe Default Deserialization Schema                                                                       90%
+9163ac68  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/basketItems.ts             Insecure Direct Object Reference (IDOR) via JSON Key Duplication in addBasketItem                                                               100%
+78f3eea4  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/basketItems.ts             Missing Ownership and BasketId Authorization Check in quantityCheckBeforeBasketItemUpdate                                                       100%
+e44ab841  🟠 HIGH      IMPROPER INPUT VALIDATION                                                             scoped_targets/juice-shop-high-risk/routes/basketItems.ts             Improper Validation of Negative Quantity in quantityCheck                                                                                       100%
+0d057ca0  🟠 HIGH      AUTHORIZATION BYPASS THROUGH USER-CONTROLLED KEY (IDOR)                               scoped_targets/juice-shop-high-risk/routes/basket.ts                  Insecure Direct Object Reference (IDOR) in Basket Retrieval                                                                                     100%
+605fb04d  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/dataExport.ts              Insecure Direct Object Reference (IDOR) in User Data Export via req.body.UserId                                                                 100%
+d128f648  🟡 MEDIUM    IMPROPER ACCESS CONTROL                                                               scoped_targets/juice-shop-high-risk/routes/dataExport.ts              Cross-Account Order Data Exposure via Lossy Vowel-Masked Email Lookup in Data Export                                                            95%
+d590b8c2  🟠 HIGH      CWE-916                                                                               scoped_targets/juice-shop-high-risk/models/user.ts                    Use of Weak Unsalted MD5 Hash for Password Storage in User Model                                                                                100%
+5508bb03  🟠 HIGH      IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING')  scoped_targets/juice-shop-high-risk/models/user.ts                    Stored Cross-Site Scripting (XSS) via Unsanitized Email Setter in User Model                                                                    100%
+09d3c0ce  🟠 HIGH      IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING')  scoped_targets/juice-shop-high-risk/models/user.ts                    Stored Cross-Site Scripting (XSS) via Bypassable Legacy Sanitization in Username Setter                                                         100%
+3abd70ea  🟠 HIGH      IMPROPER NEUTRALIZATION OF NULL BYTE OR NUL CHARACTER / PATH TRAVERSAL                scoped_targets/juice-shop-high-risk/routes/fileServer.ts              File Extension Allowlist Bypass via Poison Null Byte Truncation Before File Serving                                                             100%
+f84f16f1  🟠 HIGH      IMPROPER LIMITATION OF A PATHNAME TO A RESTRICTED DIRECTORY ('PATH TRAVERSAL')        scoped_targets/juice-shop-high-risk/routes/fileServer.ts              Path Traversal via Incomplete Slash Filtering in Public File Server                                                                             90%
+8c1938a1  🟠 HIGH      CWE-943                                                                               scoped_targets/juice-shop-high-risk/routes/likeProductReviews.ts      NoSQL Injection via Unvalidated Review ID in likeProductReviews                                                                                 95%
+9e96e121  🟡 MEDIUM    TIME-OF-CHECK TIME-OF-USE (TOCTOU) RACE CONDITION                                     scoped_targets/juice-shop-high-risk/routes/likeProductReviews.ts      Time-of-Check Time-of-Use (TOCTOU) Race Condition Allows Multiple Review Likes                                                                  100%
+08e3be95  🟠 HIGH      IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING')  scoped_targets/juice-shop-high-risk/models/feedback.ts                Stored Cross-Site Scripting (XSS) via Bypassable Single-Pass HTML Sanitization in Feedback Comment Setter                                       100%
+b5faeacf  🔵 LOW       IMPROPER INPUT VALIDATION                                                             scoped_targets/juice-shop-high-risk/models/feedback.ts                Improper Input Validation Allowing Out-of-Range (Zero-Star) Feedback Ratings                                                                    95%
+c2e2d3d5  🔴 CRITICAL  SQL INJECTION                                                                         scoped_targets/juice-shop-high-risk/routes/login.ts                   SQL Injection in User Login Authentication Handler                                                                                              100%
+e928291a  🟡 MEDIUM    AUTHORIZATION BYPASS THROUGH USER-CONTROLLED KEY (IDOR)                               scoped_targets/juice-shop-high-risk/routes/coupon.ts                  Insecure Direct Object Reference (IDOR) in Basket Coupon Application                                                                            100%
+78b61a68  🟠 HIGH      IMPROPER LIMITATION OF A PATHNAME TO A RESTRICTED DIRECTORY ('PATH TRAVERSAL')        scoped_targets/juice-shop-high-risk/routes/dataErasure.ts             Arbitrary File Read / Path Traversal via Express Render Layout Injection in POST /dataerasure                                                   100%
+ba66569a  🟡 MEDIUM    CROSS-SITE REQUEST FORGERY (CSRF)                                                     scoped_targets/juice-shop-high-risk/routes/dataErasure.ts             Missing Security Answer Verification and CSRF Protection on Account Data Erasure in POST /dataerasure                                           90%
+5001fa62  🟠 HIGH      MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                          scoped_targets/juice-shop-high-risk/server.ts                         Missing Authentication and Access Control on Product and Hint Modification Endpoints                                                            100%
+f480b74f  🔴 CRITICAL  CWE-915                                                                               scoped_targets/juice-shop-high-risk/server.ts                         Privilege Escalation via Mass Assignment in User Registration Endpoint (/api/Users)                                                             100%
+9f0ebe7e  🟡 MEDIUM    CWE-307                                                                               scoped_targets/juice-shop-high-risk/server.ts                         Rate Limiting Bypass via Spoofed X-Forwarded-For Header on Password Reset Endpoint                                                              95%
+a4ace95a  🟠 HIGH      CWE-548                                                                               scoped_targets/juice-shop-high-risk/server.ts                         Unauthenticated Directory Listing and Exposure of Sensitive FTP, Key, and Log Files                                                             95%
+b39320ea  🔵 LOW       CWE-200                                                                               scoped_targets/juice-shop-high-risk/server.ts                         Unauthenticated Exposure of Internal Prometheus Metrics Endpoint (/metrics)                                                                     90%
+6c042bb1  🟡 MEDIUM    USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/juice-shop-high-risk/server.ts                         Use of Hardcoded Cookie Signing Secret in cookieParser                                                                                          90%
+fe325cd4  🟡 MEDIUM    CWE-942                                                                               scoped_targets/juice-shop-high-risk/server.ts                         Overly Permissive Cross-Origin Resource Sharing (CORS) Policy                                                                                   90%
+1cc221e0  🔵 LOW       CWE-209                                                                               scoped_targets/juice-shop-high-risk/server.ts                         Information Exposure Through Unconditional Development Error Handler Middleware                                                                 90%
+abf9d56a  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/server.ts                         Insecure Direct Object Reference (IDOR) and Missing Ownership Checks on BasketItems and Addresses Endpoints                                     95%
+e4fdc415  🟠 HIGH      SERVER-SIDE REQUEST FORGERY (SSRF)                                                    scoped_targets/juice-shop-high-risk/routes/profileImageUrlUpload.ts   Server-Side Request Forgery (SSRF) in Profile Image URL Upload                                                                                  100%
+4ca7efa9  🟠 HIGH      CROSS-SITE SCRIPTING (XSS)                                                            scoped_targets/juice-shop-high-risk/routes/profileImageUrlUpload.ts   Stored XSS via Unrestricted SVG Upload and Unvalidated Fallback Profile Image URL                                                               95%
+7324d05c  🟠 HIGH      CWE-347                                                                               scoped_targets/juice-shop-high-risk/routes/2fa.ts                     Improper JWT Verification of 2FA Temporary Token and Sensitive Credential Exposure in Issued JWT in verify()                                    95%
+c72dbbdb  🟠 HIGH      INSUFFICIENTLY PROTECTED CREDENTIALS                                                  scoped_targets/juice-shop-high-risk/routes/2fa.ts                     Cleartext Storage of TOTP Secret, Weak MD5 Password Verification, and Improper setupToken Validation in setup()                                 95%
+757dc03e  🟡 MEDIUM    CWE-328                                                                               scoped_targets/juice-shop-high-risk/routes/2fa.ts                     Weak Unsalted MD5 Password Verification and Missing TOTP Check When Disabling 2FA in disable()                                                  90%
+2be4b6b4  🔴 CRITICAL  CWE-89                                                                                scoped_targets/juice-shop-high-risk/routes/search.ts                  SQL Injection in Product Search Endpoint (searchProducts)                                                                                       100%
+cb93395e  🔴 CRITICAL  CWE-943                                                                               scoped_targets/juice-shop-high-risk/routes/trackOrder.ts              NoSQL Injection in Order Tracking via Unsanitized $where Clause                                                                                 100%
+5e1b2350  🟡 MEDIUM    IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING')  scoped_targets/juice-shop-high-risk/routes/trackOrder.ts              Reflected XSS via Unsanitized Order ID Parameter Reflection in trackOrder                                                                       95%
+42cfe70d  🟡 MEDIUM    CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/trackOrder.ts              Insecure Direct Object Reference (IDOR) and Missing Authorization in Order Tracking                                                             90%
+8534afd2  🔴 CRITICAL  IMPROPER LIMITATION OF A PATHNAME TO A RESTRICTED DIRECTORY ('PATH TRAVERSAL')        scoped_targets/juice-shop-high-risk/routes/fileUpload.ts              Arbitrary File Write via Zip Slip Path Traversal in extractZipBuffer                                                                            100%
+3a1431dc  🟠 HIGH      IMPROPER RESTRICTION OF XML EXTERNAL ENTITY REFERENCE                                 scoped_targets/juice-shop-high-risk/routes/fileUpload.ts              XML External Entity (XXE) Injection in handleXmlUpload                                                                                          100%
+d13bf5c5  🔴 CRITICAL  DESERIALIZATION OF UNTRUSTED DATA                                                     scoped_targets/juice-shop-high-risk/routes/fileUpload.ts              Unsafe YAML Deserialization and VM Sandbox Escape in handleYamlUpload                                                                           100%
+4c97c116  🟡 MEDIUM    UNRESTRICTED UPLOAD OF FILE WITH DANGEROUS TYPE                                       scoped_targets/juice-shop-high-risk/routes/fileUpload.ts              Missing Server-Side Enforcement of Allowed File Types in checkFileType                                                                          90%
+b2b663a4  🟠 HIGH      CWE-943                                                                               scoped_targets/juice-shop-high-risk/routes/showProductReviews.ts      NoSQL Injection and Server-Side JavaScript Injection in Product Reviews Query                                                                   100%
+ab080e09  🟠 HIGH      CWE-943                                                                               scoped_targets/juice-shop-high-risk/routes/updateProductReviews.ts    NoSQL Injection in Product Review Update via Unvalidated Review ID Selector                                                                     100%
+c61e0d6a  🟠 HIGH      AUTHORIZATION BYPASS THROUGH USER-CONTROLLED KEY (IDOR)                               scoped_targets/juice-shop-high-risk/routes/updateProductReviews.ts    Insecure Direct Object Reference (IDOR) Allowing Arbitrary Product Review Modification                                                          100%
+6799aac9  🟡 MEDIUM    URL REDIRECTION TO UNTRUSTED SITE ('OPEN REDIRECT')                                   scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Open Redirect via Substring Allowlist Bypass in isRedirectAllowed                                                                               100%
+8cd30de7  🔴 CRITICAL  CWE-347                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 JWT Algorithm Confusion and Unsigned Token Acceptance in updateAuthenticatedUsers                                                               100%
+4d4b489b  🔴 CRITICAL  CWE-347                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 JWT Algorithm Confusion and Unsigned Token Acceptance in isAuthorized Middleware                                                                100%
+1297bf60  🔴 CRITICAL  CWE-347                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Improper JWS Signature Verification Allowing Algorithm Confusion in verify                                                                      95%
+e90c0321  🔴 CRITICAL  USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Hardcoded RSA Private Key Used for JWT Signing and Deluxe Token Generation                                                                      100%
+f7aca0ce  🟠 HIGH      CWE-798                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Hardcoded HMAC Secret Key in hmac Function                                                                                                      95%
+d32d43a6  🟠 HIGH      CWE-328                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Use of Weak Unsalted MD5 Hash for Password Storage in hash                                                                                      95%
+fabd5aa6  🟠 HIGH      IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING')  scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Bypassable HTML Sanitization in sanitizeHtml and sanitizeLegacy Leading to Stored XSS                                                           100%
+7b55b60e  🟠 HIGH      CWE-345                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Forged Discount Coupons via Unsigned Z85 Encoding in generateCoupon and discountFromCoupon                                                      95%
+77de56b8  🟠 HIGH      CWE-798                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Hardcoded Private Key Reused as HMAC Secret in deluxeToken                                                                                      95%
+0f30d149  🟡 MEDIUM    CWE-674                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                 Unbounded Recursion and Outdated Sanitizer in sanitizeSecure                                                                                    85%
+41fd131a  🔴 CRITICAL  IMPROPER CONTROL OF GENERATION OF CODE ('CODE INJECTION')                             scoped_targets/juice-shop-high-risk/routes/userProfile.ts             Remote Code Execution via eval() and Server-Side Template Injection in getUserProfile                                                           100%
+abcdebe4  🟠 HIGH      IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING')  scoped_targets/juice-shop-high-risk/routes/userProfile.ts             Stored Cross-Site Scripting (XSS) and Content-Security-Policy Bypass in getUserProfile                                                          100%
+2437520a  🟠 HIGH      INTERPRETATION CONFLICT / IMPROPER INPUT VALIDATION                                   scoped_targets/juice-shop-high-risk/lib/utils.ts                      JSON Key Pollution (Parser Differential) and Unchecked Array Indexing in parseJsonCustom                                                        95%
+6b3238f1  🟡 MEDIUM    CWE-1333                                                                              scoped_targets/juice-shop-high-risk/lib/utils.ts                      Polynomial Regular Expression Denial of Service (ReDoS) in matchesEtcPasswdFile                                                                 85%
+6bde5e82  🟠 HIGH      CROSS-SITE REQUEST FORGERY (CSRF)                                                     scoped_targets/juice-shop-high-risk/routes/updateUserProfile.ts       Cross-Site Request Forgery (CSRF) in User Profile Update Endpoint                                                                               100%
+651d3461  🟠 HIGH      CROSS-SITE SCRIPTING (XSS)                                                            scoped_targets/juice-shop-high-risk/routes/videoHandler.ts            Cross-Site Scripting (XSS) via Unsanitized Video Subtitles Injection in promotionVideo                                                          100%
+14c0115f  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/order.ts                   Insecure Direct Object Reference (IDOR) in Basket Checkout (placeOrder)                                                                         100%
+0632eb36  🟠 HIGH      IMPROPER INPUT VALIDATION                                                             scoped_targets/juice-shop-high-risk/routes/order.ts                   Improper Validation of Negative Order Quantities and Totals Leading to Wallet Balance Manipulation (placeOrder)                                 100%
+788aecfb  🟡 MEDIUM    CWE-840                                                                               scoped_targets/juice-shop-high-risk/routes/order.ts                   Client-Controlled Timestamp Validation Bypass for Promotional Coupons (calculateApplicableDiscount)                                             100%
+944fa20c  🟡 MEDIUM    CWE-552                                                                               scoped_targets/juice-shop-high-risk/routes/order.ts                   Sensitive Order Confirmation PDFs Written to Publicly Accessible FTP Directory (placeOrder)                                                     90%
+bc8075f8  🟠 HIGH      CWE-347                                                                               scoped_targets/juice-shop-high-risk/routes/verify.ts                  JWT Signature Bypass and Algorithm Confusion in jwtChallenge                                                                                    100%
+9116c410  🟡 MEDIUM    USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/juice-shop-high-risk/routes/verify.ts                  Hardcoded Secret Key in serverSideChallenges Middleware                                                                                         90%
+dffb1eca  🟡 MEDIUM    USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/juice-shop-high-risk/routes/verify.ts                  Hardcoded API Key in leakedApiKeyChallenge                                                                                                      85%
+fab0ca87  🟡 MEDIUM    CROSS-SITE REQUEST FORGERY (CSRF)                                                     scoped_targets/juice-shop-high-risk/views/dataErasureForm.hbs         Cross-Site Request Forgery (CSRF) in Data Erasure Form                                                                                          100%
+34973619  🟠 HIGH      IMPROPER INPUT VALIDATION                                                             scoped_targets/juice-shop-high-risk/routes/wallet.ts                  Improper Input Validation and Business Logic Bypass in Wallet Balance Recharge (addWalletBalance)                                               100%
+43e7b07f  🟡 MEDIUM    CROSS-SITE REQUEST FORGERY (CSRF)                                                     scoped_targets/juice-shop-high-risk/routes/profileImageFileUpload.ts  Cross-Site Request Forgery (CSRF) in Profile Image File Upload                                                                                  90%
+af0167c9  🟠 HIGH      PATH TRAVERSAL                                                                        scoped_targets/juice-shop-high-risk/routes/profileImageFileUpload.ts  Path Traversal in Profile Image File Write via Unsanitized User ID                                                                              85%
+8cf22f09  🟠 HIGH      IMPROPER ACCESS CONTROL                                                               scoped_targets/juice-shop-high-risk/routes/logfileServer.ts           Unauthenticated Access to Server Log Files in serveLogFiles                                                                                     100%
+fe3f11fc  🟠 HIGH      PATH TRAVERSAL                                                                        scoped_targets/juice-shop-high-risk/routes/logfileServer.ts           Path Traversal via Incomplete Slash Filtering in serveLogFiles                                                                                  90%
+26500b71  🟠 HIGH      CWE-840                                                                               scoped_targets/juice-shop-high-risk/routes/deluxe.ts                  Payment Bypass in Deluxe Membership Upgrade via Unvalidated paymentMode                                                                         100%
+50c1ff45  🟡 MEDIUM    CWE-200                                                                               scoped_targets/juice-shop-high-risk/routes/imageCaptcha.ts            Plaintext CAPTCHA Answer Exposure in /rest/image-captcha Response                                                                               100%
+718fab0d  🟡 MEDIUM    CWE-804                                                                               scoped_targets/juice-shop-high-risk/routes/imageCaptcha.ts            CAPTCHA Verification Bypass via Fail-Open Condition and Missing Token Invalidation in verifyImageCaptcha                                        100%
+4aac6f86  🟡 MEDIUM    URL REDIRECTION TO UNTRUSTED SITE ('OPEN REDIRECT')                                   scoped_targets/juice-shop-high-risk/routes/redirect.ts                Open Redirect via Substring Allowlist Bypass in performRedirect                                                                                 100%
+595c2947  🔴 CRITICAL  CWE-1336                                                                              scoped_targets/juice-shop-high-risk/views/userProfile.pug             Server-Side Template Injection (SSTI) and Stored XSS via Raw _username_ Placeholder in views/userProfile.pug                                    95%
+a5e8afed  🟠 HIGH      CROSS-SITE REQUEST FORGERY (CSRF)                                                     scoped_targets/juice-shop-high-risk/views/userProfile.pug             Cross-Site Request Forgery (CSRF) via Missing Anti-CSRF Tokens in Profile Forms in views/userProfile.pug                                        95%
+
+Summary: 16 CRITICAL, 46 HIGH, 26 MEDIUM, 3 LOW
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T03:56:34Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_15_high_risk_4-argon_deep/logs/20261015T034722Z_ChA1NzY0ZmJjOTNhNzVlYzRiEAgaATAqBG1haW4.log

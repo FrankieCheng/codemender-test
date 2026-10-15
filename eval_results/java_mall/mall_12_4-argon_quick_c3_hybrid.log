@@ -1,0 +1,105 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-bench...
+🎯 Scoping scan to 2 provided file(s) and their immediate dependency closure:
+     • PROJECT_FILE_INDEX.md
+     • pom.xml
+   Scoped target files: 2 (provided: 2, neighbors: 0)
+   Found 2 source files
+🚀 Starting FIND session (mode: SCAN)...
+   Server: https://aiplatform.googleapis.com
+   Session: ChBmMThmNzFhYjQyMDdkNGJmEAgaATAqBG1haW4
+   Operation: ChBmMThmNzFhYjQyMDdkNGJmEAgaATAqBG1haW4
+📂 Scan target: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-bench
+🔒 Sandbox roots (agent can only access these directories):
+   • /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-bench
+
+📡 Waiting for server (https://aiplatform.googleapis.com)...
+────────────────────────────────────────────────────────────
+2026-10-15T02:35:54Z [INFO]  🔧 [Step 1] read_file → …/scoped_targets/mall-bench/PROJECT_FILE_INDEX.md
+2026-10-15T02:35:54Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:36:00Z [INFO]     📤 Result submitted (submit 5.591s)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/mall-bench/pom.xml
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 3] read_file → …/resources/dao/OmsOrderDao.xml
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/PmsProductDao.xml
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 5] read_file → …/mall/controller/MinioController.java
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 6] read_file → …/mall/controller/OssController.java
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 7] read_file → …/mall/controller/UmsAdminController.java
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 8] read_file → …/service/impl/UmsAdminServiceImpl.java
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 9] read_file → …/common/util/RequestUtil.java
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 10] read_file → …/portal/controller/AlipayController.java
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:36:08Z [INFO]  🔧 [Step 11] read_file → …/service/impl/AlipayServiceImpl.java
+2026-10-15T02:36:08Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:36:14Z [INFO]     📤 Result submitted (submit 5.113s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 12] read_file → …/main/resources/application-dev.yml
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 13] read_file → …/main/resources/application.yml
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 14] read_file → …/portal/controller/OmsPortalOrderController.java
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 15] read_file → …/portal/controller/UmsMemberController.java
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 16] read_file → …/main/resources/application-dev.yml
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 17] read_file → …/main/resources/application.yml
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 18] read_file → …/security/aspect/RedisCacheAspect.java
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 19] read_file → …/security/config/IgnoreUrlsConfig.java
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 20] read_file → …/security/config/SecurityConfig.java
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:04Z [INFO]  🔧 [Step 21] read_file → …/security/util/JwtTokenUtil.java
+2026-10-15T02:37:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:37:09Z [INFO]     📤 Result submitted (submit 5.628s)
+2026-10-15T02:38:09Z [INFO]  🔧 [Step 22] list_dir → …/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T02:38:09Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T02:38:15Z [INFO]     📤 Result submitted (submit 5.827s)
+2026-10-15T02:43:11Z [INFO]  ✅ Completed 22 tool steps in 7m24s | Tokens: 2.7M in / 21k out / 2.7M total
+────────────────────────────────────────────────────────────
+
+🔒 Found 29 vulnerabilities:
+
+ID        SEVERITY    TYPE                                                                                  FILE                                                                                                                TITLE                                                                                                                             CONFIDENCE
+────────  ────────    ────                                                                                  ────                                                                                                                ─────                                                                                                                             ──────────
+7a19eabb  🔴 CRITICAL  CWE-840                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java       Payment Bypass via Unverified outTradeNo/tradeNo Binding in AlipayServiceImpl.query                                               95%
+c58204b1  🔴 CRITICAL  CWE-840                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Direct Payment Bypass in OmsPortalOrderController.paySuccess                                                                      100%
+c194c298  🔴 CRITICAL  CWE-200                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java       Verification Code (OTP) Leaked Directly in HTTP Response in UmsMemberController.getAuthCode                                       100%
+8a7f1227  🔴 CRITICAL  CWE-620                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java       Unauthenticated Account Takeover via Password Reset in UmsMemberController.updatePassword                                         100%
+e19fccce  🔴 CRITICAL  USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml                                             Hardcoded Weak JWT Secret in mall-admin application.yml                                                                           100%
+8a7e5e5b  🔴 CRITICAL  MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                          scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml                                             Overly Permissive Security Whitelist Exposing Admin Registration, File Upload, Actuator, and Druid in mall-admin application.yml  100%
+cf058458  🔴 CRITICAL  USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/mall-bench/mall-portal/src/main/resources/application.yml                                            Hardcoded Weak JWT Secret and Unauthenticated Exposure of Actuator, Druid, and Alipay Endpoints in mall-portal application.yml    100%
+0bdad626  🔴 CRITICAL  UNRESTRICTED UPLOAD OF FILE WITH DANGEROUS TYPE                                       scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java                   Unauthenticated Unrestricted File Upload and Stored XSS in MinioController.upload                                                 100%
+6915d66b  🔴 CRITICAL  MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                          scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                Unauthenticated Administrator Account Registration in UmsAdminController.register                                                 100%
+dadcae69  🟠 HIGH      IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING')  scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java          Reflected Cross-Site Scripting (XSS) in AlipayController.pay and webPay                                                           90%
+b86e1f8b  🟠 HIGH      CWE-345                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java       Improper Payment Callback Verification (Missing total_amount and app_id Checks) in AlipayServiceImpl.notify                       90%
+c303119c  🟠 HIGH      CWE-639                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Insecure Direct Object Reference (IDOR / BOLA) in OmsPortalOrderController.detail                                                 95%
+1a2e9796  🟠 HIGH      CWE-639                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Insecure Direct Object Reference (IDOR / BOLA) Allowing Arbitrary Order Cancellation in OmsPortalOrderController.cancelUserOrder  95%
+be360be3  🟠 HIGH      CWE-347                                                                               scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/util/JwtTokenUtil.java                Weak JWT Signing Key and Missing exp Claim Bypass in JwtTokenUtil                                                                 95%
+66d625a3  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml                                         Hardcoded Default Credentials (MySQL, Druid, MinIO) and Disabled SSL in mall-admin application-dev.yml                            95%
+fa3ab736  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/mall-bench/mall-portal/src/main/resources/application-dev.yml                                        Hardcoded Default Credentials (MySQL, Druid, RabbitMQ) and Disabled SSL in mall-portal application-dev.yml                        95%
+002858f1  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml                                             Hardcoded Aliyun OSS Credentials in mall-admin application.yml                                                                    90%
+1a7d4bff  🟠 HIGH      CWE-639                                                                               scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java                   Arbitrary Object Deletion via Unvalidated objectName in MinioController.delete                                                    95%
+9baba706  🟠 HIGH      MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                          scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/OssController.java                     Unauthenticated Aliyun OSS Upload Signature Generation in OssController.policy                                                    95%
+271681c9  🟠 HIGH      CWE-915                                                                               scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/service/impl/UmsAdminServiceImpl.java             Mass Assignment and Arbitrary Admin Password Overwrite Without Old Password in UmsAdminServiceImpl.update                         95%
+2e284cd1  🟡 MEDIUM    CWE-613                                                                               scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/service/impl/UmsAdminServiceImpl.java             Failure to Invalidate JWT on Logout and Null Pointer Dereference in UmsAdminServiceImpl.logout                                    90%
+9bb23334  🟡 MEDIUM    AUTHENTICATION BYPASS BY SPOOFING                                                     scoped_targets/mall-bench/mall-common/src/main/java/com/macro/mall/common/util/RequestUtil.java                     Client IP Spoofing via Untrusted X-Forwarded-For Header in RequestUtil.getRequestIp                                               85%
+19df8c56  🟡 MEDIUM    MISSING AUTHORIZATION                                                                 scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/config/SecurityConfig.java            Fallback to Coarse-Grained Authentication Without Role/Resource Authorization in SecurityConfig.filterChain                       90%
+d3515d77  🟡 MEDIUM    CWE-639                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Missing Controller-Level Ownership Verification in OmsPortalOrderController.confirmReceiveOrder and deleteOrder                   85%
+1469a93a  🟡 MEDIUM    CLEARTEXT TRANSMISSION OF SENSITIVE INFORMATION                                       scoped_targets/mall-bench/pom.xml                                                                                   Unencrypted Remote Docker Daemon API Configuration in pom.xml                                                                     85%
+28471e86  🟡 MEDIUM    CWE-639                                                                               scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                Missing Principal Ownership Check and User Enumeration in UmsAdminController.updatePassword                                       90%
+c009eb88  🟡 MEDIUM    CWE-200                                                                               scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                Exposure of Administrator Password Hashes in UmsAdminController.list and getItem                                                  90%
+bf559bce  🔵 LOW       CWE-200                                                                               scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java       Exposure of Member Password Hash in UmsMemberController.info                                                                      85%
+34ba300e  🔵 LOW       CWE-755                                                                               scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/aspect/RedisCacheAspect.java          Silent Swallowing of Security Cache Eviction Failures in RedisCacheAspect.doAround                                                80%
+
+Summary: 9 CRITICAL, 11 HIGH, 7 MEDIUM, 2 LOW
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T02:43:12Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_12_4-argon_quick_c3_hybrid/logs/20261015T023546Z_ChBmMThmNzFhYjQyMDdkNGJmEAgaATAqBG1haW4.log

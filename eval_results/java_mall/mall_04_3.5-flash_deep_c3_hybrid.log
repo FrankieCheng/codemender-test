@@ -1,0 +1,341 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-bench...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 20 total files discovered
+   Tier 1 Sifter: 20 candidate files in 20 batches to scan with 16 workers
+2026-10-15T01:44:10Z [INFO]  🔧 [Step 1] grep_search → pattern="getRequestIp" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:10Z [INFO]     ✅ Tool completed: grep_search (took 22ms)
+2026-10-15T01:44:10Z [INFO]  🔧 [Step 1] grep_search → pattern="generateAuthCode" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:10Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:44:10Z [INFO]  🔧 [Step 1] grep_search → pattern="interface AlipayService" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:10Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:44:10Z [INFO]  🔧 [Step 1] grep_search → pattern="implements OmsPortalOrderService" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:10Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[1/20 batches] ✅ scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/aspect/RedisCacheAspect.java (10.1s) | 5.3k tok - 0 vulnerabilities
+2026-10-15T01:44:12Z [INFO]  🔧 [Step 1] grep_search → pattern="class OssServiceImpl" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:44:12Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+[2/20 batches] ✅ scoped_targets/mall-bench/mall-admin/src/main/resources/dao/PmsProductDao.xml (11.5s) | 6.1k tok - 0 vulnerabilities
+2026-10-15T01:44:13Z [INFO]  🔧 [Step 1] grep_search → pattern="SecurityConfig" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:44:13Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:13Z [INFO]  🔧 [Step 1] grep_search → pattern="IgnoreUrlsConfig" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:13Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:44:15Z [INFO]     📤 Result submitted (submit 4.785s)
+2026-10-15T01:44:15Z [INFO]     📤 Result submitted (submit 4.879s)
+2026-10-15T01:44:15Z [INFO]     📤 Result submitted (submit 5.131s)
+2026-10-15T01:44:15Z [INFO]  🔧 [Step 1] grep_search → pattern="ignored" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:15Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T01:44:15Z [INFO]     📤 Result submitted (submit 4.903s)
+[3/20 batches] ✅ scoped_targets/mall-bench/mall-admin/src/main/resources/dao/OmsOrderDao.xml (15.8s) | 7.3k tok - 0 vulnerabilities
+2026-10-15T01:44:16Z [INFO]  🔧 [Step 1] grep_search → pattern="AlipayController" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:16Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:44:16Z [INFO]     📤 Result submitted (submit 4.389s)
+2026-10-15T01:44:17Z [INFO]     📤 Result submitted (submit 4.723s)
+2026-10-15T01:44:18Z [INFO]     📤 Result submitted (submit 4.504s)
+2026-10-15T01:44:18Z [INFO]  🔧 [Step 1] grep_search → pattern="/minio/" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:44:18Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:19Z [INFO]  🔧 [Step 2] grep_search → pattern="AlipayService" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:19Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[4/20 batches] ✅ scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/config/IgnoreUrlsConfig.java (7.1s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T01:44:20Z [INFO]  🔧 [Step 2] grep_search → pattern="implements OssService" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:44:20Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:20Z [INFO]  🔧 [Step 2] grep_search → pattern="OmsPortalOrderService" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:20Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:20Z [INFO]     📤 Result submitted (submit 4.841s)
+2026-10-15T01:44:21Z [INFO]  🔧 [Step 2] grep_search → pattern="interface UmsMemberService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:21Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T01:44:21Z [INFO]     📤 Result submitted (submit 4.62s)
+2026-10-15T01:44:22Z [INFO]  🔧 [Step 2] grep_search → pattern="@Configuration" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:22Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T01:44:23Z [INFO]  🔧 [Step 2] read_file → …/security/config/SecurityConfig.java
+2026-10-15T01:44:23Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:44:23Z [INFO]  🔧 [Step 1] grep_search → pattern="class Asserts" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:23Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T01:44:24Z [INFO]     📤 Result submitted (submit 5.336s)
+2026-10-15T01:44:24Z [INFO]     📤 Result submitted (submit 4.697s)
+2026-10-15T01:44:24Z [INFO]     📤 Result submitted (submit 4.362s)
+2026-10-15T01:44:25Z [INFO]     📤 Result submitted (submit 5.017s)
+2026-10-15T01:44:25Z [INFO]  🔧 [Step 2] grep_search → pattern="IgnoreUrlsConfig" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:25Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:44:25Z [INFO]  🔧 [Step 1] grep_search → pattern="IgnoreUrlsConfig" path=…/scoped_targets/mall-bench/mall-security
+2026-10-15T01:44:25Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:44:26Z [INFO]     📤 Result submitted (submit 5.64s)
+2026-10-15T01:44:27Z [INFO]  🔧 [Step 2] read_file → …/portal/controller/AlipayController.java
+2026-10-15T01:44:27Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:44:27Z [INFO]  🔧 [Step 2] read_file → …/main/resources/application.yml
+2026-10-15T01:44:27Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:44:27Z [INFO]     📤 Result submitted (submit 4.51s)
+2026-10-15T01:44:27Z [INFO]  🔧 [Step 3] grep_search → pattern="class OmsPortalOrderServiceImpl" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:27Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:28Z [INFO]     📤 Result submitted (submit 4.851s)
+2026-10-15T01:44:28Z [INFO]     📤 Result submitted (submit 4.617s)
+2026-10-15T01:44:28Z [INFO]  🔧 [Step 3] grep_search → pattern="interface OssService" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:44:28Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:30Z [INFO]     📤 Result submitted (submit 4.883s)
+2026-10-15T01:44:30Z [INFO]  🔧 [Step 3] read_file → …/service/impl/AlipayServiceImpl.java
+2026-10-15T01:44:30Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:44:30Z [INFO]  🔧 [Step 3] grep_search → pattern="class UmsMemberService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:30Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T01:44:31Z [INFO]     📤 Result submitted (submit 5.447s)
+2026-10-15T01:44:31Z [INFO]  🔧 [Step 3] read_file → …/security/config/SecurityConfig.java
+2026-10-15T01:44:31Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:44:31Z [INFO]     📤 Result submitted (submit 4.691s)
+2026-10-15T01:44:32Z [INFO]     📤 Result submitted (submit 4.635s)
+2026-10-15T01:44:32Z [INFO]     📤 Result submitted (submit 5.175s)
+2026-10-15T01:44:32Z [INFO]  🔧 [Step 2] grep_search → pattern="Asserts" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:32Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:44:32Z [INFO]  ✅ Completed 1 tool steps in 31s | Tokens: 9k in / 153 out / 12k total
+[5/20 batches] ✅ scoped_targets/mall-bench/mall-common/src/main/java/com/macro/mall/common/util/RequestUtil.java (31.4s) | 12.8k tok - 0 vulnerabilities
+2026-10-15T01:44:33Z [INFO]     📤 Result submitted (submit 4.619s)
+2026-10-15T01:44:33Z [INFO]  🔧 [Step 2] read_file → …/security/config/IgnoreUrlsConfig.java
+2026-10-15T01:44:33Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:44:33Z [INFO]  🔧 [Step 3] grep_search → pattern="jwt.secret" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:33Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+[6/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/resources/application-dev.yml (33.5s) | 16.8k tok - 1 vulnerabilities
+2026-10-15T01:44:34Z [INFO]  🔧 [Step 3] read_file → …/security/config/SecurityConfig.java
+2026-10-15T01:44:34Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:44:35Z [INFO]     📤 Result submitted (submit 4.623s)
+2026-10-15T01:44:35Z [INFO]     📤 Result submitted (submit 4.636s)
+2026-10-15T01:44:35Z [INFO]  🔧 [Step 1] grep_search → pattern="hutool-all" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:35Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+[7/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml (34.8s) | 33.6k tok - 3 vulnerabilities
+2026-10-15T01:44:36Z [INFO]  🔧 [Step 4] grep_search → pattern="paySuccess" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:36Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:36Z [INFO]     📤 Result submitted (submit 4.798s)
+[8/20 batches] ✅ scoped_targets/mall-bench/pom.xml (15.7s) | 9.4k tok - 0 vulnerabilities
+2026-10-15T01:44:37Z [INFO]     📤 Result submitted (submit 4.692s)
+2026-10-15T01:44:38Z [INFO]     📤 Result submitted (submit 4.775s)
+2026-10-15T01:44:38Z [INFO]     📤 Result submitted (submit 4.467s)
+2026-10-15T01:44:38Z [INFO]  🔧 [Step 4] grep_search → pattern="OssService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:38Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:44:38Z [INFO]  🔧 [Step 4] grep_search → pattern="UmsMemberService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:38Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:44:39Z [INFO]     📤 Result submitted (submit 4.623s)
+2026-10-15T01:44:39Z [INFO]     📤 Result submitted (submit 4.505s)
+2026-10-15T01:44:40Z [INFO]     📤 Result submitted (submit 4.392s)
+2026-10-15T01:44:41Z [INFO]  🔧 [Step 3] grep_search → pattern="public class Asserts" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:41Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:44:42Z [INFO]  🔧 [Step 4] read_file → …/security/util/JwtTokenUtil.java
+2026-10-15T01:44:42Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:44:42Z [INFO]  🔧 [Step 4] grep_search → pattern="DynamicAuthorizationManager" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:42Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T01:44:43Z [INFO]     📤 Result submitted (submit 4.86s)
+2026-10-15T01:44:43Z [INFO]     📤 Result submitted (submit 4.659s)
+2026-10-15T01:44:43Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/mall-bench/pom.xml
+2026-10-15T01:44:43Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:44:44Z [INFO]  🔧 [Step 5] grep_search → pattern="interface OmsPortalOrderService" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:44Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:44:45Z [INFO]  🔧 [Step 3] grep_search → pattern="SecurityConfig" path=…/scoped_targets/mall-bench/mall-security
+2026-10-15T01:44:45Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:44:45Z [INFO]     📤 Result submitted (submit 4.585s)
+2026-10-15T01:44:47Z [INFO]     📤 Result submitted (submit 4.499s)
+2026-10-15T01:44:47Z [INFO]     📤 Result submitted (submit 4.739s)
+2026-10-15T01:44:48Z [INFO]     📤 Result submitted (submit 4.494s)
+2026-10-15T01:44:48Z [INFO]  🔧 [Step 4] grep_search → pattern="class AliPayParam" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:48Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:49Z [INFO]  🔧 [Step 5] grep_search → pattern="interface OssService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:49Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:44:50Z [INFO]     📤 Result submitted (submit 5.335s)
+2026-10-15T01:44:50Z [INFO]     📤 Result submitted (submit 4.912s)
+2026-10-15T01:44:52Z [INFO]  🔧 [Step 4] grep_search → pattern="class Asserts" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:52Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T01:44:52Z [INFO]  🔧 [Step 5] grep_search → pattern="class DynamicAuthorizationManager" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:44:52Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:44:53Z [INFO]     📤 Result submitted (submit 4.79s)
+2026-10-15T01:44:53Z [INFO]  🔧 [Step 6] grep_search → pattern="OmsPortalOrderServiceImpl" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:53Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:54Z [INFO]  🔧 [Step 3] grep_search → pattern="hutool.version" path=…/scoped_targets/mall-bench/pom.xml
+2026-10-15T01:44:54Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:44:54Z [INFO]     📤 Result submitted (submit 4.878s)
+2026-10-15T01:44:56Z [INFO]  🔧 [Step 4] grep_search → pattern="JwtAuthenticationTokenFilter" path=…/scoped_targets/mall-bench/mall-security
+2026-10-15T01:44:56Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:44:57Z [INFO]     📤 Result submitted (submit 5.255s)
+2026-10-15T01:44:57Z [INFO]     📤 Result submitted (submit 4.737s)
+2026-10-15T01:44:58Z [INFO]     📤 Result submitted (submit 4.127s)
+2026-10-15T01:44:58Z [INFO]  🔧 [Step 5] grep_search → pattern="AliPayParam" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:44:58Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:44:58Z [INFO]     📤 Result submitted (submit 4.926s)
+2026-10-15T01:45:00Z [INFO]  🔧 [Step 5] grep_search → pattern="com.macro.mall.common.exception" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:45:00Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T01:45:00Z [INFO]     📤 Result submitted (submit 4.58s)
+2026-10-15T01:45:01Z [INFO]  🔧 [Step 6] grep_search → pattern="OssServiceImpl" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:45:01Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:45:02Z [INFO]     📤 Result submitted (submit 4.527s)
+2026-10-15T01:45:03Z [INFO]  🔧 [Step 6] grep_search → pattern="DynamicAuthorizationManager" path=…/scoped_targets/mall-bench/mall-security
+2026-10-15T01:45:03Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:45:04Z [INFO]  🔧 [Step 7] grep_search → pattern="package com.macro.mall.portal.service" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:45:04Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:45:05Z [INFO]  🔧 [Step 5] grep_search → pattern="class JwtAuthenticationTokenFilter" path=…/scoped_targets/mall-bench/mall-security
+2026-10-15T01:45:05Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:45:05Z [INFO]     📤 Result submitted (submit 4.956s)
+2026-10-15T01:45:06Z [INFO]     📤 Result submitted (submit 4.998s)
+2026-10-15T01:45:07Z [INFO]  ✅ Completed 4 tool steps in 1m7s | Tokens: 55k in / 1k out / 61k total
+[9/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml (1m7s) | 61.2k tok - 2 vulnerabilities
+2026-10-15T01:45:08Z [INFO]  ✅ Completed 3 tool steps in 1m7s | Tokens: 59k in / 1k out / 66k total
+[10/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/resources/application.yml (1m7.3s) | 66.2k tok - 2 vulnerabilities
+2026-10-15T01:45:08Z [INFO]     📤 Result submitted (submit 4.919s)
+2026-10-15T01:45:08Z [INFO]  🔧 [Step 6] grep_search → pattern="AliPayParam" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:45:08Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:45:09Z [INFO]  🔧 [Step 7] grep_search → pattern="package com.macro.mall.service;" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:45:09Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T01:45:10Z [INFO]     📤 Result submitted (submit 5.208s)
+2026-10-15T01:45:10Z [INFO]     📤 Result submitted (submit 4.529s)
+2026-10-15T01:45:11Z [INFO]  🔧 [Step 6] grep_search → pattern="void fail" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:45:11Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:45:12Z [INFO]  🔧 [Step 7] list_dir → …/mall/security/component
+2026-10-15T01:45:12Z [WARN]     ⚠️ Tool error: list_dir: readdir error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/component: no such file or directory (took 0s)
+2026-10-15T01:45:12Z [INFO]  ✅ Completed 4 tool steps in 1m12s | Tokens: 41k in / 806 out / 47k total
+[11/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java (1m12.1s) | 47.0k tok - 1 vulnerabilities
+2026-10-15T01:45:13Z [INFO]     📤 Result submitted (submit 4.408s)
+2026-10-15T01:45:13Z [INFO]  ✅ Completed 2 tool steps in 1m12s | Tokens: 48k in / 2k out / 57k total
+[12/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java (1m12.4s) | 57.7k tok - 2 vulnerabilities
+2026-10-15T01:45:15Z [INFO]     📤 Result submitted (submit 5.081s)
+2026-10-15T01:45:16Z [INFO]     📤 Result submitted (submit 4.978s)
+2026-10-15T01:45:17Z [ERROR] Session FAILED after 8 polls (1m16.853s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:45:18Z [INFO]     📤 Result submitted (submit 5.864s)
+2026-10-15T01:45:18Z [INFO]  🔧 [Step 7] grep_search → pattern="AliPayParam" path=…/mall/portal/domain
+2026-10-15T01:45:18Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/domain: no such file or directory (took 0s)
+2026-10-15T01:45:20Z [INFO]  🔧 [Step 7] list_dir → …/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:45:20Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T01:45:22Z [INFO]  🔧 [Step 8] grep_search → pattern="package " path=…/scoped_targets/mall-bench/mall-security
+2026-10-15T01:45:22Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:45:23Z [INFO]  ✅ Completed 5 tool steps in 1m10s | Tokens: 40k in / 190 out / 44k total
+[13/20 batches] ✅ scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/config/SecurityConfig.java (1m9.9s) | 44.7k tok - 0 vulnerabilities
+2026-10-15T01:45:23Z [INFO]     📤 Result submitted (submit 5.301s)
+2026-10-15T01:45:24Z [INFO]  ✅ Completed 2 tool steps in 1m23s | Tokens: 58k in / 2k out / 68k total
+[14/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java (1m23s) | 68.9k tok - 2 vulnerabilities
+2026-10-15T01:45:24Z [INFO]     📤 Result submitted (submit 4.922s)
+2026-10-15T01:45:25Z [ERROR] Session FAILED after 8 polls (1m24.532s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:45:27Z [INFO]  🔧 [Step 8] grep_search → pattern="public class AliPayParam" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:45:27Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:45:27Z [INFO]     📤 Result submitted (submit 4.841s)
+2026-10-15T01:45:28Z [INFO]  🔧 [Step 1] grep_search → pattern="paySuccess" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:45:28Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:45:29Z [INFO]  ✅ Completed 3 tool steps in 1m11s | Tokens: 31k in / 226 out / 38k total
+[15/20 batches] ✅ scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/util/JwtTokenUtil.java (1m11.3s) | 38.2k tok - 0 vulnerabilities
+2026-10-15T01:45:30Z [ERROR] Session FAILED after 8 polls (1m29.751s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:45:32Z [INFO]     📤 Result submitted (submit 5.043s)
+2026-10-15T01:45:32Z [INFO]  🔧 [Step 9] grep_search → pattern="DynamicAuthorizationManager" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:45:32Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T01:45:33Z [INFO]     📤 Result submitted (submit 5.039s)
+2026-10-15T01:45:36Z [INFO]  🔧 [Step 1] grep_search → pattern="class OssServiceImpl" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:45:36Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:45:37Z [INFO]     📤 Result submitted (submit 4.827s)
+2026-10-15T01:45:38Z [INFO]  🔧 [Step 9] grep_search → pattern="class AliPayParam" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:45:38Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T01:45:38Z [INFO]  🔧 [Step 2] grep_search → pattern="class OmsPortalOrderServiceImpl" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:45:38Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:45:42Z [INFO]     📤 Result submitted (submit 5.468s)
+2026-10-15T01:45:43Z [INFO]     📤 Result submitted (submit 4.811s)
+2026-10-15T01:45:43Z [INFO]     📤 Result submitted (submit 5.034s)
+2026-10-15T01:45:46Z [INFO]  🔧 [Step 2] grep_search → pattern="OssService" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:45:46Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:45:47Z [INFO]  🔧 [Step 3] grep_search → pattern="implements OmsPortalOrderService" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:45:47Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:45:48Z [INFO]  🔧 [Step 1] grep_search → pattern="updatePassword" path=…/macro/mall/controller
+2026-10-15T01:45:48Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:45:51Z [INFO]     📤 Result submitted (submit 4.602s)
+2026-10-15T01:45:51Z [INFO]     📤 Result submitted (submit 4.797s)
+2026-10-15T01:45:54Z [INFO]     📤 Result submitted (submit 5.673s)
+2026-10-15T01:45:56Z [INFO]  🔧 [Step 3] grep_search → pattern="class OssServiceImpl" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:45:56Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T01:45:56Z [INFO]  🔧 [Step 4] grep_search → pattern="OmsPortalOrderService" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:45:56Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:45:57Z [INFO]  🔧 [Step 2] read_file → …/mall/controller/UmsAdminController.java
+2026-10-15T01:45:57Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:45:57Z [ERROR] Session FAILED after 10 polls (1m57.084s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:46:01Z [INFO]     📤 Result submitted (submit 4.575s)
+2026-10-15T01:46:01Z [INFO]     📤 Result submitted (submit 4.802s)
+2026-10-15T01:46:02Z [INFO]     📤 Result submitted (submit 5.023s)
+2026-10-15T01:46:05Z [INFO]  🔧 [Step 4] grep_search → pattern="OssService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:46:05Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:46:06Z [INFO]  🔧 [Step 5] grep_search → pattern="interface OmsPortalOrderService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:46:06Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:46:07Z [INFO]  🔧 [Step 1] list_dir → …/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:46:07Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T01:46:07Z [INFO]  ✅ Completed 9 tool steps in 2m7s | Tokens: 115k in / 1k out / 122k total
+[16/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java (2m7.1s) | 122.9k tok - 1 vulnerabilities
+2026-10-15T01:46:10Z [INFO]     📤 Result submitted (submit 5.318s)
+2026-10-15T01:46:11Z [INFO]     📤 Result submitted (submit 4.791s)
+2026-10-15T01:46:12Z [INFO]     📤 Result submitted (submit 4.9s)
+2026-10-15T01:46:12Z [INFO]  🔧 [Step 3] read_file → …/mall/controller/UmsAdminController.java
+2026-10-15T01:46:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:46:15Z [INFO]  🔧 [Step 6] grep_search → pattern="OmsPortalOrderService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:46:15Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:46:15Z [INFO]  🔧 [Step 5] grep_search → pattern="interface Oss" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:46:15Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:46:18Z [INFO]     📤 Result submitted (submit 5.364s)
+2026-10-15T01:46:18Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/mall-bench/PROJECT_FILE_INDEX.md
+2026-10-15T01:46:18Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:46:20Z [INFO]     📤 Result submitted (submit 4.716s)
+2026-10-15T01:46:21Z [INFO]     📤 Result submitted (submit 5.734s)
+2026-10-15T01:46:23Z [INFO]     📤 Result submitted (submit 4.969s)
+2026-10-15T01:46:25Z [INFO]  🔧 [Step 7] grep_search → pattern="class " path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T01:46:25Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:46:26Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/mall-bench/pom.xml
+2026-10-15T01:46:26Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:46:29Z [INFO]  🔧 [Step 3] read_file → …/security/config/SecurityConfig.java
+2026-10-15T01:46:29Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:46:30Z [INFO]     📤 Result submitted (submit 4.955s)
+2026-10-15T01:46:30Z [INFO]  🔧 [Step 4] grep_search → pattern="getRequestIp" path=…/scoped_targets/mall-bench/mall-common
+2026-10-15T01:46:30Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:46:31Z [INFO]     📤 Result submitted (submit 4.862s)
+2026-10-15T01:46:34Z [INFO]     📤 Result submitted (submit 5.038s)
+2026-10-15T01:46:35Z [INFO]     📤 Result submitted (submit 4.794s)
+2026-10-15T01:46:36Z [INFO]  🔧 [Step 7] grep_search → pattern="implements OssService" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:46:36Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:46:38Z [INFO]  🔧 [Step 4] read_file → …/main/resources/application.yml
+2026-10-15T01:46:38Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:46:38Z [INFO]  🔧 [Step 5] read_file → …/common/util/RequestUtil.java
+2026-10-15T01:46:38Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:46:40Z [ERROR] Session FAILED after 8 polls (1m21.109s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+[17/20 batches] ❌ scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java (1m21.1s): The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:46:41Z [INFO]     📤 Result submitted (submit 5.215s)
+2026-10-15T01:46:42Z [INFO]     📤 Result submitted (submit 4.847s)
+2026-10-15T01:46:43Z [INFO]     📤 Result submitted (submit 4.89s)
+2026-10-15T01:46:47Z [ERROR] Session FAILED after 8 polls (1m20.117s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+[18/20 batches] ❌ scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/OssController.java (1m20.1s): The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:46:55Z [INFO]  🔧 [Step 5] grep_search → pattern="UpdateAdminPasswordParam" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T01:46:55Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:47:00Z [INFO]     📤 Result submitted (submit 4.839s)
+2026-10-15T01:47:04Z [INFO]  🔧 [Step 6] grep_search → pattern="class UpdateAdminPasswordParam" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:47:04Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T01:47:09Z [INFO]     📤 Result submitted (submit 5.013s)
+2026-10-15T01:47:14Z [INFO]  🔧 [Step 7] grep_search → pattern="UpdateAdminPasswordParam" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T01:47:14Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:47:19Z [INFO]     📤 Result submitted (submit 4.906s)
+2026-10-15T01:47:24Z [ERROR] Session FAILED after 8 polls (1m24.743s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+[19/20 batches] ❌ scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java (1m24.7s): The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:47:24Z [INFO]  ✅ Completed 5 tool steps in 1m53s | Tokens: 116k in / 1k out / 127k total
+[20/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/service/impl/UmsAdminServiceImpl.java (1m52.6s) | 127.6k tok - 2 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 20 files in 20 batches (0 pruned at Tier 0, 17 succeeded, 3 failed) in 3m25s
+   Session: ChAyNzRjYjMwZDgwNmU5OWYzEAgaATAqBG1haW4
+   Total tokens consumed: 730.2k (in: 641.9k, cached: 415.9k, out: 13.0k, thinking: 75.2k)
+
+🔒 Found 16 vulnerabilities:
+
+ID        SEVERITY    TYPE                                               FILE                                                                                                           TITLE                                                                                                    CONFIDENCE
+────────  ────────    ────                                               ────                                                                                                           ─────                                                                                                    ──────────
+15195065  🟡 MEDIUM    CWE-798                                            scoped_targets/mall-bench/mall-portal/src/main/resources/application-dev.yml                                   Exposed Druid Monitor with Hardcoded Weak Default Credentials                                            85%
+bb9e0af9  🟠 HIGH      CWE-798                                            scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml                                    Use of Hard-coded Credentials for Druid Stat View Servlet                                                85%
+66cea6d0  🟠 HIGH      CWE-798                                            scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml                                    Use of Hard-coded Credentials for MinIO Storage                                                          85%
+7e2fe828  🟡 MEDIUM    CWE-798                                            scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml                                    Hard-coded Database Credentials with SSL Disabled                                                        80%
+9a3b0aaf  🟠 HIGH      BROKEN AUTHENTICATION / SECURITY MISCONFIGURATION  scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml                                        Unauthenticated Access to Sensitive Actuator and Druid Monitor Endpoints                                 100%
+14a4e96d  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                      scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml                                        Hardcoded JWT Secret Key Enabling Authentication Bypass                                                  100%
+423a71d2  🟠 HIGH      CWE-798                                            scoped_targets/mall-bench/mall-portal/src/main/resources/application.yml                                       Hardcoded JWT Secret Key Allows Authentication Bypass                                                    100%
+04edbe75  🟠 HIGH      CWE-306                                            scoped_targets/mall-bench/mall-portal/src/main/resources/application.yml                                       Exposing Sensitive Endpoints (Actuator, Druid) Without Authentication                                    100%
+59d41aa3  🔴 CRITICAL  CWE-306                                            scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java  Sensitive Information Disclosure of Verification Code / OTP in API Response leading to Account Takeover  100%
+5b0215bd  🟠 HIGH      UNRESTRICTED FILE UPLOAD                           scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java              Unrestricted File Upload, Directory Traversal, and Stored XSS via Unauthenticated MinIO Upload Endpoint  100%
+3df391bb  🟡 MEDIUM    INSECURE DIRECT OBJECT REFERENCE (IDOR)            scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java              Insecure Direct Object Reference (IDOR) leading to Arbitrary Object Deletion in MinIO Bucket             80%
+5f9664c9  🟠 HIGH      CWE-354                                            scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java  Missing Critical Parameter Validation in Alipay Payment Callback (Payment Bypass / Double Spending)      85%
+a60377d8  🟠 HIGH      CWE-354                                            scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java  Missing Critical Parameter Validation in Alipay Transaction Query (Payment Bypass)                       80%
+7c77b2e4  🟠 HIGH      CWE-353                                            scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java     Missing Alipay Asynchronous Notification Verification (Alipay Callback Forgery)                          95%
+40229769  🟡 MEDIUM    NULL POINTER DEREFERENCE                           scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/service/impl/UmsAdminServiceImpl.java        Null Pointer Dereference on Cache Miss in Logout Method                                                  85%
+d573a6bc  🔵 LOW       NULL POINTER DEREFERENCE                           scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/service/impl/UmsAdminServiceImpl.java        Null Pointer Dereference on Non-Existent User in Update Method                                           80%
+
+Summary: 1 CRITICAL, 10 HIGH, 4 MEDIUM, 1 LOW
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T01:47:24Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_04_3.5-flash_deep_c3_hybrid/logs/20261015T014359Z_ChAyNzRjYjMwZDgwNmU5OWYzEAgaATAqBG1haW4.log

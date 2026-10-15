@@ -1,0 +1,17 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ ab226bea │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│OS Command Injection in on_ping Diagn...│
+│ 4c05be13 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Insecure Deserialization via Python p...│
+│ 99c30bb3 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Werkzeug DebuggedApplication Interact...│
+│ 63e5ce0f │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection via String Formatting i...│
+│ bd88e48f │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Arbitrary File Read via Path Traversa...│
+│ 8a46ee81 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Unrestricted File Upload and Path Tra...│
+│ fce5c1f7 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery (SSRF) in...│
+│ cfa6822d │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting (XSS) ...│
+│ 3bb34940 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in on_navigate            │
+│ bb086ad5 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Insecure Session Cookie Missing HttpO...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+10 finding(s): 3 CRITICAL, 4 HIGH, 3 MEDIUM · ✅ 0 fixed, 🔴 10 open
+📋 Report generated at 2026-10-15 06:30:10 UTC

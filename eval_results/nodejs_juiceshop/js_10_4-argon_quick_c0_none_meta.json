@@ -1,0 +1,46 @@
+{
+  "run_id": "js_10_4-argon_quick_c0_none",
+  "timestamp": "2026-10-15T02:23:59.012701+00:00",
+  "repo_family": "juice-shop",
+  "target_path": "scoped_targets/juice-shop-bench",
+  "model": "gemini-4-argon",
+  "mode": "quick",
+  "context_key": "c0_none",
+  "context_prompt": null,
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_sec": 348.5,
+  "total_findings": 20,
+  "severity_counts": {
+    "CRITICAL": 6,
+    "HIGH": 10,
+    "MEDIUM": 4,
+    "LOW": 0
+  },
+  "unique_cwes": [
+    "CWE-158",
+    "CWE-22",
+    "CWE-284",
+    "CWE-347",
+    "CWE-601",
+    "CWE-611",
+    "CWE-776",
+    "CWE-79",
+    "CWE-89",
+    "CWE-918",
+    "CWE-94",
+    "CWE-943"
+  ],
+  "affected_files_count": 16,
+  "log_metrics": {
+    "files_discovered": 17,
+    "tool_steps": 23,
+    "duration_str": "5m46s",
+    "tokens_in": "1.8M",
+    "tokens_out": "14k",
+    "tokens_total": "1.8M"
+  }
+}

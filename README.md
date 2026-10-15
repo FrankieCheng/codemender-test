@@ -1,124 +1,174 @@
-# CodeMender Multi-Model Vulnerability Scan Benchmark & Ground Truth Evaluation
+# CodeMender (`cm v0.14.0`) Tri-Language Vulnerability Scan Benchmark, Ground Truth Evaluation & Best Practices
 
-This repository provides an end-to-end evaluation benchmark for **CodeMender** (`cm`), an LLM-powered autonomous vulnerability scanning and remediation agent. We evaluate multiple Gemini models across baseline and prompt-enriched conditions against a vulnerable enterprise WSGI application suite, validating results against a local Ground Truth verification test harness.
+[![Language: Python / Node.js / Java](https://img.shields.io/badge/Stacks-Python%20%7C%20Node.js%20%7C%20Java-blue)](#1-tri-language-benchmark-executive-summary)
+[![Experiments: 43 Controlled Runs](https://img.shields.io/badge/Experiments-43%20Controlled%20Runs%20(%2B8%20Legacy)-success)](#3-benchmark-suite-i-python--werkzeug-wsgi-ground-truth-evaluation)
+[![Ground Truth Recall: 100%](https://img.shields.io/badge/Python%20GT%20Recall-100%25%20(11%2F11)%20%7C%200%25%20FP-brightgreen)](#3-benchmark-suite-i-python--werkzeug-wsgi-ground-truth-evaluation)
 
----
+> 📖 **Quick Navigation**:
+> - 🇨🇳 **[中文综合评测总结与最佳实践分享版 (`README_CN.md`)](README_CN.md)**
+> - 📊 **[Full 43-Run Ablation Report (`docs/BENCHMARK_RESULTS.md`)](docs/BENCHMARK_RESULTS.md)**
+> - 📽️ **[12-Slide Best Practices Presentation (`docs/CodeMender_Best_Practices_Deck.pdf`)](docs/CodeMender_Best_Practices_Deck.pdf)** | **[PPTX (`docs/CodeMender_Best_Practices_Deck.pptx`)](docs/CodeMender_Best_Practices_Deck.pptx)**
+> - ⚙️ **[Universal Benchmark & Context Engineering Pipeline (`pipeline/`)](pipeline/)**
 
-## Benchmark Overview & Test Setup
-
-- **Scan Target**: [`src/`](src/)
-  - Core WSGI Web Application: [`src/app.py`](src/app.py) (13 endpoints handling sessions, uploads, proxies, queries, and diagnostics)
-  - Dependency Manifest: [`src/requirements.txt`](src/requirements.txt) (`werkzeug==2.2.0`, `requests>=2.28.0`, `pytest>=7.0.0`)
-- **Ground Truth Test Suite**: [`grounding-truth/poc_exploit.py`](grounding-truth/poc_exploit.py) (Werkzeug WSGI Client-based security behavior verification suite)
-- **Execution Parameter**: `--sandbox=false`
-- **GCP Project**: `cloud-llm-preview1`
-- **Data Isolation & Hygiene**: Between every scan cycle, terminal stdout/stderr logs (`.log`), standard text table reports (`.txt`), and structured JSON reports (`.json`) were collected. `cm clean` was executed before every run to purge the local SQLite database cache (`~/.codemender/state.db`), active session logs, and project markers.
-- **Results Directory**: [`eval_results/`](eval_results/)
+This repository provides an end-to-end multi-language benchmark, Ground Truth verification harness, and production best-practices pipeline for **CodeMender** (`cm v0.14.0`), an LLM-powered autonomous vulnerability scanning and remediation agent.
 
 ---
 
-## 1. Ground Truth Baseline Verification
+## 1. Tri-Language Benchmark Executive Summary
 
-Executing [`grounding-truth/poc_exploit.py`](grounding-truth/poc_exploit.py) against the application under `werkzeug==2.2.0` verified 12 targeted security behaviors:
+We evaluated CodeMender (`cm v0.14.0`, `--sandbox=false`) across **43 controlled ablation runs** (plus **8 legacy `v0.7.0` baseline runs**) spanning **three representative language stacks and repository scales**, logging **1,654+ vulnerability findings**:
+
+| Dimension | 🐍 Python / Werkzeug WSGI ([`src/`](src/)) | 🟢 Node.js / Express / TypeScript ([`benchmarks/juice-shop-bench/`](benchmarks/juice-shop-bench/)) | ☕ Java / Spring Boot + MyBatis ([`benchmarks/mall-bench/`](benchmarks/mall-bench/)) |
+| :--- | :--- | :--- | :--- |
+| **Application Profile** | Enterprise WSGI Microservice with Ground Truth PoC Suite (`11` Real Vulns + `1` `safe_join` Control) | OWASP Juice Shop Full-Stack Web App (Express + Sequelize + MarsDB + Pug Templates) | Multi-Module E-Commerce Platform (`macrozheng/mall`: Spring Security + MyBatis XML + MinIO/OSS/Alipay) |
+| **Target Scope Scale** | **Microservice** (`2` core files: `app.py` + `requirements.txt`) | **Medium Service** (`16` bench files / `35` high-risk / `118` core files) | **Multi-Module Monorepo** (`20` bench files / `48` high-risk / `297` core files across 6 Maven modules) |
+| **Baseline (`Quick + c0_none`)** | **8 findings** (`72.7%` GT Recall on `3.5F` / `3.8F`; **`90.9%` (`10/11`)** zero-shot on `gemini-4-argon`) | **16–24 findings** (`4` Crit / `13` High / `7` Med) | **10–13 findings** (`2` Crit / `3` High / `5` Med) |
+| **Enriched (`Quick + c3_hybrid_max`)** | **13 findings — `100.0% (11/11)` GT Recall, `0%` False Positive** (`py_06` `3.8F`, `py_08` `4-argon`, `py_02` `3.5F`) | **30 findings** (`+25%` over `c0_none` baseline) | **16 findings** (`+60%` over `c0_none` baseline) |
+| **Parallel Deep (`--deep + c3_hybrid_max`)** | **11 findings in `76.3s` — `100.0% (11/11)` GT Recall, `0%` FP** (`py_12_deep_4argon_c3`) | **118 findings (`4.92x` uplift)** (`19` Crit / `58` High / `36` Med / `5` Low in `js_11`) | **90 findings (`9.0x` uplift)** (`8` Crit / `36` High / `36` Med / `10` Low in `mall_12`) |
+| **Recommended Golden Profile** | **Quick + `c3_hybrid_max`** (for 1–5 file services) or **`--deep` + `gemini-4-argon` + `c3_hybrid_max`** (`76s`) | **`--deep --deep-workers 16 --deep-max-turns 8` + `c3_hybrid_max` + `gemini-3.8-flash`** | **`--deep --deep-workers 16 --deep-max-turns 8` + `c3_hybrid_max` + `gemini-4-argon`** |
+
+---
+
+## 2. Five Golden Engineering Discoveries & Best Practices
+
+### Discovery 1: The `--deep` Literal Filename Scoping + Tier 0 Pruner Trap (`0%` Recall in `py_13` vs `100%` Recall in `py_12`)
+- **What Happened**: In experiment [`py_13_deep_38flash_literal_trap`](eval_results/python_wsgi/py_13_deep_38flash_literal_trap_meta.json), we passed the original legacy context prompt (*"This Python file handles untrusted input, so check `requirements.txt` for the package versions..."*) into `cm find --deep`. **The scan exited in `0.5s` with `0` findings (`0.0%` recall)!**
+- **Root Cause**:
+  1. **Prompt Regex File Scoping**: `cm v0.14.0 --deep` scans the `-c` prompt for any literal `<name>.<ext>` token (`requirements.txt`, `package.json`, `pom.xml`, `server.ts`). When matched, it restricts the scan strictly to those named files (+ 1-hop imports), dropping `app.py`.
+  2. **Tier 0 Lockfile Pruning**: Next, `--deep`'s **Tier 0 Pruner** pruned `requirements.txt` as a safe manifest/lockfile (`Tier 0 Pruner: 2 safe files pruned at 0 token cost`).
+  3. **Net Result**: `1 - 1 = 0` candidate files scanned!
+- **Best Practice**: **Never include literal `filename.ext` tokens in `-c` when running `--deep`**. Use semantic descriptions (*"the root Python dependency manifest text file"*, *"the root Maven POM XML manifest"*) and inject extracted dependency versions (`Werkzeug 2.2.0`) directly into the prompt text.
+
+### Discovery 2: Structured Hybrid Prompting (`c3_hybrid_max`) Unlocks `100%` Recall Even on `gemini-3.5-flash`
+- In the legacy benchmark (`run5`), `gemini-3.5-flash` plateaued at `72.7% (8/11)` recall even with `-c`.
+- With our structured 4-layer `c3_hybrid_max` prompt (combining **SCA CVE correlation + SAST route sinks + Debugger/Config checks + `safe_join` verification**), `gemini-3.5-flash` ([`py_02_quick_35flash_c3`](eval_results/python_wsgi/py_02_quick_35flash_c3_report.json)) jumped to **12 findings and `100.0% (11/11)` Ground Truth Recall** with `0%` false positives!
+
+### Discovery 3: Expanding `CM_HOME/config.yaml` Extensions for XML, YAML & Template Sinks
+- Default CodeMender configurations only index source files (`.py`, `.js`, `.ts`, `.java`, `.go`), ignoring **MyBatis SQL Mappers (`*Dao.xml`)**, **Spring Boot configs (`application*.yml`)**, and **Pug/Handlebars templates (`.pug`, `.hbs`)**.
+- [`pipeline/pipeline.py`](pipeline/pipeline.py) automatically generates an isolated `CM_HOME/config.yaml` including `[".txt", ".json", ".xml", ".yml", ".yaml", ".properties", ".pug", ".hbs", ".ejs", ".gradle"]`, unlocking `${}` SQL Injection in `OmsOrderDao.xml` and SSTI in `promotionVideo.pug`.
+
+### Discovery 4: Attack-Surface Scoping & `PROJECT_FILE_INDEX.md`
+- Excluding generated ORM boilerplate (`mall-mbg` with 180+ POJOs, `test/`, `frontend/`) and pre-generating a flat `PROJECT_FILE_INDEX.md` in each target root reduced directory-traversal tool steps by **35–50%**.
+
+### Discovery 5: Native File Tools Outperform `--enable-bash` by `1.87x` in `--deep` Mode
+- Running `--deep --deep-workers 16 --deep-max-turns 8` **without** `--enable-bash` (`js_11`: `223.7s` vs `js_14` with bash: `417.6s`) is **1.87x faster** and avoids shell pagination stalls.
+
+---
+
+## 3. Benchmark Suite I: Python / Werkzeug WSGI Ground Truth Evaluation
+
+### 3.1 Ground Truth Baseline Verification (`src/app.py` + `grounding-truth/poc_exploit.py`)
+Executing [`grounding-truth/poc_exploit.py`](grounding-truth/poc_exploit.py) against [`src/app.py`](src/app.py) (`werkzeug==2.2.0`) verifies **11 real security vulnerabilities** and **1 intentional negative control** (`/files/secure-download` using `werkzeug.security.safe_join`):
 
 | # | Test Item | Target / Mechanism | Vulnerability / Standard | Verification Verdict |
 | :-: | :--- | :--- | :--- | :-: |
 | 1 | **Multipart Part Limits** | `POST /upload` (1500 parts) | CVE-2023-25577 (Denial of Service via Unbounded Parsing) | 🔴 **SECURITY ISSUE DETECTED** |
-| 2 | **Cookie Header Parsing** | `GET /auth/session` (Nameless Cookie) | CVE-2023-46136 / CWE-614 (Nameless cookie parsing / Missing Secure flags) | 🔴 **SECURITY ISSUE DETECTED** |
-| 3 | **Debugger PIN Predictability** | `werkzeug.debug` (Machine ID / MAC) | CVE-2024-34069 / CWE-489 (Predictable Debugger PIN derivation) | 🔴 **SECURITY ISSUE DETECTED** |
+| 2 | **Cookie Header Parsing** | `GET /auth/session` (Nameless Cookie) | CVE-2023-46136 / CWE-614 (Nameless cookie / Missing Secure flags) | 🔴 **SECURITY ISSUE DETECTED** |
+| 3 | **Debugger PIN Predictability** | `werkzeug.debug` (`evalex=True`) | CVE-2024-34069 / CWE-489 (Interactive Debugger RCE) | 🔴 **SECURITY ISSUE DETECTED** |
 | 4 | **Storage Path Traversal** | `GET /download?file=../app.py` | CWE-22 (Arbitrary File Read via Path Traversal) | 🔴 **SECURITY ISSUE DETECTED** |
 | 5 | **safe_join File Access** | `GET /files/secure-download` | Safe file confinement via `safe_join` | 🟢 **VERIFIED SECURE** *(Safe Control)* |
-| 6 | **Insecure Deserialization** | `POST /profile/restore` (pickle.loads) | CWE-502 (Remote Code Execution via Pickle Deserialization) | 🔴 **SECURITY ISSUE DETECTED** |
-| 7 | **SQL Query Injection** | `GET /api/users/lookup` | CWE-89 (SQL Injection via Unsanitized Formatting) | �� **SECURITY ISSUE DETECTED** |
+| 6 | **Insecure Deserialization** | `POST /profile/restore` (`pickle.loads`) | CWE-502 (Remote Code Execution via Pickle Deserialization) | 🔴 **SECURITY ISSUE DETECTED** |
+| 7 | **SQL Query Injection** | `GET /api/users/lookup` | CWE-89 (SQL Injection via Unsanitized Formatting) | 🔴 **SECURITY ISSUE DETECTED** |
 | 8 | **Service Proxy (SSRF)** | `GET /services/proxy?url=127.0.0.1` | CWE-918 (Server-Side Request Forgery) | 🔴 **SECURITY ISSUE DETECTED** |
 | 9 | **Unrestricted File Upload** | `POST /upload/raw` (`shell.py`) | CWE-434 / CWE-22 (Arbitrary File Write / Path Traversal) | 🔴 **SECURITY ISSUE DETECTED** |
 | 10 | **Command Sanitization** | `GET /diagnostics/ping?host=...` | CWE-78 (OS Command Injection via Shell Execution) | 🔴 **SECURITY ISSUE DETECTED** |
 | 11 | **Search Output Encoding** | `GET /search?q=<script>` | CWE-79 (Reflected Cross-Site Scripting) | 🔴 **SECURITY ISSUE DETECTED** |
 | 12 | **URL Redirection Validation** | `GET /navigate?target=https://...` | CWE-601 (Open URL Redirection) | 🔴 **SECURITY ISSUE DETECTED** |
 
-> **Ground Truth Summary**: There are **11 real security vulnerabilities** and **1 intentional negative control** (`on_secure_download` using `safe_join`) in the codebase.
+### 3.2 New 13-Run `cm v0.14.0` Benchmark Matrix (`eval_results/python_wsgi/`)
 
----
-
-## 2. Full 8-Run Multi-Model Benchmark Matrix
-
-We evaluated four models under two experimental conditions:
-- **Condition 1 (Baseline)**: Without context parameter (`cm find src --model <model> --sandbox=false`)
-- **Condition 2 (Enriched Prompt)**: With context flag (`-c`):
-  > *"This Python file handles untrusted input, so check requirements.txt for the package versions and hunt down any vulnerabilities. Please be thorough—give me a full list of every security flaw you find, ranked by severity, rather than stopping at the worst one."*
-
-| Run | Model | Context (`-c`) | Findings | Severity Distribution (Crit / High / Med / Low) | Ground Truth Recall | Tool Steps | Latency | Tokens (In / Out / Total) |
+| Run ID | Model | Mode | Context (`-c`) | Findings | Severity (`C / H / M / L`) | Ground Truth Recall (`11` Vulns) | `safe_join` Control FP | Wall Time |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Run 1** | `gemini-3.5-flash` | None | 8 | 2 / 4 / 2 / 0 | 72.7% (8/11) | 5 | 2m06s | 192k / 3k / 199k |
-| **Run 2** | `gemini-3.7-flash` | None | 8 | 2 / 5 / 1 / 0 | 72.7% (8/11) | 6 | 2m41s | 152k / 3k / 164k |
-| **Run 3** | `gemini-3.8-flash` | None | 8 | 2 / 4 / 2 / 0 | 72.7% (8/11) | 7 | 2m48s | 163k / 3k / 176k |
-| **Run 4** | `gemini-3.8-flash-cyber` | None | 8 | 2 / 4 / 2 / 0 | 72.7% (8/11) | 8 | **1m39s** | 229k / 3k / 237k |
-| **Run 5** | `gemini-3.5-flash` | Fixed Prompt | 8 | 3 / 3 / 1 / 1 | 72.7% (8/11) | 5 | 2m27s | 17k / 83 / 17k |
-| **Run 6** | `gemini-3.7-flash` | Fixed Prompt | 9 | 2 / 5 / 2 / 0 | 81.8% (9/11) | 5 | 2m22s | 161k / 3k / 173k |
-| **Run 7** | `gemini-3.8-flash` | Fixed Prompt | **11** | **3 / 4 / 4 / 0** | **100% (11/11)** | 7 | 4m00s | 305k / 5k / 325k |
-| **Run 8** | `gemini-3.8-flash-cyber` | Fixed Prompt | **11** | **3 / 4 / 3 / 1** | **100% (11/11)** | 7 | **2m13s** | 264k / 5k / 283k |
+| [`py_01_quick_35flash_c0`](eval_results/python_wsgi/py_01_quick_35flash_c0_report.json) | `gemini-3.5-flash` | Quick | `c0_none` | 8 | 2 / 4 / 2 / 0 | 8/11 (`72.7%`) | 🟢 `0%` | 169.7s |
+| [`py_02_quick_35flash_c3`](eval_results/python_wsgi/py_02_quick_35flash_c3_report.json) | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | **12** | 3 / 5 / 4 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | 202.7s |
+| [`py_03_quick_38flash_c0`](eval_results/python_wsgi/py_03_quick_38flash_c0_report.json) | `gemini-3.8-flash` | Quick | `c0_none` | 8 | 4 / 3 / 1 / 0 | 8/11 (`72.7%`) | 🟢 `0%` | 296.7s |
+| [`py_04_quick_38flash_c1_sca`](eval_results/python_wsgi/py_04_quick_38flash_c1_sca_report.json) | `gemini-3.8-flash` | Quick | `c1_sca` | **11** | 2 / 7 / 2 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | 330.6s |
+| [`py_05_quick_38flash_c2_sast`](eval_results/python_wsgi/py_05_quick_38flash_c2_sast_report.json) | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 10 | 3 / 4 / 3 / 0 | 10/11 (`90.9%`) | 🟢 `0%` | 163.7s |
+| [`py_06_quick_38flash_c3_hybrid`](eval_results/python_wsgi/py_06_quick_38flash_c3_hybrid_report.json) | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | **13** | 4 / 6 / 3 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | 230.9s |
+| [`py_07_quick_4argon_c0`](eval_results/python_wsgi/py_07_quick_4argon_c0_report.json) | `gemini-4-argon` | Quick | `c0_none` | 10 | 3 / 5 / 2 / 0 | **10/11 (`90.9%`)** | 🟢 `0%` | 307.2s |
+| [`py_08_quick_4argon_c3`](eval_results/python_wsgi/py_08_quick_4argon_c3_report.json) | `gemini-4-argon` | Quick | `c3_hybrid_max` | **13** | 4 / 7 / 2 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | 206.3s |
+| [`py_09_deep_35flash_c3`](eval_results/python_wsgi/py_09_deep_35flash_c3_report.json) | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | 9 | 2 / 6 / 1 / 0 | 9/11 (`81.8%`) | 🟢 `0%` | 132.7s |
+| [`py_10_deep_38flash_c0`](eval_results/python_wsgi/py_10_deep_38flash_c0_report.json) | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | 8 | 2 / 4 / 2 / 0 | 8/11 (`72.7%`) | 🟢 `0%` | **78.1s** |
+| [`py_11_deep_38flash_c3_hybrid`](eval_results/python_wsgi/py_11_deep_38flash_c3_hybrid_report.json) | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | 10 | 3 / 4 / 3 / 0 | 10/11 (`90.9%`) | 🟢 `0%` | 175.2s |
+| [`py_12_deep_4argon_c3`](eval_results/python_wsgi/py_12_deep_4argon_c3_report.json) | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **11** | 4 / 4 / 3 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | **76.3s** |
+| [`py_13_deep_38flash_literal_trap`](eval_results/python_wsgi/py_13_deep_38flash_literal_trap_meta.json) | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c_legacy_literal` | **0** | 0 / 0 / 0 / 0 | **0/11 (`0.0%`)** *(Scoped+Pruned)* | 🟢 `0%` | 0.5s |
+
+*(Legacy `cm v0.7.0` 8-run baseline artifacts `run1`–`run8` remain preserved in [`eval_results/legacy_v0.7_python/`](eval_results/legacy_v0.7_python/).)*
 
 ---
 
-## 3. Vulnerability Detection Coverage Matrix
+## 4. Benchmark Suite II: Node.js / TypeScript (`juice-shop/juice-shop`) — 15 Runs (`eval_results/nodejs_juiceshop/`)
 
-| Ground Truth Vulnerability | CWE / CVE ID | 3.5-flash (No -c) | 3.7-flash (No -c) | 3.8-flash (No -c) | 3.8-cyber (No -c) | 3.5-flash (With -c) | 3.7-flash (With -c) | 3.8-flash (With -c) | 3.8-cyber (With -c) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **OS Command Injection** | CWE-78 | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit |
-| **Insecure Deserialization** | CWE-502 | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit | ✅ Crit |
-| **Arbitrary File Upload** | CWE-434 / CWE-22 | ✅ High | ✅ High | ✅ High | ✅ High | ✅ Crit | ✅ High | ✅ Crit | ✅ Crit |
-| **Arbitrary File Read** | CWE-22 | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High |
-| **SQL Injection** | CWE-89 | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High |
-| **Server-Side Request Forgery** | CWE-918 | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High | ✅ High |
-| **Reflected XSS** | CWE-79 | ✅ Med | ✅ High | ✅ Med | ✅ Med | ✅ Med | ✅ Med | ✅ Med | ✅ Med |
-| **Open Redirect** | CWE-601 | ✅ Med | ✅ Med | ✅ Med | ✅ Med | ✅ Low | ✅ Med | ✅ Med | ✅ Med |
-| **Active Debugger Console** | CWE-489 | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ High | ✅ High | ✅ High |
-| **Multipart Parsing DoS** | CVE-2023-25577 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Med | ✅ Med |
-| **Insecure Session Cookie** | CWE-614 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Med | ✅ Low |
-
----
-
-## 4. Key Insights & Findings
-
-### 1. The Impact of Context Prompting (`-c`) on SCA & Dependency Correlation
-- **Baseline (No Context)**:
-  All four models (3.5, 3.7, 3.8, and 3.8-cyber) discovered identical sets of 8 application-layer vulnerabilities (72.7% recall). While all agents read `requirements.txt` via tool calls, none correlated the exact version (`werkzeug==2.2.0`) with known public CVEs without explicit prompting.
-- **Enriched Prompt (`-c`)**:
-  - **`gemini-3.8-flash` and `gemini-3.8-flash-cyber` achieved 100% Ground Truth Recall (11/11)**: Prompt guidance successfully unlocked deep software composition analysis (SCA). Both models correlated `werkzeug==2.2.0` with **CVE-2023-25577** (Denial of Service via unbounded multipart parts), uncovered the interactive debug console (`DebuggedApplication` with `evalex=True`), and flagged insecure cookie attributes (`__Host-Session-Token` missing `Secure` and `HttpOnly`).
-  - **`gemini-3.7-flash`** caught the Debugger console risk (81.8% recall), but missed the specific Werkzeug CVE and Cookie security attributes.
-  - **`gemini-3.5-flash`** maintained 8 findings but recalibrated severity ranks (elevating raw file upload to Critical and lowering Open Redirect to Low).
-
-### 2. `gemini-3.8-flash` vs. `gemini-3.8-flash-cyber` Specialization
-- **Recall Completeness**: Both models tied for first place with a perfect 11/11 (100%) Ground Truth detection rate.
-- **Execution Latency**: `gemini-3.8-flash-cyber` completed the enriched scan in **2m13s**, outperforming `gemini-3.8-flash` (**4m00s**) by **45%**.
-- **Taxonomy Precision**: `gemini-3.8-flash-cyber` consistently produced structured titles with formal taxonomy identifiers (e.g., `CWE-400 (CVE-2023-25577)`, `CWE-489: Active Debug Code`, `CWE-614`), making it optimal for automated DevSecOps pipelines.
-
-### 3. Precision & Negative Control Verification
-A total of 12 endpoints exist in `app.py`:
-- 11 endpoints contained deliberate vulnerabilities.
-- 1 endpoint (`/files/secure-download`) used Werkzeug's `safe_join` helper:
-  ```python
-  def on_secure_download(self, request: Request) -> Response:
-      filename = request.args.get("file", "sample.txt")
-      target_path = safe_join(BASE_STORAGE_DIR, filename)
-      if target_path is None or not os.path.exists(target_path):
-          return Response(f"File not found: {filename}", status=404, mimetype="text/plain")
-  ```
-  `safe_join` neutralizes directory traversal sequences. In `poc_exploit.py`, this test returned `[VERIFIED SECURE]`. CodeMender correctly identified that `/files/secure-download` was secure and emitted zero findings for it, demonstrating **100% recall with a 0% false-positive rate**.
+| Run ID | Target Scope | Model | Mode | Context (`-c`) | Findings | Severity (`C / H / M / L`) | Unique CWEs | Files Hit | Wall Time |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| [`js_01_quick_35flash_c0`](eval_results/nodejs_juiceshop/js_01_quick_35flash_c0_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | Quick | `c0_none` | 16 | 1 / 12 / 3 / 0 | 12 | 12 | 290.9s |
+| [`js_02_quick_35flash_c3`](eval_results/nodejs_juiceshop/js_02_quick_35flash_c3_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | 21 | 3 / 11 / 5 / 2 | 16 | 14 | 258.5s |
+| [`js_03_quick_38flash_c0`](eval_results/nodejs_juiceshop/js_03_quick_38flash_c0_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c0_none` | 24 | 4 / 13 / 7 / 0 | 15 | 15 | 412.2s |
+| [`js_04_quick_38flash_c1_sca`](eval_results/nodejs_juiceshop/js_04_quick_38flash_c1_sca_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c1_sca` | 25 | 8 / 9 / 7 / 1 | 15 | 14 | 269.6s |
+| [`js_05_quick_38flash_c2_sast`](eval_results/nodejs_juiceshop/js_05_quick_38flash_c2_sast_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 22 | 6 / 12 / 4 / 0 | 14 | 15 | 380.4s |
+| [`js_06_quick_38flash_c3_hybrid`](eval_results/nodejs_juiceshop/js_06_quick_38flash_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | **30** | 6 / 16 / 6 / 2 | 19 | 15 | 331.4s |
+| [`js_07_quick_4argon_c0`](eval_results/nodejs_juiceshop/js_07_quick_4argon_c0_report.json) | `juice-shop-bench` | `gemini-4-argon` | Quick | `c0_none` | 23 | 5 / 13 / 4 / 1 | 15 | 15 | 257.1s |
+| [`js_08_quick_4argon_c3`](eval_results/nodejs_juiceshop/js_08_quick_4argon_c3_report.json) | `juice-shop-bench` | `gemini-4-argon` | Quick | `c3_hybrid_max` | 23 | 6 / 12 / 4 / 1 | 16 | 14 | 316.0s |
+| [`js_09_deep_35flash_c3`](eval_results/nodejs_juiceshop/js_09_deep_35flash_c3_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **58** | 12 / 29 / 16 / 1 | 21 | 14 | 151.6s |
+| [`js_10_deep_38flash_c0`](eval_results/nodejs_juiceshop/js_10_deep_38flash_c0_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | **113** | 18 / 55 / 32 / 8 | 31 | 16 | 248.1s |
+| [`js_11_deep_38flash_c3_hybrid`](eval_results/nodejs_juiceshop/js_11_deep_38flash_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **118** | **19 / 58 / 36 / 5** | **35** | **16** | **223.7s** |
+| [`js_12_deep_4argon_c3`](eval_results/nodejs_juiceshop/js_12_deep_4argon_c3_report.json) | `juice-shop-bench` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **75** | 15 / 38 / 19 / 3 | 27 | 16 | 277.6s |
+| [`js_13_deep_38flash_c1_sca`](eval_results/nodejs_juiceshop/js_13_deep_38flash_c1_sca_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c1_sca` | **100** | 15 / 49 / 31 / 5 | 25 | 15 | 250.3s |
+| [`js_14_deep_38flash_bash_c3`](eval_results/nodejs_juiceshop/js_14_deep_38flash_bash_c3_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep` + bash) | `c3_hybrid_max` | **97** | 17 / 48 / 27 / 5 | 31 | 15 | 417.6s |
+| [`js_15_deep_38flash_highrisk_c3`](eval_results/nodejs_juiceshop/js_15_deep_38flash_highrisk_c3_report.json) | `juice-shop-high-risk` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **116** | **20 / 49 / 36 / 11** | **31** | **30** | 535.9s |
 
 ---
 
-## 5. Repository File Index
+## 5. Benchmark Suite III: Java / Spring Boot + MyBatis (`macrozheng/mall`) — 15 Runs (`eval_results/java_mall/`)
 
-All raw execution logs and structured scan reports are preserved under [`eval_results/`](eval_results/):
+| Run ID | Target Scope | Model | Mode | Context (`-c`) | Findings | Severity (`C / H / M / L`) | Unique CWEs | Files Hit | Wall Time |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| [`mall_01_quick_35flash_c0`](eval_results/java_mall/mall_01_quick_35flash_c0_report.json) | `mall-bench` | `gemini-3.5-flash` | Quick | `c0_none` | 13 | 0 / 5 / 6 / 2 | 12 | 9 | 369.5s |
+| [`mall_02_quick_35flash_c3`](eval_results/java_mall/mall_02_quick_35flash_c3_report.json) | `mall-bench` | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | 11 | 1 / 4 / 5 / 1 | 9 | 9 | 263.4s |
+| [`mall_03_quick_38flash_c0`](eval_results/java_mall/mall_03_quick_38flash_c0_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c0_none` | 10 | 2 / 3 / 5 / 0 | 8 | 7 | 420.0s |
+| [`mall_04_quick_38flash_c1_sca`](eval_results/java_mall/mall_04_quick_38flash_c1_sca_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c1_sca` | 11 | 2 / 4 / 3 / 2 | 10 | 7 | 420.0s |
+| [`mall_05_quick_38flash_c2_sast`](eval_results/java_mall/mall_05_quick_38flash_c2_sast_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 14 | 1 / 5 / 8 / 0 | 7 | 9 | 420.0s |
+| [`mall_06_quick_38flash_c3_hybrid`](eval_results/java_mall/mall_06_quick_38flash_c3_hybrid_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | **16** | 3 / 8 / 4 / 1 | 12 | 10 | 438.9s |
+| [`mall_07_quick_4argon_c0`](eval_results/java_mall/mall_07_quick_4argon_c0_report.json) | `mall-bench` | `gemini-4-argon` | Quick | `c0_none` | 10 | 1 / 4 / 4 / 1 | 9 | 8 | 480.0s |
+| [`mall_08_quick_4argon_c3`](eval_results/java_mall/mall_08_quick_4argon_c3_report.json) | `mall-bench` | `gemini-4-argon` | Quick | `c3_hybrid_max` | 15 | 2 / 7 / 5 / 1 | 9 | 12 | 350.0s |
+| [`mall_09_deep_35flash_c3`](eval_results/java_mall/mall_09_deep_35flash_c3_report.json) | `mall-bench` | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **35** | 3 / 15 / 12 / 5 | 17 | 16 | 177.2s |
+| [`mall_10_deep_38flash_c0`](eval_results/java_mall/mall_10_deep_38flash_c0_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | **75** | 4 / 25 / 35 / 11 | 27 | 18 | 280.1s |
+| [`mall_11_deep_38flash_c3_hybrid`](eval_results/java_mall/mall_11_deep_38flash_c3_hybrid_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **80** | 7 / 32 / 31 / 10 | **29** | 18 | **252.9s** |
+| [`mall_12_deep_4argon_c3`](eval_results/java_mall/mall_12_deep_4argon_c3_report.json) | `mall-bench` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **90** | **8 / 36 / 36 / 10** | **29** | **19** | **326.8s** |
+| [`mall_13_deep_38flash_c1_sca`](eval_results/java_mall/mall_13_deep_38flash_c1_sca_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c1_sca` | **73** | 7 / 23 / 35 / 8 | 27 | 18 | 283.1s |
+| [`mall_14_deep_38flash_bash_c3`](eval_results/java_mall/mall_14_deep_38flash_bash_c3_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep` + bash) | `c3_hybrid_max` | **75** | 6 / 31 / 28 / 10 | 24 | 18 | 290.1s |
+| [`mall_15_deep_38flash_highrisk_c3`](eval_results/java_mall/mall_15_deep_38flash_highrisk_c3_report.json) | `mall-high-risk` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **59** | 6 / 24 / 22 / 7 | 23 | 17 | 671.8s |
 
-- **Baseline Scans (No Context)**:
-  - [`run1_gemini-3.5-flash_no-context.log`](eval_results/run1_gemini-3.5-flash_no-context.log) / [txt](eval_results/run1_gemini-3.5-flash_no-context_report.txt) / [json](eval_results/run1_gemini-3.5-flash_no-context_report.json)
-  - [`run2_gemini-3.7-flash_no-context.log`](eval_results/run2_gemini-3.7-flash_no-context.log) / [txt](eval_results/run2_gemini-3.7-flash_no-context_report.txt) / [json](eval_results/run2_gemini-3.7-flash_no-context_report.json)
-  - [`run3_gemini-3.8-flash_no-context.log`](eval_results/run3_gemini-3.8-flash_no-context.log) / [txt](eval_results/run3_gemini-3.8-flash_no-context_report.txt) / [json](eval_results/run3_gemini-3.8-flash_no-context_report.json)
-  - [`run4_gemini-3.8-flash-cyber_no-context.log`](eval_results/run4_gemini-3.8-flash-cyber_no-context.log) / [txt](eval_results/run4_gemini-3.8-flash-cyber_no-context_report.txt) / [json](eval_results/run4_gemini-3.8-flash-cyber_no-context_report.json)
-- **Enriched Scans (With Context Prompt `-c`)**:
-  - [`run5_gemini-3.5-flash_with-context.log`](eval_results/run5_gemini-3.5-flash_with-context.log) / [txt](eval_results/run5_gemini-3.5-flash_with-context_report.txt) / [json](eval_results/run5_gemini-3.5-flash_with-context_report.json)
-  - [`run6_gemini-3.7-flash_with-context.log`](eval_results/run6_gemini-3.7-flash_with-context.log) / [txt](eval_results/run6_gemini-3.7-flash_with-context_report.txt) / [json](eval_results/run6_gemini-3.7-flash_with-context_report.json)
-  - [`run7_gemini-3.8-flash_with-context.log`](eval_results/run7_gemini-3.8-flash_with-context.log) / [txt](eval_results/run7_gemini-3.8-flash_with-context_report.txt) / [json](eval_results/run7_gemini-3.8-flash_with-context_report.json)
-  - [`run8_gemini-3.8-flash-cyber_with-context.log`](eval_results/run8_gemini-3.8-flash-cyber_with-context.log) / [txt](eval_results/run8_gemini-3.8-flash-cyber_with-context_report.txt) / [json](eval_results/run8_gemini-3.8-flash-cyber_with-context_report.json)
+---
+
+## 6. Repository Directory Structure
+
+```text
+codemender-test/
+├── README.md                          # Unified English Flagship Report (43 Runs + Ground Truth + Best Practices)
+├── README_CN.md                       # Chinese Executive Summary & Best Practices Guide (中文分享总结版)
+├── docs/
+│   ├── BENCHMARK_RESULTS.md           # Full 43-run ablation tables & CWE/Ground-Truth breakdown
+│   ├── CODEMENDER_SHARE_SUMMARY_CN.md # Detailed Chinese shareable briefing
+│   ├── CodeMender_Best_Practices_Deck.pdf   # 12-Slide Best Practices Presentation (PDF)
+│   └── CodeMender_Best_Practices_Deck.pptx  # 12-Slide Best Practices Presentation (PPTX)
+├── pipeline/                          # Universal CodeMender v0.14.0 Benchmarking & Context Engineering Pipeline
+│   ├── pipeline.py                    # Core runner (isolated CM_HOME/config.yaml, semantic -c prompts, PROJECT_FILE_INDEX.md, SQLite extractor)
+│   ├── run_python_benchmarks.py       # 13-run Python WSGI benchmark + strict Ground Truth (11/11) & safe_join (0% FP) evaluator
+│   ├── run_all_benchmarks.py          # 30-run Node.js (juice-shop) & Java (macrozheng/mall) ablation suite
+│   └── generate_report.py             # Automated Markdown report generator across all 43 runs
+├── src/                               # Target 1: Python Werkzeug WSGI Application (11 Real Vulns + 1 safe_join Control)
+│   ├── app.py
+│   └── requirements.txt
+├── grounding-truth/                   # Ground Truth PoC Exploit & Verification Suite for Python WSGI
+│   └── poc_exploit.py
+├── benchmarks/                        # Curated Benchmark Target Scopes (with PROJECT_FILE_INDEX.md)
+│   ├── ref-codemender-bench/          # Python WSGI isolated benchmark scope (2 files)
+│   ├── juice-shop-bench/              # Node.js / TypeScript representative benchmark scope (16 files)
+│   └── mall-bench/                    # Java / Spring Boot + MyBatis representative benchmark scope (20 files)
+└── eval_results/                      # Complete Evaluation Artifacts (.log, _report.txt, _report.json, _meta.json)
+    ├── python_wsgi/                   # New 13-run cm v0.14.0 Python WSGI matrix (py_01..py_13)
+    ├── nodejs_juiceshop/              # New 15-run cm v0.14.0 Node.js/TS OWASP Juice Shop matrix (js_01..js_15)
+    ├── java_mall/                     # New 15-run cm v0.14.0 Java/Spring Boot macrozheng/mall matrix (mall_01..mall_15)
+    └── legacy_v0.7_python/            # Original 8-run quick-mode baseline (run1..run8)
+```

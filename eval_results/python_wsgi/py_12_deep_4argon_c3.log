@@ -1,0 +1,34 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/ref-codemender-bench...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 3 total files discovered
+   Tier 0 Pruner: 2 safe files pruned (tests, docs, DTOs, generated, lockfiles) at 0 token cost
+   Tier 1 Sifter: 1 candidate files in 1 batches to scan with 1 workers
+[1/1 batches] 🚨 scoped_targets/ref-codemender-bench/app.py (1m14.2s) | 34.4k tok - 11 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 3 files in 1 batches (2 pruned at Tier 0, 1 succeeded, 0 failed) in 1m16s
+   Session: ChA1MGFiNjZkNzdiNGQ0ZmY4EAgaATAqBG1haW4
+   Total tokens consumed: 34.4k (in: 24.9k, cached: 7.4k, out: 6.2k, thinking: 3.3k)
+
+🔒 Found 11 vulnerabilities:
+
+ID        SEVERITY    TYPE                                                              FILE                                        TITLE                                                                                         CONFIDENCE
+────────  ────────    ────                                                              ────                                        ─────                                                                                         ──────────
+ffd5ccde  🔴 CRITICAL  OS COMMAND INJECTION                                              scoped_targets/ref-codemender-bench/app.py  OS Command Injection in Network Diagnostics Ping Endpoint                                     100%
+b15d89f6  🔴 CRITICAL  DESERIALIZATION OF UNTRUSTED DATA                                 scoped_targets/ref-codemender-bench/app.py  Insecure Deserialization via Pickle in Profile Restore Endpoint                               100%
+bc59874a  🟠 HIGH      SQL INJECTION                                                     scoped_targets/ref-codemender-bench/app.py  SQL Injection in User Registry Lookup Endpoint                                                100%
+25d90ec5  🟠 HIGH      PATH TRAVERSAL                                                    scoped_targets/ref-codemender-bench/app.py  Arbitrary File Read via Path Traversal in Document Download Endpoint                          100%
+2d6830e5  🔴 CRITICAL  PATH TRAVERSAL / UNRESTRICTED UPLOAD OF FILE WITH DANGEROUS TYPE  scoped_targets/ref-codemender-bench/app.py  Unrestricted File Upload and Path Traversal Arbitrary File Write in Raw Upload Endpoint       100%
+d848af31  🟠 HIGH      SERVER-SIDE REQUEST FORGERY (SSRF)                                scoped_targets/ref-codemender-bench/app.py  Server-Side Request Forgery (SSRF) in Remote Content Proxy Endpoint                           100%
+823a372e  🟡 MEDIUM    CROSS-SITE SCRIPTING (XSS)                                        scoped_targets/ref-codemender-bench/app.py  Reflected Cross-Site Scripting (XSS) in Search Endpoint                                       100%
+76380e75  🟡 MEDIUM    URL REDIRECTION TO UNTRUSTED SITE ('OPEN REDIRECT')               scoped_targets/ref-codemender-bench/app.py  Open Redirect in Navigation Endpoint                                                          100%
+3246b50e  🔴 CRITICAL  CWE-489                                                           scoped_targets/ref-codemender-bench/app.py  Active Werkzeug Interactive Debugger Enabled by Default with Code Execution (evalex=True)     100%
+cb8abc7e  🟡 MEDIUM    CWE-614                                                           scoped_targets/ref-codemender-bench/app.py  Insecure Session Cookie Configuration and Cookie Shadowing Exposure in Auth Session Endpoint  95%
+202abb9e  🟠 HIGH      CWE-400                                                           scoped_targets/ref-codemender-bench/app.py  Unbounded Multipart Form Parsing Denial of Service (CVE-2023-25577) in Upload Endpoint        90%
+
+Summary: 4 CRITICAL, 4 HIGH, 3 MEDIUM
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T06:34:28Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_py_12_deep_4argon_c3/logs/20261015T063312Z_ChA1MGFiNjZkNzdiNGQ0ZmY4EAgaATAqBG1haW4.log

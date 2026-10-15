@@ -1,0 +1,15 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ b15d89f6 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Insecure Deserialization via pickle.l...│
+│ ffd5ccde │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│OS Command Injection in on_ping         │
+│ 2d6830e5 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Arbitrary File Write / Path Traversal...│
+│ 25d90ec5 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Path Traversal Arbitrary File Read in...│
+│ bc59874a │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection in on_user_lookup         │
+│ d848af31 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery (SSRF) in...│
+│ 823a372e │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting (XSS) ...│
+│ 76380e75 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in on_navigate            │
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+8 finding(s): 2 CRITICAL, 4 HIGH, 2 MEDIUM · ✅ 0 fixed, 🔴 8 open
+📋 Report generated at 2026-10-15 06:33:11 UTC

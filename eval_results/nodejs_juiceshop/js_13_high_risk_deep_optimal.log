@@ -1,0 +1,979 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 49 total files discovered
+   Tier 1 Sifter: 49 candidate files in 49 batches to scan with 16 workers
+[1/49 batches] ✅ scoped_targets/juice-shop-high-risk/models/complaint.ts (7.4s) | 4.6k tok - 0 vulnerabilities
+2026-10-15T02:16:28Z [INFO]  🔧 [Step 1] grep_search → pattern="sanitize" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:16:28Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:28Z [INFO]  🔧 [Step 1] grep_search → pattern="retrieveBasket" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:16:28Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:28Z [INFO]  🔧 [Step 1] grep_search → pattern="downloadToFile|extractFilename|isUrl|toSimpleIpAddress|parseJsonCustom" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:16:28Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T02:16:29Z [INFO]  🔧 [Step 1] grep_search → pattern="notify\\(" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:16:29Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T02:16:29Z [INFO]  🔧 [Step 1] grep_search → pattern="isRedirectAllowed" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:16:29Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:16:30Z [INFO]  🔧 [Step 1] grep_search → pattern="notevil" path=…/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:16:30Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T02:16:30Z [INFO]  🔧 [Step 1] grep_search → pattern="parseJsonCustom" path=…/juice-shop-high-risk/lib/utils.ts
+2026-10-15T02:16:30Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[2/49 batches] ✅ scoped_targets/juice-shop-high-risk/models/card.ts (11s) | 4.8k tok - 0 vulnerabilities
+[3/49 batches] ✅ scoped_targets/juice-shop-high-risk/models/index.ts (11.5s) | 5.7k tok - 0 vulnerabilities
+2026-10-15T02:16:31Z [INFO]  🔧 [Step 1] grep_search → pattern="verifyCaptcha" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:16:31Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:32Z [INFO]  🔧 [Step 1] grep_search → pattern="changePassword" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:16:32Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:33Z [INFO]     📤 Result submitted (submit 4.621s)
+2026-10-15T02:16:33Z [INFO]     📤 Result submitted (submit 4.559s)
+2026-10-15T02:16:33Z [INFO]     📤 Result submitted (submit 4.8s)
+2026-10-15T02:16:34Z [INFO]     📤 Result submitted (submit 4.805s)
+2026-10-15T02:16:34Z [INFO]     📤 Result submitted (submit 4.275s)
+2026-10-15T02:16:34Z [INFO]     📤 Result submitted (submit 4.725s)
+2026-10-15T02:16:35Z [INFO]     📤 Result submitted (submit 4.826s)
+2026-10-15T02:16:36Z [INFO]     📤 Result submitted (submit 4.851s)
+[4/49 batches] ✅ scoped_targets/juice-shop-high-risk/package.json (17.7s) | 9.5k tok - 0 vulnerabilities
+2026-10-15T02:16:37Z [INFO]     📤 Result submitted (submit 4.72s)
+2026-10-15T02:16:37Z [INFO]  🔧 [Step 2] grep_search → pattern="webhook" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:16:37Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T02:16:38Z [INFO]  🔧 [Step 1] grep_search → pattern="persistedXssUserChallenge" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:16:38Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:16:38Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:16:38Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:16:39Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:16:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:16:39Z [INFO]  🔧 [Step 2] grep_search → pattern="isUrl|downloadToFile" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:16:39Z [INFO]     ✅ Tool completed: grep_search (took 28ms)
+2026-10-15T02:16:39Z [INFO]  🔧 [Step 1] grep_search → pattern="reviews" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:16:39Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:16:40Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/lib/utils.ts
+2026-10-15T02:16:40Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:16:40Z [INFO]  🔧 [Step 2] grep_search → pattern="rceChallenge" path=…/data/static/challenges.json
+2026-10-15T02:16:40Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 1ms)
+2026-10-15T02:16:41Z [INFO]  🔧 [Step 1] grep_search → pattern="view engine" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:16:41Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:42Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T02:16:42Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:16:42Z [INFO]     📤 Result submitted (submit 4.871s)
+2026-10-15T02:16:43Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/redirect.ts
+2026-10-15T02:16:43Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:16:43Z [INFO]     📤 Result submitted (submit 4.685s)
+2026-10-15T02:16:43Z [INFO]  🔧 [Step 2] grep_search → pattern="captcha" path=…/data/static/challenges.json
+2026-10-15T02:16:43Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 0s)
+2026-10-15T02:16:43Z [INFO]     📤 Result submitted (submit 4.461s)
+2026-10-15T02:16:43Z [INFO]     📤 Result submitted (submit 4.964s)
+2026-10-15T02:16:44Z [INFO]     📤 Result submitted (submit 4.56s)
+2026-10-15T02:16:44Z [INFO]     📤 Result submitted (submit 4.638s)
+2026-10-15T02:16:45Z [INFO]     📤 Result submitted (submit 4.476s)
+2026-10-15T02:16:45Z [INFO]     📤 Result submitted (submit 4.797s)
+2026-10-15T02:16:46Z [INFO]     📤 Result submitted (submit 4.576s)
+2026-10-15T02:16:46Z [INFO]  🔧 [Step 1] grep_search → pattern="applyCoupon" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:16:46Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:16:47Z [INFO]  🔧 [Step 2] grep_search → pattern="persistedXssUserChallenge" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:16:47Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:47Z [INFO]     📤 Result submitted (submit 4.83s)
+2026-10-15T02:16:47Z [INFO]  🔧 [Step 3] grep_search → pattern="sanitize-html" path=…/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:16:47Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:47Z [INFO]  🔧 [Step 3] grep_search → pattern="from.*webhook" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:16:47Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T02:16:47Z [INFO]     📤 Result submitted (submit 4.494s)
+2026-10-15T02:16:47Z [INFO]     📤 Result submitted (submit 4.521s)
+2026-10-15T02:16:49Z [INFO]  🔧 [Step 1] grep_search → pattern="registerAdminChallenge" path=…/juice-shop-high-risk/routes/verify.ts
+2026-10-15T02:16:49Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:49Z [INFO]  🔧 [Step 3] grep_search → pattern="utils\\." path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:16:49Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:16:49Z [INFO]  🔧 [Step 2] grep_search → pattern="forgedReviewChallenge" path=…/data/static/challenges.json
+2026-10-15T02:16:49Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 1ms)
+2026-10-15T02:16:50Z [INFO]  🔧 [Step 3] grep_search → pattern="rceChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:16:50Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:16:51Z [INFO]  🔧 [Step 1] grep_search → pattern="verify|decode" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:16:51Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:51Z [INFO]     📤 Result submitted (submit 4.775s)
+2026-10-15T02:16:51Z [INFO]     📤 Result submitted (submit 4.753s)
+2026-10-15T02:16:52Z [INFO]     📤 Result submitted (submit 4.73s)
+2026-10-15T02:16:52Z [INFO]     📤 Result submitted (submit 5.495s)
+2026-10-15T02:16:52Z [INFO]  🔧 [Step 2] grep_search → pattern="dataErasureResult" path=…/scoped_targets/juice-shop-high-risk/views
+2026-10-15T02:16:52Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:16:53Z [INFO]  🔧 [Step 3] grep_search → pattern="captcha" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:16:53Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:16:54Z [INFO]     📤 Result submitted (submit 4.641s)
+2026-10-15T02:16:54Z [INFO]     📤 Result submitted (submit 5.073s)
+2026-10-15T02:16:54Z [INFO]     📤 Result submitted (submit 4.549s)
+2026-10-15T02:16:55Z [INFO]  🔧 [Step 1] grep_search → pattern="dataExport" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:16:55Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:16:55Z [INFO]     📤 Result submitted (submit 4.735s)
+2026-10-15T02:16:56Z [INFO]     📤 Result submitted (submit 5.187s)
+2026-10-15T02:16:57Z [INFO]     📤 Result submitted (submit 4.663s)
+2026-10-15T02:16:57Z [INFO]  🔧 [Step 3] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:16:57Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:16:58Z [INFO]     📤 Result submitted (submit 4.89s)
+2026-10-15T02:16:59Z [INFO]  🔧 [Step 4] grep_search → pattern="toSimpleIpAddress" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:16:59Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T02:17:00Z [INFO]     📤 Result submitted (submit 5.082s)
+2026-10-15T02:17:00Z [INFO]  🔧 [Step 3] grep_search → pattern="basketItems" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:00Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:01Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:17:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:01Z [INFO]  🔧 [Step 3] grep_search → pattern="authenticatedUsers" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:17:01Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:02Z [INFO]  🔧 [Step 4] grep_search → pattern="persistedXssFeedbackChallenge" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:17:02Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:17:02Z [INFO]     📤 Result submitted (submit 4.688s)
+2026-10-15T02:17:02Z [INFO]  🔧 [Step 4] grep_search → pattern="b2bOrder" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:17:02Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:17:02Z [INFO]  🔧 [Step 3] grep_search → pattern="dataErasure" path=…/scoped_targets/juice-shop-high-risk/views
+2026-10-15T02:17:02Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:02Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/verify.ts
+2026-10-15T02:17:02Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:03Z [INFO]     📤 Result submitted (submit 4.612s)
+2026-10-15T02:17:03Z [INFO]  🔧 [Step 4] grep_search → pattern="SOLUTIONS_WEBHOOK" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:17:03Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T02:17:04Z [INFO]  🔧 [Step 4] grep_search → pattern="captchas" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:04Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:05Z [INFO]  🔧 [Step 3] grep_search → pattern="forgedReviewChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:17:05Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:17:05Z [INFO]     📤 Result submitted (submit 4.572s)
+2026-10-15T02:17:05Z [INFO]     📤 Result submitted (submit 4.527s)
+2026-10-15T02:17:06Z [INFO]     📤 Result submitted (submit 4.472s)
+2026-10-15T02:17:06Z [INFO]     📤 Result submitted (submit 4.059s)
+2026-10-15T02:17:06Z [INFO]     📤 Result submitted (submit 4.82s)
+2026-10-15T02:17:07Z [INFO]     📤 Result submitted (submit 4.506s)
+2026-10-15T02:17:07Z [INFO]     📤 Result submitted (submit 4.663s)
+2026-10-15T02:17:07Z [INFO]  ✅ Completed 2 tool steps in 48s | Tokens: 21k in / 942 out / 24k total
+[5/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/basket.ts (48.1s) | 24.9k tok - 1 vulnerabilities
+2026-10-15T02:17:07Z [INFO]  🔧 [Step 3] grep_search → pattern="persistedXssUserChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:17:07Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:17:08Z [INFO]     📤 Result submitted (submit 4.564s)
+2026-10-15T02:17:08Z [INFO]     📤 Result submitted (submit 4.401s)
+2026-10-15T02:17:10Z [INFO]     📤 Result submitted (submit 4.784s)
+2026-10-15T02:17:10Z [INFO]  🔧 [Step 5] read_file → …/juice-shop-high-risk/routes/basketItems.ts
+2026-10-15T02:17:10Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:10Z [INFO]  🔧 [Step 4] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:10Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:17:12Z [INFO]     📤 Result submitted (submit 4.575s)
+2026-10-15T02:17:13Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/PROJECT_FILE_INDEX.md
+2026-10-15T02:17:13Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:17:14Z [INFO]     📤 Result submitted (submit 4.681s)
+2026-10-15T02:17:15Z [INFO]  🔧 [Step 5] grep_search → pattern="persistedXssFeedbackChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:17:15Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:17:15Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/routes/verify.ts
+2026-10-15T02:17:15Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:17:15Z [INFO]     📤 Result submitted (submit 5.136s)
+2026-10-15T02:17:15Z [INFO]  🔧 [Step 5] grep_search → pattern="captcha" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:17:15Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 1ms)
+2026-10-15T02:17:15Z [INFO]  🔧 [Step 5] grep_search → pattern="['\"]\\./webhook['\"]" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:17:16Z [INFO]     ✅ Tool completed: grep_search (took 18ms)
+2026-10-15T02:17:18Z [INFO]  🔧 [Step 4] grep_search → pattern="forgedReviewChallenge" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:17:18Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:17:18Z [INFO]     📤 Result submitted (submit 5.258s)
+2026-10-15T02:17:18Z [INFO]  🔧 [Step 4] grep_search → pattern="lfrChallenge" path=…/juice-shop-high-risk/data/datacache.ts
+2026-10-15T02:17:18Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/datacache.ts: no such file or directory (took 0s)
+2026-10-15T02:17:19Z [INFO]  🔧 [Step 3] grep_search → pattern="decode\\(" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:17:19Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:17:20Z [INFO]     📤 Result submitted (submit 4.687s)
+2026-10-15T02:17:20Z [INFO]     📤 Result submitted (submit 4.891s)
+2026-10-15T02:17:20Z [INFO]     📤 Result submitted (submit 4.439s)
+2026-10-15T02:17:20Z [INFO]     📤 Result submitted (submit 4.652s)
+2026-10-15T02:17:21Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:17:21Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:21Z [INFO]  🔧 [Step 5] grep_search → pattern="BasketItem" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:21Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:22Z [INFO]     📤 Result submitted (submit 4.681s)
+2026-10-15T02:17:23Z [INFO]  🔧 [Step 6] grep_search → pattern="b2bOrder" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:23Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:23Z [INFO]     📤 Result submitted (submit 4.965s)
+2026-10-15T02:17:23Z [INFO]  🔧 [Step 1] grep_search → pattern="upgradeToDeluxe" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:23Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:24Z [INFO]  🔧 [Step 6] grep_search → pattern="persistedXssFeedbackChallenge" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:17:24Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:17:24Z [INFO]     📤 Result submitted (submit 4.678s)
+2026-10-15T02:17:25Z [INFO]     📤 Result submitted (submit 4.821s)
+2026-10-15T02:17:26Z [INFO]     📤 Result submitted (submit 4.719s)
+2026-10-15T02:17:27Z [INFO]  🔧 [Step 6] list_dir → …/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:17:27Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T02:17:27Z [INFO]  🔧 [Step 5] grep_search → pattern="lfrChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:17:27Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:17:28Z [INFO]     📤 Result submitted (submit 4.145s)
+2026-10-15T02:17:28Z [INFO]     📤 Result submitted (submit 5.272s)
+2026-10-15T02:17:28Z [INFO]     📤 Result submitted (submit 4.637s)
+2026-10-15T02:17:29Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:17:29Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:29Z [INFO]  🔧 [Step 5] grep_search → pattern="createProductReviews" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:29Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:30Z [INFO]  🔧 [Step 4] grep_search → pattern="2fa" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:17:30Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:17:31Z [INFO]     📤 Result submitted (submit 4.524s)
+2026-10-15T02:17:32Z [INFO]     📤 Result submitted (submit 4.488s)
+2026-10-15T02:17:32Z [INFO]  🔧 [Step 6] grep_search → pattern="download" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:17:32Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:32Z [INFO]  🔧 [Step 4] grep_search → pattern="res.json.*user" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:17:32Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:17:34Z [INFO]     📤 Result submitted (submit 4.697s)
+2026-10-15T02:17:34Z [INFO]     📤 Result submitted (submit 4.845s)
+2026-10-15T02:17:34Z [INFO]  🔧 [Step 7] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:34Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:17:35Z [INFO]  🔧 [Step 7] grep_search → pattern="persistedXssFeedbackChallenge" path=…/scoped_targets/juice-shop-high-risk/models
+2026-10-15T02:17:35Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:35Z [INFO]     📤 Result submitted (submit 5.015s)
+2026-10-15T02:17:35Z [INFO]  🔧 [Step 7] read_file → …/juice-shop-high-risk/models/captcha.ts
+2026-10-15T02:17:35Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_13_high_risk_deep_optimal/artifacts/ChA3NGI3MmRlZGQ1ZTc0OWYwEAgaATAqBG1haW4/captcha.ts: no such file or directory (took 0s)
+2026-10-15T02:17:37Z [INFO]     📤 Result submitted (submit 4.564s)
+2026-10-15T02:17:37Z [INFO]     📤 Result submitted (submit 4.799s)
+2026-10-15T02:17:38Z [INFO]  🔧 [Step 4] grep_search → pattern="persistedXssUserChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:17:38Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:17:38Z [INFO]  🔧 [Step 6] grep_search → pattern="webhook" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:17:38Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T02:17:38Z [INFO]     📤 Result submitted (submit 4.366s)
+2026-10-15T02:17:39Z [INFO]     📤 Result submitted (submit 4.308s)
+2026-10-15T02:17:39Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:39Z [INFO]  🔧 [Step 6] grep_search → pattern="finale" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:39Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:39Z [INFO]     📤 Result submitted (submit 4.49s)
+2026-10-15T02:17:40Z [INFO]  🔧 [Step 5] grep_search → pattern="2fa|totp|tmpToken" path=…/juice-shop-high-risk/routes/login.ts
+2026-10-15T02:17:40Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:41Z [INFO]  🔧 [Step 6] grep_search → pattern="lfrChallenge" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:17:41Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:17:42Z [INFO]     📤 Result submitted (submit 4.881s)
+2026-10-15T02:17:43Z [INFO]     📤 Result submitted (submit 4.378s)
+2026-10-15T02:17:44Z [INFO]  🔧 [Step 2] grep_search → pattern="coupon" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:44Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:17:44Z [INFO]     📤 Result submitted (submit 4.295s)
+2026-10-15T02:17:44Z [INFO]     📤 Result submitted (submit 4.935s)
+2026-10-15T02:17:44Z [INFO]     📤 Result submitted (submit 4.972s)
+2026-10-15T02:17:44Z [INFO]  🔧 [Step 4] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:17:44Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:45Z [INFO]     📤 Result submitted (submit 4.501s)
+2026-10-15T02:17:46Z [INFO]  🔧 [Step 4] grep_search → pattern="dataExportChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:17:46Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:17:48Z [INFO]  🔧 [Step 4] read_file → …/juice-shop-high-risk/routes/metrics.ts
+2026-10-15T02:17:48Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_13_high_risk_deep_optimal/artifacts/ChAzNmUzNGJhNDg5MGIzODljEAgaATAqBG1haW4/metrics.ts: no such file or directory (took 0s)
+2026-10-15T02:17:48Z [INFO]  🔧 [Step 7] read_file → …/scoped_targets/juice-shop-high-risk/PROJECT_FILE_INDEX.md
+2026-10-15T02:17:48Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:48Z [INFO]  🔧 [Step 5] list_dir → …/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:17:48Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T02:17:49Z [INFO]     📤 Result submitted (submit 4.775s)
+2026-10-15T02:17:49Z [INFO]     📤 Result submitted (submit 4.695s)
+2026-10-15T02:17:50Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/routes/login.ts
+2026-10-15T02:17:50Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:51Z [INFO]  🔧 [Step 8] grep_search → pattern="captcha" path=…/scoped_targets/juice-shop-high-risk/PROJECT_FILE_INDEX.md
+2026-10-15T02:17:51Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T02:17:51Z [INFO]  🔧 [Step 7] grep_search → pattern="parseJsonCustom" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:17:51Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:17:51Z [INFO]     📤 Result submitted (submit 5.679s)
+2026-10-15T02:17:52Z [INFO]     📤 Result submitted (submit 4.375s)
+2026-10-15T02:17:53Z [INFO]     📤 Result submitted (submit 4.768s)
+2026-10-15T02:17:53Z [INFO]     📤 Result submitted (submit 5.217s)
+2026-10-15T02:17:54Z [INFO]  🔧 [Step 7] grep_search → pattern="forgedReview" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:17:54Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:17:55Z [INFO]     📤 Result submitted (submit 4.739s)
+2026-10-15T02:17:55Z [INFO]     📤 Result submitted (submit 4.466s)
+2026-10-15T02:17:56Z [INFO]     📤 Result submitted (submit 4.531s)
+2026-10-15T02:17:56Z [INFO]  🔧 [Step 7] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:17:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:17:58Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:17:58Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:17:59Z [INFO]     📤 Result submitted (submit 4.543s)
+2026-10-15T02:17:59Z [INFO]  🔧 [Step 5] grep_search → pattern="dataExportChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:17:59Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:18:01Z [INFO]     📤 Result submitted (submit 4.706s)
+2026-10-15T02:18:03Z [INFO]  🔧 [Step 7] grep_search → pattern="2fa|twoFactor" path=…/data/static/challenges.json
+2026-10-15T02:18:03Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 1ms)
+2026-10-15T02:18:03Z [INFO]     📤 Result submitted (submit 4.569s)
+2026-10-15T02:18:03Z [INFO]  ✅ Completed 7 tool steps in 1m44s | Tokens: 59k in / 1k out / 64k total
+[6/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/b2bOrder.ts (1m44.2s) | 64.3k tok - 1 vulnerabilities
+2026-10-15T02:18:03Z [INFO]     📤 Result submitted (submit 4.366s)
+2026-10-15T02:18:04Z [INFO]  ✅ Completed 7 tool steps in 1m45s | Tokens: 43k in / 223 out / 45k total
+[7/49 batches] ✅ scoped_targets/juice-shop-high-risk/lib/webhook.ts (1m44.7s) | 45.7k tok - 0 vulnerabilities
+2026-10-15T02:18:07Z [INFO]  🔧 [Step 6] grep_search → pattern="export const challenges" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:18:07Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:18:07Z [INFO]     📤 Result submitted (submit 4.805s)
+2026-10-15T02:18:08Z [INFO]  🔧 [Step 8] grep_search → pattern="forgedReviewChallenge" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:18:08Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:08Z [INFO]  🔧 [Step 7] grep_search → pattern="lfrChallenge" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:18:09Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:09Z [INFO]  🔧 [Step 9] read_file → …/scoped_targets/juice-shop-high-risk/PROJECT_FILE_INDEX.md
+2026-10-15T02:18:09Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting read_file
+2026-10-15T02:18:10Z [INFO]  🔧 [Step 7] grep_search → pattern="email" path=…/scoped_targets/juice-shop-high-risk/views
+2026-10-15T02:18:10Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:12Z [INFO]     📤 Result submitted (submit 4.875s)
+2026-10-15T02:18:13Z [INFO]  🔧 [Step 3] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:18:13Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:18:13Z [INFO]     📤 Result submitted (submit 4.651s)
+2026-10-15T02:18:13Z [INFO]     📤 Result submitted (submit 4.651s)
+2026-10-15T02:18:13Z [INFO]  🔧 [Step 8] grep_search → pattern="twoFactorAuth" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:18:13Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:18:14Z [INFO]  🔧 [Step 5] grep_search → pattern="jsonwebtoken" path=…/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:18:14Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T02:18:14Z [INFO]     📤 Result submitted (submit 4.639s)
+2026-10-15T02:18:15Z [INFO]     📤 Result submitted (submit 4.763s)
+2026-10-15T02:18:17Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/views/dataErasureResult.hbs
+2026-10-15T02:18:17Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:18:18Z [INFO]     📤 Result submitted (submit 4.974s)
+2026-10-15T02:18:18Z [INFO]     📤 Result submitted (submit 4.471s)
+2026-10-15T02:18:18Z [INFO]  🔧 [Step 9] grep_search → pattern="forgedReviewChallenge" path=…/scoped_targets/juice-shop-high-risk/models
+2026-10-15T02:18:18Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T02:18:18Z [INFO]     📤 Result submitted (submit 4.438s)
+2026-10-15T02:18:18Z [INFO]  🔧 [Step 7] grep_search → pattern="dataExportChallenge" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:18:18Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:20Z [INFO]  ✅ Completed 4 tool steps in 2m1s | Tokens: 55k in / 1k out / 66k total
+[8/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/changePassword.ts (2m1s) | 66.1k tok - 1 vulnerabilities
+2026-10-15T02:18:20Z [INFO]  🔧 [Step 1] grep_search → pattern="cutOffPoisonNullByte" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:18:20Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:21Z [INFO]  🔧 [Step 8] grep_search → pattern="parseJsonCustom" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:18:21Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T02:18:22Z [INFO]     📤 Result submitted (submit 4.916s)
+2026-10-15T02:18:22Z [INFO]     📤 Result submitted (submit 4.216s)
+2026-10-15T02:18:22Z [INFO]  🔧 [Step 9] grep_search → pattern="twoFactorAuth" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:18:22Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T02:18:23Z [INFO]     📤 Result submitted (submit 4.676s)
+2026-10-15T02:18:23Z [INFO]  🔧 [Step 8] grep_search → pattern="basketManipulateChallenge" path=…/data/static/challenges.json
+2026-10-15T02:18:23Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 0s)
+2026-10-15T02:18:25Z [INFO]     📤 Result submitted (submit 4.445s)
+2026-10-15T02:18:26Z [INFO]     📤 Result submitted (submit 4.688s)
+2026-10-15T02:18:27Z [INFO]  ✅ Completed 7 tool steps in 2m8s | Tokens: 63k in / 952 out / 68k total
+[9/49 batches] 🚨 scoped_targets/juice-shop-high-risk/models/feedback.ts (2m7.8s) | 68.6k tok - 1 vulnerabilities
+2026-10-15T02:18:27Z [INFO]     📤 Result submitted (submit 4.903s)
+2026-10-15T02:18:28Z [INFO]     📤 Result submitted (submit 4.878s)
+2026-10-15T02:18:37Z [INFO]  🔧 [Step 6] grep_search → pattern="hmac" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:18:37Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:18:37Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:18:37Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T02:18:38Z [INFO]  🔧 [Step 1] grep_search → pattern="parseXmlString" path=…/juice-shop-high-risk/lib/xml.ts
+2026-10-15T02:18:38Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/lib/xml.ts: no such file or directory (took 0s)
+2026-10-15T02:18:38Z [INFO]  🔧 [Step 8] grep_search → pattern="ordersCollection" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:18:38Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:18:39Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:18:39Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:18:39Z [INFO]  ✅ Completed 8 tool steps in 2m20s | Tokens: 144k in / 258 out / 148k total
+[10/49 batches] ✅ scoped_targets/juice-shop-high-risk/lib/utils.ts (2m20.2s) | 148.7k tok - 0 vulnerabilities
+2026-10-15T02:18:40Z [INFO]  ✅ Completed 9 tool steps in 2m21s | Tokens: 79k in / 1k out / 84k total
+[11/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/captcha.ts (2m21.2s) | 84.4k tok - 2 vulnerabilities
+[12/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/easterEgg.ts (36.3s) | 7.8k tok - 0 vulnerabilities
+2026-10-15T02:18:42Z [INFO]  🔧 [Step 4] grep_search → pattern="\\/rest\\/basket" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:18:42Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:42Z [INFO]     📤 Result submitted (submit 4.687s)
+2026-10-15T02:18:42Z [INFO]     📤 Result submitted (submit 4.72s)
+2026-10-15T02:18:43Z [INFO]     📤 Result submitted (submit 4.845s)
+2026-10-15T02:18:44Z [INFO]     📤 Result submitted (submit 5.898s)
+2026-10-15T02:18:44Z [INFO]     📤 Result submitted (submit 4.6s)
+2026-10-15T02:18:46Z [INFO]     📤 Result submitted (submit 4.63s)
+2026-10-15T02:18:47Z [INFO]  🔧 [Step 2] grep_search → pattern="parseXmlString" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:18:47Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:48Z [INFO]  🔧 [Step 9] grep_search → pattern="quantity" path=…/juice-shop-high-risk/models/basketitem.ts
+2026-10-15T02:18:48Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T02:18:48Z [INFO]  🔧 [Step 1] grep_search → pattern="serveKeyFiles" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:18:48Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:50Z [INFO]  🔧 [Step 1] grep_search → pattern="serveLogFiles" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:18:50Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:18:50Z [INFO]  ✅ Completed 9 tool steps in 2m19s | Tokens: 83k in / 962 out / 86k total
+[13/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/createProductReviews.ts (2m18.7s) | 86.8k tok - 1 vulnerabilities
+2026-10-15T02:18:52Z [INFO]     📤 Result submitted (submit 4.713s)
+2026-10-15T02:18:53Z [INFO]     📤 Result submitted (submit 5.195s)
+2026-10-15T02:18:53Z [INFO]     📤 Result submitted (submit 4.678s)
+2026-10-15T02:18:53Z [INFO]  🔧 [Step 1] grep_search → pattern="reviewsCollection" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:18:53Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:18:55Z [INFO]     📤 Result submitted (submit 4.959s)
+2026-10-15T02:18:56Z [INFO]  ✅ Completed 7 tool steps in 2m37s | Tokens: 81k in / 745 out / 87k total
+[14/49 batches] 🚨 scoped_targets/juice-shop-high-risk/models/user.ts (2m36.6s) | 87.5k tok - 1 vulnerabilities
+2026-10-15T02:18:58Z [INFO]     📤 Result submitted (submit 4.661s)
+2026-10-15T02:19:00Z [INFO]  🔧 [Step 3] grep_search → pattern="servePublicFiles" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:00Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T02:19:00Z [INFO]  🔧 [Step 1] grep_search → pattern="imageCaptcha" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:19:00Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T02:19:00Z [INFO]  🔧 [Step 7] grep_search → pattern="security\\.hash" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:19:00Z [INFO]     ✅ Tool completed: grep_search (took 19ms)
+2026-10-15T02:19:04Z [INFO]     📤 Result submitted (submit 4.767s)
+2026-10-15T02:19:05Z [INFO]     📤 Result submitted (submit 4.819s)
+2026-10-15T02:19:05Z [INFO]     📤 Result submitted (submit 5.336s)
+2026-10-15T02:19:07Z [INFO]  🔧 [Step 2] grep_search → pattern="keyServer|encryptionkeys" path=…/data/static/challenges.json
+2026-10-15T02:19:07Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 1ms)
+2026-10-15T02:19:09Z [INFO]  🔧 [Step 2] grep_search → pattern="accessLogDisclosureChallenge" path=…/data/static/challenges.json
+2026-10-15T02:19:09Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 0s)
+2026-10-15T02:19:11Z [INFO]  🔧 [Step 2] grep_search → pattern="verifyImageCaptcha" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:11Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:12Z [INFO]  🔧 [Step 3] grep_search → pattern="parseXmlString" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:19:12Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:19:12Z [INFO]  🔧 [Step 1] grep_search → pattern="UserId" path=…/juice-shop-high-risk/models/basket.ts
+2026-10-15T02:19:12Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/models/basket.ts: no such file or directory (took 0s)
+2026-10-15T02:19:12Z [INFO]     📤 Result submitted (submit 4.669s)
+2026-10-15T02:19:14Z [INFO]     📤 Result submitted (submit 4.991s)
+2026-10-15T02:19:16Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:19:16Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:19:16Z [INFO]  🔧 [Step 3] grep_search → pattern="keyServer|encryptionkeys" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:19:16Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:19:16Z [INFO]     📤 Result submitted (submit 4.523s)
+2026-10-15T02:19:16Z [INFO]     📤 Result submitted (submit 5.234s)
+2026-10-15T02:19:16Z [INFO]  ✅ Completed 8 tool steps in 2m45s | Tokens: 75k in / 1k out / 81k total
+[15/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/dataErasure.ts (2m44.6s) | 81.2k tok - 1 vulnerabilities
+2026-10-15T02:19:17Z [INFO]     📤 Result submitted (submit 4.864s)
+2026-10-15T02:19:20Z [INFO]     📤 Result submitted (submit 4.706s)
+2026-10-15T02:19:21Z [INFO]     📤 Result submitted (submit 5.238s)
+2026-10-15T02:19:21Z [INFO]  🔧 [Step 3] grep_search → pattern="imageCaptchas" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:21Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:21Z [INFO]  🔧 [Step 3] grep_search → pattern="accessLogDisclosureChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:19:21Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:19:22Z [INFO]  🔧 [Step 2] grep_search → pattern="placeOrder" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:19:22Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T02:19:25Z [INFO]  🔧 [Step 1] grep_search → pattern="payment" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:25Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:26Z [INFO]     📤 Result submitted (submit 4.549s)
+2026-10-15T02:19:26Z [INFO]     📤 Result submitted (submit 4.71s)
+2026-10-15T02:19:27Z [INFO]     📤 Result submitted (submit 4.933s)
+2026-10-15T02:19:30Z [INFO]     📤 Result submitted (submit 4.979s)
+2026-10-15T02:19:31Z [INFO]  🔧 [Step 4] grep_search → pattern="encryptionkeys" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:19:31Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:19:31Z [INFO]  🔧 [Step 4] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:31Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:19:31Z [INFO]  🔧 [Step 3] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:31Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:19:35Z [INFO]  🔧 [Step 4] list_dir → …/scoped_targets/juice-shop-high-risk/ftp
+2026-10-15T02:19:35Z [WARN]     ⚠️ Tool error: list_dir: readdir error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/ftp: no such file or directory (took 0s)
+2026-10-15T02:19:36Z [INFO]     📤 Result submitted (submit 4.766s)
+2026-10-15T02:19:36Z [INFO]  🔧 [Step 8] grep_search → pattern="sanitizeLegacy" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:19:36Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:19:36Z [INFO]     📤 Result submitted (submit 4.804s)
+2026-10-15T02:19:36Z [INFO]     📤 Result submitted (submit 4.898s)
+2026-10-15T02:19:37Z [INFO]  🔧 [Step 5] grep_search → pattern="BasketModel" path=…/juice-shop-high-risk/routes/basket.ts
+2026-10-15T02:19:37Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:38Z [INFO]  🔧 [Step 4] grep_search → pattern="accessLog" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:38Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:38Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:19:38Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:40Z [INFO]  ✅ Completed 9 tool steps in 3m21s | Tokens: 133k in / 2k out / 146k total
+[16/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/2fa.ts (3m20.8s) | 146.9k tok - 2 vulnerabilities
+2026-10-15T02:19:40Z [INFO]     📤 Result submitted (submit 5.456s)
+2026-10-15T02:19:41Z [INFO]     📤 Result submitted (submit 4.796s)
+2026-10-15T02:19:42Z [INFO]     📤 Result submitted (submit 4.881s)
+2026-10-15T02:19:42Z [INFO]     📤 Result submitted (submit 4.508s)
+2026-10-15T02:19:42Z [INFO]  🔧 [Step 4] grep_search → pattern="basket" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:42Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:42Z [INFO]  ✅ Completed 8 tool steps in 3m4s | Tokens: 73k in / 1k out / 82k total
+[17/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/dataExport.ts (3m3.7s) | 82.2k tok - 1 vulnerabilities
+2026-10-15T02:19:42Z [INFO]     📤 Result submitted (submit 4.783s)
+2026-10-15T02:19:48Z [INFO]     📤 Result submitted (submit 5.57s)
+2026-10-15T02:19:48Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:19:48Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[18/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/login.ts (57.4s) | 20.1k tok - 1 vulnerabilities
+2026-10-15T02:19:51Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/routes/basket.ts
+2026-10-15T02:19:51Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:19:51Z [INFO]  🔧 [Step 1] grep_search → pattern="profileImageFileUpload" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:19:51Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:53Z [INFO]     📤 Result submitted (submit 4.629s)
+2026-10-15T02:19:55Z [INFO]  🔧 [Step 5] grep_search → pattern="eastere.gg" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:19:55Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:19:56Z [INFO]  🔧 [Step 5] grep_search → pattern="appendUserId" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:19:56Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:19:56Z [INFO]     📤 Result submitted (submit 4.836s)
+2026-10-15T02:19:56Z [INFO]  ✅ Completed 9 tool steps in 3m37s | Tokens: 144k in / 2k out / 157k total
+[19/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/basketItems.ts (3m36.9s) | 157.2k tok - 2 vulnerabilities
+2026-10-15T02:19:56Z [INFO]     📤 Result submitted (submit 5.478s)
+2026-10-15T02:19:57Z [INFO]  🔧 [Step 4] list_dir → …/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:19:57Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T02:20:00Z [INFO]  🔧 [Step 4] grep_search → pattern="Cards" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:20:00Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:20:00Z [INFO]     📤 Result submitted (submit 5.062s)
+2026-10-15T02:20:00Z [INFO]     📤 Result submitted (submit 4.875s)
+2026-10-15T02:20:02Z [INFO]  🔧 [Step 5] grep_search → pattern="serveKeyFiles" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:20:02Z [INFO]  🔧 [Step 2] grep_search → pattern="file-type" path=…/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:20:02Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T02:20:02Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T02:20:03Z [INFO]  🔧 [Step 1] grep_search → pattern="serveQuarantineFiles" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:20:03Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:20:03Z [INFO]     📤 Result submitted (submit 6.165s)
+2026-10-15T02:20:05Z [INFO]  🔧 [Step 6] grep_search → pattern="eastere\\.gg" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:20:05Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T02:20:05Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:20:05Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:20:06Z [INFO]  ✅ Completed 3 tool steps in 2m57s | Tokens: 35k in / 1k out / 40k total
+[20/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/deluxe.ts (2m57.1s) | 41.0k tok - 1 vulnerabilities
+2026-10-15T02:20:06Z [INFO]     📤 Result submitted (submit 5.55s)
+2026-10-15T02:20:07Z [INFO]     📤 Result submitted (submit 4.672s)
+2026-10-15T02:20:07Z [INFO]  🔧 [Step 2] list_dir → …/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:20:07Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T02:20:08Z [INFO]     📤 Result submitted (submit 4.769s)
+2026-10-15T02:20:08Z [INFO]     📤 Result submitted (submit 5.404s)
+2026-10-15T02:20:10Z [INFO]     📤 Result submitted (submit 4.868s)
+2026-10-15T02:20:10Z [INFO]     📤 Result submitted (submit 5.058s)
+2026-10-15T02:20:12Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:20:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:20:12Z [INFO]     📤 Result submitted (submit 4.669s)
+2026-10-15T02:20:12Z [INFO]  🔧 [Step 5] grep_search → pattern="parseXmlString" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:20:12Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T02:20:12Z [INFO]  🔧 [Step 6] grep_search → pattern="encryptionkeys" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:20:12Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T02:20:14Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:20:14Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:20:16Z [INFO]     📤 Result submitted (submit 4.594s)
+2026-10-15T02:20:17Z [INFO]  🔧 [Step 3] grep_search → pattern="profileImageFileUpload" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:20:17Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:20:17Z [INFO]  🔧 [Step 5] grep_search → pattern="Cards" path=…/data/static/challenges.yml
+2026-10-15T02:20:17Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.yml: no such file or directory (took 0s)
+2026-10-15T02:20:17Z [INFO]     📤 Result submitted (submit 4.567s)
+[21/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/profileImageUrlUpload.ts (33.2s) | 16.5k tok - 1 vulnerabilities
+2026-10-15T02:20:17Z [INFO]     📤 Result submitted (submit 4.888s)
+2026-10-15T02:20:18Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:20:18Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:20:19Z [INFO]  🔧 [Step 7] grep_search → pattern="BasketModel" path=…/scoped_targets/juice-shop-high-risk/models
+2026-10-15T02:20:19Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T02:20:19Z [INFO]     📤 Result submitted (submit 5.224s)
+2026-10-15T02:20:21Z [INFO]     📤 Result submitted (submit 4.68s)
+2026-10-15T02:20:22Z [INFO]     📤 Result submitted (submit 5.278s)
+2026-10-15T02:20:22Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:20:22Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:20:23Z [INFO]  🔧 [Step 6] grep_search → pattern="servePublicFiles" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:20:23Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:20:23Z [INFO]     📤 Result submitted (submit 4.849s)
+2026-10-15T02:20:24Z [INFO]     📤 Result submitted (submit 5.021s)
+2026-10-15T02:20:26Z [INFO]  🔧 [Step 7] list_dir → …/scoped_targets/juice-shop-high-risk/encryptionkeys
+2026-10-15T02:20:26Z [WARN]     ⚠️ Tool error: list_dir: readdir error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/encryptionkeys: no such file or directory (took 0s)
+2026-10-15T02:20:27Z [INFO]     📤 Result submitted (submit 5.019s)
+2026-10-15T02:20:27Z [INFO]  🔧 [Step 4] grep_search → pattern="profileImage" path=…/data/static/challenges.json
+2026-10-15T02:20:27Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 1ms)
+2026-10-15T02:20:27Z [INFO]  ✅ Completed 4 tool steps in 4m8s | Tokens: 396k in / 3k out / 419k total
+[22/49 batches] 🚨 scoped_targets/juice-shop-high-risk/server.ts (4m8.1s) | 419.6k tok - 7 vulnerabilities
+2026-10-15T02:20:28Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/routes/basket.ts
+2026-10-15T02:20:28Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:20:28Z [INFO]     📤 Result submitted (submit 5.506s)
+2026-10-15T02:20:30Z [INFO]  🔧 [Step 6] grep_search → pattern="getPaymentMethod" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:20:30Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:20:31Z [INFO]     📤 Result submitted (submit 5.289s)
+2026-10-15T02:20:32Z [INFO]  🔧 [Step 7] grep_search → pattern="serveKeyFiles" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:20:32Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T02:20:32Z [INFO]     📤 Result submitted (submit 5.157s)
+2026-10-15T02:20:33Z [INFO]  🔧 [Step 7] grep_search → pattern="discountFromCoupon" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:20:33Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:20:33Z [INFO]     📤 Result submitted (submit 5.081s)
+2026-10-15T02:20:35Z [INFO]  🔧 [Step 8] list_dir → …/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:20:35Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T02:20:36Z [INFO]     📤 Result submitted (submit 5.73s)
+2026-10-15T02:20:36Z [INFO]  🔧 [Step 3] grep_search → pattern="quarantine" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:20:36Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:20:37Z [INFO]     📤 Result submitted (submit 5.438s)
+2026-10-15T02:20:38Z [INFO]  🔧 [Step 5] grep_search → pattern="profileImage" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:20:38Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:20:38Z [INFO]     📤 Result submitted (submit 5.248s)
+2026-10-15T02:20:40Z [INFO]  🔧 [Step 7] grep_search → pattern="quarantine" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:20:40Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:20:40Z [INFO]  🔧 [Step 1] grep_search → pattern="reviewsCollection" path=…/juice-shop-high-risk/data/mongodb.ts
+2026-10-15T02:20:40Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/mongodb.ts: no such file or directory (took 0s)
+2026-10-15T02:20:41Z [INFO]     📤 Result submitted (submit 5.356s)
+2026-10-15T02:20:41Z [INFO]     📤 Result submitted (submit 5.868s)
+2026-10-15T02:20:41Z [INFO]  🔧 [Step 7] grep_search → pattern="yaml" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:20:41Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:20:42Z [INFO]  🔧 [Step 7] grep_search → pattern="getPaymentMethod" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:20:42Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:20:42Z [INFO]  🔧 [Step 1] grep_search → pattern="resetPassword" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:20:42Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:20:42Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:20:42Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:20:42Z [INFO]     📤 Result submitted (submit 4.863s)
+[23/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/search.ts (25s) | 14.9k tok - 1 vulnerabilities
+2026-10-15T02:20:43Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/routes/keyServer.ts
+2026-10-15T02:20:43Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:20:45Z [INFO]     📤 Result submitted (submit 5.283s)
+2026-10-15T02:20:46Z [INFO]     📤 Result submitted (submit 5.605s)
+2026-10-15T02:20:46Z [INFO]     📤 Result submitted (submit 4.628s)
+2026-10-15T02:20:47Z [INFO]     📤 Result submitted (submit 4.995s)
+2026-10-15T02:20:47Z [INFO]  🔧 [Step 4] grep_search → pattern="quarantine" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:20:47Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:20:47Z [INFO]     📤 Result submitted (submit 5.204s)
+2026-10-15T02:20:47Z [INFO]     📤 Result submitted (submit 4.873s)
+2026-10-15T02:20:47Z [INFO]  🔧 [Step 6] grep_search → pattern="profileImage" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:20:47Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:20:48Z [INFO]  🔧 [Step 9] read_file → …/juice-shop-high-risk/routes/fileServer.ts
+2026-10-15T02:20:48Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting read_file
+2026-10-15T02:20:48Z [INFO]     📤 Result submitted (submit 4.743s)
+2026-10-15T02:20:51Z [INFO]  🔧 [Step 2] grep_search → pattern="reviewsCollection" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:20:51Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:20:52Z [INFO]     📤 Result submitted (submit 4.926s)
+2026-10-15T02:20:52Z [INFO]     📤 Result submitted (submit 4.827s)
+2026-10-15T02:20:53Z [INFO]     📤 Result submitted (submit 4.599s)
+2026-10-15T02:20:53Z [INFO]  🔧 [Step 8] grep_search → pattern="payment" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:20:53Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T02:20:55Z [INFO]  🔧 [Step 8] grep_search → pattern="fileUpload" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:20:55Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:20:56Z [INFO]     📤 Result submitted (submit 4.695s)
+2026-10-15T02:20:56Z [INFO]  🔧 [Step 2] grep_search → pattern="resetPassword" path=…/data/static/challenges.json
+2026-10-15T02:20:56Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 0s)
+2026-10-15T02:20:57Z [INFO]  🔧 [Step 5] grep_search → pattern="quarantine" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:20:57Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:20:58Z [INFO]     📤 Result submitted (submit 4.747s)
+2026-10-15T02:20:59Z [INFO]     📤 Result submitted (submit 4.714s)
+2026-10-15T02:21:01Z [INFO]     📤 Result submitted (submit 4.672s)
+2026-10-15T02:21:01Z [INFO]  🔧 [Step 3] grep_search → pattern="reviewsCollection" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:21:01Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T02:21:02Z [INFO]  🔧 [Step 7] grep_search → pattern="csrf" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:21:02Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:02Z [INFO]     📤 Result submitted (submit 5.183s)
+2026-10-15T02:21:02Z [INFO]  ✅ Completed 1 tool steps in 1m4s | Tokens: 15k in / 866 out / 19k total
+[24/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/redirect.ts (1m4.3s) | 19.4k tok - 1 vulnerabilities
+2026-10-15T02:21:03Z [INFO]  🔧 [Step 1] grep_search → pattern="ordersCollection" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:21:03Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:21:04Z [INFO]  🔧 [Step 9] read_file → …/juice-shop-high-risk/models/card.ts
+2026-10-15T02:21:04Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting read_file
+2026-10-15T02:21:05Z [INFO]  🔧 [Step 9] list_dir → …/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:21:05Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting list_dir
+2026-10-15T02:21:06Z [INFO]     📤 Result submitted (submit 5.628s)
+2026-10-15T02:21:08Z [INFO]     📤 Result submitted (submit 5.494s)
+2026-10-15T02:21:08Z [INFO]  🔧 [Step 5] grep_search → pattern="captcha" path=…/data/static/challenges.json
+2026-10-15T02:21:08Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 0s)
+2026-10-15T02:21:08Z [INFO]     📤 Result submitted (submit 4.779s)
+2026-10-15T02:21:09Z [INFO]     📤 Result submitted (submit 4.858s)
+2026-10-15T02:21:09Z [INFO]     📤 Result submitted (submit 4.51s)
+2026-10-15T02:21:12Z [INFO]  🔧 [Step 4] grep_search → pattern="reviewsCollection =" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:21:12Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:21:12Z [INFO]  🔧 [Step 2] grep_search → pattern="ordersCollection" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:21:12Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T02:21:12Z [INFO]     📤 Result submitted (submit 4.671s)
+2026-10-15T02:21:13Z [INFO]  🔧 [Step 6] grep_search → pattern="servePublicFiles" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:21:13Z [INFO]  🔧 [Step 1] grep_search → pattern="updateProductReviews" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:21:13Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T02:21:13Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T02:21:14Z [INFO]  ✅ Completed 8 tool steps in 4m55s | Tokens: 238k in / 3k out / 255k total
+[25/49 batches] 🚨 scoped_targets/juice-shop-high-risk/lib/insecurity.ts (4m55.4s) | 255.8k tok - 5 vulnerabilities
+2026-10-15T02:21:17Z [INFO]     📤 Result submitted (submit 4.789s)
+2026-10-15T02:21:17Z [INFO]     📤 Result submitted (submit 4.945s)
+2026-10-15T02:21:18Z [INFO]     📤 Result submitted (submit 4.688s)
+2026-10-15T02:21:18Z [INFO]     📤 Result submitted (submit 4.897s)
+2026-10-15T02:21:19Z [INFO]  🔧 [Step 3] grep_search → pattern="resetPassword" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:21:19Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:21:20Z [INFO]  🔧 [Step 8] grep_search → pattern="profileImage" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:21:20Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:21Z [INFO]  ✅ Completed 9 tool steps in 2m3s | Tokens: 72k in / 293 out / 75k total
+[26/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/payment.ts (2m3.3s) | 75.7k tok - 0 vulnerabilities
+2026-10-15T02:21:23Z [INFO]  🔧 [Step 3] grep_search → pattern="marsdb" path=…/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:21:23Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:23Z [INFO]  🔧 [Step 7] read_file → …/juice-shop-high-risk/routes/fileServer.ts
+2026-10-15T02:21:23Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:21:24Z [INFO]  🔧 [Step 2] grep_search → pattern="updateProductReviews" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:21:24Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:24Z [INFO]     📤 Result submitted (submit 4.781s)
+2026-10-15T02:21:24Z [INFO]     📤 Result submitted (submit 4.706s)
+2026-10-15T02:21:25Z [INFO]  🔧 [Step 5] grep_search → pattern="export.*reviewsCollection" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:21:25Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T02:21:26Z [INFO]  ✅ Completed 8 tool steps in 2m29s | Tokens: 153k in / 1k out / 163k total
+[27/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/order.ts (2m28.9s) | 163.4k tok - 2 vulnerabilities
+2026-10-15T02:21:28Z [INFO]     📤 Result submitted (submit 4.782s)
+2026-10-15T02:21:28Z [INFO]     📤 Result submitted (submit 4.607s)
+2026-10-15T02:21:28Z [INFO]  ✅ Completed 8 tool steps in 5m0s | Tokens: 65k in / 917 out / 71k total
+[28/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/coupon.ts (5m0.2s) | 71.5k tok - 1 vulnerabilities
+2026-10-15T02:21:29Z [INFO]  🔧 [Step 1] grep_search → pattern="updateUserProfile" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:21:29Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:29Z [INFO]     📤 Result submitted (submit 5.351s)
+2026-10-15T02:21:30Z [INFO]     📤 Result submitted (submit 4.987s)
+2026-10-15T02:21:31Z [INFO]  ✅ Completed 7 tool steps in 3m26s | Tokens: 78k in / 1k out / 88k total
+[29/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/fileServer.ts (3m26.1s) | 88.9k tok - 1 vulnerabilities
+2026-10-15T02:21:33Z [INFO]     📤 Result submitted (submit 4.599s)
+2026-10-15T02:21:34Z [INFO]  ✅ Completed 9 tool steps in 3m13s | Tokens: 118k in / 909 out / 124k total
+[30/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/fileUpload.ts (3m12.6s) | 124.8k tok - 1 vulnerabilities
+2026-10-15T02:21:34Z [INFO]  ✅ Completed 8 tool steps in 1m53s | Tokens: 54k in / 252 out / 58k total
+[31/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/profileImageFileUpload.ts (1m52.8s) | 58.4k tok - 0 vulnerabilities
+2026-10-15T02:21:35Z [INFO]  🔧 [Step 4] grep_search → pattern="resetPassword" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:21:35Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T02:21:36Z [INFO]  🔧 [Step 3] grep_search → pattern="reviewsCollection" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:21:36Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T02:21:36Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/routes/fileServer.ts
+2026-10-15T02:21:36Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:21:37Z [INFO]  🔧 [Step 6] grep_search → pattern="imageCaptcha" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:21:37Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:21:39Z [INFO]  🔧 [Step 1] grep_search → pattern="wallet" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:21:39Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:40Z [INFO]     📤 Result submitted (submit 4.908s)
+2026-10-15T02:21:40Z [INFO]     📤 Result submitted (submit 4.373s)
+2026-10-15T02:21:41Z [INFO]     📤 Result submitted (submit 4.591s)
+2026-10-15T02:21:41Z [INFO]  🔧 [Step 1] read_file → …/juice-shop-high-risk/views/userProfile.pug
+2026-10-15T02:21:41Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:21:41Z [INFO]  🔧 [Step 1] grep_search → pattern="dataErasureResult" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:21:41Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T02:21:42Z [INFO]     📤 Result submitted (submit 5.008s)
+2026-10-15T02:21:43Z [INFO]     📤 Result submitted (submit 4.663s)
+2026-10-15T02:21:43Z [INFO]  🔧 [Step 1] grep_search → pattern="promotion" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:21:43Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:21:44Z [INFO]  🔧 [Step 6] grep_search → pattern="marsdb" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:21:44Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T02:21:46Z [INFO]     📤 Result submitted (submit 4.907s)
+2026-10-15T02:21:47Z [INFO]     📤 Result submitted (submit 5.469s)
+2026-10-15T02:21:47Z [INFO]  🔧 [Step 1] grep_search → pattern="dataErasureForm" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:21:47Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T02:21:48Z [INFO]     📤 Result submitted (submit 4.582s)
+2026-10-15T02:21:48Z [INFO]     📤 Result submitted (submit 4.833s)
+2026-10-15T02:21:49Z [INFO]  🔧 [Step 4] grep_search → pattern="likeProductReviews" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:21:49Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:49Z [INFO]  🔧 [Step 7] grep_search → pattern="imageCaptcha" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:21:49Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 1ms)
+2026-10-15T02:21:49Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/PROJECT_FILE_INDEX.md
+2026-10-15T02:21:49Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:21:49Z [INFO]  ✅ Completed 8 tool steps in 3m7s | Tokens: 65k in / 934 out / 76k total
+[32/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/logfileServer.ts (3m7.2s) | 76.4k tok - 1 vulnerabilities
+2026-10-15T02:21:51Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/dataErasure.ts
+2026-10-15T02:21:51Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:21:52Z [INFO]     📤 Result submitted (submit 5.065s)
+2026-10-15T02:21:53Z [INFO]  ✅ Completed 3 tool steps in 1m8s | Tokens: 32k in / 921 out / 38k total
+[33/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/trackOrder.ts (1m8.4s) | 38.1k tok - 1 vulnerabilities
+2026-10-15T02:21:53Z [INFO]  🔧 [Step 2] grep_search → pattern="videoXssChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:21:53Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:21:53Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:21:53Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:54Z [INFO]     📤 Result submitted (submit 4.882s)
+2026-10-15T02:21:54Z [INFO]     📤 Result submitted (submit 4.888s)
+2026-10-15T02:21:54Z [INFO]  🔧 [Step 7] grep_search → pattern="marsdb" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:21:54Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 1ms)
+2026-10-15T02:21:55Z [INFO]     📤 Result submitted (submit 5.988s)
+2026-10-15T02:21:56Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/dataErasure.ts
+2026-10-15T02:21:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:21:56Z [INFO]     📤 Result submitted (submit 5.052s)
+2026-10-15T02:21:57Z [INFO]  🔧 [Step 8] grep_search → pattern="captcha" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:21:57Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:58Z [INFO]     📤 Result submitted (submit 4.654s)
+2026-10-15T02:21:58Z [INFO]  🔧 [Step 2] grep_search → pattern="csrf" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:21:58Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:21:58Z [INFO]     📤 Result submitted (submit 4.985s)
+2026-10-15T02:21:59Z [INFO]     📤 Result submitted (submit 4.693s)
+2026-10-15T02:22:00Z [INFO]  🔧 [Step 1] grep_search → pattern="userProfile" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:22:00Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:22:01Z [INFO]     📤 Result submitted (submit 4.796s)
+2026-10-15T02:22:01Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:22:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:22:02Z [INFO]     📤 Result submitted (submit 4.678s)
+2026-10-15T02:22:02Z [INFO]  🔧 [Step 1] grep_search → pattern="promotionVideo" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:22:02Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:22:03Z [INFO]     📤 Result submitted (submit 5.221s)
+2026-10-15T02:22:04Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/data/mongodb.ts
+2026-10-15T02:22:04Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_13_high_risk_deep_optimal/artifacts/ChAyOGE1ZjhkNThkODVhOWI2EAgaATAqBG1haW4/mongodb.ts: no such file or directory (took 0s)
+2026-10-15T02:22:05Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:22:05Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:22:06Z [INFO]     📤 Result submitted (submit 5.198s)
+2026-10-15T02:22:06Z [INFO]  🔧 [Step 3] grep_search → pattern="videoHandler" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:22:06Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:22:06Z [INFO]     📤 Result submitted (submit 5.467s)
+2026-10-15T02:22:07Z [INFO]  🔧 [Step 9] read_file → …/juice-shop-high-risk/routes/captcha.ts
+2026-10-15T02:22:07Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting read_file
+2026-10-15T02:22:08Z [INFO]     📤 Result submitted (submit 5.564s)
+2026-10-15T02:22:08Z [INFO]  ✅ Completed 2 tool steps in 32s | Tokens: 13k in / 137 out / 14k total
+[34/49 batches] ✅ scoped_targets/juice-shop-high-risk/views/dataErasureResult.hbs (32.5s) | 14.7k tok - 0 vulnerabilities
+2026-10-15T02:22:09Z [INFO]     📤 Result submitted (submit 4.893s)
+2026-10-15T02:22:09Z [INFO]  ✅ Completed 9 tool steps in 3m28s | Tokens: 61k in / 813 out / 64k total
+[35/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/keyServer.ts (3m27.6s) | 64.7k tok - 1 vulnerabilities
+2026-10-15T02:22:10Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/userProfile.ts
+2026-10-15T02:22:10Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:22:10Z [INFO]     📤 Result submitted (submit 4.933s)
+2026-10-15T02:22:11Z [INFO]     📤 Result submitted (submit 4.691s)
+2026-10-15T02:22:12Z [INFO]     📤 Result submitted (submit 4.832s)
+2026-10-15T02:22:13Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/routes/dataErasure.ts
+2026-10-15T02:22:13Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:22:15Z [INFO]     📤 Result submitted (submit 5.091s)
+2026-10-15T02:22:16Z [INFO]  ✅ Completed 2 tool steps in 1m12s | Tokens: 31k in / 1k out / 37k total
+[36/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/updateProductReviews.ts (1m12.2s) | 37.5k tok - 2 vulnerabilities
+2026-10-15T02:22:17Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-high-risk/routes/videoHandler.ts
+2026-10-15T02:22:17Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:22:18Z [INFO]     📤 Result submitted (submit 5.24s)
+2026-10-15T02:22:18Z [INFO]  🔧 [Step 6] grep_search → pattern="marsdb|nedb|mongodb" path=…/scoped_targets/juice-shop-high-risk/package.json
+2026-10-15T02:22:18Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[37/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/verify.ts (50.9s) | 16.4k tok - 0 vulnerabilities
+2026-10-15T02:22:21Z [INFO]     📤 Result submitted (submit 4.734s)
+2026-10-15T02:22:23Z [INFO]  🔧 [Step 3] grep_search → pattern="cookie" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:22:23Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:22:23Z [INFO]     📤 Result submitted (submit 5.08s)
+2026-10-15T02:22:25Z [INFO]  🔧 [Step 4] grep_search → pattern="promotionVideo" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:22:25Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:22:26Z [INFO]  🔧 [Step 7] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T02:22:26Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:22:26Z [INFO]  ✅ Completed 8 tool steps in 2m36s | Tokens: 61k in / 874 out / 68k total
+[38/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/quarantineServer.ts (2m35.7s) | 68.5k tok - 1 vulnerabilities
+2026-10-15T02:22:28Z [INFO]     📤 Result submitted (submit 5.484s)
+2026-10-15T02:22:28Z [INFO]  🔧 [Step 3] grep_search → pattern="subtitles" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:22:28Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:22:29Z [INFO]  🔧 [Step 7] grep_search → pattern="mongodb" path=…/scoped_targets/juice-shop-high-risk/PROJECT_FILE_INDEX.md
+2026-10-15T02:22:29Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:22:30Z [INFO]     📤 Result submitted (submit 4.994s)
+2026-10-15T02:22:31Z [INFO]     📤 Result submitted (submit 5.209s)
+2026-10-15T02:22:33Z [INFO]     📤 Result submitted (submit 4.731s)
+2026-10-15T02:22:34Z [INFO]     📤 Result submitted (submit 4.774s)
+2026-10-15T02:22:35Z [INFO]  🔧 [Step 4] grep_search → pattern="email" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:22:35Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:22:35Z [INFO]  🔧 [Step 3] grep_search → pattern="profile" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:22:35Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:22:38Z [INFO]  🔧 [Step 5] grep_search → pattern="getVideo" path=…/scoped_targets/juice-shop-high-risk/server.ts
+2026-10-15T02:22:38Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:22:40Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-high-risk/lib/insecurity.ts
+2026-10-15T02:22:40Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:22:40Z [INFO]     📤 Result submitted (submit 4.667s)
+2026-10-15T02:22:40Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/routes/changePassword.ts
+2026-10-15T02:22:40Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:22:40Z [INFO]     📤 Result submitted (submit 5.245s)
+2026-10-15T02:22:40Z [INFO]  🔧 [Step 8] grep_search → pattern="timingAttackChallenge" path=…/scoped_targets/juice-shop-high-risk/PROJECT_FILE_INDEX.md
+2026-10-15T02:22:40Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:22:43Z [INFO]     📤 Result submitted (submit 4.743s)
+2026-10-15T02:22:45Z [INFO]     📤 Result submitted (submit 4.989s)
+2026-10-15T02:22:45Z [INFO]     📤 Result submitted (submit 5.416s)
+2026-10-15T02:22:46Z [INFO]     📤 Result submitted (submit 5.148s)
+2026-10-15T02:22:46Z [INFO]  🔧 [Step 4] read_file → …/juice-shop-high-risk/routes/updateUserProfile.ts
+2026-10-15T02:22:46Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:22:47Z [INFO]  🔧 [Step 4] grep_search → pattern="cookie" path=…/juice-shop-high-risk/routes/login.ts
+2026-10-15T02:22:47Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:22:47Z [INFO]  🔧 [Step 5] grep_search → pattern="email" path=…/scoped_targets/juice-shop-high-risk/models
+2026-10-15T02:22:47Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:22:48Z [INFO]  ✅ Completed 8 tool steps in 2m19s | Tokens: 61k in / 1k out / 66k total
+[39/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/showProductReviews.ts (2m19.1s) | 66.6k tok - 1 vulnerabilities
+2026-10-15T02:22:48Z [INFO]  🔧 [Step 4] grep_search → pattern="videoXssChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:22:48Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:22:48Z [INFO]  ✅ Completed 9 tool steps in 4m20s | Tokens: 100k in / 1k out / 106k total
+[40/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/imageCaptcha.ts (4m19.9s) | 106.7k tok - 2 vulnerabilities
+2026-10-15T02:22:49Z [INFO]  ✅ Completed 1 tool steps in 1m27s | Tokens: 48k in / 2k out / 59k total
+[41/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/userProfile.ts (1m26.9s) | 60.0k tok - 2 vulnerabilities
+2026-10-15T02:22:49Z [INFO]  🔧 [Step 6] grep_search → pattern="videoXssChallenge" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:22:49Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:22:51Z [INFO]     📤 Result submitted (submit 4.868s)
+2026-10-15T02:22:52Z [INFO]     📤 Result submitted (submit 4.874s)
+2026-10-15T02:22:52Z [INFO]     📤 Result submitted (submit 4.882s)
+2026-10-15T02:22:52Z [INFO]  🔧 [Step 4] grep_search → pattern="wallet" path=…/data/static/challenges.json
+2026-10-15T02:22:52Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static/challenges.json: no such file or directory (took 0s)
+2026-10-15T02:22:54Z [INFO]     📤 Result submitted (submit 5.961s)
+2026-10-15T02:22:54Z [INFO]     📤 Result submitted (submit 4.586s)
+2026-10-15T02:22:57Z [INFO]     📤 Result submitted (submit 4.959s)
+2026-10-15T02:23:00Z [INFO]  🔧 [Step 5] grep_search → pattern="csrfChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:23:00Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:23:01Z [INFO]  🔧 [Step 5] grep_search → pattern="wallet" path=…/juice-shop-high-risk/data/static
+2026-10-15T02:23:01Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data/static: no such file or directory (took 0s)
+2026-10-15T02:23:02Z [INFO]  🔧 [Step 7] grep_search → pattern="videoXssChallenge" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:23:02Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:23:03Z [INFO]  ✅ Completed 4 tool steps in 1m9s | Tokens: 40k in / 170 out / 45k total
+[42/49 batches] ✅ scoped_targets/juice-shop-high-risk/views/userProfile.pug (1m9s) | 45.1k tok - 0 vulnerabilities
+2026-10-15T02:23:03Z [INFO]  🔧 [Step 6] read_file → …/juice-shop-high-risk/models/user.ts
+2026-10-15T02:23:03Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:23:05Z [INFO]  🔧 [Step 5] grep_search → pattern="videoXssChallenge" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:23:05Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 1ms)
+2026-10-15T02:23:05Z [INFO]     📤 Result submitted (submit 5.474s)
+2026-10-15T02:23:06Z [INFO]     📤 Result submitted (submit 5.146s)
+2026-10-15T02:23:07Z [INFO]     📤 Result submitted (submit 4.906s)
+2026-10-15T02:23:09Z [INFO]     📤 Result submitted (submit 5.491s)
+2026-10-15T02:23:10Z [INFO]     📤 Result submitted (submit 5.08s)
+2026-10-15T02:23:11Z [INFO]  🔧 [Step 6] grep_search → pattern="wallet" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:23:11Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/data: no such file or directory (took 0s)
+2026-10-15T02:23:13Z [INFO]  🔧 [Step 6] grep_search → pattern="csrfChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-high-risk
+2026-10-15T02:23:13Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T02:23:16Z [INFO]     📤 Result submitted (submit 5.018s)
+2026-10-15T02:23:18Z [INFO]     📤 Result submitted (submit 4.867s)
+2026-10-15T02:23:19Z [INFO]  🔧 [Step 6] grep_search → pattern="videoXss" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:23:19Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:23:21Z [INFO]  🔧 [Step 7] grep_search → pattern="csrf" path=…/scoped_targets/juice-shop-high-risk/config
+2026-10-15T02:23:21Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/config: no such file or directory (took 0s)
+2026-10-15T02:23:24Z [INFO]     📤 Result submitted (submit 4.934s)
+2026-10-15T02:23:24Z [INFO]  🔧 [Step 7] grep_search → pattern="wallet" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:23:24Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:23:26Z [INFO]  🔧 [Step 8] read_file → …/juice-shop-high-risk/views/promotionVideo.pug
+2026-10-15T02:23:26Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:23:26Z [INFO]     📤 Result submitted (submit 4.804s)
+2026-10-15T02:23:29Z [INFO]     📤 Result submitted (submit 4.853s)
+2026-10-15T02:23:30Z [INFO]  ✅ Completed 8 tool steps in 3m22s | Tokens: 75k in / 325 out / 85k total
+[43/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/resetPassword.ts (3m22.4s) | 85.2k tok - 0 vulnerabilities
+2026-10-15T02:23:30Z [INFO]     📤 Result submitted (submit 4.749s)
+2026-10-15T02:23:31Z [INFO]  ✅ Completed 8 tool steps in 4m49s | Tokens: 73k in / 1k out / 80k total
+[44/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/likeProductReviews.ts (4m49.1s) | 80.8k tok - 1 vulnerabilities
+2026-10-15T02:23:31Z [INFO]  🔧 [Step 7] grep_search → pattern="dataErasureForm" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:23:31Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:23:34Z [INFO]  🔧 [Step 7] grep_search → pattern="videoXssChallenge" path=…/scoped_targets/juice-shop-high-risk/test
+2026-10-15T02:23:34Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-high-risk/test: no such file or directory (took 0s)
+2026-10-15T02:23:35Z [INFO]  🔧 [Step 8] grep_search → pattern="wallet" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:23:35Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:23:37Z [INFO]  🔧 [Step 8] grep_search → pattern="csrfChallenge" path=…/scoped_targets/juice-shop-high-risk/lib
+2026-10-15T02:23:37Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:23:37Z [INFO]     📤 Result submitted (submit 5.454s)
+2026-10-15T02:23:40Z [INFO]     📤 Result submitted (submit 5.761s)
+2026-10-15T02:23:40Z [INFO]     📤 Result submitted (submit 4.839s)
+2026-10-15T02:23:41Z [INFO]     📤 Result submitted (submit 4.825s)
+2026-10-15T02:23:44Z [INFO]  🔧 [Step 9] read_file → …/juice-shop-high-risk/models/wallet.ts
+2026-10-15T02:23:44Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting read_file
+2026-10-15T02:23:45Z [INFO]  🔧 [Step 8] grep_search → pattern="challenges" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:23:45Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T02:23:48Z [INFO]  🔧 [Step 9] grep_search → pattern="challenges" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:23:48Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T02:23:49Z [INFO]     📤 Result submitted (submit 4.707s)
+2026-10-15T02:23:50Z [INFO]     📤 Result submitted (submit 5.102s)
+2026-10-15T02:23:52Z [INFO]     📤 Result submitted (submit 4.886s)
+2026-10-15T02:23:58Z [INFO]  🔧 [Step 8] grep_search → pattern="dataErasure" path=…/scoped_targets/juice-shop-high-risk/routes
+2026-10-15T02:23:58Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:24:04Z [INFO]     📤 Result submitted (submit 6.001s)
+2026-10-15T02:24:06Z [INFO]  🔧 [Step 9] grep_search → pattern="videoXss" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:24:06Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T02:24:11Z [INFO]     📤 Result submitted (submit 5.02s)
+2026-10-15T02:24:17Z [INFO]  ✅ Completed 9 tool steps in 2m45s | Tokens: 60k in / 302 out / 65k total
+[45/49 batches] ✅ scoped_targets/juice-shop-high-risk/routes/wallet.ts (2m44.6s) | 65.1k tok - 0 vulnerabilities
+2026-10-15T02:24:17Z [INFO]  🔧 [Step 9] grep_search → pattern="dataErasure" path=…/scoped_targets/juice-shop-high-risk/data
+2026-10-15T02:24:17Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T02:24:22Z [INFO]  ✅ Completed 9 tool steps in 2m32s | Tokens: 92k in / 450 out / 95k total
+[46/49 batches] ✅ scoped_targets/juice-shop-high-risk/views/promotionVideo.pug (2m31.9s) | 95.7k tok - 0 vulnerabilities
+2026-10-15T02:24:23Z [INFO]     📤 Result submitted (submit 5.834s)
+2026-10-15T02:24:23Z [INFO]  ✅ Completed 9 tool steps in 3m8s | Tokens: 68k in / 1k out / 71k total
+[47/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/updateUserProfile.ts (3m7.6s) | 71.9k tok - 1 vulnerabilities
+2026-10-15T02:24:35Z [INFO]  ✅ Completed 9 tool steps in 3m0s | Tokens: 112k in / 302 out / 118k total
+[48/49 batches] ✅ scoped_targets/juice-shop-high-risk/views/dataErasureForm.hbs (3m0.2s) | 118.6k tok - 0 vulnerabilities
+2026-10-15T02:24:41Z [INFO]  ✅ Completed 8 tool steps in 3m11s | Tokens: 86k in / 1k out / 97k total
+[49/49 batches] 🚨 scoped_targets/juice-shop-high-risk/routes/videoHandler.ts (3m11s) | 97.5k tok - 1 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 49 files in 49 batches (0 pruned at Tier 0, 49 succeeded, 0 failed) in 8m24s
+   Session: ChBhYmYzNzAyZDg2YjU1MDQ2EAgaATAqBG1haW4
+   Total tokens consumed: 3.8M (in: 3.4M, cached: 1.6M, out: 50.1k, thinking: 259.8k)
+
+🔒 Found 50 vulnerabilities:
+
+ID        SEVERITY    TYPE                                                                                  FILE                                                                 TITLE                                                                                                        CONFIDENCE
+────────  ────────    ────                                                                                  ────                                                                 ─────                                                                                                        ──────────
+0d057ca0  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/basket.ts                 Insecure Direct Object Reference (IDOR) in Basket Retrieval Endpoint                                         100%
+64f83602  🔴 CRITICAL  CODE INJECTION                                                                        scoped_targets/juice-shop-high-risk/routes/b2bOrder.ts               Remote Code Execution via Sandbox Escape in b2bOrder Handler                                                 100%
+08343aaa  🟠 HIGH      CWE-620                                                                               scoped_targets/juice-shop-high-risk/routes/changePassword.ts         Unverified Password Change Allows Account Takeover Without Current Password                                  100%
+08e3be95  🟠 HIGH      IMPROPER NEUTRALIZATION OF INPUT DURING WEB PAGE GENERATION ('CROSS-SITE SCRIPTING')  scoped_targets/juice-shop-high-risk/models/feedback.ts               Stored Cross-Site Scripting (XSS) via Ineffective Single-Pass HTML Sanitization Bypass in Feedback Setter    95%
+7320b4a0  🟠 HIGH      CWE-804                                                                               scoped_targets/juice-shop-high-risk/routes/captcha.ts                CAPTCHA Bypass via Sensitive Answer Exposure in API Response                                                 100%
+cca8aef5  🟡 MEDIUM    CWE-799                                                                               scoped_targets/juice-shop-high-risk/routes/captcha.ts                Missing CAPTCHA Invalidation Allowing CAPTCHA Replay Attacks                                                 95%
+3c859539  🟠 HIGH      CWE-290                                                                               scoped_targets/juice-shop-high-risk/routes/createProductReviews.ts   Improper Authorization / Identity Spoofing in Product Review Creation                                        100%
+d590b8c2  🟠 HIGH      CWE-916                                                                               scoped_targets/juice-shop-high-risk/models/user.ts                   Weak Password Hashing Using Unsalted MD5                                                                     90%
+78b61a68  🟠 HIGH      PATH TRAVERSAL                                                                        scoped_targets/juice-shop-high-risk/routes/dataErasure.ts            Path Traversal / Arbitrary File Read via layout parameter in dataErasure route                               100%
+8cbc302a  🟠 HIGH      CWE-307                                                                               scoped_targets/juice-shop-high-risk/routes/2fa.ts                    Improper Restriction of Excessive Authentication Attempts in 2FA Verification via Excessive Epoch Tolerance  95%
+6aae0399  🟡 MEDIUM    CLEARTEXT STORAGE OF SENSITIVE INFORMATION                                            scoped_targets/juice-shop-high-risk/routes/2fa.ts                    Cleartext Storage of Sensitive 2FA TOTP Shared Secret in Database                                            90%
+934d1fdb  🟠 HIGH      CWE-200                                                                               scoped_targets/juice-shop-high-risk/routes/dataExport.ts             Sensitive Order Data Exposure via Colliding Email Masking in Data Export                                     100%
+c2e2d3d5  🔴 CRITICAL  CWE-89                                                                                scoped_targets/juice-shop-high-risk/routes/login.ts                  SQL Injection in Login Route Handler Leading to Authentication Bypass                                        100%
+9163ac68  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/basketItems.ts            Broken Object Level Authorization via JSON Parameter Pollution in addBasketItem                              100%
+78f3eea4  🟠 HIGH      CWE-639                                                                               scoped_targets/juice-shop-high-risk/routes/basketItems.ts            Missing Authorization on Basket Item Update in quantityCheckBeforeBasketItemUpdate                           95%
+26500b71  🟠 HIGH      CWE-840                                                                               scoped_targets/juice-shop-high-risk/routes/deluxe.ts                 Missing Payment Validation Allows Free Deluxe Membership Upgrade                                             100%
+92240d4f  🟠 HIGH      SERVER-SIDE REQUEST FORGERY (SSRF)                                                    scoped_targets/juice-shop-high-risk/routes/profileImageUrlUpload.ts  Server-Side Request Forgery (SSRF) via Unvalidated Profile Image URL                                         100%
+1dcf32e9  🟠 HIGH      MISSING AUTHORIZATION                                                                 scoped_targets/juice-shop-high-risk/server.ts                        Missing Authorization on Product Modification Endpoint (PUT /api/Products/:id)                               100%
+701c960a  🟠 HIGH      AUTHENTICATION BYPASS BY SPOOFING                                                     scoped_targets/juice-shop-high-risk/server.ts                        Rate Limiting Bypass via Spoofed X-Forwarded-For Header on Password Reset Endpoint                           100%
+d20540c9  🔴 CRITICAL  CWE-915                                                                               scoped_targets/juice-shop-high-risk/server.ts                        Mass Assignment / Privilege Escalation via User Registration (POST /api/Users)                               100%
+c5407684  🟡 MEDIUM    CWE-548                                                                               scoped_targets/juice-shop-high-risk/server.ts                        Information Disclosure via Directory Listing on /ftp Endpoint                                                100%
+e8211d4c  🟠 HIGH      CWE-548                                                                               scoped_targets/juice-shop-high-risk/server.ts                        Information Disclosure via Directory Listing on /support/logs Endpoint                                       100%
+f57b7d62  🟠 HIGH      CWE-548                                                                               scoped_targets/juice-shop-high-risk/server.ts                        Information Disclosure via Directory Listing on /encryptionkeys Endpoint                                     100%
+197c0064  🟡 MEDIUM    CWE-200                                                                               scoped_targets/juice-shop-high-risk/server.ts                        Unauthenticated Exposure of Prometheus Metrics (/metrics)                                                    95%
+c8711395  🔴 CRITICAL  SQL INJECTION                                                                         scoped_targets/juice-shop-high-risk/routes/search.ts                 SQL Injection in Product Search Query                                                                        100%
+4aac6f86  🟡 MEDIUM    URL REDIRECTION TO UNTRUSTED SITE ('OPEN REDIRECT')                                   scoped_targets/juice-shop-high-risk/routes/redirect.ts               Open Redirect via Inadequate Allowlist Substring Validation in performRedirect                               100%
+6799aac9  🟠 HIGH      URL REDIRECTION TO UNTRUSTED SITE ('OPEN REDIRECT')                                   scoped_targets/juice-shop-high-risk/lib/insecurity.ts                Insecure Allowlist Validation in isRedirectAllowed Leading to Open Redirect                                  100%
+d32d43a6  🟠 HIGH      CWE-328                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                Use of Unsalted MD5 for Password Hashing                                                                     95%
+8b2e6da4  🔴 CRITICAL  USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/juice-shop-high-risk/lib/insecurity.ts                Hardcoded RSA Private Key Used for JWT and Token Signing                                                     95%
+f7aca0ce  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                         scoped_targets/juice-shop-high-risk/lib/insecurity.ts                Hardcoded HMAC Secret Key in Security Question Verification                                                  95%
+4d4b489b  🟠 HIGH      CWE-347                                                                               scoped_targets/juice-shop-high-risk/lib/insecurity.ts                JWT Algorithm Confusion in isAuthorized Authentication Middleware                                            95%
+582204ad  🟠 HIGH      INSECURE DIRECT OBJECT REFERENCE (IDOR)                                               scoped_targets/juice-shop-high-risk/routes/order.ts                  Insecure Direct Object Reference (IDOR) / Missing Ownership Check on Basket Checkout                         100%
+d859e5b0  🟠 HIGH      CWE-345                                                                               scoped_targets/juice-shop-high-risk/routes/order.ts                  Client-Controlled Coupon Validation and Arbitrary Discount Application                                       100%
+e928291a  🟠 HIGH      INSECURE DIRECT OBJECT REFERENCE (IDOR)                                               scoped_targets/juice-shop-high-risk/routes/coupon.ts                 Insecure Direct Object Reference (IDOR) in Basket Coupon Application                                         90%
+8e299001  🟠 HIGH      PATH TRAVERSAL / ARBITRARY FILE READ                                                  scoped_targets/juice-shop-high-risk/routes/fileServer.ts             Arbitrary File Disclosure and Extension Allowlist Bypass via Poison Null Byte in servePublicFiles            100%
+8534afd2  🟠 HIGH      CWE-22                                                                                scoped_targets/juice-shop-high-risk/routes/fileUpload.ts             Zip Slip Path Traversal Arbitrary File Overwrite in extractZipBuffer                                         95%
+fe3f11fc  🟠 HIGH      PATH TRAVERSAL                                                                        scoped_targets/juice-shop-high-risk/routes/logfileServer.ts          Path Traversal via Incomplete Path Separator Validation in `serveLogFiles`                                   95%
+cb93395e  🟠 HIGH      CWE-943                                                                               scoped_targets/juice-shop-high-risk/routes/trackOrder.ts             NoSQL Injection in Order Tracking via MongoDB/MarsDB $where Operator                                         100%
+f9f38586  🟠 HIGH      PATH TRAVERSAL                                                                        scoped_targets/juice-shop-high-risk/routes/keyServer.ts              Path Traversal via Incomplete Path Separator Check in serveKeyFiles                                          85%
+3ca48785  🟠 HIGH      CWE-943                                                                               scoped_targets/juice-shop-high-risk/routes/updateProductReviews.ts   NoSQL Injection in Product Review Update via Operator Injection                                              100%
+5bf96b68  🟠 HIGH      INSECURE DIRECT OBJECT REFERENCE (IDOR)                                               scoped_targets/juice-shop-high-risk/routes/updateProductReviews.ts   Broken Object-Level Authorization (IDOR) Allows Forging Product Reviews                                      100%
+e11ec92f  🟠 HIGH      PATH TRAVERSAL                                                                        scoped_targets/juice-shop-high-risk/routes/quarantineServer.ts       Path Traversal via Backslash Directory Separator in Quarantine File Server                                   100%
+b2b663a4  🟠 HIGH      CWE-943                                                                               scoped_targets/juice-shop-high-risk/routes/showProductReviews.ts     NoSQL Injection and Server-Side JavaScript Execution in showProductReviews via $where Clause                 100%
+50c1ff45  🟠 HIGH      CWE-200                                                                               scoped_targets/juice-shop-high-risk/routes/imageCaptcha.ts           CAPTCHA Solution Leak in imageCaptchas API Response                                                          100%
+67166c09  🟠 HIGH      AUTHENTICATION BYPASS BY PRIMARY WEAKNESS                                             scoped_targets/juice-shop-high-risk/routes/imageCaptcha.ts           CAPTCHA Verification Bypass via Non-Existent Challenge in verifyImageCaptcha                                 100%
+6bca73c8  🔴 CRITICAL  CWE-95                                                                                scoped_targets/juice-shop-high-risk/routes/userProfile.ts            Remote Code Execution via eval() Code Injection in User Profile Handler                                      100%
+1e3d99c9  🟠 HIGH      CWE-79                                                                                scoped_targets/juice-shop-high-risk/routes/userProfile.ts            Stored Cross-Site Scripting via Content Security Policy Injection and Unescaped Template Substitution        95%
+fbc8ec51  🟠 HIGH      CWE-362                                                                               scoped_targets/juice-shop-high-risk/routes/likeProductReviews.ts     Time-of-Check to Time-of-Use (TOCTOU) Race Condition in Review Liking                                        95%
+6bde5e82  🟠 HIGH      CROSS-SITE REQUEST FORGERY (CSRF)                                                     scoped_targets/juice-shop-high-risk/routes/updateUserProfile.ts      Cross-Site Request Forgery (CSRF) in User Profile Update                                                     100%
+35f91bc5  🟠 HIGH      CWE-79                                                                                scoped_targets/juice-shop-high-risk/routes/videoHandler.ts           Cross-Site Scripting (XSS) via Unsanitized Subtitles in promotionVideo                                       95%
+
+Summary: 6 CRITICAL, 39 HIGH, 5 MEDIUM
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T02:24:42Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_13_high_risk_deep_optimal/logs/20261015T021618Z_ChBhYmYzNzAyZDg2YjU1MDQ2EAgaATAqBG1haW4.log

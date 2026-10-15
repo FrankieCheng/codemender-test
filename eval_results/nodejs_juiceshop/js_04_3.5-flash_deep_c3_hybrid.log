@@ -1,0 +1,216 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 17 total files discovered
+   Tier 1 Sifter: 17 candidate files in 17 batches to scan with 16 workers
+2026-10-15T01:47:37Z [INFO]  🔧 [Step 1] grep_search → pattern="redirectAllowlist" path=…/juice-shop-bench/lib/insecurity.ts
+2026-10-15T01:47:37Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:47:40Z [INFO]  🔧 [Step 1] grep_search → pattern="lfrChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:47:40Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:47:42Z [INFO]     📤 Result submitted (submit 5.179s)
+2026-10-15T01:47:44Z [INFO]  🔧 [Step 1] grep_search → pattern="jsonwebtoken" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:47:44Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:47:46Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-bench/lib/insecurity.ts
+2026-10-15T01:47:46Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:47:47Z [INFO]     📤 Result submitted (submit 6.938s)
+2026-10-15T01:47:48Z [INFO]  🔧 [Step 1] grep_search → pattern="sanitizeLegacy" path=…/scoped_targets/juice-shop-bench/lib
+2026-10-15T01:47:48Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T01:47:48Z [INFO]  🔧 [Step 1] grep_search → pattern="js-yaml" path=…/scoped_targets/juice-shop-bench/package.json
+2026-10-15T01:47:48Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T01:47:49Z [INFO]     📤 Result submitted (submit 5.333s)
+2026-10-15T01:47:49Z [INFO]  🔧 [Step 2] grep_search → pattern="dataErasureResult" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:47:49Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:47:51Z [INFO]     📤 Result submitted (submit 5.086s)
+2026-10-15T01:47:53Z [INFO]     📤 Result submitted (submit 4.801s)
+2026-10-15T01:47:53Z [INFO]     📤 Result submitted (submit 4.706s)
+2026-10-15T01:47:54Z [INFO]  🔧 [Step 2] grep_search → pattern="notevil" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:47:54Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+[1/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/login.ts (26.5s) | 18.1k tok - 1 vulnerabilities
+2026-10-15T01:47:55Z [INFO]     📤 Result submitted (submit 5.492s)
+[2/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/showProductReviews.ts (27.2s) | 15.6k tok - 1 vulnerabilities
+[3/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/search.ts (27.6s) | 17.3k tok - 1 vulnerabilities
+2026-10-15T01:47:57Z [INFO]  🔧 [Step 2] grep_search → pattern="isRedirectAllowed" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:47:57Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:47:57Z [INFO]  🔧 [Step 1] grep_search → pattern="servePublicFiles" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:47:57Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+[4/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/trackOrder.ts (30s) | 23.6k tok - 2 vulnerabilities
+2026-10-15T01:47:58Z [INFO]  🔧 [Step 3] grep_search → pattern="view engine" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:47:58Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:47:59Z [INFO]     📤 Result submitted (submit 4.728s)
+[5/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/updateProductReviews.ts (31.1s) | 22.9k tok - 2 vulnerabilities
+[6/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/profileImageUrlUpload.ts (32.1s) | 26.1k tok - 2 vulnerabilities
+2026-10-15T01:48:01Z [INFO]     📤 Result submitted (submit 4.249s)
+2026-10-15T01:48:02Z [INFO]     📤 Result submitted (submit 4.585s)
+[7/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/b2bOrder.ts (33.8s) | 19.0k tok - 1 vulnerabilities
+2026-10-15T01:48:02Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-bench/routes/b2bOrder.ts
+2026-10-15T01:48:02Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:48:03Z [INFO]     📤 Result submitted (submit 4.657s)
+[8/17 batches] 🚨 scoped_targets/juice-shop-bench/models/user.ts (36.4s) | 31.2k tok - 2 vulnerabilities
+2026-10-15T01:48:05Z [INFO]  🔧 [Step 3] read_file → …/juice-shop-bench/routes/redirect.ts
+2026-10-15T01:48:05Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:48:06Z [INFO]  🔧 [Step 1] grep_search → pattern="promotionVideo" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:06Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:48:06Z [INFO]     📤 Result submitted (submit 4.148s)
+[9/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/userProfile.ts (38.1s) | 31.4k tok - 2 vulnerabilities
+2026-10-15T01:48:10Z [INFO]     📤 Result submitted (submit 4.819s)
+2026-10-15T01:48:11Z [INFO]     📤 Result submitted (submit 4.615s)
+2026-10-15T01:48:11Z [INFO]  🔧 [Step 4] read_file → …/juice-shop-bench/lib/insecurity.ts
+2026-10-15T01:48:11Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:48:12Z [INFO]  🔧 [Step 2] read_file → …/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:48:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:48:14Z [INFO]  ✅ Completed 2 tool steps in 46s | Tokens: 24k in / 1k out / 29k total
+[10/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/redirect.ts (46.3s) | 29.5k tok - 1 vulnerabilities
+2026-10-15T01:48:16Z [INFO]     📤 Result submitted (submit 5.11s)
+2026-10-15T01:48:17Z [INFO]     📤 Result submitted (submit 4.948s)
+2026-10-15T01:48:17Z [INFO]  🔧 [Step 2] grep_search → pattern="videoHandler" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:17Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:48:22Z [INFO]     📤 Result submitted (submit 4.63s)
+2026-10-15T01:48:22Z [INFO]  🔧 [Step 4] grep_search → pattern="\\.hash\\(" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:22Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:48:25Z [INFO]  🔧 [Step 3] grep_search → pattern="promotionVideo" path=…/scoped_targets/juice-shop-bench/routes
+2026-10-15T01:48:25Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T01:48:27Z [INFO]     📤 Result submitted (submit 4.971s)
+2026-10-15T01:48:29Z [INFO]  🔧 [Step 3] grep_search → pattern="easterEggLevelOneChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:29Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:48:30Z [INFO]     📤 Result submitted (submit 4.613s)
+2026-10-15T01:48:32Z [INFO]  🔧 [Step 5] grep_search → pattern="\\.hmac\\(" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:32Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T01:48:34Z [INFO]     📤 Result submitted (submit 4.745s)
+2026-10-15T01:48:34Z [INFO]  🔧 [Step 4] grep_search → pattern="export.*promotionVideo" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:34Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T01:48:35Z [INFO]  ✅ Completed 3 tool steps in 1m7s | Tokens: 38k in / 1k out / 45k total
+[11/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/dataErasure.ts (1m7s) | 45.3k tok - 1 vulnerabilities
+2026-10-15T01:48:37Z [INFO]     📤 Result submitted (submit 4.915s)
+2026-10-15T01:48:39Z [INFO]     📤 Result submitted (submit 4.658s)
+[12/17 batches] 🚨 scoped_targets/juice-shop-bench/server.ts (1m11.6s) | 90.0k tok - 2 vulnerabilities
+2026-10-15T01:48:40Z [INFO]  🔧 [Step 6] grep_search → pattern="hmac" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:40Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:48:42Z [INFO]  🔧 [Step 4] grep_search → pattern="eastere.gg" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:42Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T01:48:42Z [INFO]  ✅ Completed 4 tool steps in 1m14s | Tokens: 87k in / 1k out / 93k total
+[13/17 batches] 🚨 scoped_targets/juice-shop-bench/package.json (1m14s) | 93.3k tok - 2 vulnerabilities
+2026-10-15T01:48:45Z [INFO]  🔧 [Step 5] grep_search → pattern="videoHandler" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:45Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:48:45Z [INFO]     📤 Result submitted (submit 4.99s)
+2026-10-15T01:48:46Z [INFO]  ✅ Completed 1 tool steps in 1m18s | Tokens: 45k in / 1k out / 57k total
+[14/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/fileUpload.ts (1m18.3s) | 57.2k tok - 2 vulnerabilities
+2026-10-15T01:48:47Z [INFO]     📤 Result submitted (submit 4.969s)
+2026-10-15T01:48:50Z [INFO]     📤 Result submitted (submit 4.826s)
+2026-10-15T01:48:52Z [INFO]  🔧 [Step 5] grep_search → pattern="fileServer.*spec" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:52Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:48:55Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:48:55Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:48:57Z [INFO]     📤 Result submitted (submit 4.934s)
+2026-10-15T01:48:59Z [INFO]  🔧 [Step 7] grep_search → pattern="discountFromCoupon" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:48:59Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:49:00Z [INFO]     📤 Result submitted (submit 4.766s)
+2026-10-15T01:49:02Z [INFO]  🔧 [Step 6] grep_search → pattern="describe\\(['\\\"].*ftp" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:49:02Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:49:04Z [INFO]     📤 Result submitted (submit 4.941s)
+2026-10-15T01:49:06Z [INFO]     📤 Result submitted (submit 4.743s)
+2026-10-15T01:49:07Z [INFO]  🔧 [Step 7] read_file → …/juice-shop-bench/routes/videoHandler.ts
+2026-10-15T01:49:07Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_04_3.5-flash_deep_c3_hybrid/artifacts/ChBiYmYwYzdiYTg2MWNjNmM3EAgaATAqBG1haW4/videoHandler.ts: no such file or directory (took 0s)
+2026-10-15T01:49:10Z [ERROR] Session FAILED after 8 polls (1m42.053s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:49:11Z [INFO]     📤 Result submitted (submit 4.692s)
+2026-10-15T01:49:12Z [INFO]  🔧 [Step 7] grep_search → pattern="/ftp/" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:49:12Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:49:16Z [INFO]     📤 Result submitted (submit 4.622s)
+2026-10-15T01:49:19Z [INFO]  🔧 [Step 8] read_file → …/scoped_targets/juice-shop-bench/PROJECT_FILE_INDEX.md
+2026-10-15T01:49:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:49:21Z [ERROR] Session FAILED after 8 polls (1m53.504s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:49:24Z [INFO]     📤 Result submitted (submit 5.302s)
+2026-10-15T01:49:27Z [INFO]  🔧 [Step 9] grep_search → pattern="promotion" path=…/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:49:27Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T01:49:32Z [INFO]     📤 Result submitted (submit 5.082s)
+2026-10-15T01:49:35Z [INFO]  🔧 [Step 1] grep_search → pattern="directoryListingChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:49:35Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:49:40Z [INFO]     📤 Result submitted (submit 4.647s)
+2026-10-15T01:49:53Z [INFO]  🔧 [Step 2] grep_search → pattern="easterEggLevelOneChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:49:53Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T01:49:58Z [INFO]     📤 Result submitted (submit 5.033s)
+2026-10-15T01:50:02Z [INFO]  🔧 [Step 3] grep_search → pattern="forgottenDevBackupChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:50:02Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:50:08Z [INFO]     📤 Result submitted (submit 5.492s)
+2026-10-15T01:50:12Z [ERROR] Session FAILED after 10 polls (2m16.067s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:50:17Z [INFO]  🔧 [Step 4] grep_search → pattern="eastere.gg" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:50:17Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:50:21Z [INFO]     📤 Result submitted (submit 4.552s)
+2026-10-15T01:50:22Z [INFO]  🔧 [Step 1] grep_search → pattern="promotionVideo" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:50:22Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:50:27Z [INFO]  🔧 [Step 5] grep_search → pattern="package.json.bak" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:50:27Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T01:50:27Z [INFO]     📤 Result submitted (submit 4.824s)
+[15/17 batches] 🚨 scoped_targets/juice-shop-bench/lib/insecurity.ts (1m16.1s) | 110.0k tok - 6 vulnerabilities
+2026-10-15T01:50:31Z [INFO]  🔧 [Step 2] grep_search → pattern="promotionVideo" path=…/juice-shop-bench/routes/videoHandler.ts
+2026-10-15T01:50:31Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench/routes/videoHandler.ts: no such file or directory (took 0s)
+2026-10-15T01:50:31Z [INFO]     📤 Result submitted (submit 4.492s)
+2026-10-15T01:50:36Z [INFO]  🔧 [Step 6] grep_search → pattern="describe\\(" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:50:36Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T01:50:36Z [INFO]     📤 Result submitted (submit 4.833s)
+2026-10-15T01:50:39Z [INFO]  🔧 [Step 3] grep_search → pattern="videoHandler" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:50:39Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:50:40Z [INFO]     📤 Result submitted (submit 4.924s)
+2026-10-15T01:50:44Z [INFO]     📤 Result submitted (submit 4.652s)
+2026-10-15T01:50:44Z [INFO]  🔧 [Step 7] read_file → …/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:50:44Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:50:49Z [INFO]  🔧 [Step 4] grep_search → pattern="videoHandler\\.(js|ts)" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:50:49Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:50:49Z [INFO]     📤 Result submitted (submit 4.657s)
+2026-10-15T01:50:54Z [INFO]     📤 Result submitted (submit 4.907s)
+2026-10-15T01:50:58Z [INFO]  🔧 [Step 5] grep_search → pattern="export.*promotionVideo" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:50:58Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:51:04Z [INFO]     📤 Result submitted (submit 5.203s)
+2026-10-15T01:51:04Z [ERROR] Session FAILED after 8 polls (1m40.965s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+[16/17 batches] ❌ scoped_targets/juice-shop-bench/routes/fileServer.ts (1m41s): The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+2026-10-15T01:51:10Z [INFO]  🔧 [Step 6] grep_search → pattern="promotionVideo" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:51:10Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:51:15Z [INFO]     📤 Result submitted (submit 5.195s)
+2026-10-15T01:51:20Z [INFO]  🔧 [Step 7] grep_search → pattern="videoHandler" path=…/scoped_targets/juice-shop-bench/PROJECT_FILE_INDEX.md
+2026-10-15T01:51:20Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T01:51:25Z [INFO]     📤 Result submitted (submit 4.517s)
+2026-10-15T01:51:31Z [ERROR] Session FAILED after 8 polls (1m17.32s) [code=13]: The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+[17/17 batches] ❌ scoped_targets/juice-shop-bench/views/promotionVideo.pug (1m17.3s): The caller does not have permission; [Internal error message: executor error: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.: generic::permission_denied: Security Policy Violation: Prompt Injection Detected.]
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 17 files in 17 batches (0 pruned at Tier 0, 15 succeeded, 2 failed) in 4m5s
+   Session: ChBmOTM0Nzc0NDM4YjQyODhjEAgaATAqBG1haW4
+   Total tokens consumed: 630.5k (in: 534.4k, cached: 287.0k, out: 18.4k, thinking: 77.8k)
+
+🔒 Found 28 vulnerabilities:
+
+ID        SEVERITY    TYPE                    FILE                                                             TITLE                                                                                                  CONFIDENCE
+────────  ────────    ────                    ────                                                             ─────                                                                                                  ──────────
+bd543adc  🔴 CRITICAL  CWE-89                  scoped_targets/juice-shop-bench/routes/login.ts                  SQL Injection via email parameter in login route handler                                               100%
+afc97f0c  🟠 HIGH      CWE-943                 scoped_targets/juice-shop-bench/routes/showProductReviews.ts     NoSQL Injection / JavaScript Code Injection via MongoDB $where Operator in showProductReviews          100%
+5c5f80d1  🔴 CRITICAL  SQL INJECTION           scoped_targets/juice-shop-bench/routes/search.ts                 SQL Injection in Product Search via Unsanitized Query Parameter                                        100%
+0e3628a7  🟠 HIGH      CWE-943                 scoped_targets/juice-shop-bench/routes/trackOrder.ts             NoSQL Injection via $where clause in trackOrder route                                                  100%
+c85a855a  🟠 HIGH      CWE-79                  scoped_targets/juice-shop-bench/routes/trackOrder.ts             Reflected Cross-Site Scripting via orderId reflection                                                  100%
+13ed1394  🟠 HIGH      CWE-943                 scoped_targets/juice-shop-bench/routes/updateProductReviews.ts   NoSQL Injection in Product Review Update                                                               100%
+68860a70  🟠 HIGH      IMPROPER AUTHORIZATION  scoped_targets/juice-shop-bench/routes/updateProductReviews.ts   Insecure Direct Object Reference (IDOR) / Broken Access Control in Product Review Update               100%
+37efb767  🟠 HIGH      SSRF                    scoped_targets/juice-shop-bench/routes/profileImageUrlUpload.ts  Server-Side Request Forgery (SSRF) via Profile Image URL Upload                                        100%
+91fcc106  🟠 HIGH      STORED XSS              scoped_targets/juice-shop-bench/routes/profileImageUrlUpload.ts  Stored Cross-Site Scripting (XSS) via Unsanitized Fallback Image URL                                   85%
+d1b59478  🔴 CRITICAL  CWE-94                  scoped_targets/juice-shop-bench/routes/b2bOrder.ts               Remote Code Execution (RCE) via Sandbox Escape in `notevil` and `vm`                                   100%
+4724a1c9  🟠 HIGH      CWE-916                 scoped_targets/juice-shop-bench/models/user.ts                   Use of Weak Cryptographic Hash (MD5) for Password Hashing                                              100%
+ecc9ee91  🟠 HIGH      CWE-79                  scoped_targets/juice-shop-bench/models/user.ts                   Stored Cross-Site Scripting (XSS) via Missing or Bypassable Sanitization in Username and Email Fields  100%
+591b85ce  🔴 CRITICAL  CWE-94                  scoped_targets/juice-shop-bench/routes/userProfile.ts            Server-Side Code Execution via eval in Profile Username Processing                                     100%
+ba77fa26  🟠 HIGH      CWE-113                 scoped_targets/juice-shop-bench/routes/userProfile.ts            Content Security Policy (CSP) Bypass via Profile Image Injection                                       100%
+f0c637d6  🟠 HIGH      CWE-601                 scoped_targets/juice-shop-bench/routes/redirect.ts               Open Redirect via Insufficient URL Validation                                                          100%
+7fa3dc2a  🟠 HIGH      PATH TRAVERSAL          scoped_targets/juice-shop-bench/routes/dataErasure.ts            Local File Read / Path Traversal via Handlebars layout option in dataErasure route                     100%
+3f7796db  🟠 HIGH      CWE-307                 scoped_targets/juice-shop-bench/server.ts                        Rate Limiting Bypass via Spoofed X-Forwarded-For Header                                                100%
+b6d25e31  🟠 HIGH      MISSING AUTHORIZATION   scoped_targets/juice-shop-bench/server.ts                        Missing Authorization Check on Product Update (BOLA)                                                   100%
+04ef8760  🔴 CRITICAL  CWE-287                 scoped_targets/juice-shop-bench/package.json                     Authentication Bypass via Insecure jsonwebtoken Dependency (CWE-287 / CWE-347)                         100%
+f905ed94  🔴 CRITICAL  CWE-94                  scoped_targets/juice-shop-bench/package.json                     Remote Code Execution via Insecure Sandbox Dependency notevil (CWE-94)                                 100%
+cd890ced  🟠 HIGH      PATH TRAVERSAL          scoped_targets/juice-shop-bench/routes/fileUpload.ts             Path Traversal (Zip Slip) in Zip File Extraction                                                       100%
+5583d0ef  🔴 CRITICAL  CODE INJECTION          scoped_targets/juice-shop-bench/routes/fileUpload.ts             Remote Code Execution (RCE) via Unsafe YAML Deserialization in VM Context                              100%
+e311eb36  🟠 HIGH      CWE-601                 scoped_targets/juice-shop-bench/lib/insecurity.ts                Open Redirect via Insecure Substring Validation in isRedirectAllowed                                   100%
+a6ac0f43  🔴 CRITICAL  CWE-321                 scoped_targets/juice-shop-bench/lib/insecurity.ts                Use of Hard-coded RSA Private Key for JWT Token Generation                                             100%
+38aa4ffb  🟠 HIGH      CWE-347                 scoped_targets/juice-shop-bench/lib/insecurity.ts                JWT Algorithm Confusion / Weak JWS Verification                                                        90%
+4c3a5ba2  🟠 HIGH      CWE-345                 scoped_targets/juice-shop-bench/lib/insecurity.ts                Insecure Cryptographic Design / Coupon Code Forgery via Z85 Encoding                                   100%
+0a3fc246  🟡 MEDIUM    CWE-328                 scoped_targets/juice-shop-bench/lib/insecurity.ts                Use of Cryptographically Broken Hash Algorithm (MD5)                                                   100%
+7a95c667  🟠 HIGH      CWE-321                 scoped_targets/juice-shop-bench/lib/insecurity.ts                Use of Hardcoded HMAC Cryptographic Secret Key                                                         100%
+
+Summary: 8 CRITICAL, 19 HIGH, 1 MEDIUM
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T01:51:31Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_04_3.5-flash_deep_c3_hybrid/logs/20261015T014726Z_ChBmOTM0Nzc0NDM4YjQyODhjEAgaATAqBG1haW4.log

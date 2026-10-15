@@ -1,0 +1,14 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ afd2c8ce │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Hard-Coded JWT Secret Key Enables Aut...│
+│ d8321a54 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded JWT Secret Key Leading to A...│
+│ 6bdb2c33 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unrestricted File Upload Leading to S...│
+│ 39685d14 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Security Whitelist Misconfiguration E...│
+│ 793ebc39 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Sensitive Authentication Verification...│
+│ 4a7bd198 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Missing app_id and total_amount Valid...│
+│ 718b587f │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Arbitrary Order Payment State Manipul...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+7 finding(s): 2 CRITICAL, 5 HIGH · ✅ 0 fixed, 🔴 7 open
+📋 Report generated at 2026-10-15 01:54:15 UTC

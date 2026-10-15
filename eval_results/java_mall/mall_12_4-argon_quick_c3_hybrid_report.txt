@@ -1,0 +1,36 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 7a19eabb │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Payment Bypass via Unverified outTrad...│
+│ c58204b1 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Direct Payment Bypass in OmsPortalOrd...│
+│ c194c298 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Verification Code (OTP) Leaked Direct...│
+│ 8a7f1227 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Account Takeover via ...│
+│ e19fccce │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Weak JWT Secret in mall-adm...│
+│ 8a7e5e5b │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Overly Permissive Security Whitelist ...│
+│ cf058458 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Weak JWT Secret and Unauthe...│
+│ 0bdad626 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Unrestricted File Upl...│
+│ 6915d66b │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Administrator Account...│
+│ dadcae69 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Reflected Cross-Site Scripting (XSS) ...│
+│ b86e1f8b │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Improper Payment Callback Verificatio...│
+│ c303119c │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ 1a2e9796 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ be360be3 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Weak JWT Signing Key and Missing exp ...│
+│ 66d625a3 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Default Credentials (MySQL,...│
+│ fa3ab736 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Default Credentials (MySQL,...│
+│ 002858f1 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Aliyun OSS Credentials in m...│
+│ 1a7d4bff │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Arbitrary Object Deletion via Unvalid...│
+│ 9baba706 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Aliyun OSS Upload Sig...│
+│ 271681c9 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Mass Assignment and Arbitrary Admin P...│
+│ 2e284cd1 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Failure to Invalidate JWT on Logout a...│
+│ 9bb23334 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Client IP Spoofing via Untrusted X-Fo...│
+│ 19df8c56 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Fallback to Coarse-Grained Authentica...│
+│ d3515d77 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Controller-Level Ownership Ve...│
+│ 1469a93a │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/p...│Unencrypted Remote Docker Daemon API ...│
+│ 28471e86 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Principal Ownership Check and...│
+│ c009eb88 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Exposure of Administrator Password Ha...│
+│ bf559bce │🔵 LOW     │OPEN  │—  │scoped_targets/mall-bench/m...│Exposure of Member Password Hash in U...│
+│ 34ba300e │🔵 LOW     │OPEN  │—  │scoped_targets/mall-bench/m...│Silent Swallowing of Security Cache E...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+29 finding(s): 9 CRITICAL, 11 HIGH, 7 MEDIUM, 2 LOW · ✅ 0 fixed, 🔴 29 open
+📋 Report generated at 2026-10-15 02:43:12 UTC

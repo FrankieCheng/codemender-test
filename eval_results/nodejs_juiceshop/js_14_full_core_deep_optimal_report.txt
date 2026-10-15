@@ -1,0 +1,67 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ fcafb804 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-c...│Remote Code Execution via Insecure ev...│
+│ 2e0c812f │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-c...│SQL Injection in Product Search Handler │
+│ 441e2414 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-c...│Insecure Deserialization and Remote C...│
+│ 6bc8ad3a │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-c...│Hardcoded RSA Private Key Used for JW...│
+│ 32fb8ec1 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-c...│SQL Injection in User Authentication ...│
+│ 40370e75 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-c...│Remote Code Execution via Insecure Sa...│
+│ 98708361 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Stored Cross-Site Scripting (XSS) via...│
+│ 9b975491 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Cross-Site Scripting (XSS) via Unquot...│
+│ 57bdcf33 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│NoSQL Injection in Product Review Upd...│
+│ bf5e1dd3 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Insecure Direct Object Reference (IDO...│
+│ 26603e08 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Use of Hard-coded Cryptographic Salt ...│
+│ a4b8060a │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Use of Hard-coded Cryptographic Salt ...│
+│ 85fcdc41 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Use of Hard-coded Cryptographic Salt ...│
+│ b006b820 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Insecure Direct Object Reference (IDO...│
+│ 8bc4edee │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Client-Controlled Validation Paramete...│
+│ 39b37f6c │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│NoSQL Injection and JavaScript Execut...│
+│ 54baec35 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Stored Cross-Site Scripting (XSS) via...│
+│ 984e647e │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│NoSQL Injection via $where Clause in ...│
+│ 529722b8 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Stored Cross-Site Scripting (XSS) via...│
+│ 25a1310a │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Cross-Site Request Forgery (CSRF) in ...│
+│ 738e69b2 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│ORM Query Injection / IDOR via JSON.p...│
+│ 7bbc8da3 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Business Logic Flaw Allows Bypassing ...│
+│ b031b5e6 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Broken Object Level Authorization (ID...│
+│ 1ba8e2ae │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Improper Authorization / Data Leakage...│
+│ 2d34d339 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Time-of-Check to Time-of-Use (TOCTOU)...│
+│ 2f676ce5 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│NoSQL Injection via Unsanitized Revie...│
+│ 2b540e63 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Plaintext CAPTCHA Solution Leaked in ...│
+│ 9029e8f3 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│CAPTCHA Verification Bypass Due to Fa...│
+│ 7873a113 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Server-Side Request Forgery (SSRF) in...│
+│ 0ca8a3ab │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Path Traversal / Zip Slip Arbitrary F...│
+│ d89e36f1 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│XML External Entity (XXE) Injection L...│
+│ 961882af │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Path Traversal via Backslash Director...│
+│ 4bed12bf │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Sensitive Data Exposure via Unfiltere...│
+│ 1e45b932 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Path Traversal via Incomplete Path Se...│
+│ 79de1541 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│File Type Allowlist Bypass via Poison...│
+│ c242d4ac │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Hardcoded Mnemonic Seed Phrase and De...│
+│ 875c2e76 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Missing JWT Cryptographic Signature V...│
+│ bf8cdbc6 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Missing Server-Side Validation and Au...│
+│ a56b73de │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Open Redirect via Flawed Substring In...│
+│ de3a49bf │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Use of Unsalted MD5 for Password Hashing│
+│ 9abd7928 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Arbitrary Review Author Spoofing via ...│
+│ 48930284 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Path Traversal / Local File Read via ...│
+│ b60e29bf │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Excessive Data Exposure of Password H...│
+│ c0d4021b │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Cross-Site Script Inclusion (XSSI) an...│
+│ 73df074d │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Insecure Direct Object Reference (IDO...│
+│ 6e9ddbd1 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Sensitive Data Exposure in User Authe...│
+│ dd27d79e │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Missing Authorization / IDOR in Baske...│
+│ a88a1252 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Exposure of CAPTCHA Solution in API R...│
+│ 9d9129e8 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Missing CAPTCHA Invalidation Permitti...│
+│ 85349de1 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│BOLA / IDOR via Duplicate JSON Parame...│
+│ 2f0d5704 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Missing Authorization Check in quanti...│
+│ 1111ec9b │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Unverified Password Change via Omitte...│
+│ 439e30d6 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Weak Password Hashing using Unsalted MD5│
+│ 9262d653 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Stored Cross-Site Scripting (XSS) via...│
+│ f8b09369 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Stored Cross-Site Scripting via Ineff...│
+│ 437a100e │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Rate Limiting Bypass on Password Rese...│
+│ 6d572416 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│Missing Authorization Check on Produc...│
+│ 5d95f876 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-c...│XML External Entity (XXE) Injection i...│
+│ e775639f │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-c...│Open Redirect via Insufficiently Vali...│
+│ 60c563e5 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-c...│Missing Authorization / Broken Access...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+60 finding(s): 6 CRITICAL, 52 HIGH, 2 MEDIUM · ✅ 0 fixed, 🔴 60 open
+📋 Report generated at 2026-10-15 03:36:42 UTC

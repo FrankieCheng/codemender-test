@@ -1,0 +1,63 @@
+{
+  "run_id": "py_05_quick_38flash_c2_sast",
+  "timestamp": "2026-10-15T06:30:12.555244+00:00",
+  "repo_family": "python-wsgi",
+  "target_path": "scoped_targets/ref-codemender-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "quick",
+  "context_key": "c2_sast_framework",
+  "context_prompt": "Audit all Python WSGI route handlers, database queries, file operations, session cookies, and application factory configuration. Specifically hunt for: 1) OS Command Injection via shell execution, 2) Insecure Deserialization via Python pickle, 3) SQL Injection via string formatting in SQLite queries, 4) Arbitrary File Read and Path Traversal (distinguishing unsafe path joining from safe_join confinement), 5) Unrestricted File Upload, 6) Server-Side Request Forgery (SSRF), 7) Reflected XSS, 8) Open Redirect, 9) Active Werkzeug DebuggedApplication interactive console (evalex=True), and 10) Insecure session cookies missing Secure or HttpOnly flags.",
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_sec": 163.7,
+  "total_findings": 10,
+  "severity_counts": {
+    "CRITICAL": 3,
+    "HIGH": 4,
+    "MEDIUM": 3,
+    "LOW": 0
+  },
+  "unique_cwes": [
+    "CWE-1004",
+    "CWE-22",
+    "CWE-434",
+    "CWE-489",
+    "CWE-502",
+    "CWE-601",
+    "CWE-78",
+    "CWE-79",
+    "CWE-89",
+    "CWE-918"
+  ],
+  "affected_files_count": 1,
+  "log_metrics": {
+    "files_discovered": 3,
+    "tool_steps": 4,
+    "duration_str": "2m42s",
+    "tokens_in": "289k",
+    "tokens_out": "6k",
+    "tokens_total": "305k"
+  },
+  "ground_truth": {
+    "gt_hits": 10,
+    "gt_total": 11,
+    "gt_recall_pct": 90.9,
+    "gt_matrix": {
+      "GT01_CMD_INJ": true,
+      "GT02_DESERIAL": true,
+      "GT03_UPLOAD": true,
+      "GT04_PATH_READ": true,
+      "GT05_SQLI": true,
+      "GT06_SSRF": true,
+      "GT07_XSS": true,
+      "GT08_REDIRECT": true,
+      "GT09_DEBUGGER": true,
+      "GT10_MULTIPART_DOS": false,
+      "GT11_COOKIE_SEC": true
+    },
+    "fp_safe_join": false
+  }
+}

@@ -1,0 +1,16 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ ffd5ccde │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│OS Command Injection via Diagnostic P...│
+│ b15d89f6 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Insecure Pickle Deserialization in Pr...│
+│ 25d90ec5 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Arbitrary File Read via Path Traversa...│
+│ b6e35840 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Unrestricted File Upload and Path Tra...│
+│ bc59874a │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection in User Registry Lookup...│
+│ d848af31 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery via Remot...│
+│ 823a372e │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting in Sea...│
+│ 3246b50e │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Insecure Debug Mode and Interactive C...│
+│ 76380e75 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in Navigation Endpoint    │
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+9 finding(s): 2 CRITICAL, 6 HIGH, 1 MEDIUM · ✅ 0 fixed, 🔴 9 open
+📋 Report generated at 2026-10-15 06:32:25 UTC

@@ -1,0 +1,52 @@
+{
+  "run_id": "py_13_deep_38flash_literal_trap",
+  "timestamp": "2026-10-15T06:33:36.342952+00:00",
+  "repo_family": "python-wsgi",
+  "target_path": "scoped_targets/ref-codemender-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "deep",
+  "context_key": "c_legacy_literal",
+  "context_prompt": "This Python file handles untrusted input, so check requirements.txt for the package versions and hunt down any vulnerabilities. Please be thorough—give me a full list of every security flaw you find, ranked by severity, rather than stopping at the worst one.",
+  "deep_workers": 16,
+  "deep_max_turns": 8,
+  "enable_bash": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_sec": 0.5,
+  "total_findings": 0,
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [],
+  "affected_files_count": 0,
+  "log_metrics": {
+    "files_discovered": 0,
+    "tool_steps": 0,
+    "duration_str": "N/A",
+    "tokens_in": "0",
+    "tokens_out": "0",
+    "tokens_total": "0"
+  },
+  "ground_truth": {
+    "gt_hits": 0,
+    "gt_total": 11,
+    "gt_recall_pct": 0.0,
+    "gt_matrix": {
+      "GT01_CMD_INJ": false,
+      "GT02_DESERIAL": false,
+      "GT03_UPLOAD": false,
+      "GT04_PATH_READ": false,
+      "GT05_SQLI": false,
+      "GT06_SSRF": false,
+      "GT07_XSS": false,
+      "GT08_REDIRECT": false,
+      "GT09_DEBUGGER": false,
+      "GT10_MULTIPART_DOS": false,
+      "GT11_COOKIE_SEC": false
+    },
+    "fp_safe_join": false
+  }
+}

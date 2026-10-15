@@ -1,0 +1,33 @@
+{
+  "run_id": "js_06_3.8-flash_quick_c1_sca",
+  "timestamp": "2026-10-15T02:02:06.643106+00:00",
+  "repo_family": "juice-shop",
+  "target_path": "scoped_targets/juice-shop-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "quick",
+  "context_key": "c1_sca",
+  "context_prompt": "This Node.js/TypeScript web application handles untrusted user input. Check package.json for vulnerable dependency versions (e.g., express-jwt, jsonwebtoken, sanitize-html, MarsDB, libxml2, note-evil/vm,pug, multer, unzipper, sequelize) and correlate with known CVEs. Be thorough and list every security flaw you find ranked by severity.",
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": -1,
+  "timed_out": true,
+  "elapsed_sec": 480.0,
+  "total_findings": 0,
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [],
+  "affected_files_count": 0,
+  "log_metrics": {
+    "files_discovered": 1,
+    "tool_steps": 0,
+    "duration_str": "N/A",
+    "tokens_in": "0",
+    "tokens_out": "0",
+    "tokens_total": "0"
+  }
+}

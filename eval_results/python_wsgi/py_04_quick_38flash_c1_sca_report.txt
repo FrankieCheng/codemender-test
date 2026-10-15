@@ -1,0 +1,18 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 66170d51 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Command Injection in Diagnostics Ping...│
+│ 019b5d9b │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Insecure Deserialization in Profile R...│
+│ 8f3c84b0 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection in User Lookup Endpoint   │
+│ 434533a1 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Path Traversal Arbitrary File Read in...│
+│ 6f2322bf │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Arbitrary File Upload via Path Traver...│
+│ d2bd31ec │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery in Servic...│
+│ 09e5a34c │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Interactive Debugger Enabled in Produ...│
+│ d76be187 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Werkzeug Nameless Cookie Parsing Deni...│
+│ b610ede1 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Werkzeug Debugger PIN Predictability ...│
+│ 526b388d │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting in Sea...│
+│ e9519c73 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in Navigation Endpoint    │
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+11 finding(s): 2 CRITICAL, 7 HIGH, 2 MEDIUM · ✅ 0 fixed, 🔴 11 open
+📋 Report generated at 2026-10-15 06:30:07 UTC

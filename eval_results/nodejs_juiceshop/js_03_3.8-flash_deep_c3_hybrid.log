@@ -1,0 +1,293 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 17 total files discovered
+   Tier 1 Sifter: 17 candidate files in 17 batches to scan with 16 workers
+2026-10-15T01:39:57Z [INFO]  🔧 [Step 1] run_command → sed -n '125,150p' lib/insecurity.ts
+2026-10-15T01:39:57Z [INFO]     ✅ Tool completed: run_command (took 7ms)
+2026-10-15T01:39:58Z [INFO]  🔧 [Step 1] run_command → node -e "
+const safeEval = require('notevil');
+console.log(typeof safeEval);
+"
+2026-10-15T01:39:58Z [INFO]     ✅ Tool completed: run_command (took 54ms)
+2026-10-15T01:39:59Z [INFO]  🔧 [Step 1] run_command → grep -rn "fileUpload" routes/ server.ts
+2026-10-15T01:39:59Z [INFO]     ✅ Tool completed: run_command (took 7ms)
+2026-10-15T01:39:59Z [INFO]  🔧 [Step 1] run_command → grep -E "view engine|layout" server.ts
+2026-10-15T01:39:59Z [INFO]     ✅ Tool completed: run_command (took 6ms)
+2026-10-15T01:40:00Z [INFO]  🔧 [Step 1] run_command → git log -n 1 --oneline; cat views/userProfile.pug
+2026-10-15T01:40:00Z [INFO]     ✅ Tool completed: run_command (took 14ms)
+2026-10-15T01:40:00Z [INFO]  🔧 [Step 1] grep_search → pattern="updateProductReviews" path=…/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:40:00Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:40:00Z [INFO]  🔧 [Step 1] grep_search → pattern="servePublicFiles" path=…/scoped_targets/juice-shop-bench/routes
+2026-10-15T01:40:00Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:40:02Z [INFO]  🔧 [Step 1] grep_search → pattern="ordersCollection" path=…/juice-shop-bench/data/mongodb.ts
+2026-10-15T01:40:02Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench/data/mongodb.ts: no such file or directory (took 1ms)
+2026-10-15T01:40:02Z [INFO]  🔧 [Step 1] run_command → git grep "persistedXssUserChallenge"
+2026-10-15T01:40:02Z [INFO]     ✅ Tool completed: run_command (took 12ms)
+2026-10-15T01:40:02Z [INFO]  🔧 [Step 1] grep_search → pattern="profileImage" path=…/scoped_targets/juice-shop-bench/frontend
+2026-10-15T01:40:02Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench/frontend: no such file or directory (took 1ms)
+2026-10-15T01:40:03Z [INFO]     📤 Result submitted (submit 6.646s)
+2026-10-15T01:40:04Z [INFO]     📤 Result submitted (submit 5.761s)
+2026-10-15T01:40:05Z [INFO]  🔧 [Step 1] grep_search → pattern="isRedirectAllowed" path=…/scoped_targets/juice-shop-bench/routes
+2026-10-15T01:40:05Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:40:05Z [INFO]     📤 Result submitted (submit 5.571s)
+2026-10-15T01:40:05Z [INFO]     📤 Result submitted (submit 6.042s)
+2026-10-15T01:40:06Z [INFO]     📤 Result submitted (submit 5.826s)
+2026-10-15T01:40:06Z [INFO]     📤 Result submitted (submit 5.515s)
+2026-10-15T01:40:06Z [INFO]     📤 Result submitted (submit 5.923s)
+2026-10-15T01:40:06Z [INFO]  🔧 [Step 1] run_command → node -e 'console.log(process.version)'
+2026-10-15T01:40:06Z [INFO]     ✅ Tool completed: run_command (took 45ms)
+2026-10-15T01:40:07Z [INFO]     📤 Result submitted (submit 4.843s)
+2026-10-15T01:40:07Z [INFO]     📤 Result submitted (submit 5.39s)
+2026-10-15T01:40:07Z [INFO]     📤 Result submitted (submit 4.828s)
+2026-10-15T01:40:09Z [INFO]     📤 Result submitted (submit 4.407s)
+2026-10-15T01:40:09Z [INFO]  🔧 [Step 2] run_command → grep -rn "handleZipFileUpload\|handleXmlUpload\|handleYamlUpload\|checkFileTy...
+2026-10-15T01:40:09Z [INFO]     ✅ Tool completed: run_command (took 7ms)
+2026-10-15T01:40:10Z [INFO]  🔧 [Step 2] run_command → git grep notevil
+2026-10-15T01:40:10Z [INFO]     ✅ Tool completed: run_command (took 17ms)
+2026-10-15T01:40:10Z [INFO]  🔧 [Step 2] run_command → rg "persistedXssUserChallenge"
+2026-10-15T01:40:10Z [INFO]     ✅ Tool completed: run_command (took 4ms)
+2026-10-15T01:40:11Z [INFO]  🔧 [Step 2] grep_search → pattern="lfrChallenge" path=…/data/static/challenges.json
+2026-10-15T01:40:11Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench/data/static/challenges.json: no such file or directory (took 0s)
+2026-10-15T01:40:11Z [INFO]     📤 Result submitted (submit 4.577s)
+2026-10-15T01:40:11Z [INFO]  🔧 [Step 2] run_command → find . -name "userProfile*"
+2026-10-15T01:40:11Z [INFO]     ✅ Tool completed: run_command (took 9ms)
+2026-10-15T01:40:11Z [INFO]  🔧 [Step 2] grep_search → pattern="servePublicFiles" path=…/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:40:11Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[1/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/search.ts (23.8s) | 13.5k tok - 1 vulnerabilities
+2026-10-15T01:40:13Z [INFO]  🔧 [Step 2] run_command → git status || ls -la
+2026-10-15T01:40:13Z [INFO]     ✅ Tool completed: run_command (took 13ms)
+2026-10-15T01:40:14Z [INFO]     📤 Result submitted (submit 4.769s)
+2026-10-15T01:40:15Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-bench/routes/redirect.ts
+2026-10-15T01:40:15Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T01:40:15Z [INFO]     📤 Result submitted (submit 5.159s)
+2026-10-15T01:40:16Z [INFO]     📤 Result submitted (submit 4.755s)
+2026-10-15T01:40:16Z [INFO]  🔧 [Step 1] run_command → grep -n "server.ts" data/static/challenges.json || grep -rn "resetPasswordMor...
+2026-10-15T01:40:16Z [INFO]     ✅ Tool completed: run_command (took 9ms)
+2026-10-15T01:40:16Z [INFO]     📤 Result submitted (submit 4.956s)
+2026-10-15T01:40:16Z [INFO]     📤 Result submitted (submit 6.178s)
+2026-10-15T01:40:18Z [INFO]     📤 Result submitted (submit 6.581s)
+2026-10-15T01:40:19Z [INFO]  🔧 [Step 2] grep_search → pattern="ordersCollection" path=…/scoped_targets/juice-shop-bench/data
+2026-10-15T01:40:19Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench/data: no such file or directory (took 0s)
+2026-10-15T01:40:19Z [INFO]  🔧 [Step 1] grep_search → pattern="promotionVideo" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:40:19Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:40:19Z [INFO]     📤 Result submitted (submit 5.866s)
+2026-10-15T01:40:19Z [INFO]  🔧 [Step 3] grep_search → pattern="lfrChallenge" path=…/scoped_targets/juice-shop-bench/data
+2026-10-15T01:40:19Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench/data: no such file or directory (took 0s)
+2026-10-15T01:40:19Z [INFO]  🔧 [Step 3] run_command → grep -i "notevil" package.json
+2026-10-15T01:40:19Z [INFO]     ✅ Tool completed: run_command (took 7ms)
+2026-10-15T01:40:20Z [INFO]     📤 Result submitted (submit 4.956s)
+2026-10-15T01:40:20Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-bench/data/mongodb.ts
+2026-10-15T01:40:20Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_03_3.8-flash_deep_c3_hybrid/artifacts/ChA3ZTI3Y2RmODBlNDA2NjA4EAgaATAqBG1haW4/mongodb.ts: no such file or directory (took 0s)
+2026-10-15T01:40:21Z [INFO]  🔧 [Step 3] grep_search → pattern="persistedXssUserChallenge" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:40:21Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T01:40:21Z [INFO]     📤 Result submitted (submit 4.869s)
+[2/17 batches] ✅ scoped_targets/juice-shop-bench/package.json (32.9s) | 11.8k tok - 0 vulnerabilities
+2026-10-15T01:40:22Z [INFO]  🔧 [Step 3] run_command → find . -name "*.pug"
+2026-10-15T01:40:22Z [INFO]     ✅ Tool completed: run_command (took 8ms)
+2026-10-15T01:40:22Z [INFO]  🔧 [Step 3] grep_search → pattern="profileImageUrlUpload" path=…/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:40:22Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:40:23Z [INFO]  🔧 [Step 3] run_command → cat lib/xml.ts
+2026-10-15T01:40:23Z [INFO]     ✅ Tool completed: run_command (took 8ms)
+2026-10-15T01:40:23Z [INFO]     📤 Result submitted (submit 4.621s)
+2026-10-15T01:40:23Z [INFO]     📤 Result submitted (submit 4.395s)
+2026-10-15T01:40:24Z [INFO]     📤 Result submitted (submit 4.835s)
+2026-10-15T01:40:24Z [INFO]  🔧 [Step 2] run_command → grep -n "vuln-" routes/redirect.ts
+2026-10-15T01:40:24Z [INFO]     ✅ Tool completed: run_command (took 6ms)
+2026-10-15T01:40:25Z [INFO]  🔧 [Step 2] run_command → pwd && ls -F
+2026-10-15T01:40:25Z [INFO]     ✅ Tool completed: run_command (took 7ms)
+2026-10-15T01:40:25Z [INFO]     📤 Result submitted (submit 4.865s)
+2026-10-15T01:40:25Z [INFO]     📤 Result submitted (submit 5.813s)
+2026-10-15T01:40:26Z [INFO]     📤 Result submitted (submit 5.502s)
+2026-10-15T01:40:27Z [INFO]     📤 Result submitted (submit 5.018s)
+2026-10-15T01:40:27Z [INFO]  🔧 [Step 4] run_command → pwd
+2026-10-15T01:40:27Z [INFO]     ✅ Tool completed: run_command (took 7ms)
+2026-10-15T01:40:27Z [INFO]     📤 Result submitted (submit 4.804s)
+2026-10-15T01:40:28Z [INFO]  🔧 [Step 3] run_command → find . -name "trackOrder.ts"
+2026-10-15T01:40:28Z [INFO]     ✅ Tool completed: run_command (took 45ms)
+2026-10-15T01:40:29Z [INFO]     📤 Result submitted (submit 5.656s)
+2026-10-15T01:40:30Z [INFO]  🔧 [Step 4] grep_search → pattern="persistedXssUser" path=…/scoped_targets/juice-shop-bench/data
+2026-10-15T01:40:30Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/juice-shop-bench/data: no such file or directory (took 0s)
+2026-10-15T01:40:30Z [INFO]     📤 Result submitted (submit 4.684s)
+2026-10-15T01:40:30Z [INFO]  🔧 [Step 4] run_command → ls -d node_modules
+2026-10-15T01:40:30Z [INFO]     ✅ Tool completed: run_command (took 7ms)
+2026-10-15T01:40:31Z [INFO]  🔧 [Step 3] grep_search → pattern="cutOffPoisonNullByte" path=…/juice-shop-bench/lib/insecurity.ts
+2026-10-15T01:40:31Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:40:31Z [INFO]     📤 Result submitted (submit 7.002s)
+2026-10-15T01:40:31Z [INFO]  🔧 [Step 2] read_file → …/juice-shop-bench/routes/videoHandler.ts
+2026-10-15T01:40:31Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_03_3.8-flash_deep_c3_hybrid/artifacts/ChBkM2IyZDQwNjY1Y2JmZjc0EAgaATAqBG1haW4/videoHandler.ts: no such file or directory (took 0s)
+2026-10-15T01:40:32Z [INFO]     📤 Result submitted (submit 4.599s)
+2026-10-15T01:40:32Z [INFO]  🔧 [Step 4] run_command → grep -rn "parseXmlString" .
+2026-10-15T01:40:32Z [INFO]     ✅ Tool completed: run_command (took 10ms)
+2026-10-15T01:40:32Z [INFO]     📤 Result submitted (submit 4.734s)
+2026-10-15T01:40:35Z [INFO]  🔧 [Step 3] run_command → grep -rn "redirectChallenge" data/
+2026-10-15T01:40:35Z [INFO]     ✅ Tool completed: run_command (took 6ms)
+2026-10-15T01:40:35Z [INFO]  🔧 [Step 4] run_command → git status
+2026-10-15T01:40:35Z [INFO]     ✅ Tool completed: run_command (took 15ms)
+2026-10-15T01:40:35Z [INFO]     📤 Result submitted (submit 5.771s)
+2026-10-15T01:40:35Z [INFO]     📤 Result submitted (submit 5.373s)
+2026-10-15T01:40:36Z [INFO]  🔧 [Step 4] grep_search → pattern="abused_ssrf_bug" path=…/scoped_targets/juice-shop-bench/lib
+2026-10-15T01:40:36Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T01:40:36Z [INFO]     📤 Result submitted (submit 4.638s)
+2026-10-15T01:40:37Z [INFO]  🔧 [Step 3] run_command → grep -rn "changeProductChallenge\|resetPasswordMortyChallenge\|exposedMetrics...
+2026-10-15T01:40:37Z [INFO]     ✅ Tool completed: run_command (took 8ms)
+2026-10-15T01:40:37Z [INFO]     📤 Result submitted (submit 5.956s)
+2026-10-15T01:40:37Z [INFO]     📤 Result submitted (submit 5.568s)
+[3/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/login.ts (49s) | 19.7k tok - 1 vulnerabilities
+2026-10-15T01:40:39Z [INFO]  🔧 [Step 5] run_command → git grep "lfrChallenge"
+2026-10-15T01:40:39Z [INFO]     ✅ Tool completed: run_command (took 13ms)
+2026-10-15T01:40:39Z [INFO]     📤 Result submitted (submit 4.458s)
+2026-10-15T01:40:40Z [INFO]  ✅ Completed 1 tool steps in 50s | Tokens: 26k in / 1k out / 31k total
+[4/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/updateProductReviews.ts (50.1s) | 31.8k tok - 2 vulnerabilities
+2026-10-15T01:40:40Z [INFO]  🔧 [Step 5] grep_search → pattern="b2bOrder" path=…/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:40:40Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:40:40Z [INFO]  🔧 [Step 3] grep_search → pattern="videoHandler" path=…/codemender-pipeline/scoped_targets/juice-shop-bench
+2026-10-15T01:40:40Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T01:40:40Z [INFO]  🔧 [Step 4] run_command → ls -la data/
+2026-10-15T01:40:40Z [INFO]     ✅ Tool completed: run_command (took 6ms)
+2026-10-15T01:40:40Z [INFO]  🔧 [Step 5] run_command → pwd && ls -la
+2026-10-15T01:40:41Z [INFO]     ✅ Tool completed: run_command (took 13ms)
+2026-10-15T01:40:41Z [INFO]  🔧 [Step 3] grep_search → pattern="isAuthorized" path=…/scoped_targets/juice-shop-bench/routes
+2026-10-15T01:40:41Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:40:41Z [INFO]     📤 Result submitted (submit 6.37s)
+2026-10-15T01:40:41Z [INFO]  🔧 [Step 4] read_file → …/juice-shop-bench/lib/insecurity.ts
+2026-10-15T01:40:41Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T01:40:42Z [INFO]     📤 Result submitted (submit 5.834s)
+2026-10-15T01:40:42Z [INFO]  🔧 [Step 5] run_command → ls -la lib/xml*
+2026-10-15T01:40:42Z [INFO]     ✅ Tool completed: run_command (took 6ms)
+2026-10-15T01:40:44Z [INFO]     📤 Result submitted (submit 6.928s)
+2026-10-15T01:40:44Z [INFO]  🔧 [Step 3] run_command → pwd && ls -la
+2026-10-15T01:40:44Z [INFO]     ✅ Tool completed: run_command (took 21ms)
+2026-10-15T01:40:44Z [INFO]  🔧 [Step 5] run_command → grep -rn "getUserProfile" server.ts routes/
+2026-10-15T01:40:44Z [INFO]     ✅ Tool completed: run_command (took 6ms)
+2026-10-15T01:40:45Z [INFO]     📤 Result submitted (submit 6.388s)
+2026-10-15T01:40:45Z [INFO]     📤 Result submitted (submit 4.74s)
+2026-10-15T01:40:45Z [INFO]  🔧 [Step 4] run_command → git grep "redirectChallenge"
+2026-10-15T01:40:45Z [INFO]     ✅ Tool completed: run_command (took 13ms)
+2026-10-15T01:40:46Z [INFO]     📤 Result submitted (submit 5.541s)
+2026-10-15T01:40:46Z [INFO]     📤 Result submitted (submit 4.858s)
+2026-10-15T01:40:46Z [INFO]     📤 Result submitted (submit 5.472s)
+2026-10-15T01:40:47Z [INFO]     📤 Result submitted (submit 6.989s)
+2026-10-15T01:40:47Z [INFO]     📤 Result submitted (submit 5.266s)
+2026-10-15T01:40:47Z [INFO]     📤 Result submitted (submit 7.088s)
+2026-10-15T01:40:47Z [INFO]  🔧 [Step 4] run_command → grep -rn "resetPasswordMortyChallenge" .
+2026-10-15T01:40:47Z [INFO]     ✅ Tool completed: run_command (took 8ms)
+2026-10-15T01:40:49Z [INFO]     📤 Result submitted (submit 5.444s)
+2026-10-15T01:40:49Z [INFO]     📤 Result submitted (submit 5.179s)
+2026-10-15T01:40:50Z [INFO]     📤 Result submitted (submit 4.556s)
+2026-10-15T01:40:51Z [INFO]  🔧 [Step 4] grep_search → pattern="promotion" path=…/scoped_targets/juice-shop-bench/routes
+2026-10-15T01:40:51Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T01:40:51Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/juice-shop-bench/PROJECT_FILE_INDEX.md
+2026-10-15T01:40:51Z [INFO]     ⏭️  Tool budget reached (5/5): short-circuiting read_file
+2026-10-15T01:40:51Z [INFO]  🔧 [Step 4] grep_search → pattern="isAuthorized" path=…/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:40:51Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T01:40:52Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/juice-shop-bench/server.ts
+2026-10-15T01:40:52Z [INFO]     ⏭️  Tool budget reached (5/5): short-circuiting read_file
+2026-10-15T01:40:52Z [INFO]  🔧 [Step 5] run_command → ls -la
+2026-10-15T01:40:52Z [INFO]     ✅ Tool completed: run_command (took 13ms)
+2026-10-15T01:40:54Z [INFO]     📤 Result submitted (submit 6.205s)
+2026-10-15T01:40:55Z [INFO]  🔧 [Step 5] run_command → pwd && ls -la
+2026-10-15T01:40:55Z [INFO]     ✅ Tool completed: run_command (took 13ms)
+2026-10-15T01:40:56Z [INFO]     📤 Result submitted (submit 5.009s)
+2026-10-15T01:40:56Z [INFO]     📤 Result submitted (submit 5.409s)
+2026-10-15T01:40:57Z [INFO]     📤 Result submitted (submit 5.69s)
+2026-10-15T01:40:57Z [INFO]     📤 Result submitted (submit 5.054s)
+2026-10-15T01:40:59Z [INFO]     📤 Result submitted (submit 6.542s)
+2026-10-15T01:40:59Z [INFO]  🔧 [Step 5] run_command → grep -rn "changeProduct" .
+2026-10-15T01:40:59Z [INFO]     ✅ Tool completed: run_command (took 8ms)
+2026-10-15T01:41:00Z [INFO]     📤 Result submitted (submit 4.605s)
+2026-10-15T01:41:01Z [INFO]  🔧 [Step 5] run_command → find . -name "*video*"
+2026-10-15T01:41:01Z [INFO]     ✅ Tool completed: run_command (took 8ms)
+2026-10-15T01:41:03Z [INFO]  🔧 [Step 6] run_command → git grep "isRedirectAllowed"
+2026-10-15T01:41:03Z [INFO]     ⏭️  Tool budget reached (5/5): short-circuiting run_command
+2026-10-15T01:41:04Z [INFO]  🔧 [Step 5] run_command → node -e 'const jws = require("jws"); console.log(jws.verify);'
+2026-10-15T01:41:04Z [INFO]     ✅ Tool completed: run_command (took 64ms)
+2026-10-15T01:41:05Z [INFO]  🔧 [Step 5] run_command → node -e "const path = require('path'); console.log(path.resolve('ftp/', 'test...
+2026-10-15T01:41:05Z [INFO]     ✅ Tool completed: run_command (took 47ms)
+2026-10-15T01:41:05Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/juice-shop-bench/PROJECT_FILE_INDEX.md
+2026-10-15T01:41:05Z [INFO]     ⏭️  Tool budget reached (5/5): short-circuiting read_file
+2026-10-15T01:41:05Z [INFO]     📤 Result submitted (submit 5.696s)
+2026-10-15T01:41:07Z [INFO]     📤 Result submitted (submit 5.992s)
+2026-10-15T01:41:09Z [INFO]  🔧 [Step 4] run_command → grep -rn "reviewsCollection" .
+2026-10-15T01:41:09Z [INFO]     ✅ Tool completed: run_command (took 9ms)
+2026-10-15T01:41:09Z [INFO]     📤 Result submitted (submit 4.341s)
+2026-10-15T01:41:09Z [INFO]     📤 Result submitted (submit 6.755s)
+2026-10-15T01:41:10Z [INFO]     📤 Result submitted (submit 5.929s)
+2026-10-15T01:41:11Z [INFO]  ✅ Completed 4 tool steps in 1m22s | Tokens: 38k in / 1k out / 43k total
+[5/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/profileImageUrlUpload.ts (1m21.6s) | 43.7k tok - 1 vulnerabilities
+2026-10-15T01:41:11Z [INFO]     📤 Result submitted (submit 6.492s)
+2026-10-15T01:41:14Z [INFO]     📤 Result submitted (submit 5.513s)
+2026-10-15T01:41:15Z [INFO]  ✅ Completed 6 tool steps in 1m25s | Tokens: 58k in / 757 out / 62k total
+[6/17 batches] 🚨 scoped_targets/juice-shop-bench/models/user.ts (1m25.1s) | 62.1k tok - 1 vulnerabilities
+2026-10-15T01:41:19Z [INFO]  ✅ Completed 6 tool steps in 1m29s | Tokens: 48k in / 1k out / 51k total
+[7/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/b2bOrder.ts (1m29.5s) | 51.5k tok - 1 vulnerabilities
+2026-10-15T01:41:21Z [INFO]  ✅ Completed 5 tool steps in 1m31s | Tokens: 57k in / 842 out / 63k total
+[8/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/fileUpload.ts (1m31.4s) | 63.7k tok - 1 vulnerabilities
+2026-10-15T01:41:21Z [INFO]  🔧 [Step 6] run_command → git log -n 5 --stat
+2026-10-15T01:41:21Z [INFO]     ⏭️  Tool budget reached (5/5): short-circuiting run_command
+2026-10-15T01:41:27Z [INFO]     📤 Result submitted (submit 5.541s)
+2026-10-15T01:41:30Z [INFO]  ✅ Completed 6 tool steps in 1m40s | Tokens: 46k in / 889 out / 50k total
+[9/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/trackOrder.ts (1m40.4s) | 50.5k tok - 1 vulnerabilities
+2026-10-15T01:41:40Z [INFO]  🔧 [Step 6] run_command → git grep -n "fileServer"
+2026-10-15T01:41:40Z [INFO]     ⏭️  Tool budget reached (5/5): short-circuiting run_command
+2026-10-15T01:41:40Z [INFO]  ✅ Completed 6 tool steps in 1m51s | Tokens: 61k in / 923 out / 67k total
+[10/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/redirect.ts (1m50.6s) | 67.8k tok - 1 vulnerabilities
+2026-10-15T01:41:40Z [INFO]  🔧 [Step 5] run_command → grep -rn "showProductReviews" server.ts
+2026-10-15T01:41:40Z [INFO]     ✅ Tool completed: run_command (took 7ms)
+2026-10-15T01:41:44Z [INFO]     📤 Result submitted (submit 4.309s)
+2026-10-15T01:41:46Z [INFO]     📤 Result submitted (submit 5.864s)
+2026-10-15T01:41:49Z [INFO]  ✅ Completed 6 tool steps in 1m34s | Tokens: 43k in / 193 out / 48k total
+[11/17 batches] ✅ scoped_targets/juice-shop-bench/views/promotionVideo.pug (1m34.2s) | 48.4k tok - 0 vulnerabilities
+2026-10-15T01:41:54Z [INFO]  ✅ Completed 5 tool steps in 2m5s | Tokens: 50k in / 1k out / 55k total
+[12/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/dataErasure.ts (2m4.8s) | 55.3k tok - 1 vulnerabilities
+2026-10-15T01:41:56Z [INFO]  ✅ Completed 5 tool steps in 2m6s | Tokens: 61k in / 1k out / 68k total
+[13/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/userProfile.ts (2m5.6s) | 68.5k tok - 2 vulnerabilities
+2026-10-15T01:42:14Z [INFO]  ✅ Completed 6 tool steps in 2m24s | Tokens: 71k in / 1k out / 79k total
+[14/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/fileServer.ts (2m23.8s) | 79.1k tok - 1 vulnerabilities
+2026-10-15T01:42:18Z [INFO]  ✅ Completed 5 tool steps in 2m29s | Tokens: 262k in / 2k out / 276k total
+[15/17 batches] 🚨 scoped_targets/juice-shop-bench/server.ts (2m28.6s) | 276.6k tok - 4 vulnerabilities
+2026-10-15T01:42:26Z [INFO]  ✅ Completed 5 tool steps in 2m37s | Tokens: 41k in / 922 out / 45k total
+[16/17 batches] 🚨 scoped_targets/juice-shop-bench/routes/showProductReviews.ts (2m36.6s) | 45.2k tok - 1 vulnerabilities
+2026-10-15T01:43:09Z [INFO]  ✅ Completed 5 tool steps in 3m20s | Tokens: 195k in / 4k out / 210k total
+[17/17 batches] 🚨 scoped_targets/juice-shop-bench/lib/insecurity.ts (3m19.6s) | 210.5k tok - 6 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 17 files in 17 batches (0 pruned at Tier 0, 17 succeeded, 0 failed) in 3m21s
+   Session: ChA3NzdmMjllZTNjMGZlM2EzEAgaATAqBG1haW4
+   Total tokens consumed: 1.2M (in: 1.1M, cached: 488.6k, out: 20.9k, thinking: 81.2k)
+
+🔒 Found 25 vulnerabilities:
+
+ID        SEVERITY    TYPE                                FILE                                                             TITLE                                                                                                    CONFIDENCE
+────────  ────────    ────                                ────                                                             ─────                                                                                                    ──────────
+21dca9a0  🔴 CRITICAL  SQL INJECTION                       scoped_targets/juice-shop-bench/routes/search.ts                 SQL Injection in searchProducts via Untrusted Query Parameter                                            100%
+bd543adc  🔴 CRITICAL  CWE-89                              scoped_targets/juice-shop-bench/routes/login.ts                  SQL Injection via Unsanitized Email in Login Route Handler                                               100%
+1a2b2d29  🟠 HIGH      CWE-943                             scoped_targets/juice-shop-bench/routes/updateProductReviews.ts   NoSQL Injection leading to mass review modification via unsanitized query selector                       95%
+b98fd8e5  🟠 HIGH      CWE-639                             scoped_targets/juice-shop-bench/routes/updateProductReviews.ts   Insecure Direct Object Reference (IDOR) allows modifying reviews of other users                          95%
+3980f96b  🟠 HIGH      SERVER-SIDE REQUEST FORGERY (SSRF)  scoped_targets/juice-shop-bench/routes/profileImageUrlUpload.ts  Server-Side Request Forgery (SSRF) in profileImageUrlUpload                                              100%
+670713fc  🟠 HIGH      CWE-916                             scoped_targets/juice-shop-bench/models/user.ts                   Weak Cryptographic Password Hashing with Unsalted MD5                                                    100%
+459802ca  🔴 CRITICAL  CODE INJECTION                      scoped_targets/juice-shop-bench/routes/b2bOrder.ts               Remote Code Execution via Sandbox Escape in b2bOrder Route Handler                                       100%
+cd890ced  🟠 HIGH      PATH TRAVERSAL                      scoped_targets/juice-shop-bench/routes/fileUpload.ts             Zip Slip Arbitrary File Overwrite via Ineffective Path Validation in extractZipBuffer                    100%
+2ab88400  🟠 HIGH      CWE-943                             scoped_targets/juice-shop-bench/routes/trackOrder.ts             NoSQL Injection in Order Tracking via $where Clause                                                      100%
+f0c637d6  🟠 HIGH      CWE-601                             scoped_targets/juice-shop-bench/routes/redirect.ts               Open Redirect via Insufficient Substring Validation in performRedirect                                   100%
+29fad93c  🟠 HIGH      PATH TRAVERSAL                      scoped_targets/juice-shop-bench/routes/dataErasure.ts            Arbitrary File Read / Path Traversal via Handlebars layout Option in Data Erasure Handler                100%
+ce67dff5  🔴 CRITICAL  CWE-94                              scoped_targets/juice-shop-bench/routes/userProfile.ts            Remote Code Execution via eval() in Profile Username Handler                                             100%
+d0523c04  🟠 HIGH      CWE-79                              scoped_targets/juice-shop-bench/routes/userProfile.ts            Stored Cross-Site Scripting via Content-Security-Policy Injection and Unsanitized Template Substitution  95%
+0460a7c5  🟠 HIGH      PATH TRAVERSAL                      scoped_targets/juice-shop-bench/routes/fileServer.ts             Extension Whitelist Bypass via Poison Null Byte in Public File Server                                    100%
+35c9a203  🟠 HIGH      MISSING AUTHORIZATION               scoped_targets/juice-shop-bench/server.ts                        Missing Authorization on Product Update Endpoint Allows Arbitrary Product Modification                   100%
+80911f0e  🟠 HIGH      AUTHENTICATION BYPASS BY SPOOFING   scoped_targets/juice-shop-bench/server.ts                        Rate Limit Bypass via Spoofed X-Forwarded-For Header on Password Reset Endpoint                          100%
+5158682e  🟡 MEDIUM    CWE-548                             scoped_targets/juice-shop-bench/server.ts                        Sensitive Access Log Exposure via Directory Listing on Support Logs Endpoint                             95%
+e0de2bce  🟡 MEDIUM    CWE-548                             scoped_targets/juice-shop-bench/server.ts                        Information Disclosure via Directory Listing on /ftp Endpoint                                            95%
+3ef97183  🟠 HIGH      CWE-943                             scoped_targets/juice-shop-bench/routes/showProductReviews.ts     NoSQL Injection / JavaScript Code Injection via $where in showProductReviews                             100%
+a05a2adc  🟠 HIGH      CWE-601                             scoped_targets/juice-shop-bench/lib/insecurity.ts                Open Redirect Allowlist Bypass via Substring Matching in isRedirectAllowed                               100%
+b7fda0bf  🔴 CRITICAL  CWE-798                             scoped_targets/juice-shop-bench/lib/insecurity.ts                Hardcoded RSA Private Key Enables Complete Authentication Bypass                                         100%
+da1762d5  🟠 HIGH      CWE-347                             scoped_targets/juice-shop-bench/lib/insecurity.ts                JWT Algorithm Confusion in isAuthorized Middleware                                                       100%
+22f343cb  🟠 HIGH      CWE-347                             scoped_targets/juice-shop-bench/lib/insecurity.ts                JWT Algorithm Confusion in verify Function                                                               100%
+da084a95  🟡 MEDIUM    CWE-916                             scoped_targets/juice-shop-bench/lib/insecurity.ts                Use of Broken and Unsalted MD5 Hashing for Passwords                                                     100%
+5e1d47ee  🟠 HIGH      CWE-798                             scoped_targets/juice-shop-bench/lib/insecurity.ts                Hardcoded Secret Key in HMAC Generation                                                                  100%
+
+Summary: 5 CRITICAL, 17 HIGH, 3 MEDIUM
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T01:43:09Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_js_03_3.8-flash_deep_c3_hybrid/logs/20261015T013948Z_ChA3NzdmMjllZTNjMGZlM2EzEAgaATAqBG1haW4.log

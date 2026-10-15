@@ -2,4 +2,6 @@
 __pycache__/
 *.pyc
 .cm_project
+.cm_home_*
 cm
+.DS_Store

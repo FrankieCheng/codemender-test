@@ -1,0 +1,27 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 0a780613 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│SQL Injection in Login Authentication...│
+│ cef1c78d │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│SQL Injection in Product Search Endpoint│
+│ 90fd0020 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Code Injection and Sandbox Escape in ...│
+│ 2e483e93 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Remote Code Execution via eval() and ...│
+│ b649eca2 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Hardcoded JWT Private Key and JWT Alg...│
+│ dbc706d5 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Missing Authorization, Mass Assignmen...│
+│ f37af7c4 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Arbitrary File Read via Express Layou...│
+│ 60444d6d │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Allowlist Bypass via Poison Null Byte...│
+│ 4a42e7c4 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Arbitrary File Overwrite via Zip Slip...│
+│ 57a64264 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│XML External Entity (XXE) Injection i...│
+│ 03c1cf44 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Server-Side Request Forgery (SSRF) in...│
+│ 560c8b45 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL JavaScript Injection in Show Pr...│
+│ 62bc761e │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection in Track Order Endpoint │
+│ 496c9698 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Operator Injection and Missing ...│
+│ 9e886381 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Stored Cross-Site Scripting and Weak ...│
+│ 2401ae27 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Bypassable Regex HTML Sanitizer in sa...│
+│ c615bc35 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Denial of Service via YAML Alias Expa...│
+│ 6c60b950 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Open Redirect via Substring Allowlist...│
+│ 97161854 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Defective Redirect URL Allowlist Vali...│
+│ 86c11c67 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Cross-Site Scripting via Unescaped Sc...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+20 finding(s): 6 CRITICAL, 10 HIGH, 4 MEDIUM · ✅ 0 fixed, 🔴 20 open
+📋 Report generated at 2026-10-15 02:23:58 UTC

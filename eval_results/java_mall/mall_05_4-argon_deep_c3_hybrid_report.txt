@@ -1,0 +1,42 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 51257f7c │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Order Payment Status ...│
+│ 90e181a8 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Payment Bypass and Callback Forgery i...│
+│ afd2c8ce │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Weak JWT Secret in mall-adm...│
+│ d8321a54 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded and Weak JWT Signing Secret...│
+│ 5f544b17 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Administrator Account...│
+│ 08192924 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Payment Bypass via Unverified Trade N...│
+│ e7e4be06 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Exposure of SMS Verification Code (OT...│
+│ e0e43a13 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Incomplete Payment Callback Verificat...│
+│ 98042272 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Access and Unsanitize...│
+│ 5855319a │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Access and Unsanitize...│
+│ d16df1c2 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ e39e9a25 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ 082c0ab2 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ 5dbf4c1a │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ 39685d14 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Access to Actuator, D...│
+│ 7079f607 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Access to Actuator an...│
+│ e4f5d137 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Aliyun OSS Upload Pol...│
+│ bbffbacf │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Signature Verification on Ali...│
+│ 81cd4b33 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Mass Assignment and Unauthorized Pass...│
+│ 3026e22e │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/p...│Unencrypted and Unauthenticated Remot...│
+│ 54640251 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Order Amount and App ID Valid...│
+│ 7e2fe828 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Default Database Credential...│
+│ bb9e0af9 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Default Credentials for Ali...│
+│ 66cea6d0 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Default MinIO Object Storag...│
+│ 6bdb2c33 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unrestricted File Upload and Stored X...│
+│ c8fe555e │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Weak Password Recovery Mechanism Allo...│
+│ d8ee41bd │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Default Aliyun OSS Credenti...│
+│ 62766731 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Swagger UI and OpenAPI Documentation ...│
+│ 4deb7983 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ 6be1118a │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Exposure of Administrator Password Ha...│
+│ 964fe200 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Exposure of Administrator Password Ha...│
+│ ff9a5739 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Redis Configuration (...│
+│ a5d36ca1 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Arbitrary MinIO Object Deletion witho...│
+│ 9243f726 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Exposure of Password Hash in Member I...│
+│ 15195065 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Database/Middleware Credent...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+35 finding(s): 7 CRITICAL, 19 HIGH, 9 MEDIUM · ✅ 0 fixed, 🔴 35 open
+📋 Report generated at 2026-10-15 02:55:03 UTC

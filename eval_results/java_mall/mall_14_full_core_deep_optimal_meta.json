@@ -1,0 +1,47 @@
+{
+  "run_id": "mall_14_full_core_deep_optimal",
+  "timestamp": "2026-10-15T03:21:35.118755+00:00",
+  "repo_family": "mall",
+  "target_path": "scoped_targets/mall-core",
+  "model": "gemini-3.8-flash",
+  "mode": "deep",
+  "context_key": "c3_hybrid_max",
+  "context_prompt": "Perform an exhaustive full-stack Java and Spring Boot security audit combining SAST, SCA, Configuration, and Business Logic analysis: 0) First read the project file index markdown document in the root directory to see all exact file paths immediately without calling list_dir on nested Java package directories. 1) Check the root Maven POM XML manifest for vulnerable libraries (Hutool, Druid, MyBatis, MinIO, Aliyun OSS, Alipay SDK). 2) Inspect all MyBatis DAO XML mapper files for SQL Injection via dollar-sign interpolation or unvalidated ORDER BY parameters. 3) Inspect MinioController, OssController, AlipayController, UmsAdminController, UmsMemberController, OmsPortalOrderController, and UmsMemberReceiveAddressController for unrestricted file upload, stored XSS, path traversal, SSRF, IDOR (horizontal privilege escalation), mass assignment, and payment callback forgery. 4) Inspect mall-security (JwtTokenUtil, SecurityConfig, IgnoreUrlsConfig) and all Spring YAML config files for hardcoded JWT secrets, default passwords, weak crypto, exposed Spring Boot Actuator endpoints, Druid monitor unauthenticated access, and permissive CORS. Report every single vulnerability found across Java, XML, and YAML files without stopping early.",
+  "deep_workers": 16,
+  "deep_max_turns": 8,
+  "enable_bash": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_sec": 1336.6,
+  "total_findings": 32,
+  "severity_counts": {
+    "CRITICAL": 4,
+    "HIGH": 24,
+    "MEDIUM": 4,
+    "LOW": 0
+  },
+  "unique_cwes": [
+    "CWE-1188",
+    "CWE-1392",
+    "CWE-200",
+    "CWE-306",
+    "CWE-345",
+    "CWE-353",
+    "CWE-434",
+    "CWE-502",
+    "CWE-639",
+    "CWE-640",
+    "CWE-798",
+    "CWE-915",
+    "CWE-942"
+  ],
+  "affected_files_count": 23,
+  "log_metrics": {
+    "files_discovered": 0,
+    "tool_steps": 1,
+    "duration_str": "33s",
+    "tokens_in": "12k",
+    "tokens_out": "75",
+    "tokens_total": "14k"
+  }
+}

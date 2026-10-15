@@ -1,0 +1,23 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 59d41aa3 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Sensitive Information Disclosure of V...│
+│ 7c77b2e4 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Alipay Asynchronous Notificat...│
+│ 5f9664c9 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Critical Parameter Validation...│
+│ a60377d8 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Critical Parameter Validation...│
+│ 5b0215bd │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unrestricted File Upload, Directory T...│
+│ 423a71d2 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded JWT Secret Key Allows Authe...│
+│ 04edbe75 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Exposing Sensitive Endpoints (Actuato...│
+│ 9a3b0aaf │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Access to Sensitive A...│
+│ 14a4e96d │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded JWT Secret Key Enabling Aut...│
+│ bb9e0af9 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Use of Hard-coded Credentials for Dru...│
+│ 66cea6d0 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Use of Hard-coded Credentials for Min...│
+│ 40229769 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Null Pointer Dereference on Cache Mis...│
+│ 3df391bb │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ 7e2fe828 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Hard-coded Database Credentials with ...│
+│ 15195065 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Exposed Druid Monitor with Hardcoded ...│
+│ d573a6bc │🔵 LOW     │OPEN  │—  │scoped_targets/mall-bench/m...│Null Pointer Dereference on Non-Exist...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+16 finding(s): 1 CRITICAL, 10 HIGH, 4 MEDIUM, 1 LOW · ✅ 0 fixed, 🔴 16 open
+📋 Report generated at 2026-10-15 01:47:25 UTC

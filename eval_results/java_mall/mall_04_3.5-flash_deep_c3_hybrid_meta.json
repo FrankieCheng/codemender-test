@@ -1,0 +1,41 @@
+{
+  "run_id": "mall_04_3.5-flash_deep_c3_hybrid",
+  "timestamp": "2026-10-15T01:47:26.373840+00:00",
+  "repo_family": "mall",
+  "target_path": "scoped_targets/mall-bench",
+  "model": "gemini-3.5-flash",
+  "mode": "deep",
+  "context_key": "c3_hybrid_max",
+  "context_prompt": "Perform an exhaustive full-stack Java and Spring Boot security audit combining SAST, SCA, Configuration, and Business Logic analysis: 0) First read the project file index markdown document in the root directory to see all exact file paths immediately without calling list_dir on nested Java package directories. 1) Check the root Maven POM XML manifest for vulnerable libraries (Hutool, Druid, MyBatis, MinIO, Aliyun OSS, Alipay SDK). 2) Inspect all MyBatis DAO XML mapper files for SQL Injection via dollar-sign interpolation or unvalidated ORDER BY parameters. 3) Inspect MinioController, OssController, AlipayController, UmsAdminController, UmsMemberController, OmsPortalOrderController, and UmsMemberReceiveAddressController for unrestricted file upload, stored XSS, path traversal, SSRF, IDOR (horizontal privilege escalation), mass assignment, and payment callback forgery. 4) Inspect mall-security (JwtTokenUtil, SecurityConfig, IgnoreUrlsConfig) and all Spring YAML config files for hardcoded JWT secrets, default passwords, weak crypto, exposed Spring Boot Actuator endpoints, Druid monitor unauthenticated access, and permissive CORS. Report every single vulnerability found across Java, XML, and YAML files without stopping early.",
+  "deep_workers": 16,
+  "deep_max_turns": 8,
+  "enable_bash": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_sec": 206.2,
+  "total_findings": 16,
+  "severity_counts": {
+    "CRITICAL": 1,
+    "HIGH": 10,
+    "MEDIUM": 4,
+    "LOW": 1
+  },
+  "unique_cwes": [
+    "CWE-306",
+    "CWE-353",
+    "CWE-354",
+    "CWE-434",
+    "CWE-476",
+    "CWE-639",
+    "CWE-798"
+  ],
+  "affected_files_count": 9,
+  "log_metrics": {
+    "files_discovered": 0,
+    "tool_steps": 1,
+    "duration_str": "31s",
+    "tokens_in": "9k",
+    "tokens_out": "153",
+    "tokens_total": "12k"
+  }
+}

@@ -1,0 +1,17 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 5e28b096 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│OTP Verification Code Leaked in HTTP ...│
+│ 986222d0 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Unverified Direct Payment Callback En...│
+│ 4ebe76ab │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Administrator Registr...│
+│ d5a171a6 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Order Manipulation via Unverified out...│
+│ 29878057 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Weak JWT Signing Secret All...│
+│ f7c042ea │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Unrestricted File Upl...│
+│ 9177f6fb │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Overly Permissive Authentication Whit...│
+│ e9cc9d5a │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Validation of app_id and tota...│
+│ 2fc171c7 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Insecure Direct Object Reference (IDO...│
+│ 71efa18d │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-bench/m...│Failure to Invalidate JWT Token on Lo...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+10 finding(s): 5 CRITICAL, 4 HIGH, 1 MEDIUM · ✅ 0 fixed, 🔴 10 open
+📋 Report generated at 2026-10-15 02:27:43 UTC

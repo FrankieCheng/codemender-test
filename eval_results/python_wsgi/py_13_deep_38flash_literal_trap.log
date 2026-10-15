@@ -1,0 +1,16 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/ref-codemender-bench...
+🎯 Scoping scan to 1 provided file(s) and their immediate dependency closure:
+     • requirements.txt
+   Scoped target files: 1 (provided: 1, neighbors: 0)
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 1 total files discovered
+   Tier 0 Pruner: 1 safe files pruned (tests, docs, DTOs, generated, lockfiles) at 0 token cost
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 1/1 files examined (1 pruned at Tier 0) in 0s
+   No candidate source files required LLM evaluation.
+
+✅ No vulnerabilities found!
+2026-10-15T06:33:35Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_py_13_deep_38flash_literal_trap/logs/20261015T063335Z_pending.log

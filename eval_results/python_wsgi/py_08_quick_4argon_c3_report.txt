@@ -1,0 +1,20 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ fc4dc1a6 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│OS Command Injection in Network Diagn...│
+│ 8f366d5f │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Insecure Pickle Deserialization in Pr...│
+│ b5bcc22a │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Unrestricted File Upload and Path Tra...│
+│ 2655b2e6 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Active Werkzeug Debug Console with In...│
+│ e8a536f3 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection in User Registry Lookup...│
+│ 4f36f43b │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Path Traversal Arbitrary File Read in...│
+│ e4c26ba2 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery (SSRF) in...│
+│ 01cd51bf │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Session Cookie Missing Secure/HttpOnl...│
+│ b8167c2e │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Unbounded Multipart Form Parsing Deni...│
+│ 67cef01a │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Unauthenticated Diagnostic Error Trig...│
+│ aee988be │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Vulnerable Werkzeug Dependency (werkz...│
+│ f8fb0905 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting (XSS) ...│
+│ ffbc977d │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in Navigation Redirect ...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+13 finding(s): 4 CRITICAL, 7 HIGH, 2 MEDIUM · ✅ 0 fixed, 🔴 13 open
+📋 Report generated at 2026-10-15 06:33:34 UTC

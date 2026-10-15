@@ -1,0 +1,33 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/ref-codemender-bench...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 3 total files discovered
+   Tier 0 Pruner: 2 safe files pruned (tests, docs, DTOs, generated, lockfiles) at 0 token cost
+   Tier 1 Sifter: 1 candidate files in 1 batches to scan with 1 workers
+[1/1 batches] 🚨 scoped_targets/ref-codemender-bench/app.py (2m52.8s) | 175.3k tok - 10 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 3 files in 1 batches (2 pruned at Tier 0, 1 succeeded, 0 failed) in 2m54s
+   Session: ChA5NzM3YjVhZWUyZGRkMmNmEAgaATAqBG1haW4
+   Total tokens consumed: 175.3k (in: 163.9k, cached: 106.8k, out: 6.1k, thinking: 5.4k)
+
+🔒 Found 10 vulnerabilities:
+
+ID        SEVERITY    TYPE                                FILE                                        TITLE                                                                       CONFIDENCE
+────────  ────────    ────                                ────                                        ─────                                                                       ──────────
+ffd5ccde  🔴 CRITICAL  COMMAND INJECTION                   scoped_targets/ref-codemender-bench/app.py  OS Command Injection in Network Diagnostics Endpoint                        100%
+b15d89f6  🔴 CRITICAL  DESERIALIZATION OF UNTRUSTED DATA   scoped_targets/ref-codemender-bench/app.py  Insecure Deserialization of Untrusted Data via pickle.loads                 100%
+bc59874a  🟠 HIGH      SQL INJECTION                       scoped_targets/ref-codemender-bench/app.py  SQL Injection in User Lookup Endpoint                                       100%
+25d90ec5  🟠 HIGH      PATH TRAVERSAL                      scoped_targets/ref-codemender-bench/app.py  Path Traversal Arbitrary File Read in Download Endpoint                     100%
+2d6830e5  🟠 HIGH      PATH TRAVERSAL                      scoped_targets/ref-codemender-bench/app.py  Path Traversal Arbitrary File Write in Upload Raw Endpoint                  100%
+d848af31  🟠 HIGH      SERVER-SIDE REQUEST FORGERY (SSRF)  scoped_targets/ref-codemender-bench/app.py  Server-Side Request Forgery (SSRF) in Service Proxy Endpoint                100%
+823a372e  🟡 MEDIUM    CROSS-SITE SCRIPTING (XSS)          scoped_targets/ref-codemender-bench/app.py  Reflected Cross-Site Scripting (XSS) in Search Endpoint                     100%
+76380e75  🟡 MEDIUM    OPEN REDIRECT                       scoped_targets/ref-codemender-bench/app.py  Open Redirect in Navigation Endpoint                                        100%
+3246b50e  🔴 CRITICAL  CWE-489                             scoped_targets/ref-codemender-bench/app.py  Active Debug Console with Interactive Code Execution Enabled (evalex=True)  95%
+cb8abc7e  🟡 MEDIUM    CWE-614                             scoped_targets/ref-codemender-bench/app.py  Sensitive Session Cookie Missing Secure and HttpOnly Flags                  95%
+
+Summary: 3 CRITICAL, 4 HIGH, 3 MEDIUM
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T06:35:21Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_py_11_deep_38flash_c3_hybrid/logs/20261015T063227Z_ChA5NzM3YjVhZWUyZGRkMmNmEAgaATAqBG1haW4.log

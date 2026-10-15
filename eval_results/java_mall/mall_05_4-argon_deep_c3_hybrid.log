@@ -1,0 +1,238 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-bench...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 20 total files discovered
+   Tier 1 Sifter: 20 candidate files in 20 batches to scan with 16 workers
+[1/20 batches] ✅ scoped_targets/mall-bench/mall-admin/src/main/resources/dao/PmsProductDao.xml (6.2s) | 4.8k tok - 0 vulnerabilities
+[2/20 batches] ✅ scoped_targets/mall-bench/mall-admin/src/main/resources/dao/OmsOrderDao.xml (6.4s) | 5.0k tok - 0 vulnerabilities
+2026-10-15T02:50:00Z [INFO]  🔧 [Step 1] read_file → …/service/impl/OssServiceImpl.java
+2026-10-15T02:50:00Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBlMDUwNTI3ZGUxMzFmYThmEAgaATAqBG1haW4/OssServiceImpl.java: no such file or directory (took 1ms)
+2026-10-15T02:50:00Z [INFO]  🔧 [Step 2] read_file → …/main/resources/application.yml
+2026-10-15T02:50:00Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:50:00Z [INFO]  🔧 [Step 1] read_file → …/service/impl/UmsAdminServiceImpl.java
+2026-10-15T02:50:00Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:00Z [INFO]  🔧 [Step 2] read_file → …/main/resources/application.yml
+2026-10-15T02:50:00Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:50:00Z [INFO]  🔧 [Step 3] read_file → …/mall/config/MallSecurityConfig.java
+2026-10-15T02:50:00Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChA1MzlkMDRkYjg3YzQyNjc0EAgaATAqBG1haW4/MallSecurityConfig.java: no such file or directory (took 1ms)
+2026-10-15T02:50:00Z [INFO]  🔧 [Step 4] read_file → …/mall/model/UmsAdmin.java
+2026-10-15T02:50:00Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChA1MzlkMDRkYjg3YzQyNjc0EAgaATAqBG1haW4/UmsAdmin.java: no such file or directory (took 1ms)
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 1] read_file → …/main/resources/application.yml
+2026-10-15T02:50:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[3/20 batches] ✅ scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/aspect/RedisCacheAspect.java (7.9s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 1] read_file → …/service/impl/UmsMemberServiceImpl.java
+2026-10-15T02:50:01Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBiY2FlMzBmZTZhZTBlYjFlEAgaATAqBG1haW4/UmsMemberServiceImpl.java: no such file or directory (took 0s)
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 2] read_file → …/mall/model/UmsMember.java
+2026-10-15T02:50:01Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBiY2FlMzBmZTZhZTBlYjFlEAgaATAqBG1haW4/UmsMember.java: no such file or directory (took 1ms)
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 3] read_file → …/main/resources/application.yml
+2026-10-15T02:50:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 1] read_file → …/mall/controller/UmsAdminController.java
+2026-10-15T02:50:01Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 1] grep_search → pattern="RequestUtil" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T02:50:01Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 1] read_file → …/portal/controller/AlipayController.java
+2026-10-15T02:50:01Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 2] read_file → …/portal/domain/AliPayParam.java
+2026-10-15T02:50:01Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChA1YzFmMjlmNzZhZWY5Y2FkEAgaATAqBG1haW4/AliPayParam.java: no such file or directory (took 1ms)
+2026-10-15T02:50:01Z [INFO]  🔧 [Step 3] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T02:50:01Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChA1YzFmMjlmNzZhZWY5Y2FkEAgaATAqBG1haW4/OmsPortalOrderServiceImpl.java: no such file or directory (took 0s)
+2026-10-15T02:50:02Z [INFO]  🔧 [Step 1] read_file → …/service/impl/AlipayServiceImpl.java
+2026-10-15T02:50:02Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:02Z [INFO]  🔧 [Step 2] read_file → …/portal/domain/AliPayParam.java
+2026-10-15T02:50:02Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBmOTIxOWExMGFjMGJmZGFmEAgaATAqBG1haW4/AliPayParam.java: no such file or directory (took 1ms)
+2026-10-15T02:50:02Z [INFO]  🔧 [Step 3] read_file → …/main/resources/application.yml
+2026-10-15T02:50:02Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:50:03Z [INFO]  🔧 [Step 1] read_file → …/security/util/JwtTokenUtil.java
+2026-10-15T02:50:03Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:03Z [INFO]  🔧 [Step 2] read_file → …/security/config/SecurityConfig.java
+2026-10-15T02:50:03Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:50:05Z [INFO]  🔧 [Step 1] read_file → …/main/resources/application.yml
+2026-10-15T02:50:05Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:05Z [INFO]     📤 Result submitted (submit 4.719s)
+2026-10-15T02:50:05Z [INFO]     📤 Result submitted (submit 4.022s)
+2026-10-15T02:50:06Z [INFO]     📤 Result submitted (submit 4.916s)
+2026-10-15T02:50:06Z [INFO]     📤 Result submitted (submit 5.619s)
+2026-10-15T02:50:06Z [INFO]     📤 Result submitted (submit 4.504s)
+2026-10-15T02:50:07Z [INFO]     📤 Result submitted (submit 5.493s)
+2026-10-15T02:50:07Z [INFO]     📤 Result submitted (submit 4.909s)
+2026-10-15T02:50:07Z [INFO]     📤 Result submitted (submit 5.651s)
+[4/20 batches] ✅ scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/config/IgnoreUrlsConfig.java (6.2s) | 4.0k tok - 0 vulnerabilities
+2026-10-15T02:50:08Z [INFO]     📤 Result submitted (submit 4.734s)
+[5/20 batches] ✅ scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/config/SecurityConfig.java (6.9s) | 4.7k tok - 0 vulnerabilities
+2026-10-15T02:50:09Z [INFO]  🔧 [Step 1] read_file → …/scoped_targets/mall-bench/pom.xml
+2026-10-15T02:50:09Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:09Z [INFO]  🔧 [Step 2] grep_search → pattern="JwtTokenUtil|validateToken|getUserNameFromToken|refreshHeadToken" path=…/scoped_targets/mall-bench/mall-security
+2026-10-15T02:50:09Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T02:50:10Z [INFO]     📤 Result submitted (submit 4.839s)
+2026-10-15T02:50:11Z [INFO]  🔧 [Step 2] read_file → …/service/impl/UmsAdminServiceImpl.java
+2026-10-15T02:50:11Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:14Z [INFO]     📤 Result submitted (submit 4.928s)
+2026-10-15T02:50:14Z [INFO]  🔧 [Step 2] read_file → …/main/resources/application.yml
+2026-10-15T02:50:14Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:16Z [INFO]     📤 Result submitted (submit 4.828s)
+2026-10-15T02:50:18Z [INFO]     📤 Result submitted (submit 4.552s)
+2026-10-15T02:50:20Z [INFO]  🔧 [Step 3] read_file → …/security/component/JwtAuthenticationTokenFilter.java
+2026-10-15T02:50:20Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBkY2I2Y2Q4ZjcwYjRiNGZiEAgaATAqBG1haW4/JwtAuthenticationTokenFilter.java: no such file or directory (took 1ms)
+2026-10-15T02:50:20Z [INFO]  🔧 [Step 4] grep_search → pattern="jwtTokenUtil|refreshHeadToken" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T02:50:20Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T02:50:22Z [INFO]  🔧 [Step 3] grep_search → pattern="getRequestIp" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T02:50:22Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:50:23Z [INFO]  🔧 [Step 5] read_file → …/mall/dto/UpdateAdminPasswordParam.java
+2026-10-15T02:50:23Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChA1MzlkMDRkYjg3YzQyNjc0EAgaATAqBG1haW4/UpdateAdminPasswordParam.java: no such file or directory (took 1ms)
+2026-10-15T02:50:23Z [INFO]  🔧 [Step 6] read_file → …/mall/dto/UmsAdminParam.java
+2026-10-15T02:50:23Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChA1MzlkMDRkYjg3YzQyNjc0EAgaATAqBG1haW4/UmsAdminParam.java: no such file or directory (took 1ms)
+2026-10-15T02:50:25Z [INFO]  🔧 [Step 3] grep_search → pattern="class .*OssService" path=…/scoped_targets/mall-bench/mall-admin
+2026-10-15T02:50:25Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T02:50:25Z [INFO]  🔧 [Step 4] read_file → …/mall/service/OssService.java
+2026-10-15T02:50:25Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBlMDUwNTI3ZGUxMzFmYThmEAgaATAqBG1haW4/OssService.java: no such file or directory (took 0s)
+2026-10-15T02:50:25Z [INFO]     📤 Result submitted (submit 5.529s)
+2026-10-15T02:50:27Z [INFO]     📤 Result submitted (submit 5.059s)
+2026-10-15T02:50:27Z [INFO]     📤 Result submitted (submit 4.723s)
+2026-10-15T02:50:30Z [INFO]     📤 Result submitted (submit 4.813s)
+2026-10-15T02:50:30Z [INFO]  ✅ Completed 2 tool steps in 37s | Tokens: 31k in / 155 out / 32k total
+[6/20 batches] ✅ scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/service/impl/UmsAdminServiceImpl.java (37s) | 32.3k tok - 0 vulnerabilities
+2026-10-15T02:50:31Z [INFO]  ✅ Completed 1 tool steps in 37s | Tokens: 16k in / 1k out / 18k total
+[7/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/resources/application-dev.yml (36.9s) | 18.4k tok - 1 vulnerabilities
+2026-10-15T02:50:34Z [INFO]  🔧 [Step 1] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T02:50:34Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChAyZjcyMTA4MjcwNTM3Yzg2EAgaATAqBG1haW4/OmsPortalOrderServiceImpl.java: no such file or directory (took 1ms)
+2026-10-15T02:50:35Z [INFO]  🔧 [Step 1] grep_search → pattern="ignored|jwt\\.secret" path=…/scoped_targets/mall-bench/mall-security
+2026-10-15T02:50:35Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T02:50:35Z [INFO]  🔧 [Step 4] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T02:50:35Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBmOTIxOWExMGFjMGJmZGFmEAgaATAqBG1haW4/OmsPortalOrderServiceImpl.java: no such file or directory (took 0s)
+2026-10-15T02:50:35Z [INFO]  🔧 [Step 5] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T02:50:35Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBmOTIxOWExMGFjMGJmZGFmEAgaATAqBG1haW4/OmsPortalOrderServiceImpl.java: no such file or directory (took 0s)
+2026-10-15T02:50:36Z [INFO]  ✅ Completed 3 tool steps in 43s | Tokens: 26k in / 1k out / 29k total
+[8/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java (42.5s) | 29.7k tok - 3 vulnerabilities
+2026-10-15T02:50:36Z [INFO]  ✅ Completed 3 tool steps in 43s | Tokens: 21k in / 190 out / 22k total
+[9/20 batches] ✅ scoped_targets/mall-bench/mall-common/src/main/java/com/macro/mall/common/util/RequestUtil.java (43.1s) | 22.0k tok - 0 vulnerabilities
+2026-10-15T02:50:37Z [INFO]  🔧 [Step 5] grep_search → pattern="OssController" path=…/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T02:50:37Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:50:37Z [INFO]  ✅ Completed 4 tool steps in 34s | Tokens: 40k in / 191 out / 41k total
+[10/20 batches] ✅ scoped_targets/mall-bench/mall-security/src/main/java/com/macro/mall/security/util/JwtTokenUtil.java (34.3s) | 41.6k tok - 0 vulnerabilities
+2026-10-15T02:50:39Z [INFO]     📤 Result submitted (submit 4.727s)
+2026-10-15T02:50:40Z [INFO]     📤 Result submitted (submit 4.93s)
+2026-10-15T02:50:40Z [INFO]     📤 Result submitted (submit 5.093s)
+2026-10-15T02:50:43Z [INFO]     📤 Result submitted (submit 5.744s)
+2026-10-15T02:50:44Z [INFO]  ✅ Completed 1 tool steps in 51s | Tokens: 31k in / 2k out / 34k total
+[11/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java (51s) | 34.6k tok - 2 vulnerabilities
+2026-10-15T02:50:48Z [INFO]  🔧 [Step 6] read_file → …/scoped_targets/mall-bench/PROJECT_FILE_INDEX.md
+2026-10-15T02:50:48Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:50:53Z [INFO]     📤 Result submitted (submit 4.791s)
+2026-10-15T02:50:54Z [INFO]  🔧 [Step 2] read_file → …/security/config/SecurityConfig.java
+2026-10-15T02:50:54Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:50:54Z [INFO]  🔧 [Step 3] read_file → …/security/util/JwtTokenUtil.java
+2026-10-15T02:50:54Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[12/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml (1m5.2s) | 13.2k tok - 4 vulnerabilities
+2026-10-15T02:50:59Z [INFO]     📤 Result submitted (submit 5.077s)
+2026-10-15T02:51:00Z [INFO]  🔧 [Step 3] read_file → …/security/config/IgnoreUrlsConfig.java
+2026-10-15T02:51:00Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:51:00Z [INFO]  🔧 [Step 4] read_file → …/main/resources/application-dev.yml
+2026-10-15T02:51:00Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:51:00Z [INFO]  🔧 [Step 5] read_file → …/main/resources/application-prod.yml
+2026-10-15T02:51:00Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBhZjYxNGY3YjI0N2IzNzNjEAgaATAqBG1haW4/application-prod.yml: no such file or directory (took 0s)
+2026-10-15T02:51:04Z [INFO]  🔧 [Step 7] read_file → …/security/config/SecurityConfig.java
+2026-10-15T02:51:04Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:51:05Z [INFO]  ✅ Completed 3 tool steps in 1m12s | Tokens: 49k in / 2k out / 55k total
+[13/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java (1m11.9s) | 55.9k tok - 2 vulnerabilities
+2026-10-15T02:51:05Z [INFO]     📤 Result submitted (submit 5.433s)
+2026-10-15T02:51:06Z [INFO]  🔧 [Step 6] grep_search → pattern="class AliPayParam" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T02:51:06Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T02:51:06Z [INFO]  🔧 [Step 7] list_dir → …/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T02:51:06Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T02:51:08Z [INFO]     📤 Result submitted (submit 4.951s)
+2026-10-15T02:51:12Z [INFO]     📤 Result submitted (submit 5.098s)
+[14/20 batches] 🚨 scoped_targets/mall-bench/pom.xml (1m3.4s) | 28.8k tok - 1 vulnerabilities
+2026-10-15T02:51:16Z [INFO]  ✅ Completed 6 tool steps in 1m22s | Tokens: 104k in / 3k out / 111k total
+[15/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java (1m21.9s) | 111.3k tok - 5 vulnerabilities
+2026-10-15T02:51:22Z [INFO]  🔧 [Step 2] grep_search → pattern="class OmsPortalOrderServiceImpl" path=…/scoped_targets/mall-bench/mall-portal
+2026-10-15T02:51:22Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T02:51:27Z [INFO]     📤 Result submitted (submit 4.928s)
+2026-10-15T02:51:32Z [INFO]  🔧 [Step 3] list_dir → …/codemender-pipeline/scoped_targets/mall-bench
+2026-10-15T02:51:32Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T02:51:34Z [INFO]  ✅ Completed 7 tool steps in 1m41s | Tokens: 59k in / 1k out / 62k total
+[16/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/OssController.java (1m41.1s) | 63.0k tok - 2 vulnerabilities
+2026-10-15T02:51:37Z [INFO]     📤 Result submitted (submit 4.909s)
+2026-10-15T02:51:42Z [INFO]  🔧 [Step 8] read_file → …/scoped_targets/mall-bench/PROJECT_FILE_INDEX.md
+2026-10-15T02:51:42Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:51:42Z [INFO]  🔧 [Step 9] read_file → …/portal/controller/OmsPortalOrderController.java
+2026-10-15T02:51:42Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:51:46Z [INFO]  🔧 [Step 4] read_file → …/scoped_targets/mall-bench/PROJECT_FILE_INDEX.md
+2026-10-15T02:51:46Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:51:47Z [INFO]     📤 Result submitted (submit 4.968s)
+2026-10-15T02:51:50Z [INFO]     📤 Result submitted (submit 4.878s)
+2026-10-15T02:51:57Z [INFO]  🔧 [Step 5] read_file → …/main/resources/application.yml
+2026-10-15T02:51:57Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:52:00Z [INFO]  🔧 [Step 10] read_file → …/main/resources/application-dev.yml
+2026-10-15T02:52:00Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:52:03Z [INFO]     📤 Result submitted (submit 5.289s)
+2026-10-15T02:52:06Z [INFO]     📤 Result submitted (submit 5.227s)
+2026-10-15T02:52:20Z [INFO]  ✅ Completed 5 tool steps in 2m27s | Tokens: 52k in / 2k out / 56k total
+[17/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/resources/application.yml (2m27.1s) | 57.0k tok - 3 vulnerabilities
+2026-10-15T02:52:23Z [INFO]  ✅ Completed 3 tool steps in 2m29s | Tokens: 39k in / 2k out / 44k total
+[18/20 batches] 🚨 scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml (2m29.4s) | 44.6k tok - 3 vulnerabilities
+2026-10-15T02:52:29Z [INFO]  🔧 [Step 11] read_file → …/scoped_targets/mall-bench/pom.xml
+2026-10-15T02:52:29Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:52:33Z [INFO]     📤 Result submitted (submit 4.891s)
+2026-10-15T02:52:42Z [INFO]  🔧 [Step 12] read_file → …/.git/logs/HEAD
+2026-10-15T02:52:42Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/artifacts/ChBmOTIxOWExMGFjMGJmZGFmEAgaATAqBG1haW4/HEAD: no such file or directory (took 1ms)
+2026-10-15T02:52:48Z [INFO]     📤 Result submitted (submit 5.448s)
+2026-10-15T02:53:18Z [INFO]  ✅ Completed 5 tool steps in 3m25s | Tokens: 94k in / 2k out / 98k total
+[19/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java (3m25.2s) | 98.8k tok - 5 vulnerabilities
+2026-10-15T02:53:57Z [INFO]  🔧 [Step 13] read_file → …/mall/controller/UmsAdminController.java
+2026-10-15T02:53:57Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:53:57Z [INFO]  🔧 [Step 14] read_file → …/service/impl/UmsAdminServiceImpl.java
+2026-10-15T02:53:57Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:54:03Z [INFO]     📤 Result submitted (submit 5.722s)
+2026-10-15T02:55:02Z [INFO]  ✅ Completed 14 tool steps in 5m9s | Tokens: 301k in / 3k out / 318k total
+[20/20 batches] 🚨 scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java (5m8.6s) | 318.7k tok - 4 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 20 files in 20 batches (0 pruned at Tier 0, 20 succeeded, 0 failed) in 5m10s
+   Session: ChA4MzJkOWRhMzBiYzkzZjgyEAgaATAqBG1haW4
+   Total tokens consumed: 993.1k (in: 925.9k, cached: 511.6k, out: 28.9k, thinking: 38.3k)
+
+🔒 Found 35 vulnerabilities:
+
+ID        SEVERITY    TYPE                                                                                            FILE                                                                                                                TITLE                                                                                                          CONFIDENCE
+────────  ────────    ────                                                                                            ────                                                                                                                ─────                                                                                                          ──────────
+15195065  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                                   scoped_targets/mall-bench/mall-portal/src/main/resources/application-dev.yml                                        Default and Hardcoded Credentials for Alibaba Druid Monitoring Console                                         95%
+e7e4be06  🔴 CRITICAL  CWE-200                                                                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java       Exposure of SMS Verification Code (OTP) in HTTP Response Allows Unauthenticated Account Takeover               100%
+9243f726  🟡 MEDIUM    CWE-200                                                                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java       Exposure of Password Hash in Member Info Endpoint (/sso/info)                                                  90%
+c8fe555e  🟠 HIGH      CWE-640                                                                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java       Weak Password Recovery Mechanism Allowing Arbitrary Account Password Reset (/sso/updatePassword)               90%
+6bdb2c33  🟠 HIGH      UNRESTRICTED UPLOAD OF FILE WITH DANGEROUS TYPE                                                 scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java                   Unrestricted File Upload and Stored XSS in MinioController.upload                                              100%
+a5d36ca1  🟡 MEDIUM    CWE-639                                                                                         scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java                   Arbitrary MinIO Object Deletion without Ownership Check in MinioController.delete                              90%
+bb9e0af9  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                                   scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml                                         Hardcoded Default Credentials for Alibaba Druid Monitor Console                                                95%
+66cea6d0  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                                   scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml                                         Hardcoded Default MinIO Object Storage Credentials                                                             90%
+7e2fe828  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                                                   scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml                                         Hardcoded Default Database Credentials and Disabled JDBC SSL                                                   90%
+ff9a5739  🟡 MEDIUM    MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                                    scoped_targets/mall-bench/mall-admin/src/main/resources/application-dev.yml                                         Unauthenticated Redis Configuration (Empty Password)                                                           85%
+08192924  🔴 CRITICAL  CWE-840                                                                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java       Payment Bypass via Unverified Trade Number and Order Number Mismatch in Alipay Query                           95%
+54640251  🟠 HIGH      CWE-345                                                                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java       Missing Order Amount and App ID Validation in Alipay Payment Callback (notify)                                 90%
+3026e22e  🟠 HIGH      CLEARTEXT TRANSMISSION OF SENSITIVE INFORMATION                                                 scoped_targets/mall-bench/pom.xml                                                                                   Unencrypted and Unauthenticated Remote Docker Daemon Configuration in docker-maven-plugin                      85%
+5f544b17  🔴 CRITICAL  MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                                    scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                Unauthenticated Administrator Account Registration in UmsAdminController.register                              100%
+81cd4b33  🟠 HIGH      AUTHORIZATION BYPASS THROUGH USER-CONTROLLED KEY / MASS ASSIGNMENT                              scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                Mass Assignment and Unauthorized Password Overwrite via IDOR in UmsAdminController.update                      100%
+4deb7983  🟡 MEDIUM    CWE-639                                                                                         scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                Insecure Direct Object Reference (IDOR) and Username Enumeration in UmsAdminController.updatePassword          95%
+6be1118a  🟡 MEDIUM    CWE-200                                                                                         scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                Exposure of Administrator Password Hashes in UmsAdminController.list                                           95%
+964fe200  🟡 MEDIUM    CWE-200                                                                                         scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                Exposure of Administrator Password Hash in UmsAdminController.getItem                                          95%
+e4f5d137  🟠 HIGH      MISSING AUTHENTICATION FOR CRITICAL FUNCTION / UNRESTRICTED UPLOAD OF FILE WITH DANGEROUS TYPE  scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/OssController.java                     Unauthenticated Aliyun OSS Upload Policy Generation Allowing Unrestricted File Upload                          95%
+bbffbacf  🟠 HIGH      CWE-345                                                                                         scoped_targets/mall-bench/mall-admin/src/main/java/com/macro/mall/controller/OssController.java                     Missing Signature Verification on Aliyun OSS Upload Callback Endpoint                                          90%
+d8321a54  🔴 CRITICAL  USE OF HARD-CODED CREDENTIALS                                                                   scoped_targets/mall-bench/mall-portal/src/main/resources/application.yml                                            Hardcoded and Weak JWT Signing Secret in mall-portal Configuration                                             100%
+7079f607  🟠 HIGH      MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                                    scoped_targets/mall-bench/mall-portal/src/main/resources/application.yml                                            Unauthenticated Access to Actuator and Druid Monitor Endpoints via Security Ignore Whitelist                   95%
+62766731  🟡 MEDIUM    CWE-200                                                                                         scoped_targets/mall-bench/mall-portal/src/main/resources/application.yml                                            Swagger UI and OpenAPI Documentation Enabled by Default Without Authentication                                 85%
+afd2c8ce  🔴 CRITICAL  USE OF HARD-CODED CREDENTIALS                                                                   scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml                                             Hardcoded Weak JWT Secret in mall-admin Configuration                                                          100%
+39685d14  🟠 HIGH      MISSING AUTHENTICATION FOR CRITICAL FUNCTION                                                    scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml                                             Unauthenticated Access to Actuator, Druid Monitor, Admin Registration, and File Upload via Security Whitelist  100%
+d8ee41bd  🟡 MEDIUM    USE OF HARD-CODED CREDENTIALS                                                                   scoped_targets/mall-bench/mall-admin/src/main/resources/application.yml                                             Hardcoded Default Aliyun OSS Credentials in Application Configuration                                          90%
+90e181a8  🔴 CRITICAL  CWE-840                                                                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Payment Bypass and Callback Forgery in OmsPortalOrderController.paySuccess                                     100%
+d16df1c2  🟠 HIGH      AUTHORIZATION BYPASS THROUGH USER-CONTROLLED KEY (IDOR)                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Insecure Direct Object Reference (IDOR) in OmsPortalOrderController.detail                                     95%
+e39e9a25  🟠 HIGH      AUTHORIZATION BYPASS THROUGH USER-CONTROLLED KEY (IDOR)                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Insecure Direct Object Reference (IDOR) in OmsPortalOrderController.cancelUserOrder                            95%
+082c0ab2  🟠 HIGH      AUTHORIZATION BYPASS THROUGH USER-CONTROLLED KEY (IDOR)                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Insecure Direct Object Reference (IDOR) in OmsPortalOrderController.confirmReceiveOrder                        95%
+5dbf4c1a  🟠 HIGH      AUTHORIZATION BYPASS THROUGH USER-CONTROLLED KEY (IDOR)                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java  Insecure Direct Object Reference (IDOR) in OmsPortalOrderController.deleteOrder                                95%
+51257f7c  🔴 CRITICAL  CWE-639                                                                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java          Unauthenticated Order Payment Status Manipulation and IDOR in AlipayController.query                           95%
+e0e43a13  🟠 HIGH      CWE-345                                                                                         scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java          Incomplete Payment Callback Verification in AlipayController.notify                                            85%
+98042272  🟠 HIGH      CROSS-SITE SCRIPTING (XSS) / IMPROPER ACCESS CONTROL                                            scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java          Unauthenticated Access and Unsanitized HTML Response Writing in AlipayController.pay                           85%
+5855319a  🟠 HIGH      CROSS-SITE SCRIPTING (XSS) / IMPROPER ACCESS CONTROL                                            scoped_targets/mall-bench/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java          Unauthenticated Access and Unsanitized HTML Response Writing in AlipayController.webPay                        85%
+
+Summary: 7 CRITICAL, 20 HIGH, 8 MEDIUM
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T02:55:02Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_05_4-argon_deep_c3_hybrid/logs/20261015T024952Z_ChA4MzJkOWRhMzBiYzkzZjgyEAgaATAqBG1haW4.log

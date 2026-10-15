@@ -1,0 +1,33 @@
+{
+  "run_id": "mall_07_3.8-flash_quick_c2_sast",
+  "timestamp": "2026-10-15T02:14:57.091161+00:00",
+  "repo_family": "mall",
+  "target_path": "scoped_targets/mall-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "quick",
+  "context_key": "c2_sast_framework",
+  "context_prompt": "Audit this Java Spring Boot & MyBatis e-commerce application across controllers, service implementations, MyBatis XML mappers (src/main/resources/dao/*.xml), security filters (mall-security), and YAML configs. Specifically hunt for: 1) SQL Injection via ${...} string substitution in MyBatis XML mappers or OrderBy clauses, 2) Arbitrary File Upload / Path Traversal / Stored XSS in MinioController and OssController, 3) Hardcoded credentials, JWT secrets, database/Redis/MinIO/Alipay keys in application*.yml, 4) Broken Access Control / IDOR in mall-portal (cart, order, address, coupon endpoints lacking ownership checks), 5) Authentication / JWT token validation flaws in JwtTokenUtil and SecurityConfig, 6) Alipay payment callback verification bypass or order tampering, and exposed Actuator/Swagger/Druid endpoints.",
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": -1,
+  "timed_out": true,
+  "elapsed_sec": 480.0,
+  "total_findings": 0,
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [],
+  "affected_files_count": 0,
+  "log_metrics": {
+    "files_discovered": 20,
+    "tool_steps": 0,
+    "duration_str": "N/A",
+    "tokens_in": "0",
+    "tokens_out": "0",
+    "tokens_total": "0"
+  }
+}

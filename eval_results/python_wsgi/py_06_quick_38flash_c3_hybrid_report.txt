@@ -1,0 +1,20 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 9af20cd2 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│OS Command Injection in Network Diagn...│
+│ 873e40fa │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Pickle Insecure Deserialization in Pr...│
+│ cec8b6cd │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Path Traversal and Unrestricted File ...│
+│ 75f39538 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Active Debug Console with Interactive...│
+│ c34e3038 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Werkzeug Unbounded Multipart Form Par...│
+│ b4fd68e8 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Werkzeug Predictable Debugger Console...│
+│ 2927f0b4 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection in User Lookup Endpoint   │
+│ da02080f │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Path Traversal Arbitrary File Read in...│
+│ 57dc2cdc │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery (SSRF) in...│
+│ 50092845 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting (XSS) ...│
+│ 17bf2dad │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Werkzeug Nameless Cookie Shadow Parsi...│
+│ 889c33f5 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in Navigation Endpoint    │
+│ 0dfa28dd │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Insecure Session Cookie Missing Secur...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+13 finding(s): 4 CRITICAL, 6 HIGH, 3 MEDIUM · ✅ 0 fixed, 🔴 13 open
+📋 Report generated at 2026-10-15 06:31:52 UTC

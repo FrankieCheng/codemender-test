@@ -1,0 +1,62 @@
+{
+  "run_id": "py_07_quick_4argon_c0",
+  "timestamp": "2026-10-15T06:34:42.282340+00:00",
+  "repo_family": "python-wsgi",
+  "target_path": "scoped_targets/ref-codemender-bench",
+  "model": "gemini-4-argon",
+  "mode": "quick",
+  "context_key": "c0_none",
+  "context_prompt": null,
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_sec": 307.2,
+  "total_findings": 10,
+  "severity_counts": {
+    "CRITICAL": 3,
+    "HIGH": 5,
+    "MEDIUM": 2,
+    "LOW": 0
+  },
+  "unique_cwes": [
+    "CWE-22",
+    "CWE-384",
+    "CWE-489",
+    "CWE-502",
+    "CWE-601",
+    "CWE-78",
+    "CWE-79",
+    "CWE-89",
+    "CWE-918"
+  ],
+  "affected_files_count": 1,
+  "log_metrics": {
+    "files_discovered": 3,
+    "tool_steps": 5,
+    "duration_str": "5m4s",
+    "tokens_in": "102k",
+    "tokens_out": "5k",
+    "tokens_total": "112k"
+  },
+  "ground_truth": {
+    "gt_hits": 10,
+    "gt_total": 11,
+    "gt_recall_pct": 90.9,
+    "gt_matrix": {
+      "GT01_CMD_INJ": true,
+      "GT02_DESERIAL": true,
+      "GT03_UPLOAD": true,
+      "GT04_PATH_READ": true,
+      "GT05_SQLI": true,
+      "GT06_SSRF": true,
+      "GT07_XSS": true,
+      "GT08_REDIRECT": true,
+      "GT09_DEBUGGER": true,
+      "GT10_MULTIPART_DOS": false,
+      "GT11_COOKIE_SEC": true
+    },
+    "fp_safe_join": false
+  }
+}

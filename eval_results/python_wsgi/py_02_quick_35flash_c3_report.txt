@@ -1,0 +1,19 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ f3b66640 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│OS Command Injection in Network Diagn...│
+│ 0159a92e │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Insecure Deserialization via Python P...│
+│ bbb311aa │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Unrestricted File Upload and Path Tra...│
+│ 1c12090a │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection in User Lookup Endpoint   │
+│ 3cf762da │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Path Traversal File Read in Download ...│
+│ 157c022c │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery in Servic...│
+│ bf355416 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Active Debug Console with evalex Enabled│
+│ a9e1c905 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Unbounded Multipart Form Parsing DoS ...│
+│ 5e0eff33 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting in Sea...│
+│ be5d5c55 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in Navigate Endpoint      │
+│ acb46531 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Session Cookies Missing Secure and Ht...│
+│ 4a1c10f5 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Nameless Cookie Shadow Parsing (CVE-2...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+12 finding(s): 3 CRITICAL, 5 HIGH, 4 MEDIUM · ✅ 0 fixed, 🔴 12 open
+📋 Report generated at 2026-10-15 06:27:59 UTC

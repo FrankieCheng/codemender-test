@@ -1,0 +1,33 @@
+{
+  "run_id": "js_02_3.8-flash_quick_c3_hybrid",
+  "timestamp": "2026-10-15T01:58:52.644143+00:00",
+  "repo_family": "juice-shop",
+  "target_path": "scoped_targets/juice-shop-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "quick",
+  "context_key": "c3_hybrid_max",
+  "context_prompt": "Exhaustive Security Audit (SAST + SCA + Config + Business Logic): 0) FIRST read PROJECT_FILE_INDEX.md in the root directory to get the exact list of all file paths without wasting tool steps on list_dir. 1) Inspect package.json and correlate outdated dependencies (jsonwebtoken 0.4.0, express-jwt 0.1.3, sanitize-html 1.4.2, marsdb, js-yaml, unzipper, notevil, pug) with known CVEs and exploit sinks in code. 2) Trace untrusted req.body, req.query, req.params, req.headers, and uploaded files across routes/, lib/insecurity.ts, models/, and views/. Identify ALL instances of SQLi, NoSQLi, Command/Code Injection, XXE, SSRF, Path Traversal, Zip Slip, SSTI, XSS, Open Redirect, CSRF, hardcoded secrets/keys, weak password hashing (MD5 without salt), JWT algorithm confusion, mass assignment, and IDOR/price manipulation. Do not stop at the worst vulnerability—enumerate every distinct security finding across all files.",
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": true,
+  "exit_code": -1,
+  "timed_out": true,
+  "elapsed_sec": 480.0,
+  "total_findings": 0,
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [],
+  "affected_files_count": 0,
+  "log_metrics": {
+    "files_discovered": 13,
+    "tool_steps": 0,
+    "duration_str": "N/A",
+    "tokens_in": "0",
+    "tokens_out": "0",
+    "tokens_total": "0"
+  }
+}

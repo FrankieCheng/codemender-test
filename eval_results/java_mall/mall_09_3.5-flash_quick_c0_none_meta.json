@@ -1,0 +1,33 @@
+{
+  "run_id": "mall_09_3.5-flash_quick_c0_none",
+  "timestamp": "2026-10-15T02:22:58.470003+00:00",
+  "repo_family": "mall",
+  "target_path": "scoped_targets/mall-bench",
+  "model": "gemini-3.5-flash",
+  "mode": "quick",
+  "context_key": "c0_none",
+  "context_prompt": null,
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": -1,
+  "timed_out": true,
+  "elapsed_sec": 480.0,
+  "total_findings": 0,
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [],
+  "affected_files_count": 0,
+  "log_metrics": {
+    "files_discovered": 20,
+    "tool_steps": 0,
+    "duration_str": "N/A",
+    "tokens_in": "0",
+    "tokens_out": "0",
+    "tokens_total": "0"
+  }
+}

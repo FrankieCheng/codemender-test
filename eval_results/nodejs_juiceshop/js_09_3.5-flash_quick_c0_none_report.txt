@@ -1,0 +1,13 @@
+┌──────────┬───────────┬──────┬───┬───────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                   │Title                                   │
+├──────────┼───────────┼──────┼───┼───────────────────────┼────────────────────────────────────────┤
+│ 91dab49a │🔴 CRITICAL│OPEN  │—  │search.ts              │SQL Injection in Product Search via Q...│
+│ da5c7d2e │🔴 CRITICAL│OPEN  │—  │login.ts               │SQL Injection in Login Endpoint via E...│
+│ 3f38720b │🟠 HIGH    │OPEN  │—  │redirect.ts            │Open Redirect via Defective Whitelist...│
+│ b1548123 │🟠 HIGH    │OPEN  │—  │fileServer.ts          │File Type Whitelist Bypass via Poison...│
+│ c93c3bf3 │🟠 HIGH    │OPEN  │—  │updateProductReviews.ts│NoSQL Injection in Product Review Upd...│
+│ ee8f4ae6 │🟠 HIGH    │OPEN  │—  │updateProductReviews.ts│Insecure Direct Object Reference (IDO...│
+└──────────┴───────────┴──────┴───┴───────────────────────┴────────────────────────────────────────┘
+
+6 finding(s): 2 CRITICAL, 4 HIGH · ✅ 0 fixed, 🔴 6 open
+📋 Report generated at 2026-10-15 02:18:08 UTC

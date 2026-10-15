@@ -1,0 +1,15 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 6b210860 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│OS Command Injection in Network Diagn...│
+│ aff699d5 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection in User Lookup Endpoint   │
+│ cc234bdd │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Insecure Deserialization of Untrusted...│
+│ eedf90bd │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Arbitrary File Write via Path Travers...│
+│ b6c4c0f8 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Path Traversal Arbitrary File Read in...│
+│ 7794f3ea │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery in Servic...│
+│ 511d3a43 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting in Sea...│
+│ 5f333b81 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in Navigation Endpoint    │
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+8 finding(s): 4 CRITICAL, 3 HIGH, 1 MEDIUM · ✅ 0 fixed, 🔴 8 open
+📋 Report generated at 2026-10-15 06:29:33 UTC

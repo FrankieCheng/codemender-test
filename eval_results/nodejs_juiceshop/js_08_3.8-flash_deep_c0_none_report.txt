@@ -1,0 +1,26 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ e4e117ee │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Remote Code Execution via eval() in U...│
+│ 459802ca │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Remote Code Execution via Sandbox Esc...│
+│ bd543adc │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│SQL Injection in User Login Route Han...│
+│ e521112c │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│SQL Injection in Product Search Handler │
+│ 35c9a203 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Missing Authorization on Product Modi...│
+│ 98a163b8 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Rate Limiting Bypass via Spoofed X-Fo...│
+│ 670713fc │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Use of Weak and Unsalted MD5 Hash for...│
+│ a7b6cd7d │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Stored Cross-Site Scripting (XSS) via...│
+│ c2b38476 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Stored Cross-Site Scripting via CSP I...│
+│ bf4f826c │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Bypass of File Extension Allowlist vi...│
+│ cd890ced │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Path Traversal (Zip Slip) Leading to ...│
+│ 3ef97183 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection / JavaScript Code Inj...│
+│ 2ab88400 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection via $where Expression...│
+│ b43066f8 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection in Product Review Update│
+│ beb4d63a │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Insecure Direct Object Reference (IDO...│
+│ 5e4bb071 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Server-Side Request Forgery (SSRF) in...│
+│ be0fbf59 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Information Exposure Through Director...│
+│ cb418fa5 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Stored Cross-Site Scripting (XSS) via...│
+│ f0c637d6 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Open Redirect in performRedirect via ...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+19 finding(s): 4 CRITICAL, 12 HIGH, 3 MEDIUM · ✅ 0 fixed, 🔴 19 open
+📋 Report generated at 2026-10-15 02:04:17 UTC

@@ -1,0 +1,33 @@
+{
+  "run_id": "mall_06_3.8-flash_quick_c1_sca",
+  "timestamp": "2026-10-15T02:06:55.542469+00:00",
+  "repo_family": "mall",
+  "target_path": "scoped_targets/mall-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "quick",
+  "context_key": "c1_sca",
+  "context_prompt": "This Java/Spring Boot multi-module application handles untrusted input. Check pom.xml across all modules for dependency versions (Spring Boot, Druid, Hutool, MyBatis, MinIO, Aliyun OSS, Alipay SDK, OkHttp, BouncyCastle) and correlate with known CVEs. Give a complete list of every security vulnerability ranked by severity.",
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": -1,
+  "timed_out": true,
+  "elapsed_sec": 480.0,
+  "total_findings": 0,
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [],
+  "affected_files_count": 0,
+  "log_metrics": {
+    "files_discovered": 1,
+    "tool_steps": 0,
+    "duration_str": "N/A",
+    "tokens_in": "0",
+    "tokens_out": "0",
+    "tokens_total": "0"
+  }
+}

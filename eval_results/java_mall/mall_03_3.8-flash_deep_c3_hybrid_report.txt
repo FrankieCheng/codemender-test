@@ -1,0 +1,20 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ df8ff892 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Exposure of One-Time Authentication C...│
+│ afd2c8ce │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Static JWT Secret Key Enabl...│
+│ d9cc63f8 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Mass Assignment in UmsAdminController...│
+│ 708683dd │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Missing Authorization / IDOR in Alipa...│
+│ 4a7bd198 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Payment Callback Forgery via Missing ...│
+│ 81336724 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Payment Bypass and Order Status Manip...│
+│ bb9e0af9 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Default Credentials Configured for Dr...│
+│ b336b4bc │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unrestricted File Upload Leading to S...│
+│ 15195065 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hardcoded Default Credentials for Dru...│
+│ 39685d14 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Sensitive Endpoints Exposed Without A...│
+│ d8321a54 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Hard-coded JWT Secret Key in Applicat...│
+│ 7079f607 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated Access to Actuator an...│
+│ be7851ae │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-bench/m...│Unauthenticated / Unverified Payment ...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+13 finding(s): 2 CRITICAL, 11 HIGH · ✅ 0 fixed, 🔴 13 open
+📋 Report generated at 2026-10-15 01:39:46 UTC

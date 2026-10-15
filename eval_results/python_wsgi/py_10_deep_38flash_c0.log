@@ -1,0 +1,31 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/ref-codemender-bench...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 3 total files discovered
+   Tier 0 Pruner: 2 safe files pruned (tests, docs, DTOs, generated, lockfiles) at 0 token cost
+   Tier 1 Sifter: 1 candidate files in 1 batches to scan with 1 workers
+[1/1 batches] 🚨 scoped_targets/ref-codemender-bench/app.py (1m15.7s) | 132.4k tok - 8 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 3 files in 1 batches (2 pruned at Tier 0, 1 succeeded, 0 failed) in 1m17s
+   Session: ChA4ODkxZjJiZWVkYzA0MDdhEAgaATAqBG1haW4
+   Total tokens consumed: 132.4k (in: 123.1k, cached: 79.2k, out: 4.1k, thinking: 5.3k)
+
+🔒 Found 8 vulnerabilities:
+
+ID        SEVERITY    TYPE                               FILE                                        TITLE                                                            CONFIDENCE
+────────  ────────    ────                               ────                                        ─────                                                            ──────────
+2d6830e5  🟠 HIGH      PATH TRAVERSAL                     scoped_targets/ref-codemender-bench/app.py  Arbitrary File Write / Path Traversal in on_upload_raw           100%
+25d90ec5  🟠 HIGH      PATH TRAVERSAL                     scoped_targets/ref-codemender-bench/app.py  Path Traversal Arbitrary File Read in on_download                100%
+b15d89f6  🔴 CRITICAL  DESERIALIZATION OF UNTRUSTED DATA  scoped_targets/ref-codemender-bench/app.py  Insecure Deserialization via pickle.loads in on_profile_restore  100%
+bc59874a  🟠 HIGH      SQL INJECTION                      scoped_targets/ref-codemender-bench/app.py  SQL Injection in on_user_lookup                                  100%
+d848af31  🟠 HIGH      SERVER-SIDE REQUEST FORGERY        scoped_targets/ref-codemender-bench/app.py  Server-Side Request Forgery (SSRF) in on_service_proxy           100%
+823a372e  🟡 MEDIUM    CROSS-SITE SCRIPTING               scoped_targets/ref-codemender-bench/app.py  Reflected Cross-Site Scripting (XSS) in on_search                100%
+76380e75  🟡 MEDIUM    OPEN REDIRECT                      scoped_targets/ref-codemender-bench/app.py  Open Redirect in on_navigate                                     100%
+ffd5ccde  🔴 CRITICAL  OS COMMAND INJECTION               scoped_targets/ref-codemender-bench/app.py  OS Command Injection in on_ping                                  100%
+
+Summary: 2 CRITICAL, 4 HIGH, 2 MEDIUM
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T06:33:10Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_py_10_deep_38flash_c0/logs/20261015T063153Z_ChA4ODkxZjJiZWVkYzA0MDdhEAgaATAqBG1haW4.log

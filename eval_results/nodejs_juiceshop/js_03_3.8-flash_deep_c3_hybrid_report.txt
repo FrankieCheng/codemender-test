@@ -1,0 +1,32 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ b7fda0bf │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Hardcoded RSA Private Key Enables Com...│
+│ ce67dff5 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Remote Code Execution via eval() in P...│
+│ 459802ca │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Remote Code Execution via Sandbox Esc...│
+│ bd543adc │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│SQL Injection via Unsanitized Email i...│
+│ 21dca9a0 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│SQL Injection in searchProducts via U...│
+│ a05a2adc │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Open Redirect Allowlist Bypass via Su...│
+│ da1762d5 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│JWT Algorithm Confusion in isAuthoriz...│
+│ 22f343cb │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│JWT Algorithm Confusion in verify Fun...│
+│ 5e1d47ee │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Hardcoded Secret Key in HMAC Generation │
+│ 3ef97183 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection / JavaScript Code Inj...│
+│ 35c9a203 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Missing Authorization on Product Upda...│
+│ 80911f0e │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Rate Limit Bypass via Spoofed X-Forwa...│
+│ 0460a7c5 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Extension Whitelist Bypass via Poison...│
+│ d0523c04 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Stored Cross-Site Scripting via Conte...│
+│ 29fad93c │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Arbitrary File Read / Path Traversal ...│
+│ f0c637d6 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Open Redirect via Insufficient Substr...│
+│ 2ab88400 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection in Order Tracking via...│
+│ cd890ced │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Zip Slip Arbitrary File Overwrite via...│
+│ 670713fc │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Weak Cryptographic Password Hashing w...│
+│ 3980f96b │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Server-Side Request Forgery (SSRF) in...│
+│ 1a2b2d29 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection leading to mass revie...│
+│ b98fd8e5 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Insecure Direct Object Reference (IDO...│
+│ da084a95 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Use of Broken and Unsalted MD5 Hashin...│
+│ 5158682e │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Sensitive Access Log Exposure via Dir...│
+│ e0de2bce │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Information Disclosure via Directory ...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+25 finding(s): 5 CRITICAL, 17 HIGH, 3 MEDIUM · ✅ 0 fixed, 🔴 25 open
+📋 Report generated at 2026-10-15 01:43:09 UTC

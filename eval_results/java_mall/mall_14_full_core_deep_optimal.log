@@ -1,0 +1,1632 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 335 total files discovered
+   Tier 0 Pruner: 1 safe files pruned (tests, docs, DTOs, generated, lockfiles) at 0 token cost
+   Tier 1 Sifter: 334 candidate files in 334 batches to scan with 16 workers
+[1/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/config/MyBatisConfig.java (4.4s) | 3.7k tok - 0 vulnerabilities
+[2/334 batches] ✅ scoped_targets/mall-core/mall-admin/pom.xml (6.4s) | 4.4k tok - 0 vulnerabilities
+[3/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/MallAdminApplication.java (7.7s) | 4.1k tok - 0 vulnerabilities
+2026-10-15T02:59:27Z [INFO]  🔧 [Step 1] grep_search → pattern="list\\(" path=…/macro/mall/service
+2026-10-15T02:59:27Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T02:59:27Z [INFO]  🔧 [Step 1] grep_search → pattern="tokenHeader|cookie" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T02:59:27Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T02:59:29Z [INFO]  🔧 [Step 1] grep_search → pattern="minio" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T02:59:29Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+[4/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/config/SpringDocConfig.java (11.4s) | 5.5k tok - 0 vulnerabilities
+[5/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/config/MallSecurityConfig.java (14.1s) | 5.6k tok - 0 vulnerabilities
+2026-10-15T02:59:32Z [INFO]     📤 Result submitted (submit 5.359s)
+2026-10-15T02:59:32Z [INFO]  🔧 [Step 1] grep_search → pattern="DynamicSecurity" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T02:59:32Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T02:59:33Z [INFO]     📤 Result submitted (submit 5.468s)
+2026-10-15T02:59:34Z [INFO]     📤 Result submitted (submit 5.413s)
+2026-10-15T02:59:37Z [INFO]  🔧 [Step 1] grep_search → pattern="OmsOrderReturnApplyService" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T02:59:37Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T02:59:37Z [INFO]  🔧 [Step 1] grep_search → pattern="class PmsProductAttributeCategoryServiceImpl" path=…/com/macro/mall
+2026-10-15T02:59:37Z [INFO]     ✅ Tool completed: grep_search (took 19ms)
+2026-10-15T02:59:37Z [INFO]  🔧 [Step 2] read_file → …/service/impl/CmsSubjectServiceImpl.java
+2026-10-15T02:59:37Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:59:37Z [INFO]     📤 Result submitted (submit 5.377s)
+2026-10-15T02:59:38Z [INFO]  🔧 [Step 2] grep_search → pattern="minio" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T02:59:38Z [INFO]     ✅ Tool completed: grep_search (took 22ms)
+2026-10-15T02:59:39Z [INFO]  🔧 [Step 2] grep_search → pattern="Cookie" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T02:59:39Z [INFO]     ✅ Tool completed: grep_search (took 24ms)
+2026-10-15T02:59:42Z [INFO]     📤 Result submitted (submit 4.856s)
+2026-10-15T02:59:42Z [INFO]     📤 Result submitted (submit 4.751s)
+2026-10-15T02:59:42Z [INFO]     📤 Result submitted (submit 4.871s)
+2026-10-15T02:59:43Z [INFO]     📤 Result submitted (submit 5.142s)
+[6/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/bo/AdminUserDetails.java (25.2s) | 7.9k tok - 0 vulnerabilities
+2026-10-15T02:59:43Z [INFO]  🔧 [Step 1] grep_search → pattern="listBrand" path=…/macro/mall/service
+2026-10-15T02:59:43Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-15T02:59:44Z [INFO]  🔧 [Step 1] grep_search → pattern="getList" path=…/service/impl/PmsProductAttributeServiceImpl.java
+2026-10-15T02:59:44Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T02:59:44Z [INFO]     📤 Result submitted (submit 5.553s)
+2026-10-15T02:59:46Z [INFO]  🔧 [Step 1] grep_search → pattern="class OmsOrderSettingServiceImpl" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T02:59:46Z [INFO]     ✅ Tool completed: grep_search (took 18ms)
+2026-10-15T02:59:46Z [INFO]  🔧 [Step 3] read_file → …/main/resources/application.yml
+2026-10-15T02:59:46Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:59:46Z [INFO]  🔧 [Step 1] grep_search → pattern="class OmsOrderReturnReasonServiceImpl" path=…/com/macro/mall
+2026-10-15T02:59:46Z [INFO]     ✅ Tool completed: grep_search (took 22ms)
+[7/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/CmsPrefrenceAreaController.java (28.8s) | 7.8k tok - 0 vulnerabilities
+2026-10-15T02:59:48Z [INFO]     📤 Result submitted (submit 4.885s)
+2026-10-15T02:59:49Z [INFO]     📤 Result submitted (submit 5.016s)
+2026-10-15T02:59:50Z [INFO]  🔧 [Step 3] grep_search → pattern="SecurityConfig" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T02:59:50Z [INFO]     ✅ Tool completed: grep_search (took 23ms)
+2026-10-15T02:59:50Z [INFO]  ✅ Completed 1 tool steps in 33s | Tokens: 12k in / 75 out / 14k total
+[8/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/OmsOrderController.java (32.6s) | 14.8k tok - 0 vulnerabilities
+2026-10-15T02:59:50Z [INFO]     📤 Result submitted (submit 4.569s)
+2026-10-15T02:59:51Z [INFO]     📤 Result submitted (submit 5.064s)
+2026-10-15T02:59:51Z [INFO]  🔧 [Step 2] read_file → …/service/impl/PmsProductAttributeCategoryServiceImpl.java
+2026-10-15T02:59:51Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[9/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/config/OssConfig.java (33.3s) | 7.6k tok - 0 vulnerabilities
+2026-10-15T02:59:52Z [INFO]     📤 Result submitted (submit 5.481s)
+2026-10-15T02:59:52Z [INFO]  ✅ Completed 2 tool steps in 34s | Tokens: 24k in / 147 out / 26k total
+[10/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/CmsSubjectController.java (34.3s) | 26.2k tok - 0 vulnerabilities
+2026-10-15T02:59:54Z [INFO]  🔧 [Step 1] grep_search → pattern="List<PmsProduct> list" path=…/macro/mall/service
+2026-10-15T02:59:54Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T02:59:55Z [INFO]  🔧 [Step 2] read_file → …/service/impl/PmsBrandServiceImpl.java
+2026-10-15T02:59:55Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:59:55Z [INFO]     📤 Result submitted (submit 4.871s)
+2026-10-15T02:59:55Z [INFO]  🔧 [Step 2] read_file → …/service/impl/PmsProductAttributeServiceImpl.java
+2026-10-15T02:59:55Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:59:56Z [INFO]  🔧 [Step 1] grep_search → pattern="class PmsSkuStockServiceImpl" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T02:59:56Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T02:59:56Z [INFO]     📤 Result submitted (submit 4.934s)
+2026-10-15T02:59:56Z [INFO]  🔧 [Step 2] read_file → …/service/impl/OmsOrderReturnReasonServiceImpl.java
+2026-10-15T02:59:56Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T02:59:56Z [INFO]  🔧 [Step 2] read_file → …/service/impl/OmsOrderSettingServiceImpl.java
+2026-10-15T02:59:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T02:59:59Z [INFO]     📤 Result submitted (submit 4.697s)
+2026-10-15T03:00:00Z [INFO]  🔧 [Step 2] read_file → …/service/impl/OmsOrderReturnApplyServiceImpl.java
+2026-10-15T03:00:00Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:00:00Z [INFO]     📤 Result submitted (submit 5.921s)
+2026-10-15T03:00:00Z [INFO]     📤 Result submitted (submit 4.659s)
+2026-10-15T03:00:00Z [INFO]     📤 Result submitted (submit 4.8s)
+2026-10-15T03:00:01Z [INFO]     📤 Result submitted (submit 5.021s)
+2026-10-15T03:00:01Z [INFO]  🔧 [Step 3] grep_search → pattern="getListWithAttr" path=…/src/main/resources
+2026-10-15T03:00:01Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:00:02Z [INFO]     📤 Result submitted (submit 5.377s)
+2026-10-15T03:00:02Z [INFO]  🔧 [Step 1] grep_search → pattern="class SmsCouponHistoryServiceImpl" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:02Z [INFO]     ✅ Tool completed: grep_search (took 19ms)
+2026-10-15T03:00:03Z [INFO]  🔧 [Step 1] grep_search → pattern="couponService" path=…/mall-admin/src/main
+2026-10-15T03:00:03Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:00:04Z [INFO]  🔧 [Step 4] read_file → …/mall/config/MallSecurityConfig.java
+2026-10-15T03:00:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:05Z [INFO]     📤 Result submitted (submit 5.036s)
+2026-10-15T03:00:05Z [INFO]  🔧 [Step 1] grep_search → pattern="SmsFlashPromotion" path=…/mall-core/mall-admin/src
+2026-10-15T03:00:05Z [INFO]     ✅ Tool completed: grep_search (took 18ms)
+2026-10-15T03:00:06Z [INFO]  🔧 [Step 2] read_file → …/service/impl/PmsProductServiceImpl.java
+2026-10-15T03:00:06Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:00:06Z [INFO]     📤 Result submitted (submit 4.971s)
+2026-10-15T03:00:06Z [INFO]  🔧 [Step 1] grep_search → pattern="class OssServiceImpl" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:06Z [INFO]     ✅ Tool completed: grep_search (took 18ms)
+2026-10-15T03:00:07Z [INFO]     📤 Result submitted (submit 4.895s)
+2026-10-15T03:00:07Z [INFO]  🔧 [Step 3] grep_search → pattern="updateByPrimaryKey" path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:00:07Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 0s)
+2026-10-15T03:00:08Z [INFO]     📤 Result submitted (submit 5.145s)
+2026-10-15T03:00:08Z [INFO]  🔧 [Step 3] read_file → …/service/impl/PmsProductAttributeServiceImpl.java
+2026-10-15T03:00:08Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:00:08Z [INFO]  🔧 [Step 3] grep_search → pattern="PreAuthorize" path=…/macro/mall/controller
+2026-10-15T03:00:08Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T03:00:09Z [INFO]     📤 Result submitted (submit 4.924s)
+2026-10-15T03:00:10Z [INFO]     📤 Result submitted (submit 5.032s)
+2026-10-15T03:00:11Z [INFO]  🔧 [Step 3] grep_search → pattern="OmsOrderReturnApplyDao" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:11Z [INFO]     ✅ Tool completed: grep_search (took 22ms)
+2026-10-15T03:00:11Z [INFO]     📤 Result submitted (submit 4.591s)
+2026-10-15T03:00:11Z [INFO]     📤 Result submitted (submit 4.846s)
+2026-10-15T03:00:11Z [INFO]  🔧 [Step 3] grep_search → pattern="returnReason" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:11Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:00:12Z [INFO]     📤 Result submitted (submit 4.471s)
+2026-10-15T03:00:12Z [INFO]  🔧 [Step 4] grep_search → pattern="PreAuthorize" path=…/macro/mall/controller
+2026-10-15T03:00:12Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T03:00:13Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/PmsProductAttributeCategoryDao.xml
+2026-10-15T03:00:13Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:13Z [INFO]     📤 Result submitted (submit 4.514s)
+2026-10-15T03:00:14Z [INFO]     📤 Result submitted (submit 5.757s)
+2026-10-15T03:00:14Z [INFO]  🔧 [Step 2] grep_search → pattern="class SmsCouponServiceImpl" path=…/mall-admin/src/main
+2026-10-15T03:00:14Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:00:14Z [INFO]  🔧 [Step 2] read_file → …/service/impl/SmsCouponHistoryServiceImpl.java
+2026-10-15T03:00:14Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[11/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/OmsCompanyAddressController.java (56.9s) | 11.4k tok - 0 vulnerabilities
+2026-10-15T03:00:16Z [INFO]     📤 Result submitted (submit 4.843s)
+2026-10-15T03:00:16Z [INFO]  🔧 [Step 5] grep_search → pattern="class SecurityConfig" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:00:16Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:00:16Z [INFO]     📤 Result submitted (submit 4.554s)
+2026-10-15T03:00:17Z [INFO]  🔧 [Step 3] grep_search → pattern="PmsProduct" path=…/main/resources/dao
+2026-10-15T03:00:17Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:00:17Z [INFO]     📤 Result submitted (submit 4.579s)
+2026-10-15T03:00:17Z [INFO]  🔧 [Step 2] read_file → …/service/impl/SmsFlashPromotionServiceImpl.java
+2026-10-15T03:00:17Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:18Z [INFO]  🔧 [Step 4] grep_search → pattern="OmsOrderSettingMapper" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:18Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:00:18Z [INFO]     📤 Result submitted (submit 5.217s)
+2026-10-15T03:00:19Z [INFO]     📤 Result submitted (submit 5.187s)
+2026-10-15T03:00:19Z [INFO]     📤 Result submitted (submit 5.026s)
+2026-10-15T03:00:21Z [INFO]  🔧 [Step 4] grep_search → pattern="getProductAttrInfo" path=…/src/main/resources
+2026-10-15T03:00:21Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:00:21Z [INFO]     📤 Result submitted (submit 4.877s)
+2026-10-15T03:00:21Z [INFO]  🔧 [Step 5] grep_search → pattern="DynamicSecurity" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:00:21Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:00:21Z [INFO]     📤 Result submitted (submit 4.561s)
+2026-10-15T03:00:21Z [INFO]  ✅ Completed 3 tool steps in 56s | Tokens: 30k in / 213 out / 33k total
+[12/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/PmsBrandController.java (56.3s) | 33.5k tok - 0 vulnerabilities
+2026-10-15T03:00:22Z [INFO]     📤 Result submitted (submit 4.528s)
+2026-10-15T03:00:22Z [INFO]     📤 Result submitted (submit 4.442s)
+2026-10-15T03:00:23Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/OmsOrderReturnApplyDao.xml
+2026-10-15T03:00:23Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:24Z [INFO]  🔧 [Step 3] read_file → …/service/impl/SmsCouponServiceImpl.java
+2026-10-15T03:00:24Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:25Z [INFO]  ✅ Completed 3 tool steps in 1m8s | Tokens: 26k in / 171 out / 29k total
+[13/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/OmsOrderReturnReasonController.java (1m7.6s) | 29.2k tok - 0 vulnerabilities
+2026-10-15T03:00:25Z [INFO]     📤 Result submitted (submit 4.547s)
+2026-10-15T03:00:26Z [INFO]     📤 Result submitted (submit 4.847s)
+2026-10-15T03:00:27Z [INFO]  ✅ Completed 4 tool steps in 1m0s | Tokens: 32k in / 269 out / 34k total
+[14/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/PmsProductAttributeCategoryController.java (59.8s) | 34.3k tok - 0 vulnerabilities
+2026-10-15T03:00:27Z [INFO]  🔧 [Step 1] grep_search → pattern="class SmsFlashPromotionProductRelationServiceImpl" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:27Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:00:27Z [INFO]  ✅ Completed 2 tool steps in 34s | Tokens: 14k in / 107 out / 15k total
+[15/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsCouponHistoryController.java (33.9s) | 15.7k tok - 0 vulnerabilities
+2026-10-15T03:00:28Z [INFO]     📤 Result submitted (submit 5.073s)
+2026-10-15T03:00:29Z [INFO]  🔧 [Step 6] read_file → …/security/config/SecurityConfig.java
+2026-10-15T03:00:29Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:00:29Z [INFO]     📤 Result submitted (submit 4.861s)
+2026-10-15T03:00:30Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/PmsProductDao.xml
+2026-10-15T03:00:30Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:31Z [INFO]  🔧 [Step 2] read_file → …/service/impl/PmsSkuStockServiceImpl.java
+2026-10-15T03:00:31Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:32Z [INFO]     📤 Result submitted (submit 4.806s)
+2026-10-15T03:00:33Z [INFO]     📤 Result submitted (submit 4.441s)
+2026-10-15T03:00:34Z [INFO]  ✅ Completed 2 tool steps in 41s | Tokens: 37k in / 153 out / 39k total
+[16/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsFlashPromotionController.java (40.6s) | 39.3k tok - 0 vulnerabilities
+2026-10-15T03:00:34Z [INFO]  🔧 [Step 5] grep_search → pattern="orderSetting" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:34Z [INFO]     ✅ Tool completed: grep_search (took 22ms)
+2026-10-15T03:00:35Z [INFO]     📤 Result submitted (submit 5.199s)
+2026-10-15T03:00:36Z [INFO]     📤 Result submitted (submit 5.127s)
+2026-10-15T03:00:37Z [INFO]  🔧 [Step 4] read_file → …/service/impl/SmsCouponServiceImpl.java
+2026-10-15T03:00:37Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:00:37Z [INFO]  🔧 [Step 1] grep_search → pattern="SmsFlashPromotionSession" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:37Z [INFO]     ✅ Tool completed: grep_search (took 24ms)
+2026-10-15T03:00:38Z [INFO]  🔧 [Step 2] read_file → …/service/impl/SmsFlashPromotionProductRelationServiceImpl.java
+2026-10-15T03:00:38Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:00:39Z [INFO]     📤 Result submitted (submit 5.042s)
+2026-10-15T03:00:40Z [INFO]  🔧 [Step 5] read_file → …/resources/dao/PmsProductAttributeDao.xml
+2026-10-15T03:00:40Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:42Z [INFO]     📤 Result submitted (submit 5.04s)
+2026-10-15T03:00:42Z [INFO]     📤 Result submitted (submit 4.74s)
+2026-10-15T03:00:42Z [INFO]     📤 Result submitted (submit 4.513s)
+[17/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsHomeBrandController.java (14.9s) | 6.2k tok - 0 vulnerabilities
+2026-10-15T03:00:43Z [INFO]  ✅ Completed 4 tool steps in 1m25s | Tokens: 36k in / 196 out / 38k total
+[18/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/OmsOrderReturnApplyController.java (1m25.4s) | 38.7k tok - 0 vulnerabilities
+2026-10-15T03:00:44Z [INFO]  🔧 [Step 1] grep_search → pattern="SmsHomeAdvertiseService" path=…/macro/mall/service
+2026-10-15T03:00:44Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-15T03:00:44Z [INFO]  🔧 [Step 2] read_file → …/service/impl/OssServiceImpl.java
+2026-10-15T03:00:44Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:00:45Z [INFO]     📤 Result submitted (submit 5.047s)
+2026-10-15T03:00:45Z [INFO]  🔧 [Step 1] grep_search → pattern="SmsHomeNewProductService" path=…/macro/mall/service
+2026-10-15T03:00:45Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T03:00:47Z [INFO]  ✅ Completed 5 tool steps in 1m29s | Tokens: 32k in / 237 out / 33k total
+[19/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/OmsOrderSettingController.java (1m28.9s) | 33.4k tok - 0 vulnerabilities
+2026-10-15T03:00:48Z [INFO]     📤 Result submitted (submit 4.864s)
+2026-10-15T03:00:49Z [INFO]  🔧 [Step 1] grep_search → pattern="SmsHomeRecommendProductService" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:49Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T03:00:49Z [INFO]     📤 Result submitted (submit 4.566s)
+2026-10-15T03:00:50Z [INFO]     📤 Result submitted (submit 4.584s)
+2026-10-15T03:00:50Z [INFO]  🔧 [Step 5] read_file → …/resources/dao/PmsProductVertifyRecordDao.xml
+2026-10-15T03:00:50Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:53Z [INFO]  🔧 [Step 3] grep_search → pattern="replaceList" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:00:53Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:00:54Z [INFO]  🔧 [Step 2] read_file → …/service/impl/SmsHomeAdvertiseServiceImpl.java
+2026-10-15T03:00:54Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:54Z [INFO]     📤 Result submitted (submit 5.048s)
+2026-10-15T03:00:55Z [INFO]  🔧 [Step 1] grep_search → pattern="admin" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:00:55Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:00:55Z [INFO]     📤 Result submitted (submit 4.786s)
+2026-10-15T03:00:56Z [INFO]  🔧 [Step 5] grep_search → pattern="SmsCouponDao" path=…/mall-admin/src/main
+2026-10-15T03:00:56Z [INFO]     ✅ Tool completed: grep_search (took 22ms)
+2026-10-15T03:00:56Z [INFO]  ✅ Completed 1 tool steps in 32s | Tokens: 15k in / 60 out / 17k total
+[20/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsFlashPromotionSessionController.java (32.4s) | 17.3k tok - 0 vulnerabilities
+2026-10-15T03:00:58Z [INFO]  🔧 [Step 1] grep_search → pattern="class UmsMemberLevelServiceImpl" path=…/src/main/java
+2026-10-15T03:00:58Z [INFO]     ✅ Tool completed: grep_search (took 17ms)
+2026-10-15T03:00:58Z [INFO]     📤 Result submitted (submit 4.951s)
+2026-10-15T03:00:59Z [INFO]  🔧 [Step 2] read_file → …/service/impl/SmsHomeRecommendProductServiceImpl.java
+2026-10-15T03:00:59Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:00:59Z [INFO]  🔧 [Step 2] read_file → …/service/impl/SmsHomeNewProductServiceImpl.java
+2026-10-15T03:00:59Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:00:59Z [INFO]     📤 Result submitted (submit 5.231s)
+2026-10-15T03:00:59Z [INFO]     📤 Result submitted (submit 4.85s)
+[21/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/PmsProductCategoryController.java (1m26.5s) | 11.5k tok - 0 vulnerabilities
+2026-10-15T03:01:00Z [INFO]     📤 Result submitted (submit 4.572s)
+2026-10-15T03:01:02Z [INFO]  🔧 [Step 3] grep_search → pattern="getList" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:01:02Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:01:04Z [INFO]     📤 Result submitted (submit 5.954s)
+2026-10-15T03:01:04Z [INFO]     📤 Result submitted (submit 4.565s)
+2026-10-15T03:01:04Z [INFO]     📤 Result submitted (submit 4.616s)
+2026-10-15T03:01:05Z [INFO]  🔧 [Step 1] grep_search → pattern="recommendSubject" path=…/main/resources/dao
+2026-10-15T03:01:05Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:01:06Z [INFO]  ✅ Completed 5 tool steps in 1m35s | Tokens: 44k in / 304 out / 46k total
+[22/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/PmsProductAttributeController.java (1m35.2s) | 47.0k tok - 0 vulnerabilities
+2026-10-15T03:01:07Z [INFO]  ✅ Completed 5 tool steps in 1m49s | Tokens: 70k in / 1k out / 78k total
+[23/334 batches] 🚨 scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java (1m49.3s) | 78.1k tok - 1 vulnerabilities
+2026-10-15T03:01:07Z [INFO]  🔧 [Step 2] read_file → …/service/impl/UmsMemberLevelServiceImpl.java
+2026-10-15T03:01:07Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:01:07Z [INFO]     📤 Result submitted (submit 5.16s)
+2026-10-15T03:01:08Z [INFO]  🔧 [Step 3] grep_search → pattern="aliyun/oss" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:01:08Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:01:08Z [INFO]  🔧 [Step 1] grep_search → pattern="DynamicSecurity" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:01:08Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:01:10Z [INFO]     📤 Result submitted (submit 4.892s)
+2026-10-15T03:01:10Z [INFO]  ✅ Completed 2 tool steps in 44s | Tokens: 16k in / 126 out / 17k total
+[24/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsHomeAdvertiseController.java (44s) | 17.3k tok - 0 vulnerabilities
+2026-10-15T03:01:11Z [INFO]  🔧 [Step 2] grep_search → pattern="/admin/" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:01:11Z [INFO]     ✅ Tool completed: grep_search (took 17ms)
+2026-10-15T03:01:12Z [INFO]     📤 Result submitted (submit 4.731s)
+2026-10-15T03:01:13Z [INFO]     📤 Result submitted (submit 4.501s)
+2026-10-15T03:01:13Z [INFO]     📤 Result submitted (submit 5.237s)
+2026-10-15T03:01:16Z [INFO]     📤 Result submitted (submit 4.81s)
+2026-10-15T03:01:16Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/SmsFlashPromotionProductRelationDao.xml
+2026-10-15T03:01:16Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:01:17Z [INFO]  ✅ Completed 2 tool steps in 42s | Tokens: 17k in / 143 out / 19k total
+[25/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsHomeRecommendProductController.java (41.7s) | 19.5k tok - 0 vulnerabilities
+2026-10-15T03:01:17Z [INFO]  ✅ Completed 2 tool steps in 49s | Tokens: 18k in / 149 out / 20k total
+[26/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsHomeNewProductController.java (49.1s) | 20.9k tok - 0 vulnerabilities
+2026-10-15T03:01:18Z [INFO]  ✅ Completed 6 tool steps in 2m0s | Tokens: 49k in / 983 out / 52k total
+[27/334 batches] 🚨 scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/config/GlobalCorsConfig.java (2m0.2s) | 52.9k tok - 1 vulnerabilities
+2026-10-15T03:01:19Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/PmsSkuStockDao.xml
+2026-10-15T03:01:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:01:19Z [INFO]  🔧 [Step 2] grep_search → pattern="class UmsMenuServiceImpl" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:01:19Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T03:01:20Z [INFO]  🔧 [Step 2] grep_search → pattern="list" path=…/service/impl/SmsHomeRecommendSubjectServiceImpl.java
+2026-10-15T03:01:20Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T03:01:20Z [INFO]  ✅ Completed 5 tool steps in 1m36s | Tokens: 56k in / 296 out / 58k total
+[28/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/PmsProductController.java (1m36s) | 58.3k tok - 0 vulnerabilities
+2026-10-15T03:01:21Z [INFO]     📤 Result submitted (submit 4.703s)
+[29/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/CmsPrefrenceAreaProductRelationDao.java (10s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:01:22Z [INFO]  ✅ Completed 2 tool steps in 34s | Tokens: 13k in / 136 out / 14k total
+[30/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/UmsMemberLevelController.java (34.4s) | 14.9k tok - 0 vulnerabilities
+2026-10-15T03:01:24Z [INFO]     📤 Result submitted (submit 4.949s)
+2026-10-15T03:01:24Z [INFO]     📤 Result submitted (submit 4.778s)
+2026-10-15T03:01:24Z [INFO]     📤 Result submitted (submit 4.67s)
+2026-10-15T03:01:28Z [INFO]  🔧 [Step 1] grep_search → pattern="UmsRoleService" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:01:28Z [INFO]     ✅ Tool completed: grep_search (took 18ms)
+[31/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/OmsOrderReturnApplyDao.java (8.3s) | 4.3k tok - 0 vulnerabilities
+[32/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/OmsOrderDao.java (12.5s) | 5.0k tok - 0 vulnerabilities
+[33/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductAttributeCategoryDao.java (7.4s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:01:33Z [INFO]     📤 Result submitted (submit 4.776s)
+2026-10-15T03:01:35Z [INFO]  🔧 [Step 3] grep_search → pattern="public UmsAdmin register" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:01:35Z [INFO]     ✅ Tool completed: grep_search (took 49ms)
+2026-10-15T03:01:36Z [INFO]  🔧 [Step 3] read_file → …/service/impl/SmsHomeRecommendSubjectServiceImpl.java
+2026-10-15T03:01:36Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:01:37Z [INFO]  ✅ Completed 4 tool steps in 1m49s | Tokens: 26k in / 214 out / 28k total
+[34/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/PmsSkuStockController.java (1m49.2s) | 28.7k tok - 0 vulnerabilities
+2026-10-15T03:01:39Z [INFO]  🔧 [Step 1] grep_search → pattern="DynamicSecurityFilter" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:01:39Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[35/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/OmsOrderOperateHistoryDao.java (19.7s) | 5.7k tok - 0 vulnerabilities
+2026-10-15T03:01:40Z [INFO]  🔧 [Step 6] read_file → …/resources/dao/SmsCouponDao.xml
+2026-10-15T03:01:40Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:01:40Z [INFO]     📤 Result submitted (submit 4.76s)
+2026-10-15T03:01:41Z [INFO]     📤 Result submitted (submit 4.54s)
+[36/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductAttributeDao.java (9.7s) | 4.2k tok - 0 vulnerabilities
+[37/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductAttributeValueDao.java (9.5s) | 4.2k tok - 0 vulnerabilities
+[38/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductCategoryAttributeRelationDao.java (11s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:01:44Z [INFO]     📤 Result submitted (submit 5.641s)
+2026-10-15T03:01:45Z [INFO]     📤 Result submitted (submit 4.898s)
+2026-10-15T03:01:48Z [INFO]  🔧 [Step 3] read_file → …/service/impl/UmsMenuServiceImpl.java
+2026-10-15T03:01:48Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:01:51Z [INFO]  🔧 [Step 2] grep_search → pattern="DynamicSecurity" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:01:51Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:01:51Z [INFO]  ✅ Completed 3 tool steps in 1m7s | Tokens: 19k in / 197 out / 19k total
+[39/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsHomeRecommendSubjectController.java (1m7.2s) | 19.7k tok - 0 vulnerabilities
+[40/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductVertifyRecordDao.java (7.5s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:01:53Z [INFO]     📤 Result submitted (submit 4.794s)
+2026-10-15T03:01:53Z [INFO]  🔧 [Step 7] grep_search → pattern="insertList" path=…/main/resources/dao
+2026-10-15T03:01:53Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+[41/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductDao.java (13.3s) | 4.2k tok - 0 vulnerabilities
+[42/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductCategoryDao.java (16.5s) | 5.3k tok - 0 vulnerabilities
+2026-10-15T03:01:56Z [INFO]     📤 Result submitted (submit 4.867s)
+2026-10-15T03:01:58Z [INFO]  🔧 [Step 2] read_file → …/service/impl/UmsRoleServiceImpl.java
+2026-10-15T03:01:58Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:01:58Z [INFO]     📤 Result submitted (submit 4.84s)
+[43/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/CmsSubjectProductRelationDao.java (41s) | 4.1k tok - 0 vulnerabilities
+2026-10-15T03:02:02Z [INFO]     📤 Result submitted (submit 4.641s)
+[44/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductFullReductionDao.java (20.8s) | 5.2k tok - 0 vulnerabilities
+2026-10-15T03:02:03Z [INFO]  ✅ Completed 3 tool steps in 1m6s | Tokens: 24k in / 151 out / 25k total
+[45/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/UmsMenuController.java (1m6.3s) | 25.5k tok - 0 vulnerabilities
+2026-10-15T03:02:05Z [INFO]  🔧 [Step 4] read_file → …/service/impl/UmsAdminServiceImpl.java
+2026-10-15T03:02:05Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:02:05Z [INFO]  ✅ Completed 7 tool steps in 2m14s | Tokens: 63k in / 310 out / 65k total
+[46/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsCouponController.java (2m13.7s) | 65.8k tok - 0 vulnerabilities
+2026-10-15T03:02:06Z [INFO]  ✅ Completed 4 tool steps in 1m50s | Tokens: 39k in / 202 out / 41k total
+[47/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/SmsFlashPromotionProductRelationController.java (1m50s) | 41.6k tok - 0 vulnerabilities
+2026-10-15T03:02:08Z [INFO]  🔧 [Step 3] grep_search → pattern="class UmsResourceServiceImpl" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:02:08Z [INFO]     ✅ Tool completed: grep_search (took 19ms)
+2026-10-15T03:02:09Z [INFO]     📤 Result submitted (submit 4.812s)
+[48/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/SmsCouponProductCategoryRelationDao.java (13.8s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:02:13Z [INFO]     📤 Result submitted (submit 4.329s)
+[49/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsProductLadderDao.java (31.3s) | 7.3k tok - 0 vulnerabilities
+[50/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsMemberPriceDao.java (52.7s) | 7.3k tok - 0 vulnerabilities
+[51/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/UmsRoleDao.java (11.7s) | 4.4k tok - 0 vulnerabilities
+[52/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/SmsFlashPromotionProductRelationDao.java (15.7s) | 5.0k tok - 0 vulnerabilities
+[53/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/UmsAdminRoleRelationDao.java (12.4s) | 4.7k tok - 0 vulnerabilities
+2026-10-15T03:02:18Z [INFO]  🔧 [Step 3] grep_search → pattern="UmsRoleDao" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:02:18Z [INFO]     ✅ Tool completed: grep_search (took 25ms)
+[54/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/BucketPolicyConfigDto.java (12.8s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:02:21Z [INFO]  🔧 [Step 5] grep_search → pattern="DynamicSecurityFilter" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:02:21Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[55/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/PmsSkuStockDao.java (28.2s) | 6.9k tok - 0 vulnerabilities
+2026-10-15T03:02:22Z [INFO]     📤 Result submitted (submit 4.642s)
+2026-10-15T03:02:23Z [INFO]  🔧 [Step 4] read_file → …/service/impl/UmsResourceServiceImpl.java
+2026-10-15T03:02:23Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[56/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/MinioUploadDto.java (16.5s) | 5.0k tok - 0 vulnerabilities
+2026-10-15T03:02:25Z [INFO]     📤 Result submitted (submit 4.963s)
+[57/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OmsOrderDetail.java (9.9s) | 4.3k tok - 0 vulnerabilities
+2026-10-15T03:02:28Z [INFO]     📤 Result submitted (submit 5.014s)
+2026-10-15T03:02:28Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/UmsRoleDao.xml
+2026-10-15T03:02:28Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[58/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OmsReceiverInfoParam.java (11s) | 4.6k tok - 0 vulnerabilities
+[59/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OmsReturnApplyQueryParam.java (10.6s) | 4.5k tok - 0 vulnerabilities
+[60/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OmsOrderDeliveryParam.java (15.9s) | 5.1k tok - 0 vulnerabilities
+[61/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OmsOrderQueryParam.java (13.3s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:02:33Z [INFO]     📤 Result submitted (submit 4.851s)
+2026-10-15T03:02:34Z [INFO]  🔧 [Step 6] grep_search → pattern="class " path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:02:34Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[62/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OssCallbackParam.java (10.8s) | 4.4k tok - 0 vulnerabilities
+[63/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/SmsCouponProductRelationDao.java (42.2s) | 6.7k tok - 0 vulnerabilities
+2026-10-15T03:02:38Z [INFO]     📤 Result submitted (submit 4.691s)
+2026-10-15T03:02:41Z [INFO]  🔧 [Step 4] read_file → …/main/resources/application.yml
+2026-10-15T03:02:41Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[64/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/PmsProductAttributeCategoryItem.java (10s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:02:43Z [INFO]  🔧 [Step 5] grep_search → pattern="DynamicSecurity" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:02:43Z [INFO]     ✅ Tool completed: grep_search (took 24ms)
+[65/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OssCallbackResult.java (13.9s) | 4.8k tok - 0 vulnerabilities
+[66/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OmsOrderReturnApplyResult.java (26.2s) | 6.2k tok - 0 vulnerabilities
+[67/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OssPolicyResult.java (13.5s) | 4.6k tok - 0 vulnerabilities
+2026-10-15T03:02:45Z [INFO]  🔧 [Step 7] read_file → …/security/component/DynamicAuthorizationManager.java
+2026-10-15T03:02:45Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:02:47Z [INFO]     📤 Result submitted (submit 5.268s)
+2026-10-15T03:02:47Z [INFO]     📤 Result submitted (submit 4.602s)
+[68/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OmsMoneyInfoParam.java (37.3s) | 6.8k tok - 0 vulnerabilities
+2026-10-15T03:02:50Z [INFO]  ✅ Completed 4 tool steps in 1m42s | Tokens: 33k in / 183 out / 35k total
+[69/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/UmsResourceController.java (1m42.1s) | 35.6k tok - 0 vulnerabilities
+2026-10-15T03:02:50Z [INFO]  🔧 [Step 1] grep_search → pattern="UmsResourceCategoryServiceImpl" path=…/scoped_targets/mall-core/mall-admin
+[70/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dao/SmsCouponDao.java (55.8s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:02:50Z [INFO]     ✅ Tool completed: grep_search (took 35ms)
+2026-10-15T03:02:50Z [INFO]     📤 Result submitted (submit 5.078s)
+[71/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/OmsUpdateStatusParam.java (32.2s) | 5.7k tok - 0 vulnerabilities
+2026-10-15T03:02:55Z [INFO]     📤 Result submitted (submit 4.775s)
+[72/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/PmsProductAttributeParam.java (23.3s) | 6.7k tok - 0 vulnerabilities
+2026-10-15T03:02:56Z [INFO]  🔧 [Step 8] read_file → …/security/component/DynamicSecurityMetadataSource.java
+2026-10-15T03:02:56Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:02:57Z [INFO]  ✅ Completed 5 tool steps in 1m48s | Tokens: 53k in / 218 out / 56k total
+[73/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/UmsRoleController.java (1m48.5s) | 56.6k tok - 0 vulnerabilities
+[74/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/PmsProductParam.java (12.5s) | 5.0k tok - 0 vulnerabilities
+2026-10-15T03:03:01Z [INFO]     📤 Result submitted (submit 4.784s)
+[75/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/PmsProductCategoryWithChildrenItem.java (21.9s) | 5.7k tok - 0 vulnerabilities
+[76/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/PmsBrandParam.java (29.8s) | 8.0k tok - 0 vulnerabilities
+[77/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/SmsFlashPromotionProduct.java (10.6s) | 4.2k tok - 0 vulnerabilities
+[78/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/UmsAdminLoginParam.java (9.8s) | 4.3k tok - 0 vulnerabilities
+[79/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/PmsProductCategoryParam.java (28.5s) | 7.7k tok - 0 vulnerabilities
+[80/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/UmsAdminParam.java (9.1s) | 4.3k tok - 0 vulnerabilities
+[81/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/UpdateAdminPasswordParam.java (9.3s) | 4.2k tok - 0 vulnerabilities
+[82/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/UmsMenuNode.java (9.9s) | 4.1k tok - 0 vulnerabilities
+[83/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/SmsCouponParam.java (21.4s) | 6.2k tok - 0 vulnerabilities
+[84/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/OmsCompanyAddressService.java (7.9s) | 4.1k tok - 0 vulnerabilities
+[85/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/ProductAttrInfo.java (30.4s) | 7.3k tok - 0 vulnerabilities
+[86/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/OmsOrderService.java (9.3s) | 4.7k tok - 0 vulnerabilities
+[87/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/OmsOrderReturnReasonService.java (9.4s) | 4.5k tok - 0 vulnerabilities
+[88/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/PmsProductQueryParam.java (35.3s) | 4.4k tok - 0 vulnerabilities
+[89/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/OmsOrderReturnApplyService.java (14s) | 4.6k tok - 0 vulnerabilities
+[90/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/PmsProductAttributeCategoryService.java (8.2s) | 4.4k tok - 0 vulnerabilities
+[91/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/OssService.java (13s) | 4.2k tok - 0 vulnerabilities
+[92/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/PmsBrandService.java (11.9s) | 4.6k tok - 0 vulnerabilities
+[93/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/CmsPrefrenceAreaService.java (22.7s) | 6.6k tok - 0 vulnerabilities
+[94/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/PmsProductService.java (7.8s) | 4.7k tok - 0 vulnerabilities
+[95/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/PmsProductCategoryService.java (9.1s) | 4.8k tok - 0 vulnerabilities
+[96/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/PmsProductAttributeService.java (10.8s) | 4.7k tok - 0 vulnerabilities
+[97/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsCouponHistoryService.java (8.5s) | 4.3k tok - 0 vulnerabilities
+[98/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsCouponService.java (8.8s) | 4.4k tok - 0 vulnerabilities
+[99/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/CmsSubjectService.java (32.2s) | 6.3k tok - 0 vulnerabilities
+[100/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsFlashPromotionSessionService.java (9.1s) | 4.7k tok - 0 vulnerabilities
+[101/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsHomeAdvertiseService.java (8.3s) | 4.4k tok - 0 vulnerabilities
+[102/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsFlashPromotionProductRelationService.java (13.7s) | 5.2k tok - 0 vulnerabilities
+[103/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/PmsProductResult.java (54.9s) | 4.9k tok - 0 vulnerabilities
+[104/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsHomeRecommendProductService.java (9.4s) | 4.3k tok - 0 vulnerabilities
+[105/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsHomeRecommendSubjectService.java (9.5s) | 4.5k tok - 0 vulnerabilities
+[106/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/OmsOrderSettingService.java (34.2s) | 8.0k tok - 0 vulnerabilities
+[107/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/UmsAdminService.java (7.9s) | 4.7k tok - 0 vulnerabilities
+[108/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/UmsAdminCacheService.java (10s) | 4.4k tok - 0 vulnerabilities
+[109/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/UmsMemberLevelService.java (9.2s) | 4.5k tok - 0 vulnerabilities
+[110/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsHomeBrandService.java (18.5s) | 5.6k tok - 0 vulnerabilities
+[111/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/dto/SmsFlashPromotionSessionDetail.java (58s) | 6.6k tok - 0 vulnerabilities
+[112/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/UmsMenuService.java (10.6s) | 4.8k tok - 0 vulnerabilities
+[113/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/UmsResourceService.java (9.6s) | 4.7k tok - 0 vulnerabilities
+[114/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/PmsSkuStockService.java (30.8s) | 7.6k tok - 0 vulnerabilities
+[115/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/CmsPrefrenceAreaServiceImpl.java (12.6s) | 5.0k tok - 0 vulnerabilities
+2026-10-15T03:04:00Z [INFO]  🔧 [Step 1] grep_search → pattern="OssController" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:04:00Z [INFO]     ✅ Tool completed: grep_search (took 22ms)
+[116/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/OmsOrderSettingServiceImpl.java (11.8s) | 4.8k tok - 0 vulnerabilities
+2026-10-15T03:04:04Z [INFO]  🔧 [Step 1] grep_search → pattern="OmsOrderReturnApplyDao" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:04:04Z [INFO]     ✅ Tool completed: grep_search (took 23ms)
+[117/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsFlashPromotionService.java (38s) | 6.4k tok - 0 vulnerabilities
+[118/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/OmsOrderReturnReasonServiceImpl.java (14.6s) | 5.8k tok - 0 vulnerabilities
+2026-10-15T03:04:05Z [INFO]     📤 Result submitted (submit 4.953s)
+2026-10-15T03:04:05Z [INFO]  🔧 [Step 1] grep_search → pattern="OmsOrderDao" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:04:05Z [INFO]     ✅ Tool completed: grep_search (took 19ms)
+[119/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/SmsHomeNewProductService.java (35.9s) | 8.7k tok - 0 vulnerabilities
+2026-10-15T03:04:08Z [INFO]     📤 Result submitted (submit 4.76s)
+2026-10-15T03:04:10Z [INFO]     📤 Result submitted (submit 5.208s)
+[120/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/PmsProductAttributeCategoryServiceImpl.java (11.7s) | 5.5k tok - 0 vulnerabilities
+2026-10-15T03:04:11Z [INFO]  🔧 [Step 2] read_file → …/mall/controller/OssController.java
+2026-10-15T03:04:11Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[121/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/OmsCompanyAddressServiceImpl.java (24.2s) | 6.9k tok - 0 vulnerabilities
+2026-10-15T03:04:14Z [INFO]  🔧 [Step 1] grep_search → pattern="replaceList" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:04:14Z [INFO]     ✅ Tool completed: grep_search (took 24ms)
+[122/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/UmsResourceCategoryService.java (33.1s) | 7.3k tok - 0 vulnerabilities
+2026-10-15T03:04:16Z [INFO]     📤 Result submitted (submit 4.748s)
+[123/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/PmsBrandServiceImpl.java (25.4s) | 7.9k tok - 0 vulnerabilities
+[124/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/PmsProductCategoryServiceImpl.java (13.5s) | 6.9k tok - 0 vulnerabilities
+2026-10-15T03:04:19Z [INFO]  🔧 [Step 1] grep_search → pattern="insertList" path=…/src/main/resources
+2026-10-15T03:04:19Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:04:19Z [INFO]     📤 Result submitted (submit 4.945s)
+[125/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/PmsProductServiceImpl.java (17.1s) | 10.1k tok - 0 vulnerabilities
+2026-10-15T03:04:23Z [INFO]  🔧 [Step 2] read_file → …/service/impl/UmsResourceCategoryServiceImpl.java
+2026-10-15T03:04:23Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:04:23Z [INFO]  🔧 [Step 1] grep_search → pattern="getProductAttrInfo" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:04:23Z [INFO]     ✅ Tool completed: grep_search (took 17ms)
+2026-10-15T03:04:24Z [INFO]     📤 Result submitted (submit 4.793s)
+2026-10-15T03:04:28Z [INFO]     📤 Result submitted (submit 4.661s)
+2026-10-15T03:04:28Z [INFO]     📤 Result submitted (submit 4.919s)
+[126/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/CmsSubjectServiceImpl.java (41.9s) | 8.2k tok - 0 vulnerabilities
+2026-10-15T03:04:29Z [INFO]  🔧 [Step 3] grep_search → pattern="OssCallbackResult" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:04:29Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T03:04:31Z [INFO]  🔧 [Step 1] grep_search → pattern="getList" path=…/resources/dao/SmsFlashPromotionProductRelationDao.xml
+2026-10-15T03:04:31Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:04:31Z [INFO]  🔧 [Step 2] grep_search → pattern="SmsCoupon" path=…/src/main/resources
+2026-10-15T03:04:31Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:04:32Z [INFO]  🔧 [Step 1] grep_search → pattern="SmsFlashPromotionMapper" path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:04:32Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 0s)
+2026-10-15T03:04:34Z [INFO]  🔧 [Step 2] read_file → …/resources/dao/PmsProductAttributeDao.xml
+2026-10-15T03:04:34Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:04:34Z [INFO]     📤 Result submitted (submit 5.053s)
+2026-10-15T03:04:36Z [INFO]     📤 Result submitted (submit 4.643s)
+[127/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/UmsRoleService.java (52s) | 7.6k tok - 0 vulnerabilities
+2026-10-15T03:04:36Z [INFO]     📤 Result submitted (submit 5.212s)
+2026-10-15T03:04:36Z [INFO]     📤 Result submitted (submit 4.657s)
+2026-10-15T03:04:39Z [INFO]     📤 Result submitted (submit 4.812s)
+2026-10-15T03:04:40Z [INFO]  🔧 [Step 5] grep_search → pattern="@PreAuthorize" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:04:40Z [INFO]     ✅ Tool completed: grep_search (took 18ms)
+2026-10-15T03:04:40Z [INFO]  🔧 [Step 2] read_file → …/resources/dao/SmsFlashPromotionProductRelationDao.xml
+2026-10-15T03:04:40Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:04:42Z [INFO]  🔧 [Step 2] grep_search → pattern="SmsFlashPromotionMapper.xml" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:04:42Z [INFO]     ✅ Tool completed: grep_search (took 55ms)
+2026-10-15T03:04:43Z [INFO]  🔧 [Step 2] read_file → …/resources/dao/OmsOrderDao.xml
+2026-10-15T03:04:43Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:04:45Z [INFO]     📤 Result submitted (submit 4.729s)
+2026-10-15T03:04:45Z [INFO]  🔧 [Step 2] read_file → …/resources/dao/PmsSkuStockDao.xml
+2026-10-15T03:04:45Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:04:45Z [INFO]     📤 Result submitted (submit 4.898s)
+2026-10-15T03:04:46Z [INFO]     📤 Result submitted (submit 4.845s)
+2026-10-15T03:04:47Z [INFO]     📤 Result submitted (submit 4.771s)
+2026-10-15T03:04:50Z [INFO]     📤 Result submitted (submit 4.706s)
+2026-10-15T03:04:50Z [INFO]  🔧 [Step 3] grep_search → pattern="SmsFlashPromotionMapper" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:04:50Z [INFO]     ✅ Tool completed: grep_search (took 55ms)
+2026-10-15T03:04:51Z [INFO]  ✅ Completed 2 tool steps in 47s | Tokens: 20k in / 112 out / 23k total
+[128/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/PmsProductAttributeServiceImpl.java (46.8s) | 23.9k tok - 0 vulnerabilities
+2026-10-15T03:04:52Z [INFO]  🔧 [Step 2] read_file → …/resources/dao/OmsOrderReturnApplyDao.xml
+2026-10-15T03:04:52Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[129/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsHomeBrandServiceImpl.java (21.8s) | 7.0k tok - 0 vulnerabilities
+2026-10-15T03:04:53Z [INFO]  🔧 [Step 3] grep_search → pattern="OmsOrderOperateHistoryDao" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:04:53Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+[130/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsCouponHistoryServiceImpl.java (41s) | 8.3k tok - 0 vulnerabilities
+2026-10-15T03:04:55Z [INFO]     📤 Result submitted (submit 4.845s)
+2026-10-15T03:04:56Z [INFO]     📤 Result submitted (submit 4.798s)
+2026-10-15T03:04:57Z [INFO]  🔧 [Step 1] grep_search → pattern="orderByClause" path=…/mall/mapper/SmsHomeNewProductMapper.xml
+2026-10-15T03:04:57Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg/src/main/resources/com/macro/mall/mapper/SmsHomeNewProductMapper.xml: no such file or directory (took 1ms)
+2026-10-15T03:04:58Z [INFO]     📤 Result submitted (submit 4.561s)
+2026-10-15T03:05:02Z [INFO]     📤 Result submitted (submit 4.494s)
+2026-10-15T03:05:04Z [INFO]  ✅ Completed 3 tool steps in 44s | Tokens: 21k in / 115 out / 22k total
+[131/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsFlashPromotionServiceImpl.java (43.6s) | 22.7k tok - 0 vulnerabilities
+[132/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsHomeAdvertiseServiceImpl.java (42.8s) | 10.5k tok - 0 vulnerabilities
+2026-10-15T03:05:07Z [INFO]  🔧 [Step 3] read_file → …/resources/dao/SmsCouponProductRelationDao.xml
+2026-10-15T03:05:07Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:05:07Z [INFO]  🔧 [Step 1] grep_search → pattern="like" path=…/mall/mapper/SmsHomeRecommendProductMapper.xml
+2026-10-15T03:05:07Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg/src/main/resources/com/macro/mall/mapper/SmsHomeRecommendProductMapper.xml: no such file or directory (took 1ms)
+[133/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsFlashPromotionSessionServiceImpl.java (48.9s) | 6.9k tok - 0 vulnerabilities
+2026-10-15T03:05:12Z [INFO]     📤 Result submitted (submit 5.11s)
+2026-10-15T03:05:13Z [INFO]     📤 Result submitted (submit 5.492s)
+2026-10-15T03:05:13Z [INFO]  🔧 [Step 2] grep_search → pattern="SmsHomeNewProductMapper" path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:05:13Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 0s)
+2026-10-15T03:05:17Z [INFO]  🔧 [Step 3] grep_search → pattern="OmsOrderReturnApplyController" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:05:17Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T03:05:18Z [INFO]     📤 Result submitted (submit 4.573s)
+2026-10-15T03:05:18Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/SmsCouponProductCategoryRelationDao.xml
+2026-10-15T03:05:18Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[134/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/UmsAdminCacheServiceImpl.java (25.4s) | 8.5k tok - 0 vulnerabilities
+2026-10-15T03:05:21Z [INFO]  🔧 [Step 2] grep_search → pattern="SmsHomeRecommendProductMapper" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:05:21Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T03:05:21Z [INFO]  🔧 [Step 3] list_dir → …/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:05:21Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T03:05:22Z [INFO]     📤 Result submitted (submit 5.383s)
+2026-10-15T03:05:22Z [INFO]  🔧 [Step 1] grep_search → pattern="updateAdminPassword" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:05:23Z [INFO]     ✅ Tool completed: grep_search (took 26ms)
+2026-10-15T03:05:23Z [INFO]     📤 Result submitted (submit 4.811s)
+2026-10-15T03:05:26Z [INFO]     📤 Result submitted (submit 4.693s)
+2026-10-15T03:05:26Z [INFO]     📤 Result submitted (submit 4.701s)
+2026-10-15T03:05:27Z [INFO]  🔧 [Step 4] read_file → …/mall/controller/OmsOrderReturnApplyController.java
+2026-10-15T03:05:27Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:05:27Z [INFO]     📤 Result submitted (submit 4.751s)
+2026-10-15T03:05:30Z [INFO]  🔧 [Step 4] grep_search → pattern="Minio" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:05:30Z [INFO]     ✅ Tool completed: grep_search (took 24ms)
+[135/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsHomeRecommendSubjectServiceImpl.java (36.7s) | 8.9k tok - 0 vulnerabilities
+2026-10-15T03:05:32Z [INFO]  🔧 [Step 4] grep_search → pattern="SmsHomeNewProduct" path=…/scoped_targets/mall-core/PROJECT_FILE_INDEX.md
+2026-10-15T03:05:32Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:05:32Z [INFO]     📤 Result submitted (submit 4.783s)
+[136/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/UmsResourceCategoryServiceImpl.java (11.3s) | 5.0k tok - 0 vulnerabilities
+2026-10-15T03:05:34Z [INFO]  🔧 [Step 2] grep_search → pattern="updatePassword" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:05:34Z [INFO]     ✅ Tool completed: grep_search (took 25ms)
+2026-10-15T03:05:35Z [INFO]     📤 Result submitted (submit 4.965s)
+2026-10-15T03:05:37Z [INFO]     📤 Result submitted (submit 4.842s)
+2026-10-15T03:05:38Z [INFO]     📤 Result submitted (submit 4.563s)
+[137/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/UmsMemberLevelServiceImpl.java (32.2s) | 6.9k tok - 0 vulnerabilities
+2026-10-15T03:05:41Z [INFO]  🔧 [Step 3] grep_search → pattern="PmsSkuStockController" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:05:41Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T03:05:41Z [INFO]  🔧 [Step 5] grep_search → pattern="Mapper.xml" path=…/scoped_targets/mall-core/PROJECT_FILE_INDEX.md
+2026-10-15T03:05:41Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T03:05:42Z [INFO]  ✅ Completed 4 tool steps in 1m49s | Tokens: 38k in / 170 out / 44k total
+[138/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/OssServiceImpl.java (1m48.7s) | 45.0k tok - 0 vulnerabilities
+2026-10-15T03:05:43Z [INFO]  🔧 [Step 1] grep_search → pattern="selectByExample" path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:05:43Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 0s)
+2026-10-15T03:05:44Z [INFO]  🔧 [Step 3] read_file → …/mall/controller/UmsAdminController.java
+2026-10-15T03:05:44Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:05:45Z [INFO]  ✅ Completed 4 tool steps in 1m56s | Tokens: 37k in / 204 out / 40k total
+[139/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/OmsOrderReturnApplyServiceImpl.java (1m56.4s) | 40.4k tok - 0 vulnerabilities
+2026-10-15T03:05:46Z [INFO]  ✅ Completed 8 tool steps in 5m1s | Tokens: 129k in / 1k out / 145k total
+[140/334 batches] 🚨 scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java (5m1.4s) | 145.6k tok - 2 vulnerabilities
+2026-10-15T03:05:46Z [INFO]     📤 Result submitted (submit 4.551s)
+2026-10-15T03:05:46Z [INFO]     📤 Result submitted (submit 5.019s)
+2026-10-15T03:05:48Z [INFO]  🔧 [Step 5] read_file → …/resources/dao/SmsCouponDao.xml
+2026-10-15T03:05:48Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:05:48Z [INFO]     📤 Result submitted (submit 5.121s)
+2026-10-15T03:05:49Z [INFO]     📤 Result submitted (submit 5.09s)
+2026-10-15T03:05:49Z [INFO]  ✅ Completed 5 tool steps in 6m26s | Tokens: 39k in / 218 out / 41k total
+[141/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/OssController.java (6m26.1s) | 41.2k tok - 0 vulnerabilities
+2026-10-15T03:05:50Z [INFO]  🔧 [Step 3] grep_search → pattern="SmsHomeRecommendProductMapper.xml" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:05:50Z [INFO]     ✅ Tool completed: grep_search (took 44ms)
+2026-10-15T03:05:52Z [INFO]     📤 Result submitted (submit 4.849s)
+2026-10-15T03:05:54Z [INFO]  ✅ Completed 5 tool steps in 1m16s | Tokens: 37k in / 229 out / 39k total
+[142/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsHomeNewProductServiceImpl.java (1m16.3s) | 39.5k tok - 0 vulnerabilities
+2026-10-15T03:05:55Z [INFO]     📤 Result submitted (submit 4.816s)
+2026-10-15T03:05:55Z [INFO]  🔧 [Step 1] grep_search → pattern="getMenuListByRoleId|getResourceListByRoleId|getMenuList" path=…/scoped_targets/mall-core/mall-admin
+[143/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/validator/FlagValidatorClass.java (11.2s) | 4.9k tok - 0 vulnerabilities
+2026-10-15T03:05:55Z [INFO]     ✅ Tool completed: grep_search (took 22ms)
+2026-10-15T03:05:56Z [INFO]  🔧 [Step 4] read_file → …/mall/controller/UmsAdminController.java
+2026-10-15T03:05:56Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:05:57Z [INFO]  🔧 [Step 4] read_file → …/mall/controller/PmsSkuStockController.java
+2026-10-15T03:05:57Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:05:58Z [INFO]  🔧 [Step 6] grep_search → pattern="selectByExample" path=…/mall/mapper/SmsCouponMapper.xml
+2026-10-15T03:05:58Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg/src/main/resources/com/macro/mall/mapper/SmsCouponMapper.xml: no such file or directory (took 1ms)
+2026-10-15T03:05:59Z [INFO]  🔧 [Step 4] grep_search → pattern="SmsHomeRecommendProductExample" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:05:59Z [INFO]  🔧 [Step 2] grep_search → pattern="UmsResourceMapper" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:05:59Z [INFO]     ✅ Tool completed: grep_search (took 25ms)
+2026-10-15T03:05:59Z [INFO]  🔧 [Step 4] read_file → …/resources/dao/OmsOrderOperateHistoryDao.xml
+2026-10-15T03:05:59Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:05:59Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T03:06:00Z [INFO]     📤 Result submitted (submit 4.869s)
+2026-10-15T03:06:01Z [INFO]     📤 Result submitted (submit 5.146s)
+2026-10-15T03:06:02Z [INFO]     📤 Result submitted (submit 4.593s)
+2026-10-15T03:06:02Z [INFO]  🔧 [Step 1] grep_search → pattern="druid" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:06:02Z [INFO]     ✅ Tool completed: grep_search (took 24ms)
+2026-10-15T03:06:03Z [INFO]  ✅ Completed 2 tool steps in 1m47s | Tokens: 16k in / 127 out / 18k total
+[144/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsFlashPromotionProductRelationServiceImpl.java (1m47s) | 18.1k tok - 0 vulnerabilities
+2026-10-15T03:06:03Z [INFO]     📤 Result submitted (submit 4.391s)
+2026-10-15T03:06:03Z [INFO]     📤 Result submitted (submit 4.444s)
+2026-10-15T03:06:03Z [INFO]     📤 Result submitted (submit 4.439s)
+[145/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/validator/FlagValidator.java (21.3s) | 4.1k tok - 0 vulnerabilities
+2026-10-15T03:06:03Z [INFO]     📤 Result submitted (submit 4.777s)
+2026-10-15T03:06:04Z [INFO]  🔧 [Step 1] grep_search → pattern="druid" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:06:04Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[146/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/UmsMenuServiceImpl.java (53.4s) | 12.0k tok - 0 vulnerabilities
+2026-10-15T03:06:08Z [INFO]     📤 Result submitted (submit 5.499s)
+2026-10-15T03:06:09Z [INFO]     📤 Result submitted (submit 5.19s)
+2026-10-15T03:06:11Z [INFO]  🔧 [Step 1] grep_search → pattern="secure.ignored" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:06:11Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:06:12Z [INFO]  🔧 [Step 3] grep_search → pattern="UmsResourceMapper" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:06:12Z [INFO]     ✅ Tool completed: grep_search (took 46ms)
+[147/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/OmsOrderOperateHistoryDao.xml (8.8s) | 4.4k tok - 0 vulnerabilities
+[148/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/CmsSubjectProductRelationDao.xml (18.4s) | 5.3k tok - 0 vulnerabilities
+2026-10-15T03:06:16Z [INFO]     📤 Result submitted (submit 4.996s)
+2026-10-15T03:06:17Z [INFO]     📤 Result submitted (submit 5.575s)
+2026-10-15T03:06:20Z [INFO]  🔧 [Step 5] grep_search → pattern="SecurityConfig" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:06:20Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[149/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/OmsOrderReturnApplyDao.xml (16.6s) | 5.8k tok - 0 vulnerabilities
+[150/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/CmsPrefrenceAreaProductRelationDao.xml (26.8s) | 6.5k tok - 0 vulnerabilities
+2026-10-15T03:06:22Z [INFO]  🔧 [Step 2] read_file → …/main/resources/application.yml
+2026-10-15T03:06:22Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:06:24Z [INFO]     📤 Result submitted (submit 4.924s)
+2026-10-15T03:06:25Z [INFO]  🔧 [Step 2] read_file → …/resources/dao/UmsRoleDao.xml
+2026-10-15T03:06:25Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[151/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsMemberPriceDao.xml (11.3s) | 4.6k tok - 0 vulnerabilities
+2026-10-15T03:06:27Z [INFO]     📤 Result submitted (submit 4.715s)
+2026-10-15T03:06:28Z [INFO]  ✅ Completed 4 tool steps in 2m20s | Tokens: 24k in / 224 out / 24k total
+[152/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/PmsSkuStockServiceImpl.java (2m19.8s) | 24.7k tok - 0 vulnerabilities
+[153/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductAttributeCategoryDao.xml (11.5s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:06:30Z [INFO]     📤 Result submitted (submit 4.94s)
+2026-10-15T03:06:33Z [INFO]  🔧 [Step 2] grep_search → pattern="druid" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:06:33Z [INFO]     ✅ Tool completed: grep_search (took 23ms)
+2026-10-15T03:06:35Z [INFO]  🔧 [Step 7] grep_search → pattern="SmsCouponMapper" path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:06:35Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 0s)
+2026-10-15T03:06:35Z [INFO]  🔧 [Step 2] grep_search → pattern="IgnoreUrlsConfig" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:06:35Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[154/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductAttributeDao.xml (12.9s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:06:38Z [INFO]  ✅ Completed 4 tool steps in 2m47s | Tokens: 41k in / 195 out / 45k total
+[155/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/OmsOrderServiceImpl.java (2m46.8s) | 45.2k tok - 0 vulnerabilities
+2026-10-15T03:06:38Z [INFO]     📤 Result submitted (submit 4.746s)
+2026-10-15T03:06:40Z [INFO]     📤 Result submitted (submit 4.83s)
+2026-10-15T03:06:40Z [INFO]     📤 Result submitted (submit 4.787s)
+2026-10-15T03:06:41Z [INFO]  ✅ Completed 2 tool steps in 1m6s | Tokens: 21k in / 118 out / 23k total
+[156/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/UmsRoleServiceImpl.java (1m6.1s) | 23.1k tok - 0 vulnerabilities
+2026-10-15T03:06:41Z [INFO]  ✅ Completed 3 tool steps in 1m9s | Tokens: 20k in / 153 out / 22k total
+[157/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/UmsResourceServiceImpl.java (1m9.3s) | 22.7k tok - 0 vulnerabilities
+[158/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductCategoryDao.xml (15.1s) | 4.8k tok - 0 vulnerabilities
+2026-10-15T03:06:45Z [INFO]  🔧 [Step 3] read_file → …/security/config/SecurityConfig.java
+2026-10-15T03:06:45Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:06:48Z [INFO]  🔧 [Step 8] grep_search → pattern="SmsCouponMapper" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:06:48Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+[159/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductCategoryAttributeRelationDao.xml (21.8s) | 5.8k tok - 0 vulnerabilities
+2026-10-15T03:06:50Z [INFO]     📤 Result submitted (submit 5.273s)
+[160/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/OmsOrderDao.xml (48.1s) | 10.3k tok - 0 vulnerabilities
+2026-10-15T03:06:53Z [INFO]     📤 Result submitted (submit 4.8s)
+[161/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductFullReductionDao.xml (15.4s) | 5.3k tok - 0 vulnerabilities
+2026-10-15T03:06:53Z [INFO]  🔧 [Step 3] read_file → …/main/resources/application.yml
+2026-10-15T03:06:53Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[162/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsSkuStockDao.xml (11.4s) | 4.8k tok - 0 vulnerabilities
+2026-10-15T03:06:54Z [INFO]  🔧 [Step 6] read_file → …/mall/dto/UmsAdminParam.java
+2026-10-15T03:06:54Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[163/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/SmsCouponDao.xml (9.5s) | 4.8k tok - 0 vulnerabilities
+[164/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductAttributeValueDao.xml (32.1s) | 6.8k tok - 0 vulnerabilities
+2026-10-15T03:06:58Z [INFO]     📤 Result submitted (submit 4.71s)
+2026-10-15T03:06:59Z [INFO]     📤 Result submitted (submit 5.469s)
+2026-10-15T03:07:03Z [INFO]  🔧 [Step 4] grep_search → pattern="secret" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:07:03Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-15T03:07:05Z [INFO]  🔧 [Step 5] grep_search → pattern="SmsHomeRecommendProductService" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:07:05Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+[165/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductDao.xml (37.5s) | 6.2k tok - 0 vulnerabilities
+2026-10-15T03:07:07Z [INFO]     📤 Result submitted (submit 4.79s)
+[166/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/UmsAdminRoleRelationDao.xml (13.9s) | 5.3k tok - 0 vulnerabilities
+[167/334 batches] ✅ scoped_targets/mall-core/mall-common/pom.xml (13.1s) | 5.4k tok - 0 vulnerabilities
+[168/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/SmsCouponProductRelationDao.xml (16.2s) | 5.1k tok - 0 vulnerabilities
+2026-10-15T03:07:10Z [INFO]     📤 Result submitted (submit 4.57s)
+[169/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductVertifyRecordDao.xml (28.8s) | 7.3k tok - 0 vulnerabilities
+2026-10-15T03:07:16Z [INFO]  🔧 [Step 6] read_file → …/mall/controller/SmsHomeRecommendProductController.java
+2026-10-15T03:07:16Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[170/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/api/CommonPage.java (8.7s) | 5.2k tok - 0 vulnerabilities
+[171/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/PmsProductLadderDao.xml (38.9s) | 6.7k tok - 0 vulnerabilities
+2026-10-15T03:07:19Z [INFO]  🔧 [Step 7] grep_search → pattern="class Asserts" path=…/scoped_targets/mall-core/mall-common
+2026-10-15T03:07:19Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:07:21Z [INFO]     📤 Result submitted (submit 4.853s)
+2026-10-15T03:07:22Z [INFO]  🔧 [Step 5] read_file → …/security/component/JwtAuthenticationTokenFilter.java
+2026-10-15T03:07:22Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[172/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/api/IErrorCode.java (12.9s) | 4.0k tok - 0 vulnerabilities
+[173/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/api/ResultCode.java (13.9s) | 4.3k tok - 0 vulnerabilities
+2026-10-15T03:07:25Z [INFO]     📤 Result submitted (submit 6.213s)
+2026-10-15T03:07:27Z [INFO]     📤 Result submitted (submit 4.557s)
+[174/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/UmsRoleDao.xml (31.3s) | 8.1k tok - 0 vulnerabilities
+[175/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/domain/SwaggerProperties.java (11s) | 4.6k tok - 0 vulnerabilities
+2026-10-15T03:07:31Z [INFO]  🔧 [Step 1] grep_search → pattern="redisService" path=…/scoped_targets/mall-core/mall-common
+2026-10-15T03:07:31Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:07:34Z [INFO]  ✅ Completed 6 tool steps in 2m41s | Tokens: 45k in / 241 out / 48k total
+[176/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsHomeRecommendProductServiceImpl.java (2m41.2s) | 48.1k tok - 0 vulnerabilities
+[177/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/domain/WebLog.java (15.3s) | 4.8k tok - 0 vulnerabilities
+[178/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/api/CommonResult.java (25.7s) | 5.6k tok - 0 vulnerabilities
+2026-10-15T03:07:36Z [INFO]     📤 Result submitted (submit 4.792s)
+2026-10-15T03:07:37Z [INFO]  🔧 [Step 6] read_file → …/security/util/JwtTokenUtil.java
+2026-10-15T03:07:37Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:07:40Z [INFO]  🔧 [Step 9] grep_search → pattern="SmsCouponService" path=…/macro/mall/controller
+2026-10-15T03:07:40Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T03:07:42Z [INFO]     📤 Result submitted (submit 4.629s)
+2026-10-15T03:07:42Z [INFO]  ✅ Completed 3 tool steps in 1m54s | Tokens: 32k in / 677 out / 38k total
+[179/334 batches] 🚨 scoped_targets/mall-core/mall-admin/src/main/resources/application-prod.yml (1m54.4s) | 38.9k tok - 1 vulnerabilities
+[180/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/SmsFlashPromotionProductRelationDao.xml (49.4s) | 9.8k tok - 0 vulnerabilities
+2026-10-15T03:07:45Z [INFO]     📤 Result submitted (submit 4.772s)
+[181/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/resources/dao/SmsCouponProductCategoryRelationDao.xml (57.6s) | 7.2k tok - 0 vulnerabilities
+[182/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/service/RedisService.java (13s) | 5.6k tok - 0 vulnerabilities
+[183/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/exception/GlobalExceptionHandler.java (22.1s) | 7.0k tok - 0 vulnerabilities
+2026-10-15T03:07:54Z [INFO]  🔧 [Step 2] grep_search → pattern="BaseRedisConfig" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:07:54Z [INFO]     ✅ Tool completed: grep_search (took 49ms)
+2026-10-15T03:07:55Z [INFO]  ✅ Completed 7 tool steps in 2m50s | Tokens: 97k in / 322 out / 103k total
+[184/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/UmsAdminServiceImpl.java (2m49.8s) | 103.1k tok - 0 vulnerabilities
+[185/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/resources/logback-spring.xml (13.9s) | 7.8k tok - 0 vulnerabilities
+2026-10-15T03:07:58Z [INFO]  🔧 [Step 7] grep_search → pattern="druid" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:07:58Z [INFO]     ✅ Tool completed: grep_search (took 25ms)
+[186/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/exception/ApiException.java (32.7s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:07:59Z [INFO]     📤 Result submitted (submit 5.371s)
+[187/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/config/MyBatisConfig.java (8.5s) | 4.0k tok - 0 vulnerabilities
+2026-10-15T03:08:02Z [INFO]  ✅ Completed 2 tool steps in 2m15s | Tokens: 27k in / 613 out / 34k total
+[188/334 batches] 🚨 scoped_targets/mall-core/mall-admin/src/main/resources/application-dev.yml (2m14.9s) | 34.1k tok - 1 vulnerabilities
+2026-10-15T03:08:02Z [INFO]     📤 Result submitted (submit 4.462s)
+[189/334 batches] ✅ scoped_targets/mall-core/mall-demo/pom.xml (19.5s) | 5.4k tok - 0 vulnerabilities
+[190/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/bo/AdminUserDetails.java (16.8s) | 5.8k tok - 0 vulnerabilities
+[191/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/service/impl/RedisServiceImpl.java (31.5s) | 9.5k tok - 0 vulnerabilities
+2026-10-15T03:08:08Z [INFO]  🔧 [Step 8] grep_search → pattern="actuator" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:08:08Z [INFO]     ✅ Tool completed: grep_search (took 24ms)
+[192/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/exception/Asserts.java (43.6s) | 8.3k tok - 0 vulnerabilities
+[193/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/MallDemoApplication.java (23.2s) | 6.4k tok - 0 vulnerabilities
+2026-10-15T03:08:13Z [INFO]     📤 Result submitted (submit 4.743s)
+2026-10-15T03:08:18Z [INFO]  ✅ Completed 9 tool steps in 4m4s | Tokens: 72k in / 343 out / 72k total
+[194/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/service/impl/SmsCouponServiceImpl.java (4m4.2s) | 72.7k tok - 0 vulnerabilities
+2026-10-15T03:08:19Z [INFO]  🔧 [Step 1] grep_search → pattern="DemoServiceImpl" path=…/scoped_targets/mall-core/mall-demo
+2026-10-15T03:08:19Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:08:19Z [INFO]  🔧 [Step 3] read_file → …/security/config/RedisConfig.java
+2026-10-15T03:08:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:08:22Z [INFO]  🔧 [Step 1] grep_search → pattern="RequestUtil\\.getRequestIp" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:08:22Z [INFO]     ✅ Tool completed: grep_search (took 51ms)
+[195/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/controller/RestTemplateDemoController.java (18.9s) | 7.0k tok - 0 vulnerabilities
+2026-10-15T03:08:24Z [INFO]     📤 Result submitted (submit 5.199s)
+2026-10-15T03:08:25Z [INFO]     📤 Result submitted (submit 5.311s)
+[196/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/log/WebLogAspect.java (55.5s) | 12.5k tok - 0 vulnerabilities
+2026-10-15T03:08:27Z [INFO]     📤 Result submitted (submit 4.877s)
+2026-10-15T03:08:28Z [INFO]  ✅ Completed 2 tool steps in 7m26s | Tokens: 16k in / 109 out / 17k total
+[197/334 batches] ✅ scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/UmsResourceCategoryController.java (7m26.4s) | 17.8k tok - 0 vulnerabilities
+2026-10-15T03:08:28Z [INFO]  🔧 [Step 1] grep_search → pattern="@RequestMapping|@GetMapping|@PostMapping" path=…/scoped_targets/mall-core/mall-demo
+2026-10-15T03:08:28Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:08:34Z [INFO]     📤 Result submitted (submit 5.919s)
+[198/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/config/SpringDocConfig.java (35.8s) | 5.7k tok - 0 vulnerabilities
+[199/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/MallPortalApplication.java (8s) | 4.0k tok - 0 vulnerabilities
+[200/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/dto/PmsBrandDto.java (32s) | 6.3k tok - 0 vulnerabilities
+[201/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/service/DemoService.java (31.2s) | 4.4k tok - 0 vulnerabilities
+[202/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/component/CancelOrderReceiver.java (10.3s) | 4.9k tok - 0 vulnerabilities
+2026-10-15T03:08:40Z [INFO]  🔧 [Step 4] grep_search → pattern="RedisService" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:08:40Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+[203/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/config/RestTemplateConfig.java (45.5s) | 5.5k tok - 0 vulnerabilities
+2026-10-15T03:08:45Z [INFO]     📤 Result submitted (submit 5.052s)
+[204/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/component/OrderTimeOutCancelTask.java (12.5s) | 4.6k tok - 0 vulnerabilities
+[205/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/validator/FlagValidatorClass.java (36.3s) | 7.6k tok - 0 vulnerabilities
+[206/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/service/impl/DemoServiceImpl.java (41.6s) | 9.3k tok - 0 vulnerabilities
+[207/334 batches] ✅ scoped_targets/mall-core/mall-portal/pom.xml (28.6s) | 6.3k tok - 0 vulnerabilities
+[208/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/AlipayConfig.java (13.2s) | 4.9k tok - 0 vulnerabilities
+2026-10-15T03:08:54Z [INFO]  🔧 [Step 5] read_file → …/service/impl/UmsAdminCacheServiceImpl.java
+2026-10-15T03:08:54Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[209/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/AlipayClientConfig.java (14.4s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:08:59Z [INFO]     📤 Result submitted (submit 4.629s)
+[210/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/validator/FlagValidator.java (48.7s) | 6.2k tok - 0 vulnerabilities
+2026-10-15T03:09:00Z [INFO]  ✅ Completed 1 tool steps in 1m1s | Tokens: 11k in / 76 out / 15k total
+[211/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/config/SecurityConfig.java (1m1.4s) | 15.4k tok - 0 vulnerabilities
+2026-10-15T03:09:02Z [INFO]  🔧 [Step 1] grep_search → pattern="AlipayService" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:02Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+[212/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/SpringDocConfig.java (10.5s) | 5.6k tok - 0 vulnerabilities
+[213/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/JacksonConfig.java (21.2s) | 4.5k tok - 0 vulnerabilities
+[214/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/component/CancelOrderSender.java (29.9s) | 7.0k tok - 0 vulnerabilities
+2026-10-15T03:09:07Z [INFO]     📤 Result submitted (submit 4.911s)
+[215/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/SpringTaskConfig.java (12s) | 4.1k tok - 0 vulnerabilities
+2026-10-15T03:09:13Z [INFO]  🔧 [Step 1] grep_search → pattern="class MemberCollectionServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:13Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+[216/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/resources/application.yml (53.7s) | 9.6k tok - 0 vulnerabilities
+2026-10-15T03:09:14Z [INFO]  🔧 [Step 1] grep_search → pattern="class MemberReadHistoryServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:14Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:09:14Z [INFO]  🔧 [Step 1] grep_search → pattern="class MemberAttentionServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:14Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+[217/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/HomeController.java (13.7s) | 6.3k tok - 0 vulnerabilities
+2026-10-15T03:09:19Z [INFO]     📤 Result submitted (submit 5.138s)
+2026-10-15T03:09:19Z [INFO]     📤 Result submitted (submit 4.783s)
+2026-10-15T03:09:19Z [INFO]     📤 Result submitted (submit 5.5s)
+2026-10-15T03:09:20Z [INFO]  🔧 [Step 1] grep_search → pattern="class OmsCartItemServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:20Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:09:21Z [INFO]  🔧 [Step 1] grep_search → pattern="Cookie|Authorization|token" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:21Z [INFO]     ✅ Tool completed: grep_search (took 31ms)
+2026-10-15T03:09:22Z [INFO]  🔧 [Step 2] read_file → …/service/impl/AlipayServiceImpl.java
+2026-10-15T03:09:22Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:09:22Z [INFO]  🔧 [Step 2] read_file → …/service/impl/MemberAttentionServiceImpl.java
+2026-10-15T03:09:22Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:09:23Z [INFO]  🔧 [Step 1] grep_search → pattern="class OmsPortalOrderReturnApplyServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:23Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T03:09:26Z [INFO]     📤 Result submitted (submit 5.93s)
+2026-10-15T03:09:26Z [INFO]     📤 Result submitted (submit 5.176s)
+2026-10-15T03:09:27Z [INFO]     📤 Result submitted (submit 5.122s)
+2026-10-15T03:09:27Z [INFO]     📤 Result submitted (submit 4.578s)
+2026-10-15T03:09:28Z [INFO]     📤 Result submitted (submit 5.138s)
+[218/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/PmsPortalBrandController.java (11s) | 5.5k tok - 0 vulnerabilities
+2026-10-15T03:09:32Z [INFO]  🔧 [Step 2] read_file → …/service/impl/OmsPortalOrderReturnApplyServiceImpl.java
+2026-10-15T03:09:32Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:09:33Z [INFO]  🔧 [Step 1] grep_search → pattern="class OmsPortalOrderServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:33Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:09:34Z [INFO]  ✅ Completed 8 tool steps in 3m43s | Tokens: 111k in / 1k out / 119k total
+[219/334 batches] 🚨 scoped_targets/mall-core/mall-admin/src/main/resources/application.yml (3m42.9s) | 119.2k tok - 2 vulnerabilities
+2026-10-15T03:09:35Z [INFO]  🔧 [Step 2] read_file → …/service/impl/OmsCartItemServiceImpl.java
+2026-10-15T03:09:35Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:09:36Z [INFO]  🔧 [Step 3] grep_search → pattern="member/attention" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:36Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:09:37Z [INFO]     📤 Result submitted (submit 4.761s)
+2026-10-15T03:09:39Z [INFO]     📤 Result submitted (submit 5.487s)
+2026-10-15T03:09:40Z [INFO]     📤 Result submitted (submit 5.172s)
+2026-10-15T03:09:41Z [INFO]     📤 Result submitted (submit 4.942s)
+2026-10-15T03:09:44Z [INFO]  🔧 [Step 3] grep_search → pattern="class OmsOrderReturnApplyParam" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:44Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:09:49Z [INFO]     📤 Result submitted (submit 4.978s)
+[220/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/MyBatisConfig.java (58s) | 7.5k tok - 0 vulnerabilities
+2026-10-15T03:09:51Z [INFO]  🔧 [Step 3] grep_search → pattern="class OmsCartItem" path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:09:51Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 1ms)
+[221/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/MallSecurityConfig.java (1m1.7s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:09:56Z [INFO]     📤 Result submitted (submit 5.027s)
+2026-10-15T03:09:56Z [INFO]  🔧 [Step 1] grep_search → pattern="generateAuthCode" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:09:56Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:10:01Z [INFO]  🔧 [Step 4] read_file → …/portal/domain/OmsOrderReturnApplyParam.java
+2026-10-15T03:10:01Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:10:02Z [INFO]     📤 Result submitted (submit 5.183s)
+2026-10-15T03:10:03Z [INFO]  🔧 [Step 4] grep_search → pattern="OmsCartItem" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:10:03Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:10:04Z [INFO]  🔧 [Step 1] grep_search → pattern="class UmsMemberCouponServiceImpl" path=…/mall/portal/service
+2026-10-15T03:10:04Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T03:10:05Z [INFO]     📤 Result submitted (submit 4.711s)
+2026-10-15T03:10:08Z [INFO]     📤 Result submitted (submit 4.977s)
+2026-10-15T03:10:09Z [INFO]     📤 Result submitted (submit 5.504s)
+2026-10-15T03:10:10Z [INFO]  🔧 [Step 2] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T03:10:10Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:10:10Z [INFO]  🔧 [Step 5] grep_search → pattern="getCurrentMember" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:10:10Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:10:14Z [INFO]  🔧 [Step 5] grep_search → pattern="generateOrder" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:10:14Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:10:15Z [INFO]     📤 Result submitted (submit 4.902s)
+2026-10-15T03:10:16Z [INFO]     📤 Result submitted (submit 5.402s)
+2026-10-15T03:10:19Z [INFO]     📤 Result submitted (submit 4.991s)
+2026-10-15T03:10:23Z [INFO]  🔧 [Step 1] grep_search → pattern="class UmsMemberReceiveAddressServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:10:23Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:10:24Z [INFO]  🔧 [Step 6] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T03:10:24Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:10:25Z [INFO]  🔧 [Step 2] read_file → …/service/impl/UmsMemberCouponServiceImpl.java
+2026-10-15T03:10:25Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[222/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/RabbitMqConfig.java (1m33.5s) | 5.8k tok - 0 vulnerabilities
+2026-10-15T03:10:28Z [INFO]     📤 Result submitted (submit 4.837s)
+2026-10-15T03:10:29Z [INFO]     📤 Result submitted (submit 4.889s)
+2026-10-15T03:10:30Z [INFO]     📤 Result submitted (submit 4.778s)
+2026-10-15T03:10:33Z [INFO]  🔧 [Step 4] grep_search → pattern="ignoreUrls" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:10:33Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-15T03:10:34Z [INFO]  🔧 [Step 2] read_file → …/service/impl/UmsMemberReceiveAddressServiceImpl.java
+2026-10-15T03:10:34Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[223/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/dao/HomeDao.java (8.7s) | 4.6k tok - 0 vulnerabilities
+2026-10-15T03:10:38Z [INFO]  🔧 [Step 6] read_file → …/service/impl/UmsAdminCacheServiceImpl.java
+2026-10-15T03:10:38Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:10:39Z [INFO]     📤 Result submitted (submit 5.151s)
+2026-10-15T03:10:39Z [INFO]     📤 Result submitted (submit 5.904s)
+2026-10-15T03:10:40Z [INFO]  🔧 [Step 7] read_file → …/service/impl/OmsPromotionServiceImpl.java
+2026-10-15T03:10:40Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:10:43Z [INFO]     📤 Result submitted (submit 4.928s)
+2026-10-15T03:10:45Z [INFO]     📤 Result submitted (submit 4.996s)
+2026-10-15T03:10:47Z [INFO]  🔧 [Step 1] grep_search → pattern="class PmsPortalProductServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:10:47Z [INFO]     ✅ Tool completed: grep_search (took 16ms)
+2026-10-15T03:10:48Z [INFO]  🔧 [Step 3] grep_search → pattern="updateByExampleSelective" path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:10:48Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 0s)
+2026-10-15T03:10:48Z [INFO]  🔧 [Step 3] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T03:10:48Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[224/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/dao/PortalOrderDao.java (10.3s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:10:52Z [INFO]  🔧 [Step 8] read_file → …/service/impl/OmsPromotionServiceImpl.java
+2026-10-15T03:10:52Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:10:52Z [INFO]     📤 Result submitted (submit 5.11s)
+2026-10-15T03:10:53Z [INFO]     📤 Result submitted (submit 4.731s)
+2026-10-15T03:10:53Z [INFO]     📤 Result submitted (submit 4.833s)
+2026-10-15T03:10:56Z [INFO]     📤 Result submitted (submit 4.765s)
+2026-10-15T03:10:57Z [INFO]  🔧 [Step 2] read_file → …/service/impl/PmsPortalProductServiceImpl.java
+2026-10-15T03:10:57Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[225/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/dao/PortalOrderItemDao.java (8.7s) | 3.7k tok - 0 vulnerabilities
+2026-10-15T03:11:03Z [INFO]     📤 Result submitted (submit 5.341s)
+2026-10-15T03:11:03Z [INFO]  🔧 [Step 4] grep_search → pattern="UmsMemberReceiveAddressMapper" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:11:03Z [INFO]     ✅ Tool completed: grep_search (took 49ms)
+2026-10-15T03:11:08Z [INFO]     📤 Result submitted (submit 5.164s)
+2026-10-15T03:11:09Z [INFO]  🔧 [Step 5] grep_search → pattern="ignored" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:11:09Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+[226/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/dao/PortalProductDao.java (9.4s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:11:14Z [INFO]     📤 Result submitted (submit 4.746s)
+2026-10-15T03:11:15Z [INFO]  🔧 [Step 5] list_dir → …/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:11:15Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T03:11:20Z [INFO]     📤 Result submitted (submit 5.022s)
+2026-10-15T03:11:22Z [INFO]  🔧 [Step 6] read_file → …/main/resources/application.yml
+2026-10-15T03:11:22Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:11:26Z [INFO]  🔧 [Step 2] read_file → …/service/impl/UmsAdminServiceImpl.java
+2026-10-15T03:11:26Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:11:27Z [INFO]     📤 Result submitted (submit 5.19s)
+[227/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/dao/SmsCouponHistoryDao.java (16.8s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:11:29Z [INFO]  🔧 [Step 6] grep_search → pattern="UmsMemberReceiveAddressMapper.xml" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:11:29Z [INFO]     ✅ Tool completed: grep_search (took 42ms)
+2026-10-15T03:11:31Z [INFO]     📤 Result submitted (submit 4.861s)
+2026-10-15T03:11:33Z [INFO]     📤 Result submitted (submit 4.714s)
+2026-10-15T03:11:35Z [INFO]  ✅ Completed 6 tool steps in 4m23s | Tokens: 59k in / 858 out / 65k total
+[228/334 batches] 🚨 scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/config/BaseRedisConfig.java (4m23s) | 65.9k tok - 1 vulnerabilities
+2026-10-15T03:11:43Z [INFO]  🔧 [Step 3] read_file → …/service/impl/UmsMemberCouponServiceImpl.java
+2026-10-15T03:11:43Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:11:46Z [INFO]  🔧 [Step 3] read_file → …/common/log/WebLogAspect.java
+2026-10-15T03:11:46Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:11:48Z [INFO]     📤 Result submitted (submit 4.768s)
+[229/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/CartProduct.java (11.7s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:11:50Z [INFO]     📤 Result submitted (submit 4.794s)
+2026-10-15T03:11:57Z [INFO]  🔧 [Step 7] grep_search → pattern="class MemberBrandAttention" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:11:57Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+[230/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/AliPayParam.java (27.8s) | 6.9k tok - 0 vulnerabilities
+2026-10-15T03:12:00Z [INFO]  🔧 [Step 6] read_file → …/portal/controller/OmsPortalOrderController.java
+2026-10-15T03:12:00Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:12:01Z [INFO]  ✅ Completed 8 tool steps in 2m52s | Tokens: 178k in / 1k out / 188k total
+[231/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsCartItemController.java (2m52.1s) | 188.9k tok - 2 vulnerabilities
+2026-10-15T03:12:02Z [INFO]  🔧 [Step 7] grep_search → pattern="/member/address" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:12:02Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:12:02Z [INFO]     📤 Result submitted (submit 4.846s)
+2026-10-15T03:12:03Z [INFO]  🔧 [Step 4] read_file → …/service/impl/UmsMemberCouponServiceImpl.java
+2026-10-15T03:12:03Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:12:05Z [INFO]     📤 Result submitted (submit 4.919s)
+2026-10-15T03:12:07Z [INFO]     📤 Result submitted (submit 5.097s)
+2026-10-15T03:12:08Z [INFO]     📤 Result submitted (submit 4.904s)
+2026-10-15T03:12:12Z [INFO]  🔧 [Step 5] read_file → …/service/impl/UmsMemberCouponServiceImpl.java
+2026-10-15T03:12:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[232/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/CartPromotionItem.java (23.5s) | 6.4k tok - 0 vulnerabilities
+2026-10-15T03:12:17Z [INFO]     📤 Result submitted (submit 5.385s)
+2026-10-15T03:12:22Z [INFO]  🔧 [Step 4] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T03:12:22Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:12:24Z [INFO]  🔧 [Step 6] grep_search → pattern="getCouponList|getDetailList" path=…/main/resources/dao
+2026-10-15T03:12:24Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:12:27Z [INFO]     📤 Result submitted (submit 4.88s)
+[233/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/HomeContentResult.java (12.8s) | 4.6k tok - 0 vulnerabilities
+2026-10-15T03:12:28Z [INFO]     📤 Result submitted (submit 4.601s)
+2026-10-15T03:12:34Z [INFO]  🔧 [Step 3] grep_search → pattern="alipay" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:12:34Z [INFO]  🔧 [Step 7] read_file → …/resources/dao/SmsCouponHistoryDao.xml
+2026-10-15T03:12:34Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:12:34Z [INFO]     ✅ Tool completed: grep_search (took 15ms)
+2026-10-15T03:12:34Z [INFO]  🔧 [Step 8] read_file → …/portal/domain/MemberBrandAttention.java
+2026-10-15T03:12:34Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[234/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/FlashPromotionProduct.java (32.2s) | 7.9k tok - 0 vulnerabilities
+2026-10-15T03:12:39Z [INFO]     📤 Result submitted (submit 5.136s)
+2026-10-15T03:12:39Z [INFO]  ✅ Completed 1 tool steps in 3m58s | Tokens: 21k in / 790 out / 25k total
+[235/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/GlobalCorsConfig.java (3m57.6s) | 25.7k tok - 1 vulnerabilities
+2026-10-15T03:12:39Z [INFO]     📤 Result submitted (submit 4.742s)
+2026-10-15T03:12:39Z [INFO]     📤 Result submitted (submit 5.529s)
+2026-10-15T03:12:46Z [INFO]  ✅ Completed 8 tool steps in 3m44s | Tokens: 60k in / 299 out / 62k total
+[236/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/MemberAttentionController.java (3m44.3s) | 62.7k tok - 0 vulnerabilities
+2026-10-15T03:12:47Z [INFO]  🔧 [Step 7] grep_search → pattern="returnApply" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:12:47Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:12:49Z [INFO]  🔧 [Step 4] read_file → …/main/resources/application.yml
+2026-10-15T03:12:49Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[237/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/HomeFlashPromotion.java (21.6s) | 6.1k tok - 0 vulnerabilities
+[238/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/MemberDetails.java (11.4s) | 5.2k tok - 0 vulnerabilities
+2026-10-15T03:12:52Z [INFO]     📤 Result submitted (submit 4.807s)
+[239/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/MemberBrandAttention.java (17.6s) | 5.3k tok - 0 vulnerabilities
+2026-10-15T03:12:54Z [INFO]     📤 Result submitted (submit 5.088s)
+[240/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/MemberProductCollection.java (8.3s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:13:05Z [INFO]  ✅ Completed 7 tool steps in 3m13s | Tokens: 68k in / 441 out / 70k total
+[241/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberCouponController.java (3m13.2s) | 70.6k tok - 0 vulnerabilities
+2026-10-15T03:13:06Z [INFO]  🔧 [Step 8] grep_search → pattern="urls:" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:13:06Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+[242/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/OmsOrderReturnApplyParam.java (13.6s) | 5.5k tok - 0 vulnerabilities
+[243/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/OrderParam.java (11.5s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:13:11Z [INFO]     📤 Result submitted (submit 4.97s)
+[244/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/OmsOrderDetail.java (19.9s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:13:15Z [INFO]  🔧 [Step 2] read_file → …/service/impl/MemberReadHistoryServiceImpl.java
+2026-10-15T03:13:15Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[245/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/PmsProductCategoryNode.java (9.4s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:13:20Z [INFO]     📤 Result submitted (submit 4.838s)
+[246/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/QueueEnum.java (10.8s) | 4.5k tok - 0 vulnerabilities
+[247/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/repository/MemberBrandAttentionRepository.java (9s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:13:33Z [INFO]  🔧 [Step 3] grep_search → pattern="class Member" path=…/mall/portal/controller
+2026-10-15T03:13:33Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:13:33Z [INFO]  ✅ Completed 7 tool steps in 3m39s | Tokens: 52k in / 254 out / 56k total
+[248/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberReceiveAddressController.java (3m38.8s) | 56.1k tok - 0 vulnerabilities
+2026-10-15T03:13:38Z [INFO]     📤 Result submitted (submit 5.046s)
+[249/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/repository/MemberReadHistoryRepository.java (8.6s) | 4.2k tok - 0 vulnerabilities
+[250/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/MemberReadHistory.java (51.2s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:13:45Z [INFO]  ✅ Completed 3 tool steps in 6m8s | Tokens: 27k in / 179 out / 30k total
+[251/334 batches] ✅ scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/util/RequestUtil.java (6m7.5s) | 30.6k tok - 0 vulnerabilities
+2026-10-15T03:13:46Z [INFO]  🔧 [Step 4] read_file → …/portal/controller/MemberProductCollectionController.java
+2026-10-15T03:13:46Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[252/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/PmsPortalProductDetail.java (40.7s) | 6.5k tok - 0 vulnerabilities
+2026-10-15T03:13:49Z [INFO]  ✅ Completed 2 tool steps in 4m20s | Tokens: 17k in / 184 out / 19k total
+[253/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/PmsPortalProductController.java (4m19.8s) | 19.0k tok - 0 vulnerabilities
+[254/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/SmsCouponHistoryDetail.java (34.9s) | 8.4k tok - 0 vulnerabilities
+2026-10-15T03:13:51Z [INFO]     📤 Result submitted (submit 5.177s)
+2026-10-15T03:13:52Z [INFO]  🔧 [Step 2] read_file → …/service/impl/DemoServiceImpl.java
+2026-10-15T03:13:52Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[255/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/AlipayService.java (16.6s) | 4.5k tok - 0 vulnerabilities
+[256/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/HomeService.java (10.7s) | 4.8k tok - 0 vulnerabilities
+[257/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/repository/MemberProductCollectionRepository.java (29s) | 7.4k tok - 0 vulnerabilities
+2026-10-15T03:13:55Z [INFO]  🔧 [Step 5] grep_search → pattern="int delete\\(Long productId\\)" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:13:55Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+[258/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/MemberAttentionService.java (8.5s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:13:56Z [INFO]     📤 Result submitted (submit 4.797s)
+2026-10-15T03:14:00Z [INFO]     📤 Result submitted (submit 5.025s)
+[259/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/OmsPortalOrderService.java (8.5s) | 4.9k tok - 0 vulnerabilities
+[260/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/PmsPortalBrandService.java (11.2s) | 4.5k tok - 0 vulnerabilities
+[261/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/UmsMemberCacheService.java (11.1s) | 4.5k tok - 0 vulnerabilities
+[262/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/UmsMemberCouponService.java (9.4s) | 4.7k tok - 0 vulnerabilities
+[263/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/OmsPortalOrderReturnApplyService.java (25.5s) | 6.5k tok - 0 vulnerabilities
+[264/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/MemberCollectionService.java (30.6s) | 7.2k tok - 0 vulnerabilities
+2026-10-15T03:14:18Z [INFO]  🔧 [Step 6] read_file → …/service/impl/MemberCollectionServiceImpl.java
+2026-10-15T03:14:18Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:14:20Z [INFO]  🔧 [Step 2] read_file → …/service/impl/MemberCollectionServiceImpl.java
+2026-10-15T03:14:20Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:14:22Z [INFO]  🔧 [Step 5] grep_search → pattern="/order/" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:14:22Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:14:23Z [INFO]     📤 Result submitted (submit 4.753s)
+[265/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/MemberReadHistoryService.java (36.6s) | 6.4k tok - 0 vulnerabilities
+[266/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/OmsPromotionService.java (31.8s) | 7.3k tok - 0 vulnerabilities
+2026-10-15T03:14:26Z [INFO]     📤 Result submitted (submit 5.285s)
+[267/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/UmsMemberService.java (8.9s) | 4.6k tok - 0 vulnerabilities
+2026-10-15T03:14:26Z [INFO]     📤 Result submitted (submit 4.722s)
+2026-10-15T03:14:30Z [INFO]  🔧 [Step 1] grep_search → pattern="alipay" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:14:30Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+[268/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/PmsPortalProductService.java (34.9s) | 4.3k tok - 0 vulnerabilities
+2026-10-15T03:14:36Z [INFO]     📤 Result submitted (submit 5.814s)
+2026-10-15T03:14:38Z [INFO]  🔧 [Step 1] grep_search → pattern="MemberCollectionController" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:14:38Z [INFO]     ✅ Tool completed: grep_search (took 15ms)
+2026-10-15T03:14:39Z [INFO]  🔧 [Step 1] grep_search → pattern="class MemberBrandAttention" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:14:39Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:14:40Z [INFO]  🔧 [Step 2] read_file → …/portal/controller/AlipayController.java
+2026-10-15T03:14:40Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:14:42Z [INFO]  🔧 [Step 7] grep_search → pattern="int delete\\(" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:14:42Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+[269/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/UmsMemberReceiveAddressService.java (27.1s) | 7.1k tok - 0 vulnerabilities
+2026-10-15T03:14:43Z [INFO]  🔧 [Step 1] grep_search → pattern="updateAttr" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:14:43Z [INFO]     ✅ Tool completed: grep_search (took 15ms)
+2026-10-15T03:14:44Z [INFO]     📤 Result submitted (submit 5.338s)
+2026-10-15T03:14:44Z [INFO]  🔧 [Step 1] grep_search → pattern="memberReadHistoryService" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:14:44Z [INFO]     ✅ Tool completed: grep_search (took 27ms)
+2026-10-15T03:14:44Z [INFO]     📤 Result submitted (submit 5.904s)
+2026-10-15T03:14:45Z [INFO]     📤 Result submitted (submit 4.974s)
+2026-10-15T03:14:48Z [INFO]  🔧 [Step 2] read_file → …/portal/controller/MemberProductCollectionController.java
+2026-10-15T03:14:48Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:14:48Z [INFO]     📤 Result submitted (submit 5.896s)
+2026-10-15T03:14:48Z [INFO]     📤 Result submitted (submit 4.843s)
+2026-10-15T03:14:49Z [INFO]     📤 Result submitted (submit 4.551s)
+2026-10-15T03:14:50Z [INFO]  🔧 [Step 2] read_file → …/portal/domain/MemberBrandAttention.java
+2026-10-15T03:14:50Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:14:52Z [INFO]  🔧 [Step 1] grep_search → pattern="OmsPortalOrderReturnApplyService" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:14:52Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:14:53Z [INFO]     📤 Result submitted (submit 5.163s)
+2026-10-15T03:14:53Z [INFO]  ✅ Completed 8 tool steps in 5m38s | Tokens: 87k in / 1k out / 95k total
+[270/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderReturnApplyController.java (5m38.4s) | 96.0k tok - 1 vulnerabilities
+2026-10-15T03:14:54Z [INFO]     📤 Result submitted (submit 4.386s)
+[271/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/HomeServiceImpl.java (33.9s) | 7.6k tok - 0 vulnerabilities
+2026-10-15T03:14:55Z [INFO]  🔧 [Step 2] read_file → …/portal/controller/MemberReadHistoryController.java
+2026-10-15T03:14:55Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:14:56Z [INFO]  🔧 [Step 2] read_file → …/portal/controller/OmsCartItemController.java
+2026-10-15T03:14:56Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:14:57Z [INFO]     📤 Result submitted (submit 5.258s)
+2026-10-15T03:15:00Z [INFO]  🔧 [Step 3] read_file → …/portal/domain/MemberProductCollection.java
+2026-10-15T03:15:00Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:00Z [INFO]     📤 Result submitted (submit 5.109s)
+2026-10-15T03:15:00Z [INFO]  🔧 [Step 3] grep_search → pattern="MemberAttentionService" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:00Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:15:01Z [INFO]     📤 Result submitted (submit 5.066s)
+2026-10-15T03:15:04Z [INFO]  🔧 [Step 2] read_file → …/portal/controller/OmsPortalOrderReturnApplyController.java
+2026-10-15T03:15:04Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:04Z [INFO]  🔧 [Step 5] grep_search → pattern="class AliPayParam" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:04Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:15:05Z [INFO]     📤 Result submitted (submit 4.826s)
+2026-10-15T03:15:06Z [INFO]     📤 Result submitted (submit 5.962s)
+2026-10-15T03:15:07Z [INFO]  🔧 [Step 3] grep_search → pattern="paySuccessByOrderSn" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:07Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:15:08Z [INFO]     📤 Result submitted (submit 4.696s)
+2026-10-15T03:15:08Z [INFO]     📤 Result submitted (submit 4.862s)
+2026-10-15T03:15:09Z [INFO]  🔧 [Step 3] grep_search → pattern="MemberReadHistoryRepository" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:09Z [INFO]     ✅ Tool completed: grep_search (took 15ms)
+2026-10-15T03:15:10Z [INFO]  🔧 [Step 1] grep_search → pattern="cancelOrder" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:10Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:15:12Z [INFO]     📤 Result submitted (submit 4.841s)
+2026-10-15T03:15:12Z [INFO]  🔧 [Step 4] read_file → …/portal/controller/MemberAttentionController.java
+2026-10-15T03:15:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:12Z [INFO]  🔧 [Step 8] grep_search → pattern="cartItemService.delete" path=…/mall/portal/controller
+2026-10-15T03:15:12Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:15:13Z [INFO]  🔧 [Step 1] grep_search → pattern="calcCartPromotion" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:13Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T03:15:13Z [INFO]  🔧 [Step 6] read_file → …/portal/domain/AliPayParam.java
+2026-10-15T03:15:13Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:15:14Z [INFO]     📤 Result submitted (submit 5.003s)
+2026-10-15T03:15:16Z [INFO]  🔧 [Step 3] read_file → …/portal/domain/OmsOrderReturnApplyParam.java
+2026-10-15T03:15:16Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:16Z [INFO]     📤 Result submitted (submit 5.293s)
+2026-10-15T03:15:16Z [INFO]  🔧 [Step 3] read_file → …/portal/controller/OmsCartItemController.java
+2026-10-15T03:15:16Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:17Z [INFO]     📤 Result submitted (submit 4.639s)
+2026-10-15T03:15:17Z [INFO]     📤 Result submitted (submit 4.943s)
+2026-10-15T03:15:17Z [INFO]  🔧 [Step 4] read_file → …/portal/repository/MemberProductCollectionRepository.java
+2026-10-15T03:15:17Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:15:18Z [INFO]     📤 Result submitted (submit 5.013s)
+2026-10-15T03:15:20Z [INFO]  🔧 [Step 4] read_file → …/portal/repository/MemberReadHistoryRepository.java
+2026-10-15T03:15:20Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:20Z [INFO]  🔧 [Step 3] grep_search → pattern="class MemberProductCollection" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:20Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:15:20Z [INFO]     📤 Result submitted (submit 6.476s)
+2026-10-15T03:15:20Z [INFO]     📤 Result submitted (submit 4.909s)
+2026-10-15T03:15:21Z [INFO]     📤 Result submitted (submit 4.853s)
+2026-10-15T03:15:22Z [INFO]     📤 Result submitted (submit 4.686s)
+2026-10-15T03:15:23Z [INFO]  🔧 [Step 3] grep_search → pattern="Security" path=…/scoped_targets/mall-core/mall-demo
+2026-10-15T03:15:23Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-15T03:15:24Z [INFO]     📤 Result submitted (submit 4.67s)
+2026-10-15T03:15:25Z [INFO]     📤 Result submitted (submit 5.034s)
+2026-10-15T03:15:27Z [INFO]  🔧 [Step 2] read_file → …/portal/controller/OmsPortalOrderController.java
+2026-10-15T03:15:27Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:15:27Z [INFO]     📤 Result submitted (submit 4.635s)
+2026-10-15T03:15:28Z [INFO]  🔧 [Step 4] grep_search → pattern="class OmsOrderReturnApply " path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:15:28Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 1ms)
+2026-10-15T03:15:33Z [INFO]     📤 Result submitted (submit 5.546s)
+2026-10-15T03:15:33Z [INFO]     📤 Result submitted (submit 4.684s)
+2026-10-15T03:15:34Z [INFO]  🔧 [Step 5] grep_search → pattern="productCollectionRepository.save" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:34Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:15:35Z [INFO]  🔧 [Step 4] grep_search → pattern="generateOrder" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:35Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:15:37Z [INFO]  🔧 [Step 4] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T03:15:37Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:37Z [INFO]  🔧 [Step 5] grep_search → pattern="MemberCollectionService" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:37Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:15:39Z [INFO]     📤 Result submitted (submit 5.174s)
+2026-10-15T03:15:39Z [INFO]  🔧 [Step 5] grep_search → pattern="deleteAll" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:39Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T03:15:40Z [INFO]     📤 Result submitted (submit 4.818s)
+2026-10-15T03:15:40Z [INFO]  🔧 [Step 2] read_file → …/service/impl/UmsMemberServiceImpl.java
+2026-10-15T03:15:40Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:41Z [INFO]  🔧 [Step 2] grep_search → pattern="promotionService" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:41Z [INFO]     📤 Result submitted (submit 4.74s)
+2026-10-15T03:15:41Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:15:42Z [INFO]     📤 Result submitted (submit 5.607s)
+[272/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/domain/ConfirmOrderResult.java (3m43.3s) | 4.7k tok - 0 vulnerabilities
+2026-10-15T03:15:44Z [INFO]  🔧 [Step 4] read_file → …/portal/domain/MemberProductCollection.java
+2026-10-15T03:15:44Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:15:44Z [INFO]     📤 Result submitted (submit 5.221s)
+2026-10-15T03:15:45Z [INFO]     📤 Result submitted (submit 4.865s)
+2026-10-15T03:15:46Z [INFO]     📤 Result submitted (submit 4.307s)
+2026-10-15T03:15:49Z [INFO]     📤 Result submitted (submit 4.619s)
+2026-10-15T03:15:50Z [INFO]  🔧 [Step 3] grep_search → pattern="getCurrentMember" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:50Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:15:50Z [INFO]  🔧 [Step 9] grep_search → pattern="class MemberReadHistory " path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:50Z [INFO]     ⏭️  Tool budget reached (8/8): short-circuiting grep_search
+2026-10-15T03:15:52Z [INFO]  🔧 [Step 7] grep_search → pattern="ignoreUrls" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:52Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:15:53Z [INFO]  🔧 [Step 1] grep_search → pattern="getRecommendBrandList" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:53Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:15:54Z [INFO]  🔧 [Step 6] read_file → …/service/impl/MemberCollectionServiceImpl.java
+2026-10-15T03:15:54Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:15:55Z [INFO]     📤 Result submitted (submit 4.946s)
+2026-10-15T03:15:55Z [INFO]     📤 Result submitted (submit 5.197s)
+2026-10-15T03:15:55Z [INFO]  🔧 [Step 5] grep_search → pattern="productCollection" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:55Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:15:57Z [INFO]  🔧 [Step 5] grep_search → pattern="OmsOrderReturnApply" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:15:57Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:15:57Z [INFO]     📤 Result submitted (submit 5.127s)
+2026-10-15T03:15:58Z [INFO]     📤 Result submitted (submit 5.041s)
+2026-10-15T03:15:59Z [INFO]     📤 Result submitted (submit 4.822s)
+2026-10-15T03:16:00Z [INFO]     📤 Result submitted (submit 4.684s)
+2026-10-15T03:16:01Z [INFO]  🔧 [Step 5] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T03:16:01Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:16:01Z [INFO]  🔧 [Step 3] read_file → …/service/impl/OmsCartItemServiceImpl.java
+2026-10-15T03:16:01Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:02Z [INFO]     📤 Result submitted (submit 4.812s)
+2026-10-15T03:16:03Z [INFO]  🔧 [Step 6] grep_search → pattern="MemberAttentionServiceImpl" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:03Z [INFO]     ✅ Tool completed: grep_search (took 9ms)
+2026-10-15T03:16:06Z [INFO]     📤 Result submitted (submit 5.07s)
+2026-10-15T03:16:06Z [INFO]     📤 Result submitted (submit 5.057s)
+2026-10-15T03:16:08Z [INFO]  🔧 [Step 4] read_file → …/service/impl/UmsMemberServiceImpl.java
+2026-10-15T03:16:08Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:08Z [INFO]  🔧 [Step 8] grep_search → pattern="paySuccessByOrderSn" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:08Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:16:08Z [INFO]  🔧 [Step 6] grep_search → pattern="class OmsOrderReturnApply" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:16:08Z [INFO]     ✅ Tool completed: grep_search (took 46ms)
+2026-10-15T03:16:08Z [INFO]     📤 Result submitted (submit 5.073s)
+2026-10-15T03:16:09Z [INFO]  🔧 [Step 6] read_file → …/portal/domain/MemberReadHistory.java
+2026-10-15T03:16:09Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:16:11Z [INFO]  ✅ Completed 5 tool steps in 7m5s | Tokens: 37k in / 223 out / 39k total
+[273/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/MemberProductCollectionController.java (7m5.5s) | 39.6k tok - 0 vulnerabilities
+2026-10-15T03:16:11Z [INFO]  🔧 [Step 6] grep_search → pattern="calcCartPromotion" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:11Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T03:16:13Z [INFO]  🔧 [Step 6] grep_search → pattern="SecurityConfig" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:13Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:16:13Z [INFO]     📤 Result submitted (submit 4.936s)
+2026-10-15T03:16:13Z [INFO]     📤 Result submitted (submit 4.568s)
+2026-10-15T03:16:13Z [INFO]     📤 Result submitted (submit 4.963s)
+2026-10-15T03:16:13Z [INFO]     📤 Result submitted (submit 5.551s)
+2026-10-15T03:16:15Z [INFO]  🔧 [Step 4] grep_search → pattern="getPromotionProductList" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:15Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:16:16Z [INFO]     📤 Result submitted (submit 4.782s)
+2026-10-15T03:16:17Z [INFO]     📤 Result submitted (submit 4.699s)
+2026-10-15T03:16:19Z [INFO]  🔧 [Step 7] grep_search → pattern="returnApplyMapper" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:19Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:16:19Z [INFO]     📤 Result submitted (submit 4.634s)
+2026-10-15T03:16:22Z [INFO]  🔧 [Step 7] grep_search → pattern="MemberBrandAttentionRepository" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:22Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:16:22Z [INFO]  🔧 [Step 7] read_file → …/service/impl/OmsPromotionServiceImpl.java
+2026-10-15T03:16:22Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:23Z [INFO]  🔧 [Step 7] read_file → …/service/impl/MemberAttentionServiceImpl.java
+2026-10-15T03:16:23Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:23Z [INFO]  🔧 [Step 1] grep_search → pattern="getAvailableCouponList" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:23Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T03:16:24Z [INFO]     📤 Result submitted (submit 5.148s)
+2026-10-15T03:16:26Z [INFO]  🔧 [Step 5] grep_search → pattern="class AlipayConfig" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:26Z [INFO]     ✅ Tool completed: grep_search (took 15ms)
+2026-10-15T03:16:27Z [INFO]     📤 Result submitted (submit 4.764s)
+2026-10-15T03:16:27Z [INFO]     📤 Result submitted (submit 4.807s)
+2026-10-15T03:16:28Z [INFO]     📤 Result submitted (submit 5.375s)
+2026-10-15T03:16:28Z [INFO]     📤 Result submitted (submit 4.856s)
+2026-10-15T03:16:31Z [INFO]  🔧 [Step 2] read_file → …/resources/dao/HomeDao.xml
+2026-10-15T03:16:31Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:16:32Z [INFO]     📤 Result submitted (submit 6.199s)
+2026-10-15T03:16:33Z [INFO]  🔧 [Step 2] read_file → …/resources/dao/PortalProductDao.xml
+2026-10-15T03:16:33Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:34Z [INFO]  🔧 [Step 5] grep_search → pattern="paySuccess" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:34Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:16:35Z [INFO]  🔧 [Step 7] grep_search → pattern="public int delete\\(" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:35Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:16:36Z [INFO]     📤 Result submitted (submit 5.062s)
+2026-10-15T03:16:37Z [INFO]  🔧 [Step 3] grep_search → pattern="/sso/" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:37Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:16:38Z [INFO]     📤 Result submitted (submit 5.021s)
+2026-10-15T03:16:38Z [INFO]     📤 Result submitted (submit 4.731s)
+2026-10-15T03:16:38Z [INFO]  🔧 [Step 8] read_file → …/portal/controller/OmsPortalOrderController.java
+2026-10-15T03:16:38Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:39Z [INFO]  🔧 [Step 5] read_file → …/resources/dao/PortalProductDao.xml
+2026-10-15T03:16:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:16:40Z [INFO]     📤 Result submitted (submit 4.973s)
+2026-10-15T03:16:41Z [INFO]  🔧 [Step 6] read_file → …/portal/config/AlipayConfig.java
+2026-10-15T03:16:41Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:42Z [INFO]     📤 Result submitted (submit 4.737s)
+2026-10-15T03:16:44Z [INFO]  🔧 [Step 8] read_file → …/service/impl/OmsPromotionServiceImpl.java
+2026-10-15T03:16:44Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:44Z [INFO]  🔧 [Step 8] read_file → …/service/impl/MemberReadHistoryServiceImpl.java
+2026-10-15T03:16:44Z [INFO]     ✅ Tool completed: read_file (took 3ms)
+2026-10-15T03:16:44Z [INFO]     📤 Result submitted (submit 4.921s)
+2026-10-15T03:16:44Z [INFO]     📤 Result submitted (submit 5.65s)
+2026-10-15T03:16:44Z [INFO]  🔧 [Step 3] grep_search → pattern="PmsPortalProductService" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:44Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:16:46Z [INFO]     📤 Result submitted (submit 5.415s)
+[274/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/OmsCartItemService.java (2m56s) | 7.0k tok - 0 vulnerabilities
+2026-10-15T03:16:48Z [INFO]  🔧 [Step 3] grep_search → pattern="PmsPortalBrandService" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:16:48Z [INFO]     ✅ Tool completed: grep_search (took 10ms)
+2026-10-15T03:16:49Z [INFO]     📤 Result submitted (submit 4.967s)
+2026-10-15T03:16:49Z [INFO]     📤 Result submitted (submit 5.272s)
+2026-10-15T03:16:49Z [INFO]     📤 Result submitted (submit 4.797s)
+2026-10-15T03:16:50Z [INFO]  ✅ Completed 9 tool steps in 7m44s | Tokens: 100k in / 1k out / 107k total
+[275/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/MemberReadHistoryController.java (7m43.7s) | 107.4k tok - 1 vulnerabilities
+2026-10-15T03:16:51Z [INFO]  ✅ Completed 8 tool steps in 7m54s | Tokens: 110k in / 333 out / 119k total
+[276/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/AlipayController.java (7m54.3s) | 119.1k tok - 0 vulnerabilities
+2026-10-15T03:16:52Z [INFO]     📤 Result submitted (submit 4.802s)
+2026-10-15T03:16:54Z [INFO]  ✅ Completed 7 tool steps in 2m27s | Tokens: 67k in / 314 out / 71k total
+[277/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/MemberAttentionServiceImpl.java (2m26.7s) | 71.5k tok - 0 vulnerabilities
+2026-10-15T03:16:55Z [INFO]  🔧 [Step 6] read_file → …/portal/controller/OmsPortalOrderController.java
+2026-10-15T03:16:55Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:56Z [INFO]  🔧 [Step 4] read_file → …/portal/controller/PmsPortalProductController.java
+2026-10-15T03:16:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:16:56Z [INFO]  🔧 [Step 7] read_file → …/portal/config/MallSecurityConfig.java
+2026-10-15T03:16:56Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:16:56Z [INFO]  🔧 [Step 6] read_file → …/resources/dao/PortalProductDao.xml
+2026-10-15T03:16:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:16:58Z [INFO]  🔧 [Step 4] read_file → …/portal/controller/PmsPortalBrandController.java
+2026-10-15T03:16:58Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:17:00Z [INFO]     📤 Result submitted (submit 4.693s)
+2026-10-15T03:17:00Z [INFO]  ✅ Completed 3 tool steps in 8m57s | Tokens: 28k in / 136 out / 31k total
+[278/334 batches] ✅ scoped_targets/mall-core/mall-demo/src/main/java/com/macro/mall/demo/controller/DemoController.java (8m57.5s) | 31.3k tok - 0 vulnerabilities
+2026-10-15T03:17:00Z [INFO]     📤 Result submitted (submit 4.397s)
+2026-10-15T03:17:01Z [INFO]     📤 Result submitted (submit 5.342s)
+2026-10-15T03:17:01Z [INFO]     📤 Result submitted (submit 4.677s)
+2026-10-15T03:17:03Z [INFO]     📤 Result submitted (submit 4.877s)
+2026-10-15T03:17:09Z [INFO]  ✅ Completed 8 tool steps in 2m42s | Tokens: 75k in / 381 out / 80k total
+[279/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/MemberCollectionServiceImpl.java (2m42.2s) | 80.1k tok - 0 vulnerabilities
+2026-10-15T03:17:10Z [INFO]  ✅ Completed 4 tool steps in 1m25s | Tokens: 28k in / 206 out / 29k total
+[280/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/PmsPortalBrandServiceImpl.java (1m25.2s) | 29.9k tok - 0 vulnerabilities
+2026-10-15T03:17:11Z [INFO]  🔧 [Step 1] grep_search → pattern="generateAuthCode" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:17:11Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:17:11Z [INFO]  🔧 [Step 1] grep_search → pattern="updateByExampleSelective" path=…/scoped_targets/mall-core/mall-mbg
+2026-10-15T03:17:11Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-mbg: no such file or directory (took 0s)
+[281/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/UmsMemberCacheServiceImpl.java (26.4s) | 6.8k tok - 0 vulnerabilities
+2026-10-15T03:17:16Z [INFO]     📤 Result submitted (submit 5.121s)
+2026-10-15T03:17:16Z [INFO]     📤 Result submitted (submit 4.89s)
+2026-10-15T03:17:17Z [INFO]  ✅ Completed 4 tool steps in 1m4s | Tokens: 34k in / 212 out / 37k total
+[282/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/PmsPortalProductServiceImpl.java (1m4.2s) | 37.3k tok - 0 vulnerabilities
+2026-10-15T03:17:20Z [INFO]  🔧 [Step 2] grep_search → pattern="UmsMemberReceiveAddressMapper" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:17:20Z [INFO]     ✅ Tool completed: grep_search (took 49ms)
+2026-10-15T03:17:23Z [INFO]  🔧 [Step 2] read_file → …/portal/controller/UmsMemberController.java
+2026-10-15T03:17:23Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:17:24Z [INFO]  ✅ Completed 7 tool steps in 2m56s | Tokens: 82k in / 835 out / 89k total
+[283/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/MemberReadHistoryServiceImpl.java (2m55.7s) | 89.1k tok - 1 vulnerabilities
+2026-10-15T03:17:24Z [INFO]  🔧 [Step 1] grep_search → pattern="jwt" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:17:24Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:17:25Z [INFO]     📤 Result submitted (submit 4.885s)
+2026-10-15T03:17:25Z [INFO]  🔧 [Step 8] grep_search → pattern="ignored" path=…/src/main/resources
+2026-10-15T03:17:25Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:17:25Z [INFO]  🔧 [Step 1] grep_search → pattern="stat-view-servlet|druid" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:17:25Z [INFO]     ✅ Tool completed: grep_search (took 21ms)
+2026-10-15T03:17:28Z [INFO]  🔧 [Step 7] grep_search → pattern="getItem" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:17:28Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T03:17:28Z [INFO]     📤 Result submitted (submit 5.084s)
+[284/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/resources/dao/HomeDao.xml (10.1s) | 5.0k tok - 0 vulnerabilities
+2026-10-15T03:17:28Z [INFO]  ✅ Completed 6 tool steps in 2m33s | Tokens: 73k in / 289 out / 77k total
+[285/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/OmsPromotionServiceImpl.java (2m32.5s) | 77.1k tok - 0 vulnerabilities
+2026-10-15T03:17:28Z [INFO]  🔧 [Step 3] list_dir → …/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:17:28Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-15T03:17:29Z [INFO]     📤 Result submitted (submit 4.939s)
+2026-10-15T03:17:30Z [INFO]  ✅ Completed 3 tool steps in 7m55s | Tokens: 35k in / 905 out / 41k total
+[286/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java (7m55.1s) | 41.0k tok - 1 vulnerabilities
+2026-10-15T03:17:30Z [INFO]  ✅ Completed 8 tool steps in 2m57s | Tokens: 103k in / 1k out / 109k total
+[287/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/OmsCartItemServiceImpl.java (2m57.3s) | 109.9k tok - 1 vulnerabilities
+2026-10-15T03:17:31Z [INFO]     📤 Result submitted (submit 5.646s)
+2026-10-15T03:17:31Z [INFO]     📤 Result submitted (submit 5.449s)
+2026-10-15T03:17:32Z [INFO]  ✅ Completed 8 tool steps in 2m48s | Tokens: 81k in / 1k out / 88k total
+[288/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/OmsPortalOrderReturnApplyServiceImpl.java (2m47.7s) | 88.6k tok - 1 vulnerabilities
+2026-10-15T03:17:33Z [INFO]     📤 Result submitted (submit 4.775s)
+2026-10-15T03:17:34Z [INFO]     📤 Result submitted (submit 6.456s)
+[289/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/UmsMemberCouponServiceImpl.java (43.6s) | 11.6k tok - 0 vulnerabilities
+2026-10-15T03:17:35Z [INFO]  🔧 [Step 1] grep_search → pattern="druid" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:17:35Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-15T03:17:36Z [INFO]  🔧 [Step 1] grep_search → pattern="getDetail" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:17:36Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-15T03:17:37Z [INFO]  🔧 [Step 4] grep_search → pattern="UmsMemberReceiveAddress" path=…/scoped_targets/mall-core/PROJECT_FILE_INDEX.md
+2026-10-15T03:17:37Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:17:38Z [INFO]  🔧 [Step 3] grep_search → pattern="updateIntegration" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:17:38Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-15T03:17:40Z [INFO]     📤 Result submitted (submit 4.994s)
+2026-10-15T03:17:41Z [INFO]     📤 Result submitted (submit 4.855s)
+2026-10-15T03:17:42Z [INFO]     📤 Result submitted (submit 4.976s)
+[290/334 batches] ✅ scoped_targets/mall-core/mall-search/pom.xml (11s) | 4.9k tok - 0 vulnerabilities
+2026-10-15T03:17:43Z [INFO]     📤 Result submitted (submit 5.514s)
+2026-10-15T03:17:44Z [INFO]  🔧 [Step 2] read_file → …/main/resources/application.yml
+2026-10-15T03:17:44Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[291/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/resources/dao/PortalProductDao.xml (15.7s) | 6.5k tok - 0 vulnerabilities
+2026-10-15T03:17:46Z [INFO]  🔧 [Step 8] read_file → …/service/impl/UmsMemberReceiveAddressServiceImpl.java
+2026-10-15T03:17:46Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[292/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/config/MyBatisConfig.java (9.3s) | 4.0k tok - 0 vulnerabilities
+2026-10-15T03:17:46Z [INFO]  🔧 [Step 2] read_file → …/service/impl/OmsPortalOrderServiceImpl.java
+2026-10-15T03:17:46Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:17:47Z [INFO]  🔧 [Step 5] read_file → …/portal/controller/UmsMemberReceiveAddressController.java
+2026-10-15T03:17:47Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:17:49Z [INFO]     📤 Result submitted (submit 4.821s)
+[293/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/util/DateUtil.java (48.5s) | 7.4k tok - 0 vulnerabilities
+2026-10-15T03:17:50Z [INFO]  🔧 [Step 2] read_file → …/main/resources/application.yml
+2026-10-15T03:17:50Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:17:51Z [INFO]     📤 Result submitted (submit 4.555s)
+2026-10-15T03:17:51Z [INFO]     📤 Result submitted (submit 5.35s)
+[294/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/resources/dao/PortalOrderItemDao.xml (22.4s) | 4.7k tok - 0 vulnerabilities
+2026-10-15T03:17:52Z [INFO]     📤 Result submitted (submit 5.271s)
+2026-10-15T03:17:54Z [INFO]  🔧 [Step 4] grep_search → pattern="setAuthCode" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:17:54Z [INFO]     ✅ Tool completed: grep_search (took 16ms)
+[295/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/dao/EsProductDao.java (6.8s) | 3.7k tok - 0 vulnerabilities
+2026-10-15T03:17:55Z [INFO]     📤 Result submitted (submit 4.876s)
+[296/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/domain/EsProduct.java (6.1s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:17:58Z [INFO]     📤 Result submitted (submit 4.736s)
+2026-10-15T03:17:59Z [INFO]  🔧 [Step 1] grep_search → pattern="class EsProductServiceImpl" path=…/scoped_targets/mall-core/mall-search
+2026-10-15T03:17:59Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[297/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/MallSearchApplication.java (26.7s) | 7.1k tok - 0 vulnerabilities
+2026-10-15T03:18:02Z [INFO]  🔧 [Step 6] grep_search → pattern="updateByExampleSelective" path=…/scoped_targets/mall-core/mall-portal
+2026-10-15T03:18:02Z [INFO]     ✅ Tool completed: grep_search (took 13ms)
+2026-10-15T03:18:02Z [INFO]  ✅ Completed 2 tool steps in 37s | Tokens: 17k in / 141 out / 19k total
+[298/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/resources/dao/PortalOrderDao.xml (37.4s) | 19.4k tok - 0 vulnerabilities
+[299/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/domain/EsProductAttributeValue.java (10.5s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:18:04Z [INFO]  🔧 [Step 5] read_file → …/service/impl/UmsMemberCacheServiceImpl.java
+2026-10-15T03:18:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:18:04Z [INFO]     📤 Result submitted (submit 4.775s)
+2026-10-15T03:18:06Z [INFO]  ✅ Completed 6 tool steps in 3m48s | Tokens: 167k in / 2k out / 181k total
+[300/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java (3m47.9s) | 181.7k tok - 2 vulnerabilities
+2026-10-15T03:18:07Z [INFO]     📤 Result submitted (submit 4.754s)
+2026-10-15T03:18:08Z [INFO]  🔧 [Step 2] read_file → …/service/impl/EsProductServiceImpl.java
+2026-10-15T03:18:08Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[301/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/repository/EsProductRepository.java (9s) | 4.4k tok - 0 vulnerabilities
+2026-10-15T03:18:09Z [INFO]     📤 Result submitted (submit 4.794s)
+2026-10-15T03:18:10Z [INFO]  🔧 [Step 7] read_file → …/service/impl/OmsCartItemServiceImpl.java
+2026-10-15T03:18:10Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:18:11Z [INFO]  🔧 [Step 2] grep_search → pattern="jwt.secret" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:18:11Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[302/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/resources/dao/SmsCouponHistoryDao.xml (39.5s) | 8.9k tok - 0 vulnerabilities
+2026-10-15T03:18:12Z [INFO]     📤 Result submitted (submit 4.655s)
+2026-10-15T03:18:15Z [INFO]     📤 Result submitted (submit 4.948s)
+[303/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/config/SpringDocConfig.java (31.2s) | 9.0k tok - 0 vulnerabilities
+2026-10-15T03:18:15Z [INFO]     📤 Result submitted (submit 4.793s)
+[304/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/domain/EsProductRelatedInfo.java (21.1s) | 6.5k tok - 0 vulnerabilities
+2026-10-15T03:18:18Z [INFO]  🔧 [Step 3] read_file → …/service/impl/EsProductServiceImpl.java
+2026-10-15T03:18:18Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:18:19Z [INFO]  🔧 [Step 3] read_file → …/security/util/JwtTokenUtil.java
+2026-10-15T03:18:19Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:18:20Z [INFO]  🔧 [Step 8] grep_search → pattern="UmsMemberReceiveAddressServiceImpl" path=…/scoped_targets/mall-core/.git
+2026-10-15T03:18:20Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[305/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/resources/application.yml (10.9s) | 4.5k tok - 0 vulnerabilities
+2026-10-15T03:18:21Z [INFO]  ✅ Completed 8 tool steps in 3m26s | Tokens: 256k in / 1k out / 266k total
+[306/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/OmsPortalOrderServiceImpl.java (3m25.9s) | 266.0k tok - 1 vulnerabilities
+2026-10-15T03:18:22Z [INFO]  🔧 [Step 1] grep_search → pattern="druid" path=…/scoped_targets/mall-core/mall-search
+2026-10-15T03:18:22Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[307/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/resources/dao/EsProductDao.xml (10.7s) | 5.2k tok - 0 vulnerabilities
+2026-10-15T03:18:23Z [INFO]     📤 Result submitted (submit 4.942s)
+2026-10-15T03:18:24Z [INFO]     📤 Result submitted (submit 4.627s)
+2026-10-15T03:18:24Z [INFO]  🔧 [Step 1] grep_search → pattern="druid" path=…/scoped_targets/mall-core/mall-search
+2026-10-15T03:18:24Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:18:25Z [INFO]     📤 Result submitted (submit 5.071s)
+2026-10-15T03:18:28Z [INFO]     📤 Result submitted (submit 5.861s)
+2026-10-15T03:18:29Z [INFO]  ✅ Completed 2 tool steps in 1m18s | Tokens: 32k in / 617 out / 40k total
+[308/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/resources/application-dev.yml (1m17.8s) | 40.1k tok - 1 vulnerabilities
+[309/334 batches] ✅ scoped_targets/mall-core/mall-security/pom.xml (12.1s) | 4.8k tok - 0 vulnerabilities
+2026-10-15T03:18:29Z [INFO]     📤 Result submitted (submit 4.937s)
+2026-10-15T03:18:29Z [INFO]  🔧 [Step 4] grep_search → pattern="Security" path=…/scoped_targets/mall-core/mall-search
+2026-10-15T03:18:29Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:18:30Z [INFO]  ✅ Completed 2 tool steps in 1m19s | Tokens: 28k in / 742 out / 34k total
+[310/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/resources/application-prod.yml (1m18.9s) | 34.1k tok - 1 vulnerabilities
+2026-10-15T03:18:32Z [INFO]  🔧 [Step 1] read_file → …/security/component/DynamicSecurityMetadataSource.java
+2026-10-15T03:18:32Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[311/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/service/EsProductService.java (31.2s) | 7.8k tok - 0 vulnerabilities
+2026-10-15T03:18:35Z [INFO]     📤 Result submitted (submit 5.22s)
+2026-10-15T03:18:35Z [INFO]  🔧 [Step 1] grep_search → pattern="DynamicSecurity" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:18:35Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:18:36Z [INFO]  🔧 [Step 2] grep_search → pattern="Security" path=…/scoped_targets/mall-core/mall-search
+2026-10-15T03:18:36Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T03:18:38Z [INFO]     📤 Result submitted (submit 6.162s)
+2026-10-15T03:18:39Z [INFO]  🔧 [Step 4] grep_search → pattern="IgnoreUrlsConfig" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:18:39Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-15T03:18:40Z [INFO]     📤 Result submitted (submit 5.159s)
+2026-10-15T03:18:40Z [INFO]  ✅ Completed 8 tool steps in 1m47s | Tokens: 72k in / 365 out / 77k total
+[312/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/UmsMemberReceiveAddressServiceImpl.java (1m47.1s) | 77.0k tok - 0 vulnerabilities
+2026-10-15T03:18:41Z [INFO]     📤 Result submitted (submit 4.672s)
+[313/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/component/DynamicSecurityService.java (11.1s) | 4.2k tok - 0 vulnerabilities
+2026-10-15T03:18:43Z [INFO]  ✅ Completed 5 tool steps in 1m48s | Tokens: 59k in / 272 out / 67k total
+[314/334 batches] ✅ scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/UmsMemberServiceImpl.java (1m47.7s) | 67.4k tok - 0 vulnerabilities
+[315/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/service/impl/EsProductServiceImpl.java (37.7s) | 14.7k tok - 0 vulnerabilities
+2026-10-15T03:18:43Z [INFO]  🔧 [Step 2] grep_search → pattern="Security" path=…/scoped_targets/mall-core/mall-search
+2026-10-15T03:18:43Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-15T03:18:44Z [INFO]     📤 Result submitted (submit 4.796s)
+2026-10-15T03:18:45Z [INFO]  🔧 [Step 1] grep_search → pattern="validateToken" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:18:45Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[316/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/aspect/RedisCacheAspect.java (24.3s) | 5.2k tok - 0 vulnerabilities
+[317/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/component/RestAuthenticationEntryPoint.java (14.1s) | 5.1k tok - 0 vulnerabilities
+2026-10-15T03:18:46Z [INFO]  🔧 [Step 5] read_file → …/mall-core/mall-search/pom.xml
+2026-10-15T03:18:46Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:18:46Z [INFO]  🔧 [Step 3] read_file → …/mall-core/mall-search/pom.xml
+2026-10-15T03:18:46Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[318/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/annotation/CacheException.java (28.9s) | 7.0k tok - 0 vulnerabilities
+2026-10-15T03:18:48Z [INFO]     📤 Result submitted (submit 4.635s)
+2026-10-15T03:18:49Z [INFO]  ✅ Completed 8 tool steps in 9m39s | Tokens: 154k in / 1k out / 163k total
+[319/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java (9m39.3s) | 163.6k tok - 3 vulnerabilities
+[320/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/config/IgnoreUrlsConfig.java (6.6s) | 4.1k tok - 0 vulnerabilities
+2026-10-15T03:18:50Z [INFO]     📤 Result submitted (submit 4.876s)
+2026-10-15T03:18:51Z [INFO]     📤 Result submitted (submit 4.574s)
+2026-10-15T03:18:51Z [INFO]     📤 Result submitted (submit 4.887s)
+[321/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/component/RestfulAccessDeniedHandler.java (17.8s) | 5.9k tok - 0 vulnerabilities
+2026-10-15T03:18:53Z [INFO]  🔧 [Step 2] read_file → …/security/util/JwtTokenUtil.java
+2026-10-15T03:18:53Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:18:55Z [INFO]  🔧 [Step 5] read_file → …/security/config/SecurityConfig.java
+2026-10-15T03:18:55Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[322/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/config/CommonSecurityConfig.java (14s) | 5.3k tok - 0 vulnerabilities
+2026-10-15T03:18:56Z [INFO]  🔧 [Step 6] grep_search → pattern="search" path=…/scoped_targets/mall-core/mall-gateway
+2026-10-15T03:18:56Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-gateway: no such file or directory (took 0s)
+2026-10-15T03:18:56Z [INFO]  🔧 [Step 3] read_file → …/mall-core/mall-search/pom.xml
+2026-10-15T03:18:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:18:58Z [INFO]  🔧 [Step 4] read_file → …/mall-core/mall-mbg/pom.xml
+2026-10-15T03:18:58Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_14_full_core_deep_optimal/artifacts/ChBjMjcxYjM0NTYwNzlkMzQ0EAgaATAqBG1haW4/pom.xml: no such file or directory (took 1ms)
+2026-10-15T03:18:58Z [INFO]  🔧 [Step 2] grep_search → pattern="DynamicAuthorizationManager" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:18:58Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-15T03:18:58Z [INFO]     📤 Result submitted (submit 4.883s)
+2026-10-15T03:18:59Z [INFO]     📤 Result submitted (submit 4.758s)
+2026-10-15T03:19:01Z [INFO]  🔧 [Step 1] grep_search → pattern="hutool" path=…/scoped_targets/mall-core/pom.xml
+2026-10-15T03:19:01Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:19:01Z [INFO]     📤 Result submitted (submit 4.863s)
+[323/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/config/SecurityConfig.java (16.4s) | 6.7k tok - 0 vulnerabilities
+2026-10-15T03:19:01Z [INFO]     📤 Result submitted (submit 4.854s)
+2026-10-15T03:19:03Z [INFO]     📤 Result submitted (submit 5.318s)
+2026-10-15T03:19:03Z [INFO]     📤 Result submitted (submit 5.421s)
+2026-10-15T03:19:05Z [INFO]     📤 Result submitted (submit 4.749s)
+2026-10-15T03:19:06Z [INFO]  🔧 [Step 7] grep_search → pattern="<module>" path=…/scoped_targets/mall-core/pom.xml
+2026-10-15T03:19:06Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[324/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/config/RedisConfig.java (21.6s) | 5.6k tok - 0 vulnerabilities
+2026-10-15T03:19:06Z [INFO]  🔧 [Step 2] read_file → …/security/component/DynamicAuthorizationManager.java
+2026-10-15T03:19:06Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:19:06Z [INFO]  🔧 [Step 6] grep_search → pattern="druid|actuator" path=…/mall-core/mall-portal/pom.xml
+2026-10-15T03:19:06Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-15T03:19:07Z [INFO]  🔧 [Step 3] read_file → …/security/config/SecurityConfig.java
+2026-10-15T03:19:07Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:19:09Z [INFO]  🔧 [Step 5] read_file → …/scoped_targets/mall-core/pom.xml
+2026-10-15T03:19:09Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:19:10Z [INFO]     📤 Result submitted (submit 4.874s)
+2026-10-15T03:19:11Z [INFO]     📤 Result submitted (submit 4.769s)
+2026-10-15T03:19:11Z [INFO]     📤 Result submitted (submit 4.883s)
+2026-10-15T03:19:12Z [INFO]     📤 Result submitted (submit 5.447s)
+2026-10-15T03:19:14Z [INFO]     📤 Result submitted (submit 5.122s)
+2026-10-15T03:19:15Z [INFO]  ✅ Completed 2 tool steps in 44s | Tokens: 17k in / 133 out / 20k total
+[325/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/component/JwtAuthenticationTokenFilter.java (43.8s) | 20.8k tok - 0 vulnerabilities
+2026-10-15T03:19:16Z [INFO]  🔧 [Step 2] grep_search → pattern="JwtTokenUtil" path=…/scoped_targets/mall-core/mall-security
+2026-10-15T03:19:16Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+[326/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/util/SpringUtil.java (28.6s) | 7.1k tok - 0 vulnerabilities
+2026-10-15T03:19:18Z [INFO]  🔧 [Step 7] grep_search → pattern="actuator|druid" path=…/scoped_targets/mall-core/pom.xml
+2026-10-15T03:19:18Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:19:21Z [INFO]  ✅ Completed 7 tool steps in 1m34s | Tokens: 75k in / 349 out / 78k total
+[327/334 batches] ✅ scoped_targets/mall-core/mall-search/src/main/java/com/macro/mall/search/controller/EsProductController.java (1m33.9s) | 78.5k tok - 0 vulnerabilities
+2026-10-15T03:19:21Z [INFO]     📤 Result submitted (submit 5.181s)
+2026-10-15T03:19:22Z [INFO]  🔧 [Step 6] grep_search → pattern=".*" path=…/src/main/resources
+2026-10-15T03:19:22Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-15T03:19:23Z [INFO]     📤 Result submitted (submit 5.006s)
+2026-10-15T03:19:25Z [INFO]  🔧 [Step 4] grep_search → pattern="loadDataSource" path=…/scoped_targets/mall-core/mall-
+2026-10-15T03:19:25Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-: no such file or directory (took 0s)
+2026-10-15T03:19:27Z [INFO]  🔧 [Step 3] read_file → …/security/component/JwtAuthenticationTokenFilter.java
+2026-10-15T03:19:27Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:19:28Z [INFO]     📤 Result submitted (submit 5.883s)
+2026-10-15T03:19:29Z [INFO]  🔧 [Step 3] grep_search → pattern="clearDataSource" path=…/scoped_targets/mall-core/mall-
+2026-10-15T03:19:29Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scoped_targets/mall-core/mall-: no such file or directory (took 0s)
+[328/334 batches] ✅ scoped_targets/mall-core/pom.xml (41.1s) | 11.0k tok - 0 vulnerabilities
+2026-10-15T03:19:30Z [INFO]     📤 Result submitted (submit 4.913s)
+2026-10-15T03:19:32Z [INFO]     📤 Result submitted (submit 4.972s)
+2026-10-15T03:19:34Z [INFO]     📤 Result submitted (submit 4.932s)
+2026-10-15T03:19:34Z [INFO]  ✅ Completed 3 tool steps in 1m27s | Tokens: 41k in / 997 out / 46k total
+[329/334 batches] 🚨 scoped_targets/mall-core/mall-search/src/main/resources/application-prod.yml (1m26.8s) | 46.1k tok - 2 vulnerabilities
+2026-10-15T03:19:37Z [INFO]  🔧 [Step 5] grep_search → pattern="loadDataSource" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:19:37Z [INFO]     ✅ Tool completed: grep_search (took 46ms)
+2026-10-15T03:19:42Z [INFO]     📤 Result submitted (submit 5.428s)
+2026-10-15T03:19:44Z [INFO]  🔧 [Step 4] grep_search → pattern="clearDataSource" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:19:44Z [INFO]     ✅ Tool completed: grep_search (took 45ms)
+2026-10-15T03:19:47Z [INFO]  🔧 [Step 7] grep_search → pattern="stat-view-servlet" path=…/scoped_targets/mall-core/mall-admin
+2026-10-15T03:19:47Z [INFO]     ✅ Tool completed: grep_search (took 23ms)
+2026-10-15T03:19:49Z [INFO]     📤 Result submitted (submit 4.916s)
+2026-10-15T03:19:50Z [INFO]  🔧 [Step 6] read_file → …/mall/config/MallSecurityConfig.java
+2026-10-15T03:19:50Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-15T03:19:52Z [INFO]     📤 Result submitted (submit 5.384s)
+2026-10-15T03:19:56Z [INFO]     📤 Result submitted (submit 5.328s)
+2026-10-15T03:19:56Z [INFO]  🔧 [Step 4] grep_search → pattern="jwt\\.expiration" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:19:56Z [INFO]     ✅ Tool completed: grep_search (took 40ms)
+2026-10-15T03:20:01Z [INFO]     📤 Result submitted (submit 4.507s)
+2026-10-15T03:20:01Z [INFO]  ✅ Completed 7 tool steps in 2m46s | Tokens: 80k in / 1k out / 85k total
+[330/334 batches] 🚨 scoped_targets/mall-core/mall-portal/src/main/resources/application.yml (2m45.7s) | 85.1k tok - 2 vulnerabilities
+2026-10-15T03:20:10Z [INFO]  🔧 [Step 7] grep_search → pattern="ignored" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:20:10Z [INFO]     ✅ Tool completed: grep_search (took 49ms)
+2026-10-15T03:20:11Z [INFO]  ✅ Completed 4 tool steps in 1m47s | Tokens: 33k in / 149 out / 37k total
+[331/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/component/DynamicSecurityMetadataSource.java (1m47s) | 37.5k tok - 0 vulnerabilities
+2026-10-15T03:20:15Z [INFO]  🔧 [Step 5] grep_search → pattern="expiration:" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:20:15Z [INFO]     ✅ Tool completed: grep_search (took 44ms)
+2026-10-15T03:20:17Z [INFO]     📤 Result submitted (submit 6.949s)
+2026-10-15T03:20:20Z [INFO]     📤 Result submitted (submit 4.808s)
+2026-10-15T03:20:23Z [INFO]  🔧 [Step 8] read_file → …/main/resources/application.yml
+2026-10-15T03:20:23Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:20:25Z [INFO]  🔧 [Step 6] read_file → …/main/resources/application.yml
+2026-10-15T03:20:25Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:20:28Z [INFO]     📤 Result submitted (submit 5.058s)
+2026-10-15T03:20:30Z [INFO]     📤 Result submitted (submit 4.84s)
+2026-10-15T03:20:44Z [INFO]  ✅ Completed 7 tool steps in 2m39s | Tokens: 133k in / 1k out / 141k total
+[332/334 batches] 🚨 scoped_targets/mall-core/mall-search/src/main/resources/application-dev.yml (2m39.2s) | 141.5k tok - 2 vulnerabilities
+2026-10-15T03:20:52Z [INFO]  🔧 [Step 7] grep_search → pattern="refreshHeadToken" path=…/codemender-pipeline/scoped_targets/mall-core
+2026-10-15T03:20:52Z [INFO]     ✅ Tool completed: grep_search (took 45ms)
+2026-10-15T03:20:57Z [INFO]     📤 Result submitted (submit 5.137s)
+2026-10-15T03:21:04Z [INFO]  🔧 [Step 8] read_file → …/service/impl/UmsAdminServiceImpl.java
+2026-10-15T03:21:04Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-15T03:21:10Z [INFO]     📤 Result submitted (submit 6.284s)
+2026-10-15T03:21:12Z [INFO]  ✅ Completed 8 tool steps in 2m49s | Tokens: 83k in / 328 out / 93k total
+[333/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/component/DynamicAuthorizationManager.java (2m49.5s) | 93.9k tok - 0 vulnerabilities
+2026-10-15T03:21:31Z [INFO]  ✅ Completed 8 tool steps in 2m44s | Tokens: 101k in / 341 out / 109k total
+[334/334 batches] ✅ scoped_targets/mall-core/mall-security/src/main/java/com/macro/mall/security/util/JwtTokenUtil.java (2m43.9s) | 109.2k tok - 0 vulnerabilities
+────────────────────────────────────────────────────────────
+📊 Deep Scan Sifter Complete: 335 files in 334 batches (1 pruned at Tier 0, 334 succeeded, 0 failed) in 22m15s
+   Session: ChA3NzNhYTdmYWJhMzE4N2NjEAgaATAqBG1haW4
+   Total tokens consumed: 6.3M (in: 5.5M, cached: 1.8M, out: 64.1k, thinking: 741.6k)
+
+🔒 Found 32 vulnerabilities:
+
+ID        SEVERITY    TYPE                                                              FILE                                                                                                                             TITLE                                                                                                  CONFIDENCE
+────────  ────────    ────                                                              ────                                                                                                                             ─────                                                                                                  ──────────
+fa8755d0  🟠 HIGH      CWE-434                                                           scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/MinioController.java                                 Unrestricted File Upload Leading to Stored Cross-Site Scripting (XSS) in MinioController               95%
+8148ab43  🟠 HIGH      CWE-942                                                           scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/config/GlobalCorsConfig.java                                    Overly Permissive CORS Policy with Credentials Enabled on All Endpoints                                95%
+d848e094  🟠 HIGH      MASS ASSIGNMENT                                                   scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                              Mass Assignment in Admin Update Allows Password and Status Tampering                                   90%
+262065c2  🟡 MEDIUM    CWE-200                                                           scoped_targets/mall-core/mall-admin/src/main/java/com/macro/mall/controller/UmsAdminController.java                              Exposure of Sensitive Password Hash in Admin Information Endpoint                                      85%
+e42108cd  🟠 HIGH      USE OF HARD-CODED CREDENTIALS                                     scoped_targets/mall-core/mall-admin/src/main/resources/application-prod.yml                                                      Hardcoded Default Credentials for Druid Monitor in Production Profile                                  95%
+3d38217d  🟠 HIGH      CWE-798                                                           scoped_targets/mall-core/mall-admin/src/main/resources/application-dev.yml                                                       Use of Hard-coded Default Credentials in Druid Monitor StatViewServlet                                 85%
+d75b903d  🔴 CRITICAL  USE OF HARD-CODED CREDENTIALS                                     scoped_targets/mall-core/mall-admin/src/main/resources/application.yml                                                           Hardcoded JWT Secret Key Leading to Authentication Bypass and Privilege Escalation                     100%
+94838327  🟠 HIGH      MISSING AUTHENTICATION FOR CRITICAL FUNCTION                      scoped_targets/mall-core/mall-admin/src/main/resources/application.yml                                                           Sensitive Endpoints Bypassing Authentication via Security Whitelist Misconfiguration                   95%
+878cb8ea  🟠 HIGH      DESERIALIZATION OF UNTRUSTED DATA                                 scoped_targets/mall-core/mall-common/src/main/java/com/macro/mall/common/config/BaseRedisConfig.java                             Insecure Jackson Deserialization via LaissezFaireSubTypeValidator in BaseRedisConfig                   85%
+f6352d7f  🟠 HIGH      INSECURE DIRECT OBJECT REFERENCES (IDOR)                          scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsCartItemController.java                   IDOR in updateAttr Allows Unauthorized Cart Item Deletion and Manipulation                             95%
+412fc156  🟠 HIGH      CWE-915                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsCartItemController.java                   Mass Assignment and Price Tampering in Cart Item Creation                                              90%
+15c2a940  🟡 MEDIUM    CWE-942                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/config/GlobalCorsConfig.java                            Permissive CORS Configuration Allowing Arbitrary Origins with Credentials                              90%
+1de360c2  🟠 HIGH      INSECURE DIRECT OBJECT REFERENCES (IDOR)                          scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderReturnApplyController.java     Missing Object-Level Authorization Check on Return Application Creation (IDOR)                         85%
+a212404f  🟠 HIGH      CWE-639                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/MemberReadHistoryController.java             Insecure Direct Object Reference (IDOR) Allows Unauthorized Browsing History Deletion                  90%
+54526658  🟠 HIGH      CWE-639                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/MemberReadHistoryServiceImpl.java          Insecure Direct Object Reference (IDOR) in Member Read History Deletion                                90%
+c95b24ba  🔴 CRITICAL  CWE-640                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/UmsMemberController.java                     Authentication Verification Code Disclosure Leading to Account Takeover                                100%
+a2462279  🟠 HIGH      INSECURE DIRECT OBJECT REFERENCE (IDOR)                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/OmsCartItemServiceImpl.java                Insecure Direct Object Reference (IDOR) in updateAttr Allows Arbitrary Cart Item Deletion              95%
+095fd360  🟠 HIGH      INSECURE DIRECT OBJECT REFERENCES (IDOR) / MISSING AUTHORIZATION  scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/OmsPortalOrderReturnApplyServiceImpl.java  Missing Object-Level Authorization (IDOR) and Price Integrity Validation in Order Return Application   85%
+e0705fb9  🔴 CRITICAL  CWE-345                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java                     Insecure Payment Status Verification via Arbitrary Transaction ID in query()                           95%
+2fd14dd6  🟠 HIGH      CWE-353                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/AlipayServiceImpl.java                     Missing Critical Payment Callback Verification (app_id and total_amount) in notify()                   90%
+e78590cf  🟠 HIGH      CWE-639                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/service/impl/OmsPortalOrderServiceImpl.java             Insecure Direct Object Reference (IDOR) in OmsPortalOrderServiceImpl.detail Exposes Customer PII       95%
+4bf2192b  🟠 HIGH      CWE-798                                                           scoped_targets/mall-core/mall-portal/src/main/resources/application-dev.yml                                                      Use of Hard-coded Default Credentials in Druid StatViewServlet                                         85%
+41bfbc8c  🟠 HIGH      CWE-1392                                                          scoped_targets/mall-core/mall-portal/src/main/resources/application-prod.yml                                                     Default Administrative Credentials Configured for Exposed Druid StatViewServlet in Production Profile  95%
+37e15c46  🔴 CRITICAL  CWE-345                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java                Payment Callback Forgery / Missing Signature Verification in paySuccess                                100%
+652366fa  🟠 HIGH      CWE-639                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java                Insecure Direct Object Reference (IDOR) in Order Detail Endpoint                                       95%
+dac74542  🟠 HIGH      CWE-639                                                           scoped_targets/mall-core/mall-portal/src/main/java/com/macro/mall/portal/controller/OmsPortalOrderController.java                Insecure Direct Object Reference (IDOR) in Order Cancellation Endpoint                                 95%
+ffdee1a2  🟠 HIGH      CWE-1188                                                          scoped_targets/mall-core/mall-search/src/main/resources/application-prod.yml                                                     Default Credentials Configured for Druid Monitor Dashboard in Production Profile                       95%
+6fbc7157  🟡 MEDIUM    CWE-798                                                           scoped_targets/mall-core/mall-search/src/main/resources/application-prod.yml                                                     Hard-coded Plaintext Database Credentials in Production Profile                                        90%
+3bcbd888  🟠 HIGH      CWE-798                                                           scoped_targets/mall-core/mall-portal/src/main/resources/application.yml                                                          Use of Hard-coded Cryptographic Secret Key for JWT Authentication                                      95%
+76b12e60  🟠 HIGH      CWE-306                                                           scoped_targets/mall-core/mall-portal/src/main/resources/application.yml                                                          Unauthenticated Exposure of Actuator and Druid Monitoring Endpoints in Security Whitelist              90%
+cf50da59  🟠 HIGH      CWE-1392                                                          scoped_targets/mall-core/mall-search/src/main/resources/application-dev.yml                                                      Druid StatViewServlet Configured with Default Credentials                                              90%
+30dd80fd  🟡 MEDIUM    USE OF HARD-CODED CREDENTIALS                                     scoped_targets/mall-core/mall-search/src/main/resources/application-dev.yml                                                      Hard-coded Default Database Credentials in Application Configuration                                   80%
+
+Summary: 4 CRITICAL, 24 HIGH, 4 MEDIUM
+
+Run 'cm report' for detailed analysis, 'cm verify <finding-id>' to validate, or 'cm fix <finding-id>' to generate a patch.
+2026-10-15T03:21:32Z [INFO]  📄 Session log: /usr/local/google/home/hongbocheng/projects/codemender-pipeline/eval_results/.cm_home_mall_14_full_core_deep_optimal/logs/20261015T025916Z_ChA3NzNhYTdmYWJhMzE4N2NjEAgaATAqBG1haW4.log

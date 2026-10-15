@@ -1,0 +1,33 @@
+{
+  "run_id": "js_01_3.8-flash_quick_c0_none",
+  "timestamp": "2026-10-15T01:43:14.871434+00:00",
+  "repo_family": "juice-shop",
+  "target_path": "scoped_targets/juice-shop-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "quick",
+  "context_key": "c0_none",
+  "context_prompt": null,
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": -1,
+  "timed_out": true,
+  "elapsed_sec": 480.0,
+  "total_findings": 0,
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [],
+  "affected_files_count": 0,
+  "log_metrics": {
+    "files_discovered": 17,
+    "tool_steps": 0,
+    "duration_str": "N/A",
+    "tokens_in": "0",
+    "tokens_out": "0",
+    "tokens_total": "0"
+  }
+}

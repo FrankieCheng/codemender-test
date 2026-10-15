@@ -1,0 +1,39 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 37e15c46 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-core/ma...│Payment Callback Forgery / Missing Si...│
+│ e0705fb9 │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-core/ma...│Insecure Payment Status Verification ...│
+│ c95b24ba │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-core/ma...│Authentication Verification Code Disc...│
+│ d75b903d │🔴 CRITICAL│OPEN  │—  │scoped_targets/mall-core/ma...│Hardcoded JWT Secret Key Leading to A...│
+│ cf50da59 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Druid StatViewServlet Configured with...│
+│ 3bcbd888 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Use of Hard-coded Cryptographic Secre...│
+│ 76b12e60 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Unauthenticated Exposure of Actuator ...│
+│ ffdee1a2 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Default Credentials Configured for Dr...│
+│ 652366fa │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Insecure Direct Object Reference (IDO...│
+│ dac74542 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Insecure Direct Object Reference (IDO...│
+│ 41bfbc8c │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Default Administrative Credentials Co...│
+│ 4bf2192b │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Use of Hard-coded Default Credentials...│
+│ e78590cf │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Insecure Direct Object Reference (IDO...│
+│ 2fd14dd6 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Missing Critical Payment Callback Ver...│
+│ 095fd360 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Missing Object-Level Authorization (I...│
+│ a2462279 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Insecure Direct Object Reference (IDO...│
+│ 54526658 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Insecure Direct Object Reference (IDO...│
+│ a212404f │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Insecure Direct Object Reference (IDO...│
+│ 1de360c2 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Missing Object-Level Authorization Ch...│
+│ f6352d7f │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│IDOR in updateAttr Allows Unauthorize...│
+│ 412fc156 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Mass Assignment and Price Tampering i...│
+│ 878cb8ea │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Insecure Jackson Deserialization via ...│
+│ 94838327 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Sensitive Endpoints Bypassing Authent...│
+│ 3d38217d │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Use of Hard-coded Default Credentials...│
+│ e42108cd │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Hardcoded Default Credentials for Dru...│
+│ d848e094 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Mass Assignment in Admin Update Allow...│
+│ 8148ab43 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Overly Permissive CORS Policy with Cr...│
+│ fa8755d0 │🟠 HIGH    │OPEN  │—  │scoped_targets/mall-core/ma...│Unrestricted File Upload Leading to S...│
+│ 30dd80fd │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-core/ma...│Hard-coded Default Database Credentia...│
+│ 6fbc7157 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-core/ma...│Hard-coded Plaintext Database Credent...│
+│ 15c2a940 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-core/ma...│Permissive CORS Configuration Allowin...│
+│ 262065c2 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/mall-core/ma...│Exposure of Sensitive Password Hash i...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+32 finding(s): 4 CRITICAL, 24 HIGH, 4 MEDIUM · ✅ 0 fixed, 🔴 32 open
+📋 Report generated at 2026-10-15 03:21:32 UTC

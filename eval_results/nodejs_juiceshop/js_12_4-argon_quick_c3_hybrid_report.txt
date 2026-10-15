@@ -1,0 +1,42 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 371356fa │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Privilege Escalation via Mass Assignm...│
+│ 4929f8b3 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│SQL Injection in Login Authentication...│
+│ fb4780f6 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│UNION-Based SQL Injection in Product ...│
+│ e35a7f3f │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Remote Code Execution and Sandbox Esc...│
+│ 58d60987 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Arbitrary File Overwrite via Path Tra...│
+│ ea999f17 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Code Injection (eval), Server-Side Te...│
+│ 8642fa25 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Hardcoded RSA Private Key for JWT Sig...│
+│ 2c9106a7 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│JWT Algorithm Confusion (RS256 to HS2...│
+│ 08eb23f1 │🔴 CRITICAL│OPEN  │—  │scoped_targets/juice-shop-b...│Forged JWT Acceptance and Insecure Co...│
+│ d95b463c │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Use of Vulnerable and Outdated Third-...│
+│ e733d0c9 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Cross-Site Request Forgery (CSRF) on ...│
+│ 2fe1dd25 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Hardcoded Plaintext User Credentials ...│
+│ 7e10d62a │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│XML External Entity (XXE) Injection i...│
+│ 02aa7bac │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Unsafe YAML Deserialization and YAML ...│
+│ af77d93e │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Access Control Bypass via Poison Null...│
+│ e581d4a9 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Arbitrary File Read (LFI) via Express...│
+│ a939a64c │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Server-Side Request Forgery (SSRF) in...│
+│ 2b8961d3 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection and Event-Loop Denial...│
+│ 15c555ae │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Injection and Cross-Site Script...│
+│ b11cc287 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│NoSQL Operator Injection and Insecure...│
+│ 3433c561 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Hardcoded HMAC Secret Key in Insecuri...│
+│ 31c11034 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Use of Weak Unsalted MD5 Cryptographi...│
+│ 2f17b159 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Bypassable HTML Sanitization in sanit...│
+│ 98d5cf15 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Stored Cross-Site Scripting (XSS) and...│
+│ 71eaf27f │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Unauthenticated Directory Listing and...│
+│ 0c7508d5 │🟠 HIGH    │OPEN  │—  │scoped_targets/juice-shop-b...│Missing Authentication and Access Con...│
+│ 3a11cbb0 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Rate Limit Bypass via Spoofable X-For...│
+│ 4538dbd0 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Overly Permissive Wildcard CORS Confi...│
+│ 769f0a29 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Hardcoded Weak Cookie Parser Secret i...│
+│ 04c87338 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Unrestricted File Upload Type Validat...│
+│ 5ec92ac4 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Cryptographically Unsigned Coupon Gen...│
+│ 690297ad │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Open Redirect via Substring Allowlist...│
+│ cb270bae │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Cross-Site Scripting (XSS) via Unesca...│
+│ 40d57b9f │🟡 MEDIUM  │OPEN  │—  │scoped_targets/juice-shop-b...│Improper URL Allowlist Validation via...│
+│ a5c815c4 │🔵 LOW     │OPEN  │—  │scoped_targets/juice-shop-b...│Unauthenticated Exposure of Internal ...│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+35 finding(s): 9 CRITICAL, 17 HIGH, 8 MEDIUM, 1 LOW · ✅ 0 fixed, 🔴 35 open
+📋 Report generated at 2026-10-15 02:38:26 UTC

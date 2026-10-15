@@ -1,0 +1,43 @@
+{
+  "run_id": "mall_10_4-argon_quick_c0_none",
+  "timestamp": "2026-10-15T02:27:44.588371+00:00",
+  "repo_family": "mall",
+  "target_path": "scoped_targets/mall-bench",
+  "model": "gemini-4-argon",
+  "mode": "quick",
+  "context_key": "c0_none",
+  "context_prompt": null,
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_sec": 285.0,
+  "total_findings": 10,
+  "severity_counts": {
+    "CRITICAL": 5,
+    "HIGH": 4,
+    "MEDIUM": 1,
+    "LOW": 0
+  },
+  "unique_cwes": [
+    "CWE-284",
+    "CWE-306",
+    "CWE-345",
+    "CWE-434",
+    "CWE-613",
+    "CWE-639",
+    "CWE-640",
+    "CWE-798",
+    "CWE-840"
+  ],
+  "affected_files_count": 8,
+  "log_metrics": {
+    "files_discovered": 20,
+    "tool_steps": 22,
+    "duration_str": "4m43s",
+    "tokens_in": "1.1M",
+    "tokens_out": "11k",
+    "tokens_total": "1.1M"
+  }
+}

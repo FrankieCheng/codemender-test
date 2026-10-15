@@ -1,0 +1,17 @@
+┌──────────┬───────────┬──────┬───┬──────────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                          │Title                                   │
+├──────────┼───────────┼──────┼───┼──────────────────────────────┼────────────────────────────────────────┤
+│ 3da56b26 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Arbitrary File Write via Path Travers...│
+│ 3f7de37e │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│Remote Code Execution via Insecure Pi...│
+│ c3d54543 │🔴 CRITICAL│OPEN  │—  │scoped_targets/ref-codemend...│OS Command Injection in /diagnostics/...│
+│ aa85c673 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Werkzeug Interactive Debugger Enabled...│
+│ a6b7cbb6 │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Broken Authentication, Session Fixati...│
+│ 0277b3ed │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Arbitrary File Read via Path Traversa...│
+│ cd10393d │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│SQL Injection in /api/users/lookup (o...│
+│ 293e270c │🟠 HIGH    │OPEN  │—  │scoped_targets/ref-codemend...│Server-Side Request Forgery (SSRF) in...│
+│ cc584114 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Reflected Cross-Site Scripting (XSS) ...│
+│ 84e4f734 │🟡 MEDIUM  │OPEN  │—  │scoped_targets/ref-codemend...│Open Redirect in /navigate (on_navigate)│
+└──────────┴───────────┴──────┴───┴──────────────────────────────┴────────────────────────────────────────┘
+
+10 finding(s): 3 CRITICAL, 5 HIGH, 2 MEDIUM · ✅ 0 fixed, 🔴 10 open
+📋 Report generated at 2026-10-15 06:34:41 UTC

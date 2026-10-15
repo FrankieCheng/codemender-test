@@ -1,0 +1,33 @@
+{
+  "run_id": "js_07_3.8-flash_quick_c2_sast",
+  "timestamp": "2026-10-15T02:10:07.972938+00:00",
+  "repo_family": "juice-shop",
+  "target_path": "scoped_targets/juice-shop-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "quick",
+  "context_key": "c2_sast_framework",
+  "context_prompt": "Audit all Express.js routes, middleware, Sequelize queries, NoSQL (MarsDB) queries, and Pug/Handlebars templates. Focus on: 1) SQL Injection via raw queries/string interpolation, 2) NoSQL Injection ($where / MarsDB), 3) RCE / VM Sandbox Escape (notevil / eval / vm), 4) XXE & YAML deserialization (libxml / js-yaml), 5) Arbitrary File Read / Path Traversal & Zip Slip (unzipper), 6) SSRF in URL image upload / webhooks, 7) SSTI & XSS in Pug/HBS templates, 8) Weak JWT secrets/algorithm confusion (RS256->HS256, 'none'), broken authentication, 2FA bypass, and IDOR/BOLA.",
+  "deep_workers": 1,
+  "deep_max_turns": null,
+  "enable_bash": false,
+  "exit_code": -1,
+  "timed_out": true,
+  "elapsed_sec": 480.0,
+  "total_findings": 0,
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [],
+  "affected_files_count": 0,
+  "log_metrics": {
+    "files_discovered": 17,
+    "tool_steps": 0,
+    "duration_str": "N/A",
+    "tokens_in": "0",
+    "tokens_out": "0",
+    "tokens_total": "0"
+  }
+}

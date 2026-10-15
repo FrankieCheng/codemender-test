@@ -1,0 +1,40 @@
+{
+  "run_id": "mall_08_3.8-flash_deep_c0_none",
+  "timestamp": "2026-10-15T01:54:16.476191+00:00",
+  "repo_family": "mall",
+  "target_path": "scoped_targets/mall-bench",
+  "model": "gemini-3.8-flash",
+  "mode": "deep",
+  "context_key": "c0_none",
+  "context_prompt": null,
+  "deep_workers": 16,
+  "deep_max_turns": 8,
+  "enable_bash": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_sec": 161.8,
+  "total_findings": 7,
+  "severity_counts": {
+    "CRITICAL": 2,
+    "HIGH": 5,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "unique_cwes": [
+    "CWE-306",
+    "CWE-345",
+    "CWE-434",
+    "CWE-640",
+    "CWE-798",
+    "CWE-862"
+  ],
+  "affected_files_count": 6,
+  "log_metrics": {
+    "files_discovered": 0,
+    "tool_steps": 4,
+    "duration_str": "1m8s",
+    "tokens_in": "33k",
+    "tokens_out": "183",
+    "tokens_total": "35k"
+  }
+}

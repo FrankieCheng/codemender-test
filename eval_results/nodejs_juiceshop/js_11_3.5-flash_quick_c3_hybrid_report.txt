@@ -1,0 +1,20 @@
+┌──────────┬───────────┬──────┬───┬────────────────────────┬────────────────────────────────────────┐
+│ID        │Severity   │Status│Fix│File                    │Title                                   │
+├──────────┼───────────┼──────┼───┼────────────────────────┼────────────────────────────────────────┤
+│ 5c1ee064 │🔴 CRITICAL│OPEN  │—  │userProfile.ts          │Remote Code Execution via eval in get...│
+│ 91dab49a │🔴 CRITICAL│OPEN  │—  │search.ts               │SQL Injection in searchProducts Route   │
+│ 779e1606 │🔴 CRITICAL│OPEN  │—  │login.ts                │SQL Injection in login Route            │
+│ 9ffe8742 │🔴 CRITICAL│OPEN  │—  │fileUpload.ts           │Insecure Deserialization in handleYam...│
+│ af797ecc │🔴 CRITICAL│OPEN  │—  │b2bOrder.ts             │Remote Code Execution in b2bOrder via...│
+│ 5b99a017 │🟠 HIGH    │OPEN  │—  │updateProductReviews.ts │NoSQL Injection in updateProductRevie...│
+│ 25f9460f │🟠 HIGH    │OPEN  │—  │updateProductReviews.ts │IDOR / Broken Object Level Authorizat...│
+│ afc97f0c │🟠 HIGH    │OPEN  │—  │showProductReviews.ts   │NoSQL Injection / SSJS in showProduct...│
+│ b162c23c │🟠 HIGH    │OPEN  │—  │trackOrder.ts           │NoSQL Injection in trackOrder Route     │
+│ b83b147a │🟠 HIGH    │OPEN  │—  │profileImageUrlUpload.ts│Server-Side Request Forgery (SSRF) in...│
+│ 41d6c7bf │🟠 HIGH    │OPEN  │—  │fileUpload.ts           │Zip Slip (Arbitrary File Write) in ex...│
+│ 7fa3dc2a │🟠 HIGH    │OPEN  │—  │dataErasure.ts          │Local File Read / LFI via Layout Para...│
+│ c73a117f │🟡 MEDIUM  │OPEN  │—  │redirect.ts             │Open Redirect in performRedirect        │
+└──────────┴───────────┴──────┴───┴────────────────────────┴────────────────────────────────────────┘
+
+13 finding(s): 5 CRITICAL, 7 HIGH, 1 MEDIUM · ✅ 0 fixed, 🔴 13 open
+📋 Report generated at 2026-10-15 02:31:59 UTC
