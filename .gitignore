@@ -5,3 +5,6 @@ __pycache__/
 .cm_home_*
 cm
 .DS_Store
+*.pdf
+*.pptx
+deck_run/

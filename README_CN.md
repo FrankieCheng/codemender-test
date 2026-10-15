@@ -3,9 +3,9 @@
 > **评测规模**：共 **43 组受控消融实验**（涵盖 **Python WSGI**、**Node.js/TypeScript**、**Java/Spring Boot** 三大语言技术栈，累计检出 **1,654+** 个漏洞实例）+ **8 组历史基线对比**
 > **运行环境**：`cm v0.14.0` (`--sandbox=false`) | GCP Project: `cloud-llm-preview1`
 > **核心导航**：
+> - 🏛️ **两阶段通用架构深度评审与四大陷阱规避报告**：[`docs/UNIVERSAL_PIPELINE_REVIEW.md`](./docs/UNIVERSAL_PIPELINE_REVIEW.md)
 > - 🇺🇸 **英文主报告**：[`README.md`](./README.md) | 完整 43 组实验详表：[`docs/BENCHMARK_RESULTS.md`](./docs/BENCHMARK_RESULTS.md)
-> - ⚙️ **自动化评测与提示词工程流水线**：[`pipeline/pipeline.py`](./pipeline/pipeline.py)、[`pipeline/run_python_benchmarks.py`](./pipeline/run_python_benchmarks.py)、[`pipeline/run_all_benchmarks.py`](./pipeline/run_all_benchmarks.py)、[`pipeline/generate_report.py`](./pipeline/generate_report.py)
-> - 📽️ **最佳实践演示文稿（12 页 Deck）**：[`docs/CodeMender_Best_Practices_Deck.pdf`](./docs/CodeMender_Best_Practices_Deck.pdf) | [`docs/CodeMender_Best_Practices_Deck.pptx`](./docs/CodeMender_Best_Practices_Deck.pptx) | [Google Slides 在线版](https://docs.google.com/presentation/d/1R76pFsnEVvTIAmWAy-W0NInr4LDVABAGjgdg-ncMQCQ/edit)
+> - ⚙️ **两阶段自动化画像与扫描流水线**：[`pipeline/pipeline.py`](./pipeline/pipeline.py)、[`pipeline/test_universal_pipeline.py`](./pipeline/test_universal_pipeline.py)、[`pipeline/run_python_benchmarks.py`](./pipeline/run_python_benchmarks.py)、[`pipeline/run_all_benchmarks.py`](./pipeline/run_all_benchmarks.py)、[`pipeline/generate_report.py`](./pipeline/generate_report.py)
 
 ---
 
