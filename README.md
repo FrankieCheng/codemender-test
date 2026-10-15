@@ -141,7 +141,42 @@ Executing [`grounding-truth/poc_exploit.py`](grounding-truth/poc_exploit.py) aga
 
 ---
 
-## 6. Repository Directory Structure
+## 6. How to Scan Any New Repository (Zero Configuration Required)
+
+Because [`pipeline/pipeline.py`](pipeline/pipeline.py) contains **zero hardcoded repository rules**, scanning any new repository (`Python`, `Node.js/TypeScript`, `Java/Spring Boot`, `C/C++`, `Go`, `Ruby`, `PHP`) requires **no code changes**:
+
+### 1. One-Command End-to-End Unassisted Scan (`Stage 1 Auto-Profile -> Stage 2 Auto-Scan`)
+```bash
+# Run Stage 1 auto-profiling followed immediately by Stage 2 cm find in an isolated CM_HOME
+python3 pipeline/pipeline.py scan /path/to/your-new-repo
+
+# Optional: customize output directory, model (gemini-3.8-flash / gemini-4-argon), or timeout (<= 900s)
+python3 pipeline/pipeline.py scan /path/to/your-new-repo \
+  --output-dir ./scan_outputs/your-new-repo \
+  --model gemini-3.8-flash \
+  --timeout 600
+```
+
+### 2. Two-Step Workflow: Dry-Run Profile First (`< 3s`), Then Scan
+If you want to inspect the discovered attack surface, excluded noise directories, parsed dependency versions, and synthesized `-c` prompt before running `cm find`:
+```bash
+# Step 1: Dry-run Stage 1 profiler only (0 LLM tokens, < 3s)
+python3 pipeline/pipeline.py profile /path/to/your-new-repo --output-dir ./scan_outputs/your-new-repo
+
+# Step 2: Review ./scan_outputs/your-new-repo/{profile.json,config.yaml,PROJECT_FILE_INDEX.md}, then scan:
+python3 pipeline/pipeline.py scan /path/to/your-new-repo --output-dir ./scan_outputs/your-new-repo
+```
+
+### 3. Output Artifacts Generated for Every Repository
+Every scan automatically writes a self-contained artifact bundle into `./scan_outputs/<repo_slug>/` (or `--output-dir`):
+- `profile.json` — Detected languages/frameworks, active files, parsed dependencies, routes, sinks, guards, sanitized `-c` prompt (`0` `filename.ext` regex matches), and adaptive CLI flags (`quick` for `<= 5` files; `--deep --deep-workers 16 --deep-max-turns 8` for `> 5` files).
+- `config.yaml` — Tailored CodeMender configuration with all active source/config/template/mapper extensions and noise exclusions.
+- `PROJECT_FILE_INDEX.md` — Structural file index and 1-hop thin-wrapper delegation map.
+- `report.json` & `report.md` — Deduplicated vulnerability findings (merged from `cm report -f json` + SQLite `.cm_home/state.db`) with normalized file paths and severity breakdown.
+
+---
+
+## 7. Repository Directory Structure
 
 ```text
 codemender-test/

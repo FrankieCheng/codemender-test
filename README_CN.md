@@ -82,3 +82,59 @@
    - 排除 `node_modules`、`test`、`frontend` 及自动生成的 POJO 模块（如 `mall-mbg`），并在靶标根目录生成扁平化的 `PROJECT_FILE_INDEX.md`，帮助 Agent 一步定位高危文件，节省 **35%–50%** 的目录遍历开销。
 5. **准则 5：采用四维混合提示词 (`c3_hybrid_max`) 并关闭 `--enable-bash`**
    - 在 `-c` 中同时声明 **SCA 依赖版本关联 + 框架级 SAST 危险函数 + 配置文件与凭据审计 + 业务逻辑/越权 (IDOR)**，并提醒验证安全封装（如 `safe_join`）；同时在 `--deep` 下保持 `--enable-bash` 关闭，执行速度提升 **1.87 倍**。
+
+---
+
+## 五、 实战操作指南：如何用本流水线扫描任意一个全新的代码库？
+
+由于 [`pipeline/pipeline.py`](./pipeline/pipeline.py) 采用**零仓库名硬编码**的通用两阶段（`Stage 1 自动画像 -> Stage 2 自动扫描`）架构，当你需要扫描任何一个新的本地代码库或 Git 仓库（支持 `Python`、`Node.js/TypeScript`、`Java/Spring Boot`、`C/C++`、`Go`、`Ruby`、`PHP`）时，**无需修改任何代码或手动编写提示词**，只需按以下步骤执行：
+
+### 方式一：一键全自动端到端扫描（推荐日常使用）
+直接将新代码库路径传给 `pipeline.py scan`：
+```bash
+# 一键完成 Stage 1 自动画像 + Stage 2 隔离环境调用 cm find 扫描并输出报告
+python3 pipeline/pipeline.py scan /path/to/your-new-repo
+
+# 可选参数：指定输出目录、指定模型（如 gemini-3.8-flash 或 gemini-4-argon）、指定超时时间（上限 900s）
+python3 pipeline/pipeline.py scan /path/to/your-new-repo \
+  --output-dir ./scan_outputs/your-new-repo \
+  --model gemini-3.8-flash \
+  --timeout 600
+```
+
+**流水线在后台自动为你完成的 6 件事**：
+1. **自动生成专属 `config.yaml`**：自动扫描新仓库的语言与配置文件后缀（如 `.py`, `.java`, `.xml`, `.yml`, `.ts`, `.pug`, `.c`, `.go` 等），开启 `incremental: false` 并排除构建产物与锁文件。
+2. **自动裁剪噪音与生成 `PROJECT_FILE_INDEX.md`**：自动识别并剔除前端 SPA 静态目录（`frontend/`）、自动生成的 ORM 代码（如 MyBatis Generator 生成的 `*Example.java` 与 `Example_Where_Clause` XML，同时精准保留手写的 `dao/*Dao.xml`），追踪跨文件薄封装调用链（如 `http.py -> sansio/http.py`），并生成 `PROJECT_FILE_INDEX.md`。对于超过 60 个活跃文件的大型单体仓库，会自动按安全信号密度筛选 Top 40 高危核心文件构建带独立 `.git` 边界的 `scoped_target/`。
+3. **自动解析依赖版本（SCA）**：自动从 `requirements.txt`、`pyproject.toml`、`package.json`、`pom.xml`（支持 `<properties>` `${...}` 变量插值）、`go.mod`、`CMakeLists.txt`/`Makefile`、`Gemfile`、`composer.json` 提取依赖包名与精确版本号。
+4. **自动合成五维 `-c` 提示词并执行硬正则清洗**：将依赖版本、路由端点、危险函数（Sink）与安全封装校验（如 `safe_join`、`realpath`、`filepath.Clean`、参数化查询）合成为结构化提示词，并通过 `sanitize_context_prompt()` 强制清除所有 `<name>.<ext>` 字面文件名（确保 `FILE_SCOPING_REGEX` 匹配数为 `0`，彻底规避 `--deep` 0% 召回率陷阱）。
+5. **自适应选择 `Quick` vs `--deep` 模式**：
+   - 若新仓库活跃文件数 **`<= 5`**（微型服务）：自动采用 `Quick` 模式（防止 Tier 0 剪枝依赖清单）。
+   - 若新仓库活跃文件数 **`> 5`**（多文件/多模块工程）：自动启用 `--deep --deep-workers 16 --deep-max-turns 8` 并发深度模式。
+6. **自动提取与落盘结构化报告**：自动合并 `cm -y report -f json` 与 SQLite `.cm_home/state.db` 中的漏洞记录，将文件路径还原为原仓库路径，并生成机器可读的 `report.json` 与可视化表格报告 `report.md`。
+
+---
+
+### 方式二：分步执行（先 Dry-Run 预览画像，再启动扫描）
+如果你面对的是一个从未见过的超大型复杂仓库，建议先运行 **Stage 1 Dry-Run 画像模式**（耗时 `< 3 秒`，消耗 `0` Token）检查画像结果，确认无误后再执行扫描：
+```bash
+# 第一步：仅运行 Stage 1 静态画像（也可使用 --dry-run 参数）
+python3 pipeline/pipeline.py profile /path/to/your-new-repo --output-dir ./scan_outputs/your-new-repo
+
+# 检查生成的画像产物：
+# 1. ./scan_outputs/your-new-repo/profile.json          -> 查看识别出的语言、活跃文件列表、依赖版本、合成的 -c 提示词及推荐 CLI 参数
+# 2. ./scan_outputs/your-new-repo/config.yaml           -> 查看自动生成的后缀白名单与排除目录
+# 3. ./scan_outputs/your-new-repo/PROJECT_FILE_INDEX.md -> 查看入口文件与薄封装调用链索引
+
+# 第二步：确认画像后，启动完整扫描（支持通过 --deep 或 --quick 手动覆盖模式）
+python3 pipeline/pipeline.py scan /path/to/your-new-repo --output-dir ./scan_outputs/your-new-repo
+```
+
+---
+
+### 扫描输出目录结构说明（`./scan_outputs/<repo_name>/`）
+每次扫描完成后，输出目录下会包含以下完整产物：
+- `report.md`：人类可读的 Markdown 漏洞汇总报告（含严重度统计与完整漏洞列表）。
+- `report.json`：结构化 JSON 报告（含每个漏洞的 `title`、`severity`、`vuln_id`/`CWE`、`file_path`、`start_line`、`snippet`、`analysis` 以及执行耗时/Token 统计）。
+- `profile.json`、`config.yaml`、`PROJECT_FILE_INDEX.md`：Stage 1 生成的完整仓库画像与配置。
+- `scan.log` & `.cm_home/state.db`：CodeMender 原始执行日志与底层 SQLite 状态库（可用于后续执行 `CM_HOME=./scan_outputs/<repo_name>/.cm_home cm verify <finding-id>` 或 `cm fix <finding-id>`）。
+
