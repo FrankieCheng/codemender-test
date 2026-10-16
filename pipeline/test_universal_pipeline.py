@@ -11,12 +11,28 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import importlib.util
 from pathlib import Path
 from unittest import mock
 
-import pipeline
+SCRIPT_DIR = Path(__file__).resolve().parent
+_PIPELINE_PY = SCRIPT_DIR / "pipeline.py"
+_spec = importlib.util.spec_from_file_location("pipeline_mod", _PIPELINE_PY)
+assert _spec and _spec.loader
+pipeline = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(pipeline)
 
-WORKSPACE_ROOT = Path(__file__).resolve().parent
+WORKSPACE_ROOT = SCRIPT_DIR if (SCRIPT_DIR / "ref-codemender-test").exists() else SCRIPT_DIR.parent
+PY_TARGET_DIR = (
+    WORKSPACE_ROOT / "ref-codemender-test" / "src"
+    if (WORKSPACE_ROOT / "ref-codemender-test" / "src").exists()
+    else WORKSPACE_ROOT / "src"
+)
+PY_EVAL_RESULTS_DIR = (
+    WORKSPACE_ROOT / "eval_results"
+    if (WORKSPACE_ROOT / "eval_results" / "py_06_quick_38flash_c3_hybrid_report.json").exists()
+    else WORKSPACE_ROOT / "eval_results" / "python_wsgi"
+)
 
 
 class TestHardFilenameSanitizer(unittest.TestCase):
@@ -431,7 +447,7 @@ class TestSinkRouteAndGuardExtractor(unittest.TestCase):
     shutil.rmtree(self.out_dir, ignore_errors=True)
 
   def test_ref_codemender_test_sinks_routes_and_guards(self) -> None:
-    target = WORKSPACE_ROOT / "ref-codemender-test" / "src"
+    target = PY_TARGET_DIR
     profile = pipeline.RepoProfiler(target, output_dir=self.out_dir).profile()
     self.assertEqual(profile["active_files_count"], 2)
     self.assertEqual(profile["active_files"], ["app.py", "requirements.txt"])
@@ -471,7 +487,7 @@ class TestSinkRouteAndGuardExtractor(unittest.TestCase):
     self.assertIn("safe_join", profile["detected_guards"])
 
   def test_synthesized_prompt_for_python_wsgi_has_cves_and_zero_file_tokens(self) -> None:
-    target = WORKSPACE_ROOT / "ref-codemender-test" / "src"
+    target = PY_TARGET_DIR
     profile = pipeline.RepoProfiler(target, output_dir=self.out_dir).profile()
     prompt = profile["context_prompt"]
     self.assertEqual(pipeline.FILE_SCOPING_REGEX.findall(prompt), [])
@@ -522,7 +538,7 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
   """Verifies zero hardcoded repo names in pipeline.py, CLI invocation patterns, and Ground Truth evaluation."""
 
   def test_pipeline_ast_has_zero_hardcoded_repo_branching(self) -> None:
-    src_path = WORKSPACE_ROOT / "pipeline.py"
+    src_path = _PIPELINE_PY
     source_text = src_path.read_text(encoding="utf-8")
     forbidden_names = ["juice-shop", "mall", "ref-codemender-test", "python-wsgi"]
     for forbidden in forbidden_names:
@@ -543,11 +559,11 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
   def test_cli_profile_and_dry_run_across_stacks(self) -> None:
     tmp_base = Path(tempfile.mkdtemp(prefix="test_cli_modes_"))
     try:
-      py_target = WORKSPACE_ROOT / "ref-codemender-test" / "src"
+      py_target = PY_TARGET_DIR
       # Pattern 1: python3 pipeline.py profile <target_dir> --output-dir <out_dir>
       out1 = tmp_base / "out1"
       res1 = subprocess.run(
-          [sys.executable, str(WORKSPACE_ROOT / "pipeline.py"), "profile", str(py_target), "--output-dir", str(out1)],
+          [sys.executable, str(_PIPELINE_PY), "profile", str(py_target), "--output-dir", str(out1)],
           capture_output=True,
           text=True,
           timeout=30,
@@ -563,7 +579,7 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
       # Pattern 2: python3 pipeline.py --dry-run <target_dir> --output-dir <out_dir>
       out2 = tmp_base / "out2"
       res2 = subprocess.run(
-          [sys.executable, str(WORKSPACE_ROOT / "pipeline.py"), "--dry-run", str(py_target), "--output-dir", str(out2)],
+          [sys.executable, str(_PIPELINE_PY), "--dry-run", str(py_target), "--output-dir", str(out2)],
           capture_output=True,
           text=True,
           timeout=30,
@@ -575,7 +591,7 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
       # Pattern 3: python3 pipeline.py <target_dir> --dry-run --output-dir <out_dir>
       out3 = tmp_base / "out3"
       res3 = subprocess.run(
-          [sys.executable, str(WORKSPACE_ROOT / "pipeline.py"), str(py_target), "--dry-run", "--output-dir", str(out3)],
+          [sys.executable, str(_PIPELINE_PY), str(py_target), "--dry-run", "--output-dir", str(out3)],
           capture_output=True,
           text=True,
           timeout=30,
@@ -593,7 +609,7 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
       (c_repo / "src/parser.c").write_text('#include "parser.h"\n#include <string.h>\nint parse_req(const char *b){ char d[32]; strcpy(d, b); return 0; }\n', encoding="utf-8")
       out_c = tmp_base / "out_c"
       res_c = subprocess.run(
-          [sys.executable, str(WORKSPACE_ROOT / "pipeline.py"), "profile", str(c_repo), "--output-dir", str(out_c)],
+          [sys.executable, str(_PIPELINE_PY), "profile", str(c_repo), "--output-dir", str(out_c)],
           capture_output=True,
           text=True,
           timeout=30,
@@ -617,7 +633,7 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
           continue
         out_real = tmp_base / f"out_{slug}"
         res_real = subprocess.run(
-            [sys.executable, str(WORKSPACE_ROOT / "pipeline.py"), "profile", str(tpath), "--output-dir", str(out_real)],
+            [sys.executable, str(_PIPELINE_PY), "profile", str(tpath), "--output-dir", str(out_real)],
             capture_output=True,
             text=True,
             timeout=60,
@@ -633,18 +649,21 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
           self.assertTrue(any("OmsOrderDao.xml" in f for f in preal["active_files"]))
         elif slug == "js":
           self.assertIn("frontend", preal["excluded_dirs"])
+          self.assertIn("password_recovery", preal["detected_sinks"])
           tw_map = {tw["wrapper"]: tw["delegates_to"] for tw in preal["thin_wrappers"]}
           self.assertIn("app.ts", tw_map)
           self.assertIn("server.ts", tw_map["app.ts"])
+          self.assertIn("routes/videoHandler.ts", tw_map)
+          self.assertIn("views/promotionVideo.pug", tw_map["routes/videoHandler.ts"])
     finally:
       shutil.rmtree(tmp_base, ignore_errors=True)
 
   def test_evaluate_ground_truth_findings_11_of_11_and_zero_fp(self) -> None:
     for report_name in ("py_06_quick_38flash_c3_hybrid_report.json", "py_12_deep_4argon_c3_report.json"):
-      report_path = WORKSPACE_ROOT / "eval_results" / report_name
+      report_path = PY_EVAL_RESULTS_DIR / report_name
       if report_path.is_file():
         findings = json.loads(report_path.read_text(encoding="utf-8"))
-        gt = pipeline.evaluate_ground_truth_findings(findings, target_dir=WORKSPACE_ROOT / "ref-codemender-test" / "src")
+        gt = pipeline.evaluate_ground_truth_findings(findings, target_dir=PY_TARGET_DIR)
         self.assertTrue(gt["applicable"])
         self.assertEqual(gt["gt_hits"], 11, f"Expected 11/11 GT hits for {report_name}, got {gt}")
         self.assertEqual(gt["gt_total"], 11)
@@ -668,9 +687,9 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
   def test_stage2_run_universal_scan_mocked_execution(self) -> None:
     tmp_out = Path(tempfile.mkdtemp(prefix="test_stage2_scan_"))
     try:
-      py_target = WORKSPACE_ROOT / "ref-codemender-test" / "src"
+      py_target = PY_TARGET_DIR
       sample_findings = json.loads(
-          (WORKSPACE_ROOT / "eval_results" / "py_06_quick_38flash_c3_hybrid_report.json").read_text(encoding="utf-8")
+          (PY_EVAL_RESULTS_DIR / "py_06_quick_38flash_c3_hybrid_report.json").read_text(encoding="utf-8")
       )
 
       def fake_run(cmd, *args, **kwargs):

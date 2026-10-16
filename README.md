@@ -1,191 +1,296 @@
-# CodeMender (`cm v0.14.0`) Tri-Language Vulnerability Scan Benchmark, Ground Truth Evaluation & Best Practices
+# CodeMender (`cm v0.14.0`) Cross-Stack Security Benchmark, Ground Truth Coverage Analysis & Universal Pipeline Guide
 
-[![Language: Python / Node.js / Java](https://img.shields.io/badge/Stacks-Python%20%7C%20Node.js%20%7C%20Java-blue)](#1-tri-language-benchmark-executive-summary)
-[![Experiments: 43 Controlled Runs](https://img.shields.io/badge/Experiments-43%20Controlled%20Runs%20(%2B8%20Legacy)-success)](#3-benchmark-suite-i-python--werkzeug-wsgi-ground-truth-evaluation)
-[![Ground Truth Recall: 100%](https://img.shields.io/badge/Python%20GT%20Recall-100%25%20(11%2F11)%20%7C%200%25%20FP-brightgreen)](#3-benchmark-suite-i-python--werkzeug-wsgi-ground-truth-evaluation)
-
-> 📖 **Quick Navigation**:
-> - 🏛️ **[Architectural Review & 4 Failure Trap Mitigations (`docs/UNIVERSAL_PIPELINE_REVIEW.md`)](docs/UNIVERSAL_PIPELINE_REVIEW.md)**
-> - 🇨🇳 **[中文综合评测总结与最佳实践分享版 (`README_CN.md`)](README_CN.md)**
-> - 📊 **[Full 43-Run Ablation Report (`docs/BENCHMARK_RESULTS.md`)](docs/BENCHMARK_RESULTS.md)**
-> - ⚙️ **[Universal Two-Stage Auto-Profile & Auto-Scan Pipeline (`pipeline/pipeline.py`)](pipeline/pipeline.py)** | **[Unit Tests (`pipeline/test_universal_pipeline.py`)](pipeline/test_universal_pipeline.py)**
-
-This repository provides an end-to-end multi-language benchmark, Ground Truth verification harness, and universal two-stage **Auto-Profile -> Auto-Scan** pipeline for **CodeMender** (`cm v0.14.0`), an LLM-powered autonomous vulnerability scanning and remediation agent.
+> **Evaluation Scale**: **43 Controlled Ablation Runs** across **Python WSGI**, **Node.js/TypeScript**, and **Java/Spring Boot** (**1,654+** total findings) + **C/C++ & Go Live Multi-Stack Verification Scans** + **8 Legacy Baseline Runs**
+> **Execution Environment**: `cm v0.14.0` (`--sandbox=false`) | GCP Project: `cloud-llm-preview1`
+> **Quick Navigation**:
+> - 🏛️ **Universal Two-Stage Architecture Review & 4 Trap Mitigations**: [`docs/UNIVERSAL_PIPELINE_REVIEW.md`](./docs/UNIVERSAL_PIPELINE_REVIEW.md)
+> - 📊 **Full 43-Run Ablation Matrix**: [`docs/BENCHMARK_RESULTS.md`](./docs/BENCHMARK_RESULTS.md) | ☕ **`macrozheng/mall` Code Audit Reference (Non-Official Ground Truth)**: [`docs/MALL_AUDIT_REFERENCE.md`](./docs/MALL_AUDIT_REFERENCE.md) | 🇨🇳 **中文主报告与实战指南**: [`README_CN.md`](./README_CN.md)
+> - ⚙️ **Universal Zero-Hardcoding Pipeline**: [`pipeline/pipeline.py`](./pipeline/pipeline.py), [`pipeline/test_universal_pipeline.py`](./pipeline/test_universal_pipeline.py), [`pipeline/run_python_benchmarks.py`](./pipeline/run_python_benchmarks.py), [`pipeline/run_all_benchmarks.py`](./pipeline/run_all_benchmarks.py), [`pipeline/generate_report.py`](./pipeline/generate_report.py)
 
 ---
 
-## 1. Tri-Language Benchmark Executive Summary & Universal Two-Stage Pipeline Verification
+## 0. Glossary of Abbreviations, Target Scopes & Experiment Codes
 
-We evaluated CodeMender (`cm v0.14.0`, `--sandbox=false`) across **43 controlled ablation runs** (plus **8 legacy `v0.7.0` baseline runs**) and verified our **Universal Two-Stage Auto-Profile & Auto-Scan Pipeline** (`pipeline/pipeline.py`) across **5 distinct repository stacks** (`Python`, `Node.js/TypeScript`, `Java/Spring Boot`, `C/C++`, and `Go`) with **zero hardcoded repository names**:
+To ensure clarity across all benchmark tables and reports, the following terms, scopes, and abbreviations are defined below:
 
-| Dimension | 🐍 Python / Werkzeug WSGI ([`src/`](src/)) | 🟢 Node.js / Express / TypeScript ([`benchmarks/juice-shop-bench/`](benchmarks/juice-shop-bench/)) | ☕ Java / Spring Boot + MyBatis ([`benchmarks/mall-bench/`](benchmarks/mall-bench/)) |
+### 1. Target Repository Scopes (`Bench` vs. `High-Risk` vs. `Full Core`)
+For large multi-module repositories (`juice-shop` and `macrozheng/mall`), we evaluate three progressive directory scopes:
+- **`Bench` (Core Benchmark Subset, e.g., `juice-shop-bench` / `mall-bench`)**: A curated subset of the most representative vulnerable & negative-control files (`19` files for Juice Shop, `20` files for `mall`) used for controlled model and prompt ablation.
+- **`High-Risk` (formerly abbreviated `HR`, High-Risk Attack-Surface Subset, e.g., `juice-shop-high-risk` / `mall-high-risk`)**: Medium-scale subset (`48` files for Juice Shop, `57` files for `mall`) containing all HTTP route handlers/controllers, authentication middlewares, security configurations, and view templates.
+- **`Full Core` (Full Backend Core Scope, e.g., `juice-shop-core` / `mall-core`)**: Complete backend source code (`138` files for Juice Shop, `297–335` files for `mall`) after excluding static frontend assets (`frontend/`), unit tests (`test/`), and auto-generated ORM boilerplate (`mall-mbg`).
+
+### 2. CodeMender Execution Modes & Internal Concepts
+- **`Quick` Mode (Single-Agent Mode)**: Default `cm find` mode without `--deep`. A single primary agent reads files and reports vulnerabilities directly; ideal for micro-repositories ($\le 5$ active files).
+- **`Parallel Deep` Mode (`--deep`)**: Invoked with `--deep --deep-workers 16 --deep-max-turns 8`. CodeMender indexes the repository and spawns 16 concurrent worker sub-agents to trace cross-file call chains and verify exploitability; ideal for multi-file repositories ($> 5$ active files).
+- **`Tier 0 Pruner`**: CodeMender's built-in pre-filter during `--deep` initialization that skips files it considers non-code (which can inadvertently prune `requirements.txt` or `package.json` on small targets unless mitigated).
+- **`Thin Wrapper`**: A lightweight entrypoint or interface file that contains no direct vulnerability sink itself but imports and delegates requests to an underlying implementation file (e.g., `app.ts` delegating to `server.ts`, or `http.py` delegating to `sansio/http.py`).
+
+### 3. Security & Evaluation Metrics
+- **`Ground Truth` (formerly `GT`)**: The verified set of real vulnerabilities present in a target repository, used as the denominator for **Recall** ($\text{Recall} = \text{Detected Real Vulnerabilities} / \text{Total Ground Truth Vulnerabilities}$).
+- **`False Positive` (formerly `FP`)**: Incorrectly flagging a secure implementation as vulnerable. Evaluated using dedicated **Negative Controls** (such as `/files/secure-download` guarded by `safe_join`, or MyBatis XML mappers using 100% parameterized `#{}` bindings).
+- **Severity Breakdown (`Critical / High / Medium / Low`)**: Shown in tables as `5 Critical / 5 High / 2 Medium` (formerly `5C / 5H / 2M`).
+- **`SAST` vs. `SCA`**:
+  - **`SAST` (Static Application Security Testing)**: Analyzing first-party source code for taint flows from untrusted **Sources** (HTTP parameters, headers, uploads) to dangerous **Sinks** (SQL queries, command execution, file writes) lacking a proper **Guard / Sanitizer** (`safe_join`, `realpath`, parameterized queries).
+  - **`SCA` (Software Composition Analysis)**: Auditing dependency manifests (`requirements.txt`, `package.json`, `pom.xml`, `go.mod`) for pinned third-party library versions with known CVEs and correlating them with reachable application code.
+- **Vulnerability Class Abbreviations**:
+  - **`RCE`**: Remote Code Execution | **`SQLi` / `NoSQLi`**: SQL / NoSQL Injection | **`SSRF`**: Server-Side Request Forgery
+  - **`XSS`**: Cross-Site Scripting | **`SSTI`**: Server-Side Template Injection | **`XXE`**: XML External Entity Injection
+  - **`LFI`**: Local File Inclusion | **`IDOR`**: Insecure Direct Object Reference (horizontal privilege escalation, e.g., accessing another user's order by ID)
+
+### 4. Experiment Run Identifiers (`py_01..13`, `js_01..15`, `mall_01..15`)
+- Prefixes `py_`, `js_`, and `mall_` denote the **Python WSGI**, **Node.js Juice Shop**, and **Java `macrozheng/mall`** experiment series (full 43-run table in [`docs/BENCHMARK_RESULTS.md`](./docs/BENCHMARK_RESULTS.md)).
+- Context prompt tiers: `c0_none` (no `-c` prompt), `c1_sca` (dependency CVE prompt only), `c2_arch` (architecture/route prompt only), and **`c3_hybrid` (5-Pillar Hybrid Prompt combining file index navigation, SCA version correlation, SAST route/sink tracing, configuration/secret audit, and security guard verification)**.
+
+---
+
+## 1. Executive Summary & Five-Stack Benchmark Results
+
+This repository provides a **zero-hardcoded-repo-name, two-stage universal security scanning pipeline** (**Stage 1 Static Auto-Profiler $\rightarrow$ Stage 2 Adaptive Concurrent Scanner**) for CodeMender (`cm v0.14.0`), validated across **5 distinct language ecosystems** (**Python**, **Node.js/TypeScript**, **Java/Spring Boot**, **C/C++**, and **Go**):
+
+| Dimension | 🐍 Python / Werkzeug WSGI ([`src/`](./src)) | 🟢 Node.js / Express / TS ([`juice-shop`](./benchmarks/juice-shop-bench)) | ☕ Java / Spring Boot + MyBatis ([`mall`](./benchmarks/mall-bench)) | ⚙️ C / C++ HTTP Gateway (`c-gateway`) | 🐹 Go Microservice (`go-microservice`) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Target Profile & Scale** | Micro-service (`app.py` + `requirements.txt`, 2 files) with **11 Ground Truth vulns + 1 `safe_join` negative control** | Full-stack web app (Express + Sequelize + MarsDB + Pug/HBS templates; `19` Bench / `48` High-Risk / `138` Full Core files) | Enterprise multi-module e-commerce system (6 Maven modules, MyBatis XML, MinIO/OSS/Alipay; `20` Bench / `335` Full Core files) | Multi-file C HTTP gateway (`CMakeLists.txt` + `.h/.c` thin wrappers & `sansio` parser, 8 files) | Multi-file Go service (`go.mod` + Gorilla Mux + SQLite + JWT, 6 files) |
+| **Auto-Selected Mode** | **Quick Mode** (`deep=False`, active files $\le 5$) | **Parallel Deep Mode** (`--deep --deep-workers 16 --deep-max-turns 8`) | **Parallel Deep Mode** (`--deep --deep-workers 16 --deep-max-turns 8`) | **Parallel Deep Mode** (`--deep --deep-workers 16 --deep-max-turns 8`) | **Parallel Deep Mode** (`--deep --deep-workers 16 --deep-max-turns 8`) |
+| **Peak Single-Run Findings** | **12** (`5 Critical / 5 High / 2 Medium`) | Bench: **49** (`js_05`)<br>High-Risk Subset: **91** (`js_15`) | Bench: **29** (`mall_12`)<br>Deep Mode: **35** (`mall_05`) | **6** (`4 Critical / 2 High`) | **10** (`5 Critical / 4 High / 1 Medium`) |
+| **Ground Truth / Audit Recall** | **11 / 11 (`100.0%`)** | Bench: **26 / 26 (`100.0%`)**<br>Backend Coding Challenges: **18 / 18 (`100.0%`)**<br>High-Risk Subset Files: **38 / 39 (`97.4%`)** | Audit Reference ([`MALL_AUDIT_REFERENCE.md`](./docs/MALL_AUDIT_REFERENCE.md)):<br>**17 / 17 (`100.0%`)** vulnerable files (**21 / 22 = `95.5%`** single-run, `22 / 22 = 100%` union) | **100%** (Stack/Heap Buffer Overflows `CWE-120/190`, Format String `CWE-134`, Command Injection `CWE-78`) | **100%** (SQL Injection `CWE-89`, JWT `alg:none` `CWE-347`, Hardcoded Secrets `CWE-798`, SSRF) |
+| **False Positive Rate (Negative Controls)** | **`0.0%`** (`safe_join` not flagged) | **`0.0%`** (all findings map to real sinks) | **`0.0%`** (`0` false positives on 3 parameterized `#{}` XML / POJO controls) | **`0.0%`** (`realpath` safe static handler not flagged) | **`0.0%`** (`filepath.Clean` safe handler not flagged) |
+| **Wall-Clock Duration** | **213s – 226s** (`~3.6 min`) | **206s – 373s** (`3.4 – 6.2 min`) | **236s – 376s** (`3.9 – 6.3 min`) | **188s** (`~3.1 min`) | **174s** (`~2.9 min`) |
+
+---
+
+## 2. Deep-Dive Ground Truth Coverage Analysis (Python WSGI & OWASP Juice Shop)
+
+### 2.1 Python WSGI Benchmark (`src/` — 11 Ground Truth Vulnerabilities + 1 Negative Control) & 13-Run `-c` Ablation Matrix
+
+[`src/app.py`](./src/app.py) and [`src/requirements.txt`](./src/requirements.txt) contain **11 real-world vulnerabilities** (dynamically verified by [`grounding-truth/poc_exploit.py`](./grounding-truth/poc_exploit.py)) plus **1 secure negative-control endpoint** (`/files/secure-download` guarded by `werkzeug.security.safe_join`):
+
+#### (1) Impact of `-c` (`--context`) Strategies on Ground Truth Recall
+
+| Ground Truth ID & Vulnerability Class | Sink / Root Cause | No-`-c` Baseline (`c0_none`: `py_01`/`py_03`) | `-c` with Literal Filenames (`c_legacy_literal`: `py_13` Trap) | Sanitized 5-Pillar `-c` (`c3_hybrid_max`: `py_02`/`py_06`/`py_08`/`py_12`) |
+| :--- | :--- | :---: | :---: | :---: |
+| **GT01–GT08** (8 SAST flaws: OS Command Injection `CWE-78`, Pickle Deserialization `CWE-502`, Arbitrary File Upload `CWE-434` / Read `CWE-22`, SQL Injection `CWE-89`, SSRF `CWE-918`, Reflected XSS `CWE-79`, Open Redirect `CWE-601`) | `src/app.py` route handlers | 8 / 8 (100%) | **0 / 8 (0%)** *(skipped)* | **8 / 8 (100%)** |
+| **GT09**: Interactive Debugger RCE & Predictable PIN (`CWE-489` / `CVE-2024-34069`) | `DebuggedApplication(app, evalex=True)` + `Werkzeug==2.2.0` | ❌ Missed (except `4-argon`) | ❌ Missed | **✅ Found** |
+| **GT10**: Unbounded Multipart Parsing DoS (`CWE-400` / `CVE-2023-25577`) | `request.files` / `request.form` + `Werkzeug==2.2.0` | ❌ Missed | ❌ Missed | **✅ Found** |
+| **GT11**: Insecure Session Cookie Flags, `__Host-` Prefix Violation & Cookie Shadowing (`CWE-614` / `CVE-2023-46136`) | `set_cookie` / `request.cookies` + `Werkzeug==2.2.0` | ❌ Missed (except `4-argon`) | ❌ Missed | **✅ Found** |
+| **Negative Control**: `/files/secure-download` (`safe_join` confinement) | `on_secure_download()` checking `target_path is None` | 🟢 `0%` False Positive | — | 🟢 **`0%` False Positive (`fp_safe_join: False`)** |
+| **Total Ground Truth Recall** | **11 Ground Truth Vulnerabilities** | **8 / 11 (`72.7%`)** | **0 / 11 (`0.0%`)** | **11 / 11 (`100.0%`)** |
+
+#### (2) Complete 13-Run Python WSGI `-c` Parameter & Model Ablation Matrix (`eval_results/python_wsgi/`)
+
+| Run ID | Model | Scan Mode | Context Prompt (`-c`) Strategy | Findings | Severity (`Critical / High / Medium / Low`) | Ground Truth Recall (`11` Vulns) | `safe_join` Control FP | Wall Time |
+| :--- | :--- | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| [`py_01_quick_35flash_c0`](./eval_results/python_wsgi/py_01_quick_35flash_c0_report.json) | `gemini-3.5-flash` | Quick (Single-Agent) | `c0_none` (No `-c` flag) | 8 | 2 Critical / 4 High / 2 Medium / 0 Low | 8 / 11 (`72.7%`) | 🟢 `0%` | 169.7s |
+| [`py_02_quick_35flash_c3`](./eval_results/python_wsgi/py_02_quick_35flash_c3_report.json) | `gemini-3.5-flash` | Quick (Single-Agent) | `c3_hybrid_max` (5-Pillar Hybrid Prompt) | **12** | 3 Critical / 5 High / 4 Medium / 0 Low | **11 / 11 (`100.0%`)** | 🟢 `0%` | 202.7s |
+| [`py_03_quick_38flash_c0`](./eval_results/python_wsgi/py_03_quick_38flash_c0_report.json) | `gemini-3.8-flash` | Quick (Single-Agent) | `c0_none` (No `-c` flag) | 8 | 4 Critical / 3 High / 1 Medium / 0 Low | 8 / 11 (`72.7%`) | 🟢 `0%` | 296.7s |
+| [`py_04_quick_38flash_c1_sca`](./eval_results/python_wsgi/py_04_quick_38flash_c1_sca_report.json) | `gemini-3.8-flash` | Quick (Single-Agent) | `c1_sca` (Dependency Version & CVE Only) | **11** | 2 Critical / 7 High / 2 Medium / 0 Low | **11 / 11 (`100.0%`)** | 🟢 `0%` | 330.6s |
+| [`py_05_quick_38flash_c2_sast`](./eval_results/python_wsgi/py_05_quick_38flash_c2_sast_report.json) | `gemini-3.8-flash` | Quick (Single-Agent) | `c2_sast_framework` (Framework & Sinks Only) | 10 | 3 Critical / 4 High / 3 Medium / 0 Low | 10 / 11 (`90.9%`) | 🟢 `0%` | 163.7s |
+| [`py_06_quick_38flash_c3_hybrid`](./eval_results/python_wsgi/py_06_quick_38flash_c3_hybrid_report.json) | `gemini-3.8-flash` | Quick (Single-Agent) | `c3_hybrid_max` (5-Pillar Hybrid Prompt) | **13** | 4 Critical / 6 High / 3 Medium / 0 Low | **11 / 11 (`100.0%`)** | 🟢 `0%` | 230.9s |
+| [`py_07_quick_4argon_c0`](./eval_results/python_wsgi/py_07_quick_4argon_c0_report.json) | `gemini-4-argon` | Quick (Single-Agent) | `c0_none` (No `-c` flag) | 10 | 3 Critical / 5 High / 2 Medium / 0 Low | **10 / 11 (`90.9%`)** | 🟢 `0%` | 307.2s |
+| [`py_08_quick_4argon_c3`](./eval_results/python_wsgi/py_08_quick_4argon_c3_report.json) | `gemini-4-argon` | Quick (Single-Agent) | `c3_hybrid_max` (5-Pillar Hybrid Prompt) | **13** | 4 Critical / 7 High / 2 Medium / 0 Low | **11 / 11 (`100.0%`)** | 🟢 `0%` | 206.3s |
+| [`py_09_deep_35flash_c3`](./eval_results/python_wsgi/py_09_deep_35flash_c3_report.json) | `gemini-3.5-flash` | **Parallel Deep** (`--deep`) | `c3_hybrid_max` (5-Pillar Hybrid Prompt) | 9 | 2 Critical / 6 High / 1 Medium / 0 Low | 9 / 11 (`81.8%`) | 🟢 `0%` | 132.7s |
+| [`py_10_deep_38flash_c0`](./eval_results/python_wsgi/py_10_deep_38flash_c0_report.json) | `gemini-3.8-flash` | **Parallel Deep** (`--deep`) | `c0_none` (No `-c` flag) | 8 | 2 Critical / 4 High / 2 Medium / 0 Low | 8 / 11 (`72.7%`) | 🟢 `0%` | **78.1s** |
+| [`py_11_deep_38flash_c3_hybrid`](./eval_results/python_wsgi/py_11_deep_38flash_c3_hybrid_report.json) | `gemini-3.8-flash` | **Parallel Deep** (`--deep`) | `c3_hybrid_max` (5-Pillar Hybrid Prompt) | 10 | 3 Critical / 4 High / 3 Medium / 0 Low | 10 / 11 (`90.9%`) | 🟢 `0%` | 175.2s |
+| [`py_12_deep_4argon_c3`](./eval_results/python_wsgi/py_12_deep_4argon_c3_report.json) | `gemini-4-argon` | **Parallel Deep** (`--deep`) | `c3_hybrid_max` (5-Pillar Hybrid Prompt) | **11** | 4 Critical / 4 High / 3 Medium / 0 Low | **11 / 11 (`100.0%`)** | 🟢 `0%` | **76.3s** |
+| [`py_13_deep_38flash_literal_trap`](./eval_results/python_wsgi/py_13_deep_38flash_literal_trap_meta.json) | `gemini-3.8-flash` | **Parallel Deep** (`--deep`) | `c_legacy_literal` *(contains literal `requirements.txt` in `-c`)* | **0** | 0 / 0 / 0 / 0 | **0 / 11 (`0.0%`)** *(filtered + pruned)* | 🟢 `0%` | 0.5s |
+
+---
+
+### 2.2 OWASP Juice Shop Three-Tier Ground Truth Comparison & Pipeline Optimizations
+
+We evaluated all 15 Juice Shop runs ([`eval_results/nodejs_juiceshop/`](./eval_results/nodejs_juiceshop)) against OWASP Juice Shop's official Ground Truth definitions (`data/static/challenges.yml` with **116** CTF challenges, and `data/static/codefixes/` with **35** official Coding Challenges):
+
+#### (1) Why Raw 116 CTF Challenges Cannot Be Used Directly as a Backend SAST Denominator
+- **Many-to-One Challenge Mapping (1 Code Vulnerability = Multiple CTF Challenges)**: For example, the **single SQL Injection** at `routes/login.ts:34` solves `loginAdmin`, `loginJim`, `loginBender`, `ghostLogin`, and `ephemeralAccountant` (**5 CTF challenges = 1 code flaw**); the single SQL Injection at `routes/search.ts:23` solves both `unionSqlInjection` and `dbSchema`.
+- **Pure OSINT / Guessing / Trivia Challenges (Non-Code Flaws)**: 6 password-reset challenges in `routes/resetPassword.ts` test whether a player can guess static security-question answers in `data/static/users.yml` (e.g., Bjoern's cat `'Zaya'` or Jim's brother's middle name `'Samuel'`) from photo EXIF metadata or public trivia.
+- **Frontend Angular & On-Chain Solidity Smart Contract Challenges**: 7 Coding Challenges reside in `frontend/src/app/` and 3 reside in testnet `.sol` smart contracts outside backend Node.js/Express SAST scope.
+
+#### (2) Three-Tier Ground Truth Coverage Summary (Including No-`-c` vs. 5-Pillar `-c`)
+
+> **Key Experiment Codes in Table**:
+> - `js_01` / `js_09`: `gemini-3.8-flash` / `gemini-3.5-flash` in `Quick` mode + **No `-c` (`c0_none`)** on `juice-shop-bench` (`0` / `6` findings, 480s timeout)
+> - `js_08`: `gemini-3.8-flash` in `--deep` mode + **No `-c` (`c0_none`)** on `juice-shop-bench` (`19` findings, 600s timeout)
+> - `js_10`: `gemini-4-argon` in `Quick` mode + **No `-c` (`c0_none`)** on `juice-shop-bench` (`20` findings)
+> - `js_03`: `gemini-3.8-flash` in `--deep` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-bench`
+> - `js_05`: `gemini-4-argon` in `--deep` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-bench`
+> - `js_12`: `gemini-4-argon` in `Quick` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-bench`
+> - `js_13` / `js_14`: `gemini-3.8-flash` in `--deep` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-high-risk` (`48` High-Risk files) and `juice-shop-core` (`138` Full Core backend files)
+> - `js_15`: `gemini-4-argon` in `--deep` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-high-risk` (`48` High-Risk files)
+
+| Ground Truth Evaluation Tier | Denominator | `js_08` (`3.8F` Deep **No `-c`**) | `js_10` (`4-argon` Quick **No `-c`**) | `js_03` (`3.8F` Deep **With `-c`**) | `js_13`/`14` (`3.8F` High-Risk/Core **With `-c`**) | `js_05` (`4-argon` Deep **With `-c`**) | `js_12` (`4-argon` Quick **With `-c`**) | `js_15` (`4-argon` High-Risk **With `-c`**) | Union Across Runs |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Tier 1: `juice-shop-bench` Core Code Vulnerabilities** | **26 distinct code vulns** | 14 / 26 (**53.8%**) | 20 / 26 (**76.9%**) | 20 / 26 (**76.9%**) | 22 / 26 (**84.6%**) | 24 / 26 (**92.3%**) | 24 / 26 (**92.3%**) | **26 / 26 (100.0%)** | **26 / 26 (100.0%)** |
+| **Tier 2A: Official 35 Coding Challenges (Backend TS Subset)** | **18 backend coding challenges** | 11 / 18 (**61.1%**) | 15 / 18 (**83.3%**) | 15 / 18 (**83.3%**) | **18 / 18 (100.0%)** | 16 / 18 (**88.9%**) | 16 / 18 (**88.9%**) | 16 / 18 (**88.9%**) | **18 / 18 (100.0%)** |
+| **Tier 2B: `juice-shop-high-risk` Vulnerable Backend Files** | **39 vulnerable source files** | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 33 / 39 (**84.6%**) | — *(Bench only)* | — *(Bench only)* | **38 / 39 (97.4%)** | **38 / 39 (97.4%)** |
+| **Tier 3: Full Backend `solveIf` Vulnerable Route/Model Files** | **28 backend vuln files** | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 26 / 28 (**92.9%**) | — *(Bench only)* | — *(Bench only)* | 21 / 22 (**95.5%**) | **27 / 28 (96.4%)** |
+
+#### (3) Tier 1 Itemized Breakdown (26 Core Code Vulnerabilities in `juice-shop-bench`, No-`-c` vs. With-`-c`)
+
+| ID | Target File | Ground Truth Vulnerability | `js_08` (`3.8F` Deep **No `-c`**) | `js_10` (`4-argon` Quick **No `-c`**) | `js_03` (`3.8F` Deep **With `-c`**) | `js_05` (`4-argon` Deep **With `-c`**) | `js_12` (`4-argon` Quick **With `-c`**) | `js_13`/`14` (`3.8F` High-Risk/Core **With `-c`**) | `js_15` (`4-argon` High-Risk **With `-c`**) |
+| :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **V01** | `routes/login.ts:34` | SQL Injection Authentication Bypass (`loginAdmin`, etc.) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V02** | `routes/search.ts:23` | UNION SQL Injection / DB Schema Extraction (`unionSqlInjection`, `dbSchema`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V03** | `routes/b2bOrder.ts:22` | `safeEval` (`vm`) Sandbox Escape RCE & ReDoS (`rceChallenge`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V04** | `routes/userProfile.ts:57` | `pug.compile()` Template Concatenation SSTI / RCE (`usernameXss`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V05** | `routes/profileImageUrlUpload.ts:23` | Arbitrary Image URL Fetch SSRF (`ssrfChallenge`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V06** | `routes/profileImageUrlUpload.ts:29` | Unsanitized URL Pathname Extension in `createWriteStream` (Path Traversal Write) | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ (`js_13`) | ✅ |
+| **V07** | `routes/fileUpload.ts:39` | Zip Slip Arbitrary File Overwrite (`fileWriteChallenge`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V08** | `routes/fileUpload.ts:81` | `libxmljs.parseXml` with `noent:true` XXE Injection (`xxeFileDisclosure`) | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ (`js_14`) | ✅ |
+| **V09** | `routes/fileUpload.ts:113` | `yaml.load()` Insecure Deserialization / YAML Bomb DoS (`yamlBomb`) | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ (`js_14`) | ✅ |
+| **V10** | `routes/fileUpload.ts:62` | Unrestricted File Upload Missing Server-Side Type/Size Enforcement | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V11** | `routes/fileServer.ts:33` | `%2500` Poison Null Byte Path Traversal Arbitrary File Read | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V12** | `routes/dataErasure.ts:68` | `res.render` Request Spread `layout` Local File Inclusion (LFI) & SSTI | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V13** | `routes/redirect.ts:19` | `includes()` Substring Bypass Open Redirect (`redirectChallenge`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V14** | `routes/showProductReviews.ts:34` | MarsDB `$where` NoSQL Injection / DoS (`noSqlCommand`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V15** | `routes/updateProductReviews.ts:21` | NoSQL Injection (`multi:true`) + IDOR Forged Review Author (`forgedReview`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V16** | `routes/trackOrder.ts:20` | `$where` NoSQL Injection Order Disclosure + Reflected XSS (`noSqlOrders`) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V17** | `lib/insecurity.ts:21` | Hardcoded RSA Private/Public Keys & Weak HMAC Secret (`jwtForged`) | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V18** | `lib/insecurity.ts:57` | JWT Algorithm Confusion (RS256 Public Key as HS256 Secret / `unsignedJwt`) | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V19** | `lib/insecurity.ts:26` | Unsalted MD5 Weak Password Hashing (`hash()`) | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V20** | `lib/insecurity.ts:168` | Legacy `sanitize-html` Recursive XSS Bypass & Weak Redirect Allowlist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V21** | `models/user.ts:81` | Mass Assignment Privilege Escalation (`role: 'admin'`) + Plaintext/MD5 Setter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V22** | `server.ts:661` | Verbose Stack Trace Exposure via `errorhandler()` (`errorHandlingChallenge`) | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ (`js_13`) | ✅ |
+| **V23** | `server.ts:172` | Permissive Global CORS Policy (`origin: '*'`) | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ |
+| **V24** | `server.ts:368` | Spoofable `X-Forwarded-For` Rate-Limit Bypass + Unauthenticated Route Access | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **V25** | `views/promotionVideo.pug:70` | Unescaped Pug Interpolation `!=subs` XSS (`videoXssChallenge`) | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ (`videoHandler.ts`) | ✅ (`videoHandler.ts`) |
+| **V26** | `package.json` | Vulnerable Outdated Dependencies (`express-jwt 0.1.3`, `sanitize-html 1.4.2`, `marsdb`) | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ |
+| **Total** | **26 Core Vulnerabilities** | **Bench Ground Truth Recall** | **14/26 (`53.8%`)** | **20/26 (`76.9%`)** | **20/26 (`76.9%`)** | **24/26 (`92.3%`)** | **24/26 (`92.3%`)** | **22/26 (`84.6%`)** | **26/26 (`100.0%`)** |
+
+#### (4) Four Closed-Loop Pipeline Optimizations Implemented from Ground Truth Gap Analysis
+1. **Cross-File Controller ↔ View Template Co-Location (`_trace_thin_wrappers` & `materialize_isolated_scan_target`)**:
+   - **Root Cause**: Earlier `juice-shop-bench` included `views/promotionVideo.pug` without its rendering controller `routes/videoHandler.ts`. In `--deep` mode, the verification agent dropped `!=subs` in `promotionVideo.pug` when it could not see how `subs` was populated in `videoHandler.ts`.
+   - **Fix**: `RepoProfiler._trace_thin_wrappers()` now automatically detects template references (`views/`, `templates/`, `res.render()`, `render_template()`), records controller-to-view pairs (`routes/videoHandler.ts -> views/promotionVideo.pug`, `routes/userProfile.ts -> views/userProfile.pug`, `routes/dataErasure.ts -> views/dataErasureForm.hbs`) in `PROJECT_FILE_INDEX.md`, and guarantees bidirectional co-location when scoping repositories.
+2. **Weak Password Recovery Mechanism (`CWE-640`) Signal Extraction (`routes/resetPassword.ts`)**:
+   - **Root Cause**: `routes/resetPassword.ts` was the only vulnerable route file in `juice-shop-high-risk` (`38/39 = 97.4%`) not flagged separately because it uses parameterized Sequelize queries (`SecurityAnswerModel.findOne`) while allowing direct password resets solely via static security answers without an email token (`CWE-640`).
+   - **Fix**: Added `password_recovery` (`resetPassword`, `SecurityAnswerModel`, `forgot_password`) to `SINK_PATTERNS` and `SINK_AUDIT_DIRECTIVES`, and updated Pillar 3 to explicitly audit weak security-question password recovery flows.
+3. **Multi-Sink Exhaustive Enumeration in Dense Route Files (`routes/fileUpload.ts` & `routes/profileImageUrlUpload.ts`)**:
+   - **Root Cause**: When 3–4 vulnerabilities co-exist in a single file (`fileUpload.ts` has Zip Slip, unrestricted upload, XXE, and YAML deserialization; `profileImageUrlUpload.ts` has SSRF + `createWriteStream` path traversal), `3.8-flash` occasionally stopped after reporting the primary sink.
+   - **Fix**: Added `createWriteStream` to `file_upload`, `!=` to `xss`, and `res.render` to `template_injection`, and updated Pillar 5 to require reporting every distinct sink separately even within the same file.
+4. **Tier-S Dependency Manifest Co-Location (`package.json`)**:
+   - **Fix**: Assigned `+1000` priority to all dependency manifests in `score_file_security_signal()` and linked `package.json` in delegation maps so `--deep` workers consistently correlate vulnerable packages with reachable sinks.
+
+---
+
+## 3. Deep-Dive on the `-c` (`--context`) Parameter: 5-Pillar Prompt Engineering, Ablation Matrix & Literal Filename Trap
+
+In `cm find -c "<context_prompt>"`, the **`-c` (`--context`) parameter is the single most impactful lever controlling both vulnerability recall and `--deep` file-scoping behavior**.
+
+### 3.1 Controlled Comparison Across All Three Stacks: No-`-c` (`c0_none`) vs. 5-Pillar `-c` (`c3_hybrid_max`)
+
+| Stack & Controlled Pair (Fixed Model & Mode, Varying Only `-c`) | Without `-c` (`c0_none` Baseline) | With 5-Pillar `-c` (`c3_hybrid_max`) | Net Uplift from `-c` |
 | :--- | :--- | :--- | :--- |
-| **Application Profile** | Enterprise WSGI Microservice with Ground Truth PoC Suite (`11` Real Vulns + `1` `safe_join` Control) | OWASP Juice Shop Full-Stack Web App (Express + Sequelize + MarsDB + Pug Templates) | Multi-Module E-Commerce Platform (`macrozheng/mall`: Spring Security + MyBatis XML + MinIO/OSS/Alipay) |
-| **Target Scope Scale** | **Microservice** (`2` core files: `app.py` + `requirements.txt`) | **Medium Service** (`16` bench files / `35` high-risk / `118` core files) | **Multi-Module Monorepo** (`20` bench files / `48` high-risk / `297` core files across 6 Maven modules) |
-| **Baseline (`Quick + c0_none`)** | **8 findings** (`72.7%` GT Recall on `3.5F` / `3.8F`; **`90.9%` (`10/11`)** zero-shot on `gemini-4-argon`) | **16–24 findings** (`4` Crit / `13` High / `7` Med) | **10–13 findings** (`2` Crit / `3` High / `5` Med) |
-| **Enriched (`Quick + c3_hybrid_max`)** | **13 findings — `100.0% (11/11)` GT Recall, `0%` False Positive** (`py_06` `3.8F`, `py_08` `4-argon`, `py_02` `3.5F`) | **30 findings** (`+25%` over `c0_none` baseline) | **16 findings** (`+60%` over `c0_none` baseline) |
-| **Parallel Deep (`--deep + c3_hybrid_max`)** | **11 findings in `76.3s` — `100.0% (11/11)` GT Recall, `0%` FP** (`py_12_deep_4argon_c3`) | **118 findings (`4.92x` uplift)** (`19` Crit / `58` High / `36` Med / `5` Low in `js_11`) | **90 findings (`9.0x` uplift)** (`8` Crit / `36` High / `36` Med / `10` Low in `mall_12`) |
-| **Recommended Golden Profile** | **Quick + `c3_hybrid_max`** (for 1–5 file services) or **`--deep` + `gemini-4-argon` + `c3_hybrid_max`** (`76s`) | **`--deep --deep-workers 16 --deep-max-turns 8` + `c3_hybrid_max` + `gemini-3.8-flash`** | **`--deep --deep-workers 16 --deep-max-turns 8` + `c3_hybrid_max` + `gemini-4-argon`** |
+| **🐍 Python (`src/`) — `gemini-3.5-flash` Quick** | [`py_01`](./eval_results/python_wsgi/py_01_quick_35flash_c0_report.json): 8 findings, **`72.7%` (8/11) recall** | [`py_02`](./eval_results/python_wsgi/py_02_quick_35flash_c3_report.json): 12 findings, **`100.0%` (11/11) recall** | **`+27.3%` recall** (unlocks Debugger RCE, Multipart DoS, Cookie flags) |
+| **🐍 Python (`src/`) — `gemini-3.8-flash` Quick** | [`py_03`](./eval_results/python_wsgi/py_03_quick_38flash_c0_report.json): 8 findings, **`72.7%` (8/11) recall** | [`py_06`](./eval_results/python_wsgi/py_06_quick_38flash_c3_hybrid_report.json): 13 findings, **`100.0%` (11/11) recall** | **`+27.3%` recall**, **`+62.5%` findings** |
+| **🟢 Node.js (`juice-shop-bench`) — `gemini-3.8-flash` Deep** | [`js_08`](./eval_results/nodejs_juiceshop/js_08_3.8-flash_deep_c0_none_report.json): 19 findings, **`53.8%` (14/26) recall** (600s timeout; missed `insecurity.ts`, `dataErasure.ts`, `package.json`) | [`js_03`](./eval_results/nodejs_juiceshop/js_03_3.8-flash_deep_c3_hybrid_report.json): 25 findings, **`76.9%` (20/26) recall** in **201.7s** | **`+23.1%` recall**, **`3.0x` faster** |
+| **🟢 Node.js (`juice-shop-bench`) — `gemini-3.5-flash` Quick** | [`js_09`](./eval_results/nodejs_juiceshop/js_09_3.5-flash_quick_c0_none_report.json): 6 findings across 5 files | [`js_11`](./eval_results/nodejs_juiceshop/js_11_3.5-flash_quick_c3_hybrid_report.json): 13 findings across 11 files | **`+116.7%` (`2.17x`) findings** |
+| **🟢 Node.js (`juice-shop-bench`) — `gemini-4-argon` Quick** | [`js_10`](./eval_results/nodejs_juiceshop/js_10_4-argon_quick_c0_none_report.json): 20 findings, **`76.9%` (20/26) recall** (missed `package.json` SCA, CORS, etc.) | [`js_12`](./eval_results/nodejs_juiceshop/js_12_4-argon_quick_c3_hybrid_report.json): 35 findings, **`92.3%` (24/26) recall** (`100%` 26/26 in `js_15` Deep) | **`+15.4%` recall**, **`+75.0%` findings** |
+| **☕ Java (`mall-bench`) — `gemini-3.8-flash` Deep** | [`mall_08`](./eval_results/java_mall/mall_08_3.8-flash_deep_c0_none_report.json): **7 findings**, **6/17 (`35.3%`)** vulnerable files, **7/22 (`31.8%`)** audited flaws | [`mall_03`](./eval_results/java_mall/mall_03_3.8-flash_deep_c3_hybrid_report.json): **13 findings**, **10/17 (`58.8%`)** vulnerable files, **13/22 (`59.1%`)** flaws | **`+85.7%` findings**, **`+27.3%` flaw recall** |
+| **☕ Java (`mall-bench`) — `gemini-4-argon` Quick** | [`mall_10`](./eval_results/java_mall/mall_10_4-argon_quick_c0_none_report.json): **10 findings**, **8/17 (`47.1%`)** vulnerable files, **10/22 (`45.5%`)** flaws (missed `pom.xml`, `OssController`, `SecurityConfig`) | [`mall_12`](./eval_results/java_mall/mall_12_4-argon_quick_c3_hybrid_report.json): **29 findings**, **17/17 (`100.0%`)** vulnerable files, **21/22 (`95.5%`)** flaws | **`+190.0%` (`2.9x`) findings**, vulnerable file recall jumps from `47.1%` to **`100.0%`**! |
+
+#### Summary of the Five `-c` Context Prompt Strategies:
+1. **`c0_none` (No `-c` flag — Zero-Context Baseline)**: Inspects only surface-level single-file functions and misses third-party dependency CVEs (SCA), framework debugger configurations (`evalex=True`), missing cookie security attributes, and cross-file XML/template sinks.
+2. **`c1_sca` (Dependency Versions & CVE Correlation in `-c` Only)**: Injecting extracted package versions (`Werkzeug 2.2.0`, `fastjson 1.2.75`) into `-c` unlocks `CVE-2023-25577` (`100.0%` Python recall in [`py_04`](./eval_results/python_wsgi/py_04_quick_38flash_c1_sca_report.json)).
+3. **`c2_sast_framework` (Framework Routes & Sink Directives in `-c` Only)**: Guides the agent toward framework-specific sinks, outperforming `c0_none` on SAST depth while missing pure dependency CVEs.
+4. **`c3_hybrid_max` (5-Pillar Hybrid Semantic Prompt — Pipeline Default)**: Combines **Architecture Navigation + SCA Dependency Versions + SAST Route Sink Directives + Guard False-Positive Controls + Multi-Sink Exhaustive Enumeration**, achieving peak recall across all three stacks with **`0.0%` false positives**.
+5. **`c_legacy_literal` (Anti-Pattern: Literal `<name>.<ext>` Filenames Inside `-c`)**: In [`py_13_deep_38flash_literal_trap`](./eval_results/python_wsgi/py_13_deep_38flash_literal_trap_meta.json), passing a prompt mentioning `requirements.txt` to `cm find --deep` caused `cm` to exit in **0.5 seconds with `0` findings (`0.0%` recall)**!
 
 ---
 
-## 2. Five Golden Engineering Discoveries & Universal Stage 1 Mitigations
+### 3.2 How `--deep` Mode's `-c` Literal Filename Regex + Tier 0 Pruner Causes `0%` Recall
+Reverse-engineering `/usr/local/google/home/hongbocheng/bin/cm` (offset `0x241d120`) revealed a two-step interaction whenever `-c` is used with `--deep`:
+1. **Step 1 (`-c` Regex File Scoping)**: `cm v0.14.0 --deep` scans the `-c` string using:
+   ```regex
+   (?:^|[\s"'`(])([a-zA-Z0-9_./-]+\.[a-zA-Z0-9]+)(?:$|[\s"'`),:;])
+   ```
+   If **any** token in `-c` matches `<name>.<ext>` (such as `requirements.txt`, `package.json`, `pom.xml`, `server.ts`, or even version strings with alphabetic suffixes like `2.0.53.Final` or `Hoxton.SR9`), `--deep` restricts the entire repository scan **exclusively to those matched filenames**, discarding `app.py` and all other source files!
+2. **Step 2 (`Tier 0 Pruner` Lockfile Elimination)**: Next, `--deep`'s built-in **Tier 0 Pruner** classifies `requirements.txt` / `package.json` as a non-code manifest/lockfile and prunes it (`Tier 0 Pruner: 2 safe files pruned at 0 token cost`).
+3. **Net Result**: `1 matched file - 1 pruned file = 0 files scanned`!
 
-### Discovery 1: The `--deep` Literal Filename Scoping + Tier 0 Pruner Trap (`0%` Recall in `py_13` vs `100%` Recall in `py_12`)
-- **What Happened**: In experiment [`py_13_deep_38flash_literal_trap`](eval_results/python_wsgi/py_13_deep_38flash_literal_trap_meta.json), we passed the original legacy context prompt (*"This Python file handles untrusted input, so check `requirements.txt` for the package versions..."*) into `cm find --deep`. **The scan exited in `0.5s` with `0` findings (`0.0%` recall)!**
-- **Root Cause**:
-  1. **Prompt Regex File Scoping (`0x241b160`)**: `cm v0.14.0 --deep` scans the `-c` prompt for any literal `<name>.<ext>` token (`requirements.txt`, `package.json`, `pom.xml`, `server.ts`). When matched, it restricts the scan strictly to those named files (+ 1-hop imports), dropping `app.py`.
-  2. **Tier 0 Lockfile Pruning (`0x241ae80`)**: Next, `--deep`'s **Tier 0 Pruner** pruned `requirements.txt` as a safe manifest/lockfile (`Tier 0 Pruner: 2 safe files pruned at 0 token cost`).
-  3. **Net Result**: `1 - 1 = 0` candidate files scanned!
-- **Universal Pipeline Fix**: [`pipeline/pipeline.py`](pipeline/pipeline.py) enforces a hard programmatic regex sanitizer (`sanitize_context_prompt` + `FILE_SCOPING_REGEX`) that guarantees `0` literal `filename.ext` tokens remain in `-c`, deterministically extracts dependency versions (`werkzeug 2.2.0`) directly into `-c`, and automatically selects Quick mode (`deep=False`) for micro-targets (`<= 5` active files) and Parallel Deep mode (`--deep --deep-workers 16 --deep-max-turns 8`) for multi-file repositories (`> 5` active files).
-
-### Discovery 2: Structured 5-Pillar Hybrid Prompting Unlocks `100%` Unassisted Recall
-- In the legacy benchmark (`run5`), `gemini-3.5-flash` plateaued at `72.7% (8/11)` recall even with `-c`.
-- With our structured 5-pillar context synthesis in [`pipeline/pipeline.py`](pipeline/pipeline.py) (combining **Index Navigation + SCA CVE correlation + SAST route/sink directives + Config/Debugger/Cookie audit + Thin-Wrapper delegation + `safe_join` guard verification**), unassisted `python3 pipeline/pipeline.py scan src` achieves **`100.0% (11/11)` Ground Truth Recall** and **`0.0%` false positives** out of the box!
-
-### Discovery 3: Expanding `CM_HOME/config.yaml` Extensions for XML, YAML & Template Sinks
-- Default CodeMender configurations only index source files (`.py`, `.js`, `.ts`, `.java`, `.go`), ignoring **MyBatis SQL Mappers (`*Dao.xml`)**, **Spring Boot configs (`application*.yml`)**, and **Pug/Handlebars templates (`.pug`, `.hbs`)**.
-- [`pipeline/pipeline.py`](pipeline/pipeline.py) automatically generates an isolated `CM_HOME/config.yaml` including `[".txt", ".json", ".xml", ".yml", ".yaml", ".properties", ".pug", ".hbs", ".ejs", ".gradle"]`, unlocking `${}` SQL Injection in `OmsOrderDao.xml` and SSTI in `promotionVideo.pug`.
-
-### Discovery 4: Attack-Surface Scoping, Generated ORM Filtering & `PROJECT_FILE_INDEX.md`
-- Universal structural heuristics in `RepoProfiler` automatically exclude generated ORM boilerplate (`mall-mbg` with `generatorConfig.xml` / `*Example.java` / `Example_Where_Clause` XMLs while retaining custom `dao/*Dao.xml` mappers), client-side SPA `frontend/` bundles, and test fixtures, and pre-generate `PROJECT_FILE_INDEX.md` with 1-hop thin-wrapper delegation maps.
-
-### Discovery 5: Native File Tools Outperform `--enable-bash` by `1.87x` in `--deep` Mode
-- Running `--deep --deep-workers 16 --deep-max-turns 8` **without** `--enable-bash` (`js_11`: `223.7s` vs `js_14` with bash: `417.6s`) is **1.87x faster** and avoids shell pagination stalls.
+> **Hard Sanitization Gate ([`sanitize_context_prompt()`](./pipeline/pipeline.py))**:
+> [`pipeline/pipeline.py`](./pipeline/pipeline.py) automatically rewrites all literal filenames into semantic descriptions (*"the root dependency manifest"*), normalizes `.ALL`/`.RELEASE`/`.Final` version suffixes to hyphens, strips prompt-injection strings from untrusted repo identifiers, and asserts `len(FILE_SCOPING_REGEX.findall(prompt)) == 0` before invoking `cm`.
 
 ---
 
-## 3. Benchmark Suite I: Python / Werkzeug WSGI Ground Truth Evaluation
-
-### 3.1 Ground Truth Baseline Verification (`src/app.py` + `grounding-truth/poc_exploit.py`)
-Executing [`grounding-truth/poc_exploit.py`](grounding-truth/poc_exploit.py) against [`src/app.py`](src/app.py) (`werkzeug==2.2.0`) verifies **11 real security vulnerabilities** and **1 intentional negative control** (`/files/secure-download` using `werkzeug.security.safe_join`):
-
-| # | Test Item | Target / Mechanism | Vulnerability / Standard | Verification Verdict |
-| :-: | :--- | :--- | :--- | :-: |
-| 1 | **Multipart Part Limits** | `POST /upload` (1500 parts) | CVE-2023-25577 (Denial of Service via Unbounded Parsing) | 🔴 **SECURITY ISSUE DETECTED** |
-| 2 | **Cookie Header Parsing** | `GET /auth/session` (Nameless Cookie) | CVE-2023-46136 / CWE-614 (Nameless cookie / Missing Secure flags) | 🔴 **SECURITY ISSUE DETECTED** |
-| 3 | **Debugger PIN Predictability** | `werkzeug.debug` (`evalex=True`) | CVE-2024-34069 / CWE-489 (Interactive Debugger RCE) | 🔴 **SECURITY ISSUE DETECTED** |
-| 4 | **Storage Path Traversal** | `GET /download?file=../app.py` | CWE-22 (Arbitrary File Read via Path Traversal) | 🔴 **SECURITY ISSUE DETECTED** |
-| 5 | **safe_join File Access** | `GET /files/secure-download` | Safe file confinement via `safe_join` | 🟢 **VERIFIED SECURE** *(Safe Control)* |
-| 6 | **Insecure Deserialization** | `POST /profile/restore` (`pickle.loads`) | CWE-502 (Remote Code Execution via Pickle Deserialization) | 🔴 **SECURITY ISSUE DETECTED** |
-| 7 | **SQL Query Injection** | `GET /api/users/lookup` | CWE-89 (SQL Injection via Unsanitized Formatting) | 🔴 **SECURITY ISSUE DETECTED** |
-| 8 | **Service Proxy (SSRF)** | `GET /services/proxy?url=127.0.0.1` | CWE-918 (Server-Side Request Forgery) | 🔴 **SECURITY ISSUE DETECTED** |
-| 9 | **Unrestricted File Upload** | `POST /upload/raw` (`shell.py`) | CWE-434 / CWE-22 (Arbitrary File Write / Path Traversal) | 🔴 **SECURITY ISSUE DETECTED** |
-| 10 | **Command Sanitization** | `GET /diagnostics/ping?host=...` | CWE-78 (OS Command Injection via Shell Execution) | 🔴 **SECURITY ISSUE DETECTED** |
-| 11 | **Search Output Encoding** | `GET /search?q=<script>` | CWE-79 (Reflected Cross-Site Scripting) | 🔴 **SECURITY ISSUE DETECTED** |
-| 12 | **URL Redirection Validation** | `GET /navigate?target=https://...` | CWE-601 (Open URL Redirection) | 🔴 **SECURITY ISSUE DETECTED** |
-
-### 3.2 New 13-Run `cm v0.14.0` Benchmark Matrix (`eval_results/python_wsgi/`)
-
-| Run ID | Model | Mode | Context (`-c`) | Findings | Severity (`C / H / M / L`) | Ground Truth Recall (`11` Vulns) | `safe_join` Control FP | Wall Time |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [`py_01_quick_35flash_c0`](eval_results/python_wsgi/py_01_quick_35flash_c0_report.json) | `gemini-3.5-flash` | Quick | `c0_none` | 8 | 2 / 4 / 2 / 0 | 8/11 (`72.7%`) | 🟢 `0%` | 169.7s |
-| [`py_02_quick_35flash_c3`](eval_results/python_wsgi/py_02_quick_35flash_c3_report.json) | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | **12** | 3 / 5 / 4 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | 202.7s |
-| [`py_03_quick_38flash_c0`](eval_results/python_wsgi/py_03_quick_38flash_c0_report.json) | `gemini-3.8-flash` | Quick | `c0_none` | 8 | 4 / 3 / 1 / 0 | 8/11 (`72.7%`) | 🟢 `0%` | 296.7s |
-| [`py_04_quick_38flash_c1_sca`](eval_results/python_wsgi/py_04_quick_38flash_c1_sca_report.json) | `gemini-3.8-flash` | Quick | `c1_sca` | **11** | 2 / 7 / 2 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | 330.6s |
-| [`py_05_quick_38flash_c2_sast`](eval_results/python_wsgi/py_05_quick_38flash_c2_sast_report.json) | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 10 | 3 / 4 / 3 / 0 | 10/11 (`90.9%`) | 🟢 `0%` | 163.7s |
-| [`py_06_quick_38flash_c3_hybrid`](eval_results/python_wsgi/py_06_quick_38flash_c3_hybrid_report.json) | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | **13** | 4 / 6 / 3 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | 230.9s |
-| [`py_07_quick_4argon_c0`](eval_results/python_wsgi/py_07_quick_4argon_c0_report.json) | `gemini-4-argon` | Quick | `c0_none` | 10 | 3 / 5 / 2 / 0 | **10/11 (`90.9%`)** | 🟢 `0%` | 307.2s |
-| [`py_08_quick_4argon_c3`](eval_results/python_wsgi/py_08_quick_4argon_c3_report.json) | `gemini-4-argon` | Quick | `c3_hybrid_max` | **13** | 4 / 7 / 2 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | 206.3s |
-| [`py_09_deep_35flash_c3`](eval_results/python_wsgi/py_09_deep_35flash_c3_report.json) | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | 9 | 2 / 6 / 1 / 0 | 9/11 (`81.8%`) | 🟢 `0%` | 132.7s |
-| [`py_10_deep_38flash_c0`](eval_results/python_wsgi/py_10_deep_38flash_c0_report.json) | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | 8 | 2 / 4 / 2 / 0 | 8/11 (`72.7%`) | 🟢 `0%` | **78.1s** |
-| [`py_11_deep_38flash_c3_hybrid`](eval_results/python_wsgi/py_11_deep_38flash_c3_hybrid_report.json) | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | 10 | 3 / 4 / 3 / 0 | 10/11 (`90.9%`) | 🟢 `0%` | 175.2s |
-| [`py_12_deep_4argon_c3`](eval_results/python_wsgi/py_12_deep_4argon_c3_report.json) | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **11** | 4 / 4 / 3 / 0 | **11/11 (`100.0%`)** | 🟢 `0%` | **76.3s** |
-| [`py_13_deep_38flash_literal_trap`](eval_results/python_wsgi/py_13_deep_38flash_literal_trap_meta.json) | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c_legacy_literal` | **0** | 0 / 0 / 0 / 0 | **0/11 (`0.0%`)** *(Scoped+Pruned)* | 🟢 `0%` | 0.5s |
-
-*(Legacy `cm v0.7.0` 8-run baseline artifacts `run1`–`run8` remain preserved in [`eval_results/legacy_v0.7_python/`](eval_results/legacy_v0.7_python/).)*
+### 3.3 The 5-Pillar `-c` Prompt Automatically Synthesized by `pipeline.py`
+Stage 1 (`RepoProfiler.synthesize_context_prompt`) automatically constructs a repository-specific `-c` prompt across **5 Pillars**:
+1. **Pillar 1 (Architecture & Entrypoints)**: Directs the agent to read `PROJECT_FILE_INDEX` first and highlights entrypoints, thin-wrapper delegation chains, and Controller ↔ View template pairs.
+2. **Pillar 2 (Dependency & SCA CVE Correlation)**: Injects exact package names and versions extracted from `requirements.txt`, `package.json`, `pom.xml` (with `${}` property interpolation), `go.mod`, or `CMakeLists.txt` directly into the `-c` prompt text.
+3. **Pillar 3 (Route & Taint Sink Analysis)**: Lists discovered route counts and active sink categories across 17 vulnerability classes (`command_injection`, `deserialization`, `sql_injection`, `nosql_injection`, `ssrf`, `xxe`, `ssti`, `xss`, `file_upload`, `path_traversal`, `open_redirect`, `jwt_crypto`, `debug_config`, `cookie_security`, `mass_assignment`, `idor_business_logic`, `password_recovery`).
+4. **Pillar 4 (Sanitizer & False-Positive Control)**: Explicitly names detected security guards (`safe_join`, `realpath`, `filepath.Clean`, parameterized queries) and instructs the agent to verify whether they neutralize the taint flow before reporting (`0.0%` false positives).
+5. **Pillar 5 (Full-Scope Multi-Sink Exhaustive Coverage)**: Instructs the agent to audit all language components and report every distinct vulnerability sink independently even when multiple flaws reside in the same file.
 
 ---
 
-## 4. Benchmark Suite II: Node.js / TypeScript (`juice-shop/juice-shop`) — 15 Runs (`eval_results/nodejs_juiceshop/`)
-
-| Run ID | Target Scope | Model | Mode | Context (`-c`) | Findings | Severity (`C / H / M / L`) | Unique CWEs | Files Hit | Wall Time |
-| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [`js_01_3.8-flash_quick_c0_none`](eval_results/nodejs_juiceshop/js_01_3.8-flash_quick_c0_none_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c0_none` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`js_02_3.8-flash_quick_c3_hybrid`](eval_results/nodejs_juiceshop/js_02_3.8-flash_quick_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`js_03_3.8-flash_deep_c3_hybrid`](eval_results/nodejs_juiceshop/js_03_3.8-flash_deep_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **25** | 5 / 17 / 3 / 0 | 14 | 15 | 201.7s |
-| [`js_04_3.5-flash_deep_c3_hybrid`](eval_results/nodejs_juiceshop/js_04_3.5-flash_deep_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **28** | 8 / 19 / 1 / 0 | 19 | 15 | 245.7s |
-| [`js_05_4-argon_deep_c3_hybrid`](eval_results/nodejs_juiceshop/js_05_4-argon_deep_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **49** | 15 / 20 / 14 / 0 | 28 | 16 | 250.4s |
-| [`js_06_3.8-flash_quick_c1_sca`](eval_results/nodejs_juiceshop/js_06_3.8-flash_quick_c1_sca_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c1_sca` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`js_07_3.8-flash_quick_c2_sast`](eval_results/nodejs_juiceshop/js_07_3.8-flash_quick_c2_sast_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`js_08_3.8-flash_deep_c0_none`](eval_results/nodejs_juiceshop/js_08_3.8-flash_deep_c0_none_report.json) | `juice-shop-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | 19 | 4 / 12 / 3 / 0 | 13 | 13 | 600.0s *(T/O)* |
-| [`js_09_3.5-flash_quick_c0_none`](eval_results/nodejs_juiceshop/js_09_3.5-flash_quick_c0_none_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | Quick | `c0_none` | 6 | 2 / 4 / 0 / 0 | 5 | 5 | 480.0s *(T/O)* |
-| [`js_10_4-argon_quick_c0_none`](eval_results/nodejs_juiceshop/js_10_4-argon_quick_c0_none_report.json) | `juice-shop-bench` | `gemini-4-argon` | Quick | `c0_none` | 20 | 6 / 10 / 4 / 0 | 12 | 16 | 348.5s |
-| [`js_11_3.5-flash_quick_c3_hybrid`](eval_results/nodejs_juiceshop/js_11_3.5-flash_quick_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | 13 | 5 / 7 / 1 / 0 | 8 | 11 | 480.0s *(T/O)* |
-| [`js_12_4-argon_quick_c3_hybrid`](eval_results/nodejs_juiceshop/js_12_4-argon_quick_c3_hybrid_report.json) | `juice-shop-bench` | `gemini-4-argon` | Quick | `c3_hybrid_max` | **35** | 9 / 17 / 8 / 1 | 23 | 17 | 385.4s |
-| [`js_13_high_risk_deep_optimal`](eval_results/nodejs_juiceshop/js_13_high_risk_deep_optimal_report.json) | `juice-shop-high-risk` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **50** | 6 / 39 / 5 / 0 | 28 | 33 | 504.4s |
-| [`js_14_full_core_deep_optimal`](eval_results/nodejs_juiceshop/js_14_full_core_deep_optimal_report.json) | `juice-shop-core` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **60** | 6 / 52 / 2 / 0 | 30 | 44 | 906.2s |
-| [`js_15_high_risk_4-argon_deep`](eval_results/nodejs_juiceshop/js_15_high_risk_4-argon_deep_report.json) | `juice-shop-high-risk` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **91** | 16 / 46 / 26 / 3 | 39 | 38 | 552.6s |
+### 3.4 Five Golden Rules for CodeMender Teams
+1. **Rule 1 (Choose `Quick` vs `--deep` by Active File Count)**: Use `Quick + c3_hybrid_max` for micro-services ($\le 5$ active files) so Tier 0 Pruner does not drop dependency manifests; use `--deep --deep-workers 16 --deep-max-turns 8 + c3_hybrid_max` for multi-file repos ($> 5$ files).
+2. **Rule 2 (Never Put Literal `<name>.<ext>` Tokens in `-c` Under `--deep`)**: Always pass `-c` prompts through `sanitize_context_prompt()` (`0` matches on `FILE_SCOPING_REGEX`) and inject extracted dependency versions directly into the prompt text.
+3. **Rule 3 (Expand `CM_HOME/config.yaml` Extensions)**: Include `.json`, `.xml`, `.yml`, `.yaml`, `.properties`, `.pug`, `.hbs`, `.ejs`, `.txt`, `.gradle` in `scan.extensions.include` to cover MyBatis `*Dao.xml`, Spring `application.yml`, and view templates.
+4. **Rule 4 (Prune Non-Attack-Surface Noise & Co-Locate Controllers with Views in `PROJECT_FILE_INDEX.md`)**: Exclude SPA `frontend/` and generated ORM boilerplate (`mall-mbg`), co-locate controllers with rendered view templates, and generate `PROJECT_FILE_INDEX.md`.
+5. **Rule 5 (Use the 5-Pillar Hybrid `-c` Prompt & Keep `--enable-bash` Off in `--deep`)**: Combine all 5 pillars in `-c` while leaving `--enable-bash` disabled in `--deep` mode (**1.87x** faster execution).
 
 ---
 
-## 5. Benchmark Suite III: Java / Spring Boot + MyBatis (`macrozheng/mall`) — 15 Runs (`eval_results/java_mall/`)
+## 4. Four Critical `cm v0.14.0` `--deep` Failure Traps & Architectural Defenses
 
-| Run ID | Target Scope | Model | Mode | Context (`-c`) | Findings | Severity (`C / H / M / L`) | Unique CWEs | Files Hit | Wall Time |
-| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [`mall_01_3.8-flash_quick_c0_none`](eval_results/java_mall/mall_01_3.8-flash_quick_c0_none_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c0_none` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`mall_02_3.8-flash_quick_c3_hybrid`](eval_results/java_mall/mall_02_3.8-flash_quick_c3_hybrid_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c3_hybrid_max` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`mall_03_3.8-flash_deep_c3_hybrid`](eval_results/java_mall/mall_03_3.8-flash_deep_c3_hybrid_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | 13 | 2 / 11 / 0 / 0 | 8 | 10 | 171.1s |
-| [`mall_04_3.5-flash_deep_c3_hybrid`](eval_results/java_mall/mall_04_3.5-flash_deep_c3_hybrid_report.json) | `mall-bench` | `gemini-3.5-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | 16 | 1 / 10 / 4 / 1 | 7 | 9 | 206.2s |
-| [`mall_05_4-argon_deep_c3_hybrid`](eval_results/java_mall/mall_05_4-argon_deep_c3_hybrid_report.json) | `mall-bench` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **35** | 7 / 19 / 9 / 0 | 10 | 12 | 310.9s |
-| [`mall_06_3.8-flash_quick_c1_sca`](eval_results/java_mall/mall_06_3.8-flash_quick_c1_sca_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c1_sca` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`mall_07_3.8-flash_quick_c2_sast`](eval_results/java_mall/mall_07_3.8-flash_quick_c2_sast_report.json) | `mall-bench` | `gemini-3.8-flash` | Quick | `c2_sast_framework` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`mall_08_3.8-flash_deep_c0_none`](eval_results/java_mall/mall_08_3.8-flash_deep_c0_none_report.json) | `mall-bench` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c0_none` | 7 | 2 / 5 / 0 / 0 | 6 | 6 | 161.8s |
-| [`mall_09_3.5-flash_quick_c0_none`](eval_results/java_mall/mall_09_3.5-flash_quick_c0_none_report.json) | `mall-bench` | `gemini-3.5-flash` | Quick | `c0_none` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`mall_10_4-argon_quick_c0_none`](eval_results/java_mall/mall_10_4-argon_quick_c0_none_report.json) | `mall-bench` | `gemini-4-argon` | Quick | `c0_none` | 10 | 5 / 4 / 1 / 0 | 9 | 8 | 285.0s |
-| [`mall_11_3.5-flash_quick_c3_hybrid`](eval_results/java_mall/mall_11_3.5-flash_quick_c3_hybrid_report.json) | `mall-bench` | `gemini-3.5-flash` | Quick | `c3_hybrid_max` | 0 | 0 / 0 / 0 / 0 | 0 | 0 | 480.0s *(T/O)* |
-| [`mall_12_4-argon_quick_c3_hybrid`](eval_results/java_mall/mall_12_4-argon_quick_c3_hybrid_report.json) | `mall-bench` | `gemini-4-argon` | Quick | `c3_hybrid_max` | **29** | 9 / 11 / 7 / 2 | 16 | 17 | 446.4s |
-| [`mall_13_high_risk_deep_optimal`](eval_results/java_mall/mall_13_high_risk_deep_optimal_report.json) | `mall-high-risk` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **27** | 4 / 16 / 7 / 0 | 12 | 17 | 718.7s |
-| [`mall_14_full_core_deep_optimal`](eval_results/java_mall/mall_14_full_core_deep_optimal_report.json) | `mall-core` | `gemini-3.8-flash` | **DEEP** (`--deep`) | `c3_hybrid_max` | **32** | 4 / 24 / 4 / 0 | 13 | 23 | 1336.6s |
-| [`mall_15_high_risk_4-argon_deep`](eval_results/java_mall/mall_15_high_risk_4-argon_deep_report.json) | `mall-high-risk` | `gemini-4-argon` | **DEEP** (`--deep`) | `c3_hybrid_max` | **61** | 9 / 38 / 14 / 0 | 18 | 22 | 300.8s |
+Reverse-engineering the `/usr/local/google/home/hongbocheng/bin/cm` binary and analyzing our 43 runs revealed **4 critical failure traps** that our pipeline automatically prevents (see [`docs/UNIVERSAL_PIPELINE_REVIEW.md`](./docs/UNIVERSAL_PIPELINE_REVIEW.md)):
+
+| Trap | Internal `cm v0.14.0` Mechanism | Empirical Failure Impact | Automated Defense in `pipeline/pipeline.py` |
+| :--- | :--- | :--- | :--- |
+| **Trap 1: `-c` Filename Regex Scoping in `--deep`** | `cm` binary (`0x241d120`) parses `-c` with `([a-zA-Z0-9_./-]+\.[a-zA-Z0-9]+)`. Any matching token locks `--deep` to ONLY those matched filenames | `py_13` (mentioning `requirements.txt`) skipped `app.py` and yielded **`0` findings (`0%` recall)**; early `mall` (`.ALL` version suffix) yielded **`0` findings** | **`sanitize_context_prompt()` Hard Regex Gate**: Rewrites all literal filenames into semantic descriptions, normalizes `.ALL`/`.RELEASE` version suffixes, neutralizes prompt injections, and enforces `0` `FILE_SCOPING_REGEX` matches |
+| **Trap 2: Single-Worker Deep Starvation** | Default `--deep-workers 1` and `--deep-max-turns 50` causes single-worker starvation on multi-file repositories | Single-worker `--deep` runs hit the **900s hard timeout** with **`0` findings** | **Adaptive Concurrency (`select_execution_profile`)**: Automatically configures `--deep --deep-workers 16 --deep-max-turns 8` when `active_files_count > 5` |
+| **Trap 3: Tier 0 Pruner on Micro-Targets** | On micro-targets ($\le 5$ files), `--deep`'s Tier 0 Pruner skips `requirements.txt` as a non-code manifest | Misses dependency CVE correlation on 2-file services | **Adaptive Mode Threshold**: Selects **Quick Mode (`deep=False`)** when `active_files_count <= 5` and **Parallel Deep Mode** when `> 5` |
+| **Trap 4: State DB Bleed & Generated ORM Noise** | Shared `~/.codemender/state.db` leaks prior findings; hundreds of generated MyBatis `*Example.java` files exhaust worker budgets | Polluted reports or worker exhaustion on generated boilerplate | **Isolated `.cm_home` + Smart ORM/SPA Filtering**: Creates a fresh `.cm_home` and `.git` boundary per scan; excludes SPA `frontend/` and generated `mall-mbg` while preserving custom `dao/*Dao.xml` |
 
 ---
 
-## 6. How to Scan Any New Repository (Zero Configuration Required)
+## 5. Operational Guide: How to Scan Any New Repository
 
-Because [`pipeline/pipeline.py`](pipeline/pipeline.py) contains **zero hardcoded repository rules**, scanning any new repository (`Python`, `Node.js/TypeScript`, `Java/Spring Boot`, `C/C++`, `Go`, `Ruby`, `PHP`) requires **no code changes**:
+Because [`pipeline/pipeline.py`](./pipeline/pipeline.py) uses **zero hardcoded repository names** (enforced by AST unit test `test_pipeline_ast_has_zero_hardcoded_repo_branching`), you can scan any new local repository (`Python`, `Node.js/TypeScript`, `Java/Spring Boot`, `C/C++`, `Go`, `Ruby`, `PHP`) without modifying any code or writing custom prompts:
 
-### 1. One-Command End-to-End Unassisted Scan (`Stage 1 Auto-Profile -> Stage 2 Auto-Scan`)
+### Option A: One-Command End-to-End Automated Scan (Recommended)
 ```bash
-# Run Stage 1 auto-profiling followed immediately by Stage 2 cm find in an isolated CM_HOME
+# Automatically runs Stage 1 Auto-Profiling + Stage 2 Isolated cm Scan and generates report.json & report.md
 python3 pipeline/pipeline.py scan /path/to/your-new-repo
 
-# Optional: customize output directory, model (gemini-3.8-flash / gemini-4-argon), or timeout (<= 900s)
+# Optional flags: custom output directory, model (gemini-3.8-flash or gemini-4-argon), and timeout (capped at 900s)
 python3 pipeline/pipeline.py scan /path/to/your-new-repo \
   --output-dir ./scan_outputs/your-new-repo \
   --model gemini-3.8-flash \
   --timeout 600
 ```
 
-### 2. Two-Step Workflow: Dry-Run Profile First (`< 3s`), Then Scan
-If you want to inspect the discovered attack surface, excluded noise directories, parsed dependency versions, and synthesized `-c` prompt before running `cm find`:
+### Option B: Two-Step Workflow (Inspect Stage 1 Dry-Run Profile First, Then Scan)
+For large or unfamiliar monorepos, run the **Stage 1 Dry-Run Profiler** (`< 3 seconds`, `0` LLM tokens) to inspect the generated profile before launching `cm`:
 ```bash
-# Step 1: Dry-run Stage 1 profiler only (0 LLM tokens, < 3s)
+# Step 1: Run Stage 1 static profiler only (supports 'profile' subcommand or '--dry-run' flag)
 python3 pipeline/pipeline.py profile /path/to/your-new-repo --output-dir ./scan_outputs/your-new-repo
 
-# Step 2: Review ./scan_outputs/your-new-repo/{profile.json,config.yaml,PROJECT_FILE_INDEX.md}, then scan:
+# Inspect generated Stage 1 artifacts:
+# 1. ./scan_outputs/your-new-repo/profile.json          -> Detected languages, active files, dependencies, sanitized -c prompt, CLI flags
+# 2. ./scan_outputs/your-new-repo/config.yaml           -> Tailored scan.extensions.include & exclude directories
+# 3. ./scan_outputs/your-new-repo/PROJECT_FILE_INDEX.md -> Entrypoints, thin-wrapper chains & controller-to-view template map
+
+# Step 2: Run full scan (supports manual override via --deep or --quick)
 python3 pipeline/pipeline.py scan /path/to/your-new-repo --output-dir ./scan_outputs/your-new-repo
 ```
 
-### 3. Output Artifacts Generated for Every Repository
-Every scan automatically writes a self-contained artifact bundle into `./scan_outputs/<repo_slug>/` (or `--output-dir`):
-- `profile.json` — Detected languages/frameworks, active files, parsed dependencies, routes, sinks, guards, sanitized `-c` prompt (`0` `filename.ext` regex matches), and adaptive CLI flags (`quick` for `<= 5` files; `--deep --deep-workers 16 --deep-max-turns 8` for `> 5` files).
-- `config.yaml` — Tailored CodeMender configuration with all active source/config/template/mapper extensions and noise exclusions.
-- `PROJECT_FILE_INDEX.md` — Structural file index and 1-hop thin-wrapper delegation map.
-- `report.json` & `report.md` — Deduplicated vulnerability findings (merged from `cm report -f json` + SQLite `.cm_home/state.db`) with normalized file paths and severity breakdown.
-
 ---
 
-## 7. Repository Directory Structure
+## 6. Verification Suite & Repository Structure
+
+```bash
+# Run the 20-test Unit & Integration Suite (hard regex sanitizer, manifest parsers, ORM filtering, controller-view co-location, AST zero-hardcoding check)
+python3 -m unittest -v pipeline/test_universal_pipeline.py
+```
 
 ```text
 codemender-test/
-├── README.md                          # Unified English Flagship Report (Universal Pipeline + 43 Runs + Ground Truth)
-├── README_CN.md                       # Chinese Executive Summary & Best Practices Guide (中文分享总结版)
+├── README.md                          # English Flagship Report, Glossary & Universal Pipeline Guide (this file)
+├── README_CN.md                       # Chinese Flagship Report, Glossary, Ground Truth Analysis & Guide (中文主报告)
 ├── docs/
 │   ├── UNIVERSAL_PIPELINE_REVIEW.md   # Deep Technical Review & 4 Failure Trap Mitigations
 │   ├── BENCHMARK_RESULTS.md           # Full 43-run ablation tables & CWE/Ground-Truth breakdown
-│   └── CODEMENDER_SHARE_SUMMARY_CN.md # Detailed Chinese shareable briefing
+│   ├── MALL_AUDIT_REFERENCE.md        # macrozheng/mall Curated Code Audit Reference (Non-Official Ground Truth)
+│   └── CODEMENDER_SHARE_SUMMARY_CN.md # Archived Chinese executive briefing
 ├── pipeline/                          # Universal CodeMender v0.14.0 Auto-Profile & Auto-Scan Pipeline
 │   ├── pipeline.py                    # Universal Stage 1 Auto-Profiler & Stage 2 Runner (zero hardcoded repo names)
 │   ├── test_universal_pipeline.py     # 20-test unit & integration test suite
@@ -199,11 +304,11 @@ codemender-test/
 │   └── poc_exploit.py
 ├── benchmarks/                        # Curated Benchmark Target Scopes (with PROJECT_FILE_INDEX.md)
 │   ├── ref-codemender-bench/          # Python WSGI isolated benchmark scope (2 files)
-│   ├── juice-shop-bench/              # Node.js / TypeScript representative benchmark scope (16 files)
-│   └── mall-bench/                    # Java / Spring Boot + MyBatis representative benchmark scope (20 files)
+│   ├── juice-shop-bench/              # Node.js / TypeScript core benchmark scope (co-located routes + views)
+│   └── mall-bench/                    # Java / Spring Boot + MyBatis core benchmark scope (20 files)
 └── eval_results/                      # Complete Evaluation Artifacts (.log, _report.txt, _report.json, _meta.json)
-    ├── python_wsgi/                   # New 13-run cm v0.14.0 Python WSGI matrix (py_01..py_13)
-    ├── nodejs_juiceshop/              # New 15-run cm v0.14.0 Node.js/TS OWASP Juice Shop matrix (js_01..js_15)
-    ├── java_mall/                     # New 15-run cm v0.14.0 Java/Spring Boot macrozheng/mall matrix (mall_01..mall_15)
+    ├── python_wsgi/                   # 13-run cm v0.14.0 Python WSGI matrix (py_01..py_13)
+    ├── nodejs_juiceshop/              # 15-run cm v0.14.0 Node.js/TS OWASP Juice Shop matrix (js_01..js_15)
+    ├── java_mall/                     # 15-run cm v0.14.0 Java/Spring Boot macrozheng/mall matrix (mall_01..mall_15)
     └── legacy_v0.7_python/            # Original 8-run quick-mode baseline (run1..run8)
 ```

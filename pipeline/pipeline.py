@@ -869,7 +869,7 @@ SINK_PATTERNS: List[Tuple[str, re.Pattern]] = [
     )),
     ("file_upload", re.compile(
         r"\b(?:uploaded\.save|UPLOAD_DIR|uploaded\.filename|MultipartFile|transferTo|"
-        r"MinioClient|putObject|OSSClient|multer|unzipper|FormFile|move_uploaded_file)\b"
+        r"MinioClient|putObject|OSSClient|multer|unzipper|FormFile|move_uploaded_file|createWriteStream)\b"
     )),
     ("ssrf", re.compile(
         r"\b(?:requests\.(?:get|post|put|delete|request|head)|urllib\.request\.urlopen|"
@@ -879,13 +879,13 @@ SINK_PATTERNS: List[Tuple[str, re.Pattern]] = [
     ("xss", re.compile(
         r"""mimetype\s*=\s*['"]text/html['"]|content_type\s*=\s*['"]text/html['"]|"""
         r"\b(?:render_template_string|Markup|dangerouslySetInnerHTML|innerHTML|"
-        r"bypassSecurityTrust|sanitize-html|fmt\.Fprintf\s*\(\s*w)\b"
+        r"bypassSecurityTrust|sanitize-html|fmt\.Fprintf\s*\(\s*w)\b|!=\s*[A-Za-z_]"
     )),
     ("open_redirect", re.compile(
         r"\b(?:redirect\s*\(|res\.redirect\s*\(|sendRedirect\s*\(|http\.Redirect\s*\()"
     )),
     ("debug_console", re.compile(
-        r"\b(?:DebuggedApplication|evalex\s*=\s*True|werkzeug\.debug|stat-view-servlet)\b|"
+        r"\b(?:DebuggedApplication|evalex\s*=\s*True|werkzeug\.debug|stat-view-servlet|errorhandler)\b|"
         r"exposure[\s\S]{0,60}include[\s\S]{0,40}\*"
     )),
     ("cookie_handling", re.compile(
@@ -898,7 +898,7 @@ SINK_PATTERNS: List[Tuple[str, re.Pattern]] = [
     )),
     ("template_injection", re.compile(
         r"\b(?:pug\.(?:compile|render)|handlebars\.compile|ejs\.render|Freemarker|"
-        r"Velocity|SpelExpressionParser|render_template_string)\b"
+        r"Velocity|SpelExpressionParser|render_template_string|res\.render)\b"
     )),
     ("xxe_xml", re.compile(
         r"\b(?:xml\.etree|lxml\.etree|xml\.dom\.minidom|libxmljs|libxml2|"
@@ -910,6 +910,9 @@ SINK_PATTERNS: List[Tuple[str, re.Pattern]] = [
     ("jwt_auth", re.compile(
         r"\b(?:jsonwebtoken|express-jwt|jwt\.(?:decode|verify|encode)|Jwts\.parser|"
         r"JwtTokenUtil)\b"
+    )),
+    ("password_recovery", re.compile(
+        r"\b(?:resetPassword|SecurityAnswerModel|securityAnswer|forgot[_-]?password|recover[_-]?password)\b"
     )),
     ("memory_buffer", re.compile(
         r"\b(?:strcpy|strncpy|strcat|sprintf|vsprintf|gets|memcpy|memmove|sscanf|fscanf|alloca)\s*\("
@@ -1047,6 +1050,7 @@ SINK_AUDIT_DIRECTIVES: Dict[str, str] = {
     "xxe_xml": "XML External Entity XXE Injection (CWE-611)",
     "nosql_injection": "NoSQL Injection in document queries (CWE-943)",
     "jwt_auth": "Hardcoded JWT secrets, weak signing keys, and token verification bypass (CWE-347 and CWE-798)",
+    "password_recovery": "Weak Password Recovery Mechanism and Broken Authentication via static security questions or unverified password reset flows (CWE-640 and CWE-287)",
     "memory_buffer": "Buffer Overflow, out-of-bounds memory write, format string, and integer overflow flaws (CWE-120, CWE-787, and CWE-134)",
 }
 
@@ -1430,6 +1434,22 @@ class RepoProfiler:
               if match_rf != rf and match_rf not in delegates:
                 delegates.append(match_rf)
 
+      # Cross-file Controller <-> View Template Co-Location (e.g. routes/videoHandler.ts -> views/promotionVideo.pug)
+      if ext in (".ts", ".js", ".py", ".java", ".go"):
+        for m in re.finditer(
+            r"""(?:views/|templates/|res\.render\(\s*|render_template\(\s*)['"]?([A-Za-z0-9_/-]+(?:\.(?:pug|hbs|ejs|jsp|html))?)['"]?""",
+            content,
+        ):
+          view_ref = m.group(1).strip()
+          view_stem = Path(view_ref).stem
+          for cand_rf in by_stem.get(view_stem, []):
+            if (
+                cand_rf != rf
+                and Path(cand_rf).suffix.lower() in (".pug", ".hbs", ".ejs", ".jsp", ".html")
+                and cand_rf not in delegates
+            ):
+              delegates.append(cand_rf)
+
       if delegates:
         local_edges[rf] = delegates
 
@@ -1439,9 +1459,13 @@ class RepoProfiler:
       content = file_contents.get(rf, "")
       non_empty_lines = [ln for ln in content.splitlines() if ln.strip() and not ln.strip().startswith(("#", "//"))]
       ext = Path(rf).suffix.lower()
+      has_view_delegate = any(
+          Path(d).suffix.lower() in (".pug", ".hbs", ".ejs", ".jsp") for d in direct_delegates
+      )
       is_wrapper = (
           len(non_empty_lines) <= 80
           or ext in (".h", ".hpp")
+          or has_view_delegate
           or any("sansio" in d or "_internal" in d or "internal" in d or "impl" in d.lower() for d in direct_delegates)
           or Path(rf).name in ("app.ts", "app.js", "index.ts", "index.js")
       )
@@ -1634,35 +1658,40 @@ class RepoProfiler:
     # Pillar 3: Configuration, Session & Debugger Audit
     p3 = (
         "3) Audit application factory initialization, configuration manifests, active debug consoles "
-        "(such as DebuggedApplication with evalex=True), session cookie flags (missing Secure or HttpOnly, "
-        "Host prefix rules), hardcoded credentials or JWT secrets, and exposed actuator or management endpoints."
+        "(such as DebuggedApplication with evalex=True), verbose stack trace error handlers, permissive CORS origins, "
+        "spoofable X-Forwarded-For rate-limit keys, weak security-question password recovery flows (CWE-640), "
+        "session cookie flags (missing Secure or HttpOnly, Host prefix rules), hardcoded credentials or JWT secrets, "
+        "and exposed actuator or management endpoints."
     )
 
-    # Pillar 4: Thin-Wrapper Delegation Tracing
+    # Pillar 4: Thin-Wrapper & Controller-to-View Template Delegation Tracing
     if thin_wrappers:
       p4 = (
-          "4) Trace through thin wrapper modules and relative re-exports into their underlying "
-          "core parser and service implementation modules."
+          "4) Trace through thin wrapper modules, controller-to-view template rendering pairs, and relative re-exports "
+          "into their underlying core parser, service implementation, and unescaped view template modules."
       )
     else:
       p4 = (
-          "4) Trace cross-function and cross-module data flows from entrypoints down to core parsers and database mappers."
+          "4) Trace cross-function and cross-module data flows from entrypoints and route controllers down to core parsers, "
+          "database mappers, and rendered view templates."
       )
 
-    # Pillar 5: Guard & Sanitizer Verification (0% FP Guardrail)
+    # Pillar 5: Guard & Sanitizer Verification (0% FP Guardrail + Multi-Sink Completeness)
     if "safe_join" in detected_guards or detected_guards:
       guards_str = ", ".join(detected_guards)
       p5 = (
           f"5) Verify whether endpoints using security confinement helpers ({guards_str}, such as safe_join "
           "checking for None return values or parameterized query bindings) are properly confined to avoid "
           "false positives on secure download or query handlers. Enumerate every distinct security vulnerability "
-          "across all endpoints and dependencies without stopping early."
+          "across all endpoints, dependency manifests, and multi-sink handlers (reporting each distinct sink "
+          "separately even when multiple flaws reside in the same source file) without stopping early."
       )
     else:
       p5 = (
           "5) Verify whether path normalization or parameterized query guards properly confine user input "
-          "to avoid false positives. Enumerate every distinct security vulnerability across all endpoints "
-          "and dependencies without stopping early."
+          "to avoid false positives. Enumerate every distinct security vulnerability across all endpoints, "
+          "dependency manifests, and multi-sink handlers (reporting each distinct sink separately even when "
+          "multiple flaws reside in the same source file) without stopping early."
       )
 
     return " ".join([p0, p1, p2, p3, p4, p5])
@@ -1973,7 +2002,19 @@ def materialize_isolated_scan_target(
         content = ""
       scored.append((score_file_security_signal(rf, content, profile), rf))
     scored.sort(key=lambda x: (-x[0], x[1]))
-    selected_files = sorted([rf for _, rf in scored[:max_files]])
+    selected_set = {rf for _, rf in scored[:max_files]}
+    for tw in profile.get("thin_wrappers", []):
+      wrapper_rf = tw.get("wrapper", "")
+      delegs = tw.get("delegates_to", [])
+      view_delegs = [
+          d for d in delegs
+          if Path(d).suffix.lower() in (".pug", ".hbs", ".ejs", ".jsp", ".html")
+      ]
+      if wrapper_rf in selected_set and view_delegs:
+        selected_set.update(view_delegs)
+      elif any(vd in selected_set for vd in view_delegs) and wrapper_rf:
+        selected_set.add(wrapper_rf)
+    selected_files = sorted(selected_set)
   else:
     selected_files = list(active_files)
 
