@@ -1,0 +1,642 @@
+🔍 Discovering files in /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target...
+
+════════════════════════════════════════════════════════════
+🔍 Deep Scan: Concurrent File-by-File Vulnerability Audit...
+════════════════════════════════════════════════════════════
+🔍 Deep Scan Sifter: 131 total files discovered
+   Tier 0 Pruner: 3 safe files pruned (tests, docs, DTOs, generated, lockfiles) at 0 token cost
+   Tier 1 Sifter: 128 candidate files in 128 batches to scan with 16 workers
+[1/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/defcon33.yml (12.7s) | 8.0k tok - 0 vulnerabilities
+[2/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/fbctf.yml (12.6s) | 7.8k tok - 0 vulnerabilities
+[3/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/ctf.yml (13.4s) | 4.6k tok - 0 vulnerabilities
+[4/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/mozilla.yml (15.8s) | 7.7k tok - 0 vulnerabilities
+[5/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/bodgeit.yml (16.4s) | 8.6k tok - 0 vulnerabilities
+[6/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/quiet.yml (16.6s) | 4.4k tok - 0 vulnerabilities
+[7/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/tutorial.yml (17s) | 4.4k tok - 0 vulnerabilities
+2026-10-16T09:23:42Z [INFO]  🔧 [Step 1] read_file → …/scoped_target/models/user.ts
+2026-10-16T09:23:42Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[8/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/addo.yml (20.3s) | 7.0k tok - 0 vulnerabilities
+2026-10-16T09:23:47Z [INFO]     📤 Result submitted (submit 5.584s)
+[9/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/config.schema.ts (9.9s) | 7.6k tok - 0 vulnerabilities
+[10/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/codingChallenges.ts (9.1s) | 6.2k tok - 0 vulnerabilities
+[11/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/antiCheat.ts (16s) | 9.3k tok - 0 vulnerabilities
+[12/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/challengeUtils.ts (16.3s) | 6.5k tok - 0 vulnerabilities
+[13/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/accuracy.ts (18.7s) | 5.5k tok - 0 vulnerabilities
+[14/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/is-docker.ts (16.1s) | 4.8k tok - 0 vulnerabilities
+2026-10-16T09:24:02Z [INFO]  🔧 [Step 1] grep_search → pattern="security\\." path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:24:02Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-16T09:24:09Z [INFO]     📤 Result submitted (submit 6.089s)
+[15/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/is-windows.ts (16.3s) | 4.4k tok - 0 vulnerabilities
+[16/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/is-heroku.ts (24.7s) | 4.5k tok - 0 vulnerabilities
+2026-10-16T09:24:10Z [INFO]  🔧 [Step 1] grep_search → pattern="webhook\\.notify|notify\\(" path=…/js_16_full_core_4_argon_deep/scoped_target/lib
+2026-10-16T09:24:10Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+[17/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/terraformCustomization.ts (14.1s) | 4.7k tok - 0 vulnerabilities
+[18/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/logger.ts (20.8s) | 4.5k tok - 0 vulnerabilities
+[19/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/noUpdate.ts (19.1s) | 5.3k tok - 0 vulnerabilities
+2026-10-16T09:24:15Z [INFO]     📤 Result submitted (submit 5.443s)
+2026-10-16T09:24:16Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/redirect.ts
+2026-10-16T09:24:16Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:24:16Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/routes/saveLoginIp.ts
+2026-10-16T09:24:16Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:24:16Z [INFO]  🔧 [Step 4] grep_search → pattern="security\\." path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:24:16Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:24:18Z [INFO]  🔧 [Step 1] grep_search → pattern="(extractFilename|downloadToFile|parseJsonCustom|isUrl|matchesEtcPasswdFile|ctfFlag|version)" path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:24:18Z [INFO]     ✅ Tool completed: grep_search (took 35ms)
+2026-10-16T09:24:18Z [INFO]  🔧 [Step 2] grep_search → pattern="(extractFilename|downloadToFile|parseJsonCustom|isUrl|matchesEtcPasswdFile)" path=…/js_16_full_core_4_argon_deep/scoped_target/lib
+2026-10-16T09:24:18Z [INFO]     ✅ Tool completed: grep_search (took 14ms)
+2026-10-16T09:24:21Z [INFO]     📤 Result submitted (submit 4.851s)
+2026-10-16T09:24:23Z [INFO]     📤 Result submitted (submit 5.006s)
+2026-10-16T09:24:24Z [INFO]  ✅ Completed 1 tool steps in 26s | Tokens: 10k in / 92 out / 10k total
+[20/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/webhook.ts (25.7s) | 10.6k tok - 0 vulnerabilities
+[21/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/customizeEasterEgg.ts (9s) | 5.1k tok - 0 vulnerabilities
+[22/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/registerWebsocketEvents.ts (10.5s) | 5.5k tok - 0 vulnerabilities
+2026-10-16T09:24:28Z [INFO]  🔧 [Step 1] grep_search → pattern="parseXmlString" path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:24:28Z [INFO]     ✅ Tool completed: grep_search (took 7ms)
+2026-10-16T09:24:32Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/routes/basketItems.ts
+2026-10-16T09:24:32Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:24:32Z [INFO]  🔧 [Step 4] grep_search → pattern="jwtFrom|ctfFlag|containsOrEscaped|containsEscaped|unquote" path=…/js_16_full_core_4_argon_deep/scoped_target/lib
+2026-10-16T09:24:32Z [INFO]     ✅ Tool completed: grep_search (took 11ms)
+2026-10-16T09:24:32Z [INFO]  🔧 [Step 5] grep_search → pattern="jwtFrom|ctfFlag|containsOrEscaped|containsEscaped|unquote" path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:24:33Z [INFO]     ✅ Tool completed: grep_search (took 20ms)
+2026-10-16T09:24:34Z [INFO]     📤 Result submitted (submit 6.271s)
+[23/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/customizeApplication.ts (22.3s) | 6.3k tok - 0 vulnerabilities
+2026-10-16T09:24:39Z [INFO]     📤 Result submitted (submit 6.741s)
+[24/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/validateConfig.ts (15.7s) | 7.4k tok - 0 vulnerabilities
+[25/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/validateDependenciesBasic.ts (6.4s) | 4.6k tok - 0 vulnerabilities
+2026-10-16T09:24:46Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/fileUpload.ts
+2026-10-16T09:24:46Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:24:53Z [INFO]     📤 Result submitted (submit 6.512s)
+[26/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/7ms.yml (1m31.6s) | 8.3k tok - 0 vulnerabilities
+[27/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/oss.yml (1m32.6s) | 7.3k tok - 0 vulnerabilities
+2026-10-16T09:24:55Z [INFO]  ✅ Completed 5 tool steps in 57s | Tokens: 46k in / 273 out / 47k total
+[28/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/utils.ts (57.1s) | 47.3k tok - 0 vulnerabilities
+[29/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/address.ts (11.8s) | 5.1k tok - 0 vulnerabilities
+[30/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/validatePreconditions.ts (15.5s) | 8.4k tok - 0 vulnerabilities
+2026-10-16T09:25:03Z [INFO]  🔧 [Step 5] grep_search → pattern="security\\." path=…/js_16_full_core_4_argon_deep/scoped_target/models
+2026-10-16T09:25:03Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+[31/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/basketitem.ts (7.6s) | 4.8k tok - 0 vulnerabilities
+[32/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/basket.ts (9.1s) | 4.8k tok - 0 vulnerabilities
+[33/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/captcha.ts (10s) | 4.7k tok - 0 vulnerabilities
+2026-10-16T09:25:09Z [INFO]     📤 Result submitted (submit 5.17s)
+[34/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/delivery.ts (8.5s) | 4.8k tok - 0 vulnerabilities
+[35/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/juicebox.yml (1m56s) | 4.6k tok - 0 vulnerabilities
+[36/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/card.ts (20.5s) | 5.0k tok - 0 vulnerabilities
+[37/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/restoreOverwrittenFilesWithOriginals.ts (57.9s) | 5.2k tok - 0 vulnerabilities
+[38/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/challengeDependency.ts (18.2s) | 4.9k tok - 0 vulnerabilities
+[39/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/hint.ts (6.4s) | 4.8k tok - 0 vulnerabilities
+2026-10-16T09:25:31Z [INFO]  🔧 [Step 1] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:25:31Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:25:31Z [INFO]  🔧 [Step 2] grep_search → pattern="Feedback" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:25:31Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:25:31Z [INFO]  🔧 [Step 3] grep_search → pattern="Feedback" path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:25:31Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+[40/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/challenge.ts (31.8s) | 6.3k tok - 0 vulnerabilities
+2026-10-16T09:25:37Z [INFO]  ✅ Completed 2 tool steps in 1m24s | Tokens: 25k in / 1k out / 28k total
+[41/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/xml.ts (1m24.5s) | 28.4k tok - 1 vulnerabilities
+2026-10-16T09:25:37Z [INFO]     📤 Result submitted (submit 5.709s)
+[42/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/index.ts (11.4s) | 5.8k tok - 0 vulnerabilities
+[43/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/imageCaptcha.ts (17.8s) | 4.8k tok - 0 vulnerabilities
+[44/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/memory.ts (17.2s) | 4.8k tok - 0 vulnerabilities
+2026-10-16T09:25:49Z [INFO]  🔧 [Step 4] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:25:49Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[45/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/privacyRequests.ts (21.2s) | 4.8k tok - 0 vulnerabilities
+2026-10-16T09:25:51Z [INFO]  🔧 [Step 1] grep_search → pattern="sanitizeSecure" path=…/scoped_target/lib/insecurity.ts
+2026-10-16T09:25:51Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:25:51Z [INFO]  🔧 [Step 2] grep_search → pattern="ProductModel" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:25:51Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[46/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/recycle.ts (12.9s) | 4.8k tok - 0 vulnerabilities
+2026-10-16T09:25:54Z [INFO]     📤 Result submitted (submit 5.43s)
+[47/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/quantity.ts (15.5s) | 4.9k tok - 0 vulnerabilities
+2026-10-16T09:25:56Z [INFO]     📤 Result submitted (submit 5.732s)
+2026-10-16T09:26:03Z [INFO]  🔧 [Step 3] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:26:03Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:26:03Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:26:03Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[48/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/securityAnswer.ts (18.7s) | 5.2k tok - 0 vulnerabilities
+2026-10-16T09:26:04Z [INFO]  🔧 [Step 1] grep_search → pattern="safetyMode" path=…/js_16_full_core_4_argon_deep/scoped_target/lib
+2026-10-16T09:26:04Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-16T09:26:06Z [INFO]  🔧 [Step 5] read_file → …/scoped_target/routes/verify.ts
+2026-10-16T09:26:06Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:26:06Z [INFO]  🔧 [Step 6] read_file → …/scoped_target/routes/verify.ts
+2026-10-16T09:26:06Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[49/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/default.yml (2m46s) | 21.9k tok - 0 vulnerabilities
+2026-10-16T09:26:08Z [INFO]     📤 Result submitted (submit 5.389s)
+2026-10-16T09:26:09Z [INFO]     📤 Result submitted (submit 5.17s)
+[50/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/securityQuestion.ts (17.5s) | 4.7k tok - 0 vulnerabilities
+2026-10-16T09:26:11Z [INFO]     📤 Result submitted (submit 5.302s)
+2026-10-16T09:26:13Z [INFO]  🔧 [Step 1] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:26:13Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[51/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/cleanupFtpFolder.ts (2m2.3s) | 4.8k tok - 0 vulnerabilities
+[52/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/app.ts (2m51.6s) | 4.5k tok - 0 vulnerabilities
+[53/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/wallet.ts (20.2s) | 4.8k tok - 0 vulnerabilities
+2026-10-16T09:26:15Z [INFO]  🔧 [Step 1] grep_search → pattern="(getAddress|delAddressById|Addresss)" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:26:15Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-16T09:26:19Z [INFO]     📤 Result submitted (submit 5.834s)
+2026-10-16T09:26:21Z [INFO]     📤 Result submitted (submit 5.166s)
+2026-10-16T09:26:27Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/scoped_target/lib/insecurity.ts
+2026-10-16T09:26:27Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+[54/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/angular.ts (20.8s) | 5.0k tok - 0 vulnerabilities
+2026-10-16T09:26:33Z [INFO]     📤 Result submitted (submit 6.308s)
+2026-10-16T09:26:34Z [INFO]  🔧 [Step 1] grep_search → pattern="authenticatedUsers|authentication-details" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:26:34Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:26:34Z [INFO]  ✅ Completed 1 tool steps in 3m12s | Tokens: 100k in / 5k out / 109k total
+[55/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/server.ts (3m12s) | 109.8k tok - 9 vulnerabilities
+[56/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/appVersion.ts (20.8s) | 4.9k tok - 0 vulnerabilities
+[57/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/appConfiguration.ts (23.5s) | 5.1k tok - 0 vulnerabilities
+2026-10-16T09:26:38Z [INFO]  ✅ Completed 1 tool steps in 33s | Tokens: 15k in / 91 out / 16k total
+[58/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/2fa.ts (32.9s) | 16.8k tok - 0 vulnerabilities
+2026-10-16T09:26:39Z [INFO]     📤 Result submitted (submit 5.506s)
+2026-10-16T09:26:42Z [INFO]  ✅ Completed 4 tool steps in 1m7s | Tokens: 32k in / 832 out / 34k total
+[59/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/product.ts (1m7.4s) | 35.0k tok - 1 vulnerabilities
+2026-10-16T09:26:42Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:26:42Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:26:43Z [INFO]  🔧 [Step 1] grep_search → pattern="retrieveBasket" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:26:43Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:26:43Z [INFO]  🔧 [Step 1] grep_search → pattern="basketItem" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:26:43Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:26:48Z [INFO]     📤 Result submitted (submit 5.234s)
+2026-10-16T09:26:48Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/models/user.ts
+2026-10-16T09:26:48Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:26:48Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:26:48Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:26:48Z [INFO]     📤 Result submitted (submit 5.328s)
+2026-10-16T09:26:51Z [INFO]     📤 Result submitted (submit 7.109s)
+2026-10-16T09:26:54Z [INFO]     📤 Result submitted (submit 6.11s)
+2026-10-16T09:26:56Z [INFO]  🔧 [Step 2] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:26:56Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:26:56Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/lib/utils.ts
+2026-10-16T09:26:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:27:01Z [INFO]  🔧 [Step 2] grep_search → pattern="/rest/basket" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:27:01Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:27:01Z [INFO]  🔧 [Step 1] grep_search → pattern="chat" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:27:01Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:27:02Z [INFO]     📤 Result submitted (submit 5.882s)
+2026-10-16T09:27:06Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:27:06Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:27:06Z [INFO]  🔧 [Step 5] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:27:06Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:27:06Z [INFO]     📤 Result submitted (submit 5.143s)
+2026-10-16T09:27:07Z [INFO]     📤 Result submitted (submit 6.709s)
+2026-10-16T09:27:12Z [INFO]     📤 Result submitted (submit 6.47s)
+2026-10-16T09:27:12Z [INFO]  🔧 [Step 4] grep_search → pattern="BasketItem" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:27:12Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:27:17Z [INFO]  ✅ Completed 3 tool steps in 1m8s | Tokens: 22k in / 167 out / 22k total
+[60/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/address.ts (1m8.1s) | 22.7k tok - 0 vulnerabilities
+2026-10-16T09:27:18Z [INFO]     📤 Result submitted (submit 5.703s)
+[61/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/changePassword.ts (43.4s) | 14.1k tok - 1 vulnerabilities
+2026-10-16T09:27:27Z [INFO]  🔧 [Step 6] grep_search → pattern="authentication-details" path=…/js_16_full_core_4_argon_deep/scoped_target/frontend
+2026-10-16T09:27:27Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target/frontend: no such file or directory (took 0s)
+[62/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/complaint.ts (2m21.2s) | 4.8k tok - 0 vulnerabilities
+2026-10-16T09:27:32Z [INFO]     📤 Result submitted (submit 5.231s)
+2026-10-16T09:27:37Z [INFO]  ✅ Completed 2 tool steps in 1m1s | Tokens: 23k in / 967 out / 26k total
+[63/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/basket.ts (1m0.7s) | 26.1k tok - 1 vulnerabilities
+[64/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/startup/validateDependencies.ts (3m15.5s) | 4.9k tok - 0 vulnerabilities
+2026-10-16T09:27:46Z [INFO]  🔧 [Step 7] grep_search → pattern="authentication-details" path=…/scoped_target/routes/verify.ts
+2026-10-16T09:27:46Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:27:51Z [INFO]     📤 Result submitted (submit 5.044s)
+2026-10-16T09:27:58Z [INFO]  🔧 [Step 1] grep_search → pattern="applyCoupon|coupon" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:27:58Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-16T09:27:58Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:27:58Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[65/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/checkKeys.ts (43.4s) | 13.2k tok - 1 vulnerabilities
+2026-10-16T09:28:04Z [INFO]     📤 Result submitted (submit 5.907s)
+2026-10-16T09:28:07Z [INFO]  🔧 [Step 1] grep_search → pattern="(express-jwt|js-yaml|jsonwebtoken|marsdb|notevil|sanitize-html|unzipper|pug)" path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:28:07Z [INFO]     ✅ Tool completed: grep_search (took 46ms)
+2026-10-16T09:28:07Z [INFO]  🔧 [Step 2] grep_search → pattern="(express-jwt|js-yaml|jsonwebtoken|marsdb|notevil|sanitize-html|unzipper|pug)" path=…/js_16_full_core_4_argon_deep/scoped_target/lib
+2026-10-16T09:28:07Z [INFO]     ✅ Tool completed: grep_search (took 17ms)
+2026-10-16T09:28:07Z [INFO]  🔧 [Step 1] grep_search → pattern="createProductReviews" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:07Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[66/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/relations.ts (2m30.9s) | 6.1k tok - 0 vulnerabilities
+2026-10-16T09:28:11Z [INFO]  🔧 [Step 3] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:11Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:28:12Z [INFO]     📤 Result submitted (submit 5.245s)
+2026-10-16T09:28:14Z [INFO]     📤 Result submitted (submit 6.164s)
+2026-10-16T09:28:17Z [INFO]     📤 Result submitted (submit 5.26s)
+2026-10-16T09:28:21Z [INFO]  ✅ Completed 7 tool steps in 2m4s | Tokens: 94k in / 1k out / 97k total
+[67/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/authenticatedUsers.ts (2m4s) | 97.0k tok - 1 vulnerabilities
+2026-10-16T09:28:21Z [INFO]  ✅ Completed 4 tool steps in 1m44s | Tokens: 46k in / 2k out / 50k total
+[68/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/basketItems.ts (1m43.8s) | 50.9k tok - 3 vulnerabilities
+2026-10-16T09:28:22Z [INFO]  🔧 [Step 1] grep_search → pattern="dataErasure|hbs|view engine" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:22Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-16T09:28:24Z [INFO]  🔧 [Step 4] grep_search → pattern="/rest/basket" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:24Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-16T09:28:26Z [INFO]  🔧 [Step 2] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:26Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:28:26Z [INFO]  🔧 [Step 1] grep_search → pattern="retrieveLoggedInUser" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:26Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:28:27Z [INFO]     📤 Result submitted (submit 5.017s)
+2026-10-16T09:28:28Z [INFO]  ✅ Completed 5 tool steps in 4m46s | Tokens: 344k in / 7k out / 354k total
+[69/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/lib/insecurity.ts (4m46.5s) | 354.9k tok - 10 vulnerabilities
+2026-10-16T09:28:30Z [INFO]     📤 Result submitted (submit 5.916s)
+2026-10-16T09:28:31Z [INFO]     📤 Result submitted (submit 5.029s)
+2026-10-16T09:28:32Z [INFO]     📤 Result submitted (submit 5.802s)
+2026-10-16T09:28:33Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/views/dataErasureResult.hbs
+2026-10-16T09:28:33Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:28:33Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/views/dataErasureForm.hbs
+2026-10-16T09:28:33Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:28:36Z [INFO]  🔧 [Step 3] grep_search → pattern="reviews" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:36Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:28:39Z [INFO]     📤 Result submitted (submit 5.924s)
+2026-10-16T09:28:41Z [INFO]     📤 Result submitted (submit 5.488s)
+2026-10-16T09:28:45Z [INFO]  🔧 [Step 5] read_file → …/scoped_target/routes/basket.ts
+2026-10-16T09:28:45Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:28:45Z [INFO]  🔧 [Step 6] read_file → …/scoped_target/models/basket.ts
+2026-10-16T09:28:45Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:28:48Z [INFO]  🔧 [Step 1] grep_search → pattern="dataExport" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:48Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:28:49Z [INFO]  🔧 [Step 1] grep_search → pattern="captcha" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:28:49Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:28:50Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/data/mongodb.ts
+2026-10-16T09:28:50Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/.cm_home/artifacts/ChAyYmI5YWQ3MDVlNDkwNjkwEAgaAjQ5KgRtYWlu/mongodb.ts: no such file or directory (took 1ms)
+2026-10-16T09:28:51Z [INFO]     📤 Result submitted (submit 6.067s)
+2026-10-16T09:28:53Z [INFO]  ✅ Completed 1 tool steps in 2m9s | Tokens: 77k in / 3k out / 84k total
+[70/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/chat.ts (2m9.4s) | 84.5k tok - 4 vulnerabilities
+2026-10-16T09:28:54Z [INFO]     📤 Result submitted (submit 6.071s)
+2026-10-16T09:28:54Z [INFO]     📤 Result submitted (submit 5.077s)
+2026-10-16T09:28:56Z [INFO]     📤 Result submitted (submit 6.073s)
+2026-10-16T09:29:00Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/scoped_target/lib/insecurity.ts
+2026-10-16T09:29:00Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:29:04Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/lib/utils.ts
+2026-10-16T09:29:04Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:29:05Z [INFO]     📤 Result submitted (submit 5.283s)
+2026-10-16T09:29:10Z [INFO]     📤 Result submitted (submit 6.541s)
+2026-10-16T09:29:11Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:29:11Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:29:14Z [INFO]  🔧 [Step 1] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:29:14Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:29:14Z [INFO]  🔧 [Step 2] grep_search → pattern="username" path=…/scoped_target/routes/userProfile.ts
+2026-10-16T09:29:14Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-16T09:29:14Z [INFO]  🔧 [Step 3] grep_search → pattern="UserModel" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:29:14Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:29:17Z [INFO]     📤 Result submitted (submit 5.986s)
+2026-10-16T09:29:19Z [INFO]     📤 Result submitted (submit 5.014s)
+2026-10-16T09:29:21Z [INFO]  ✅ Completed 6 tool steps in 1m42s | Tokens: 55k in / 1k out / 58k total
+[71/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/coupon.ts (1m41.5s) | 58.1k tok - 1 vulnerabilities
+2026-10-16T09:29:23Z [INFO]  ✅ Completed 4 tool steps in 1m36s | Tokens: 39k in / 987 out / 41k total
+[72/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/createProductReviews.ts (1m36.2s) | 41.4k tok - 1 vulnerabilities
+2026-10-16T09:29:23Z [INFO]  ✅ Completed 1 tool steps in 1m17s | Tokens: 28k in / 2k out / 32k total
+[73/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/currentUser.ts (1m17.1s) | 32.7k tok - 2 vulnerabilities
+2026-10-16T09:29:23Z [INFO]  🔧 [Step 4] grep_search → pattern="jwtFrom" path=…/scoped_target/lib/utils.ts
+2026-10-16T09:29:23Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+[74/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/delivery.ts (1m5.1s) | 5.2k tok - 0 vulnerabilities
+2026-10-16T09:29:29Z [INFO]     📤 Result submitted (submit 5.717s)
+2026-10-16T09:29:41Z [INFO]  🔧 [Step 5] read_file → …/scoped_target/lib/utils.ts
+2026-10-16T09:29:41Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:29:43Z [INFO]  🔧 [Step 4] grep_search → pattern="dataErasure|dataerasure|lfrChallenge" path=…/data/static/challenges.yml
+2026-10-16T09:29:43Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target/data/static/challenges.yml: no such file or directory (took 0s)
+2026-10-16T09:29:45Z [INFO]  🔧 [Step 1] grep_search → pattern="imageCaptcha|verifyImageCaptcha" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:29:45Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-16T09:29:45Z [INFO]  🔧 [Step 1] read_file → …/scoped_target/lib/xml.ts
+2026-10-16T09:29:45Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:29:45Z [INFO]  🔧 [Step 2] grep_search → pattern="fileUpload|ensureFileIsPassed|handleZipFileUpload|checkUploadSize|checkFileType|handleXmlUpload|handleYamlUpload" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:29:45Z [INFO]     ✅ Tool completed: grep_search (took 5ms)
+2026-10-16T09:29:46Z [INFO]  🔧 [Step 1] grep_search → pattern="serveKeyFiles|encryptionkeys" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:29:46Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-16T09:29:47Z [INFO]     📤 Result submitted (submit 5.935s)
+2026-10-16T09:29:47Z [INFO]  ✅ Completed 6 tool steps in 4m28s | Tokens: 83k in / 989 out / 86k total
+[75/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/models/feedback.ts (4m28.5s) | 86.1k tok - 1 vulnerabilities
+2026-10-16T09:29:49Z [INFO]     📤 Result submitted (submit 5.926s)
+2026-10-16T09:29:50Z [INFO]     📤 Result submitted (submit 5.275s)
+2026-10-16T09:29:51Z [INFO]     📤 Result submitted (submit 5.941s)
+2026-10-16T09:29:53Z [INFO]     📤 Result submitted (submit 6.395s)
+2026-10-16T09:30:00Z [INFO]  🔧 [Step 5] grep_search → pattern="hbs|handlebars" path=…/js_16_full_core_4_argon_deep/scoped_target/package.json
+2026-10-16T09:30:00Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-16T09:30:02Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/logfileServer.ts
+2026-10-16T09:30:02Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:30:05Z [INFO]     📤 Result submitted (submit 5.417s)
+[76/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/languages.ts (17.3s) | 5.8k tok - 0 vulnerabilities
+2026-10-16T09:30:08Z [INFO]     📤 Result submitted (submit 5.801s)
+2026-10-16T09:30:10Z [INFO]  🔧 [Step 3] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:30:10Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:30:10Z [INFO]  🔧 [Step 4] grep_search → pattern="js-yaml|unzipper" path=…/js_16_full_core_4_argon_deep/scoped_target/package.json
+2026-10-16T09:30:10Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:30:14Z [INFO]  ✅ Completed 5 tool steps in 1m50s | Tokens: 52k in / 1k out / 55k total
+[77/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/dataExport.ts (1m49.8s) | 55.2k tok - 1 vulnerabilities
+2026-10-16T09:30:15Z [INFO]     📤 Result submitted (submit 5.244s)
+2026-10-16T09:30:28Z [INFO]  🔧 [Step 1] grep_search → pattern="serveLogFiles|logfileServer|support/logs" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:30:28Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-16T09:30:32Z [INFO]  ✅ Completed 1 tool steps in 1m8s | Tokens: 26k in / 1k out / 29k total
+[78/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/imageCaptcha.ts (1m7.6s) | 29.3k tok - 2 vulnerabilities
+2026-10-16T09:30:33Z [INFO]     📤 Result submitted (submit 5.287s)
+2026-10-16T09:30:38Z [INFO]  🔧 [Step 5] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:30:38Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:30:38Z [INFO]  🔧 [Step 2] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:30:38Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:30:44Z [INFO]     📤 Result submitted (submit 5.375s)
+2026-10-16T09:30:45Z [INFO]     📤 Result submitted (submit 6.656s)
+[79/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/likeProductReviews.ts (43.1s) | 15.7k tok - 2 vulnerabilities
+[80/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/fileServer.ts (1m29.5s) | 21.6k tok - 1 vulnerabilities
+2026-10-16T09:30:55Z [INFO]  ✅ Completed 2 tool steps in 1m23s | Tokens: 22k in / 796 out / 23k total
+[81/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/keyServer.ts (1m23.4s) | 24.0k tok - 1 vulnerabilities
+2026-10-16T09:30:56Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/routes/verify.ts
+2026-10-16T09:30:56Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:30:56Z [INFO]  🔧 [Step 4] grep_search → pattern="marsdb" path=…/js_16_full_core_4_argon_deep/scoped_target/data
+2026-10-16T09:30:56Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target/data: no such file or directory (took 0s)
+2026-10-16T09:30:59Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/routes/keyServer.ts
+2026-10-16T09:30:59Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:31:01Z [INFO]     📤 Result submitted (submit 5.322s)
+2026-10-16T09:31:04Z [INFO]     📤 Result submitted (submit 5.215s)
+2026-10-16T09:31:05Z [INFO]  🔧 [Step 1] grep_search → pattern="metrics" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:05Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:31:08Z [INFO]  🔧 [Step 1] grep_search → pattern="(addMemory|getMemories|memory)" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:08Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+[82/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/nftMint.ts (11.1s) | 5.4k tok - 0 vulnerabilities
+2026-10-16T09:31:10Z [INFO]  ✅ Completed 5 tool steps in 2m56s | Tokens: 84k in / 2k out / 91k total
+[83/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/dataErasure.ts (2m55.7s) | 91.2k tok - 2 vulnerabilities
+2026-10-16T09:31:11Z [INFO]     📤 Result submitted (submit 5.204s)
+2026-10-16T09:31:13Z [INFO]     📤 Result submitted (submit 5.366s)
+[84/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/login.ts (39.7s) | 15.4k tok - 1 vulnerabilities
+2026-10-16T09:31:15Z [INFO]  🔧 [Step 5] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:31:15Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:31:15Z [INFO]  🔧 [Step 6] read_file → …/scoped_target/routes/fileUpload.ts
+2026-10-16T09:31:15Z [INFO]     ✅ Tool completed: read_file (took 2ms)
+2026-10-16T09:31:15Z [INFO]  🔧 [Step 7] read_file → …/scoped_target/routes/b2bOrder.ts
+2026-10-16T09:31:15Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[85/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/countryMapping.ts (3m50.5s) | 4.7k tok - 0 vulnerabilities
+2026-10-16T09:31:20Z [INFO]     📤 Result submitted (submit 5.425s)
+2026-10-16T09:31:25Z [INFO]  🔧 [Step 2] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:25Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:31:25Z [INFO]  🔧 [Step 3] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:25Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:31:25Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/models/user.ts
+2026-10-16T09:31:25Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:31:26Z [INFO]  🔧 [Step 1] grep_search → pattern="deluxe" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:26Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:31:27Z [INFO]  🔧 [Step 2] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:27Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:31:27Z [INFO]  🔧 [Step 1] grep_search → pattern="PaymentMethod" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:27Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:31:27Z [INFO]  🔧 [Step 1] grep_search → pattern="placeOrder|/rest/basket/:id/order" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:27Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-16T09:31:30Z [INFO]     📤 Result submitted (submit 5.327s)
+2026-10-16T09:31:31Z [INFO]     📤 Result submitted (submit 5.003s)
+2026-10-16T09:31:32Z [INFO]     📤 Result submitted (submit 5.084s)
+2026-10-16T09:31:32Z [INFO]     📤 Result submitted (submit 5.089s)
+2026-10-16T09:31:32Z [INFO]     📤 Result submitted (submit 5.704s)
+2026-10-16T09:31:35Z [INFO]  🔧 [Step 1] grep_search → pattern="servePremiumContent|premiumPaywallChallenge" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:31:35Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-16T09:31:37Z [INFO]  🔧 [Step 5] grep_search → pattern="appendUserId" path=…/scoped_target/lib/insecurity.ts
+2026-10-16T09:31:37Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-16T09:31:37Z [INFO]  🔧 [Step 6] read_file → …/scoped_target/models/memory.ts
+2026-10-16T09:31:37Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:31:38Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/scoped_target/lib/insecurity.ts
+2026-10-16T09:31:38Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-16T09:31:40Z [INFO]     📤 Result submitted (submit 5.115s)
+2026-10-16T09:31:41Z [INFO]  ✅ Completed 2 tool steps in 8m19s | Tokens: 15k in / 115 out / 15k total
+[86/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/config/unsafe.yml (8m18.8s) | 15.4k tok - 0 vulnerabilities
+2026-10-16T09:31:42Z [INFO]     📤 Result submitted (submit 5.315s)
+2026-10-16T09:31:43Z [INFO]     📤 Result submitted (submit 5.135s)
+2026-10-16T09:31:43Z [INFO]  🔧 [Step 2] grep_search → pattern="appendUserId" path=…/scoped_target/lib/insecurity.ts
+2026-10-16T09:31:43Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[87/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/continueCode.ts (4m22s) | 5.6k tok - 0 vulnerabilities
+2026-10-16T09:31:47Z [INFO]  ✅ Completed 3 tool steps in 1m31s | Tokens: 39k in / 1k out / 42k total
+[88/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/logfileServer.ts (1m31.1s) | 43.0k tok - 2 vulnerabilities
+2026-10-16T09:31:49Z [INFO]     📤 Result submitted (submit 5.123s)
+2026-10-16T09:31:52Z [INFO]  🔧 [Step 7] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:31:52Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[89/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/privacyPolicyProof.ts (10.3s) | 4.6k tok - 0 vulnerabilities
+2026-10-16T09:31:57Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:31:57Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:31:57Z [INFO]     📤 Result submitted (submit 4.843s)
+2026-10-16T09:32:00Z [INFO]  🔧 [Step 2] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:00Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:32:01Z [INFO]  🔧 [Step 1] grep_search → pattern="profileImageFileUpload|/profile/image/file" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:01Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-16T09:32:02Z [INFO]     📤 Result submitted (submit 5.022s)
+2026-10-16T09:32:05Z [INFO]     📤 Result submitted (submit 5.287s)
+2026-10-16T09:32:06Z [INFO]     📤 Result submitted (submit 5.171s)
+2026-10-16T09:32:10Z [INFO]  🔧 [Step 1] grep_search → pattern="profileImageUrlUpload" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:10Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:32:10Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/userProfile.ts
+2026-10-16T09:32:10Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:10Z [INFO]  🔧 [Step 8] grep_search → pattern="rest/memories" path=…/frontend/src/app
+2026-10-16T09:32:10Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target/frontend/src/app: no such file or directory (took 0s)
+2026-10-16T09:32:11Z [INFO]  🔧 [Step 1] grep_search → pattern="serveQuarantineFiles|quarantine" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:11Z [INFO]     ✅ Tool completed: grep_search (took 3ms)
+2026-10-16T09:32:14Z [INFO]  🔧 [Step 2] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:14Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:15Z [INFO]     📤 Result submitted (submit 5.042s)
+2026-10-16T09:32:15Z [INFO]     📤 Result submitted (submit 5.368s)
+2026-10-16T09:32:16Z [INFO]     📤 Result submitted (submit 5.314s)
+2026-10-16T09:32:19Z [INFO]     📤 Result submitted (submit 4.887s)
+2026-10-16T09:32:22Z [INFO]  🔧 [Step 6] grep_search → pattern="uploadToMemory" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:22Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:32:27Z [INFO]  ✅ Completed 2 tool steps in 5m48s | Tokens: 35k in / 1k out / 38k total
+[90/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/captcha.ts (5m47.6s) | 38.9k tok - 2 vulnerabilities
+2026-10-16T09:32:27Z [INFO]  🔧 [Step 3] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:27Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:27Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/routes/profileImageUrlUpload.ts
+2026-10-16T09:32:27Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:28Z [INFO]     📤 Result submitted (submit 5.521s)
+2026-10-16T09:32:32Z [INFO]  🔧 [Step 3] grep_search → pattern="premiumPaywallChallenge" path=…/data/static/challenges.yml
+2026-10-16T09:32:32Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target/data/static/challenges.yml: no such file or directory (took 1ms)
+2026-10-16T09:32:33Z [INFO]     📤 Result submitted (submit 5.367s)
+2026-10-16T09:32:34Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:32:34Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:37Z [INFO]     📤 Result submitted (submit 4.648s)
+2026-10-16T09:32:39Z [INFO]  🔧 [Step 5] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:39Z [INFO]  🔧 [Step 6] read_file → …/scoped_target/routes/userProfile.ts
+2026-10-16T09:32:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:39Z [INFO]     📤 Result submitted (submit 5.111s)
+2026-10-16T09:32:39Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/routes/userProfile.ts
+2026-10-16T09:32:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:39Z [INFO]  🔧 [Step 5] read_file → …/scoped_target/views/userProfile.pug
+2026-10-16T09:32:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:39Z [INFO]  🔧 [Step 6] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:32:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[91/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/easterEgg.ts (3m47s) | 4.6k tok - 0 vulnerabilities
+2026-10-16T09:32:44Z [INFO]     📤 Result submitted (submit 5.242s)
+2026-10-16T09:32:44Z [INFO]     📤 Result submitted (submit 5.822s)
+2026-10-16T09:32:45Z [INFO]  ✅ Completed 1 tool steps in 50s | Tokens: 16k in / 628 out / 18k total
+[92/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/quarantineServer.ts (49.6s) | 18.5k tok - 1 vulnerabilities
+2026-10-16T09:32:48Z [INFO]  ✅ Completed 8 tool steps in 1m56s | Tokens: 92k in / 973 out / 95k total
+[93/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/memory.ts (1m55.7s) | 95.2k tok - 1 vulnerabilities
+2026-10-16T09:32:52Z [INFO]  🔧 [Step 1] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:32:52Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:32:55Z [INFO]  ✅ Completed 3 tool steps in 1m40s | Tokens: 23k in / 159 out / 24k total
+[94/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/payment.ts (1m40.1s) | 24.3k tok - 0 vulnerabilities
+2026-10-16T09:32:56Z [INFO]  ✅ Completed 3 tool steps in 4m26s | Tokens: 34k in / 1k out / 36k total
+[95/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/deluxe.ts (4m26.2s) | 36.8k tok - 1 vulnerabilities
+2026-10-16T09:32:57Z [INFO]  ✅ Completed 6 tool steps in 3m32s | Tokens: 131k in / 5k out / 142k total
+[96/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/fileUpload.ts (3m31.7s) | 142.7k tok - 5 vulnerabilities
+2026-10-16T09:32:58Z [INFO]     📤 Result submitted (submit 5.627s)
+[97/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/repeatNotification.ts (13.3s) | 5.0k tok - 0 vulnerabilities
+2026-10-16T09:33:02Z [INFO]  ✅ Completed 1 tool steps in 1m51s | Tokens: 52k in / 3k out / 56k total
+[98/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/order.ts (1m51.2s) | 56.9k tok - 3 vulnerabilities
+2026-10-16T09:33:06Z [INFO]  🔧 [Step 1] grep_search → pattern="reset-password|resetPassword" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:06Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:33:06Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/models/user.ts
+2026-10-16T09:33:06Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:33:08Z [INFO]  ✅ Completed 2 tool steps in 1m19s | Tokens: 27k in / 2k out / 31k total
+[99/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/profileImageUrlUpload.ts (1m18.6s) | 31.4k tok - 2 vulnerabilities
+2026-10-16T09:33:08Z [INFO]  🔧 [Step 1] grep_search → pattern="sanitizeSecure" path=…/scoped_target/lib/insecurity.ts
+2026-10-16T09:33:08Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-16T09:33:08Z [INFO]  🔧 [Step 2] grep_search → pattern="saveLoginIp" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:08Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-16T09:33:08Z [INFO]  🔧 [Step 3] grep_search → pattern="lastLoginIp|save-login-ip" path=…/js_16_full_core_4_argon_deep/scoped_target/frontend
+2026-10-16T09:33:08Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target/frontend: no such file or directory (took 0s)
+2026-10-16T09:33:08Z [INFO]  🔧 [Step 4] grep_search → pattern="lastLoginIp" path=…/js_16_full_core_4_argon_deep/scoped_target/views
+2026-10-16T09:33:08Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:33:11Z [INFO]  🔧 [Step 7] grep_search → pattern="uploadToMemory" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:11Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:33:12Z [INFO]     📤 Result submitted (submit 5.9s)
+2026-10-16T09:33:13Z [INFO]  🔧 [Step 1] grep_search → pattern="securityQuestion" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:13Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:33:14Z [INFO]     📤 Result submitted (submit 5.671s)
+[100/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/restoreProgress.ts (17.4s) | 6.3k tok - 0 vulnerabilities
+2026-10-16T09:33:16Z [INFO]     📤 Result submitted (submit 5.315s)
+2026-10-16T09:33:18Z [INFO]     📤 Result submitted (submit 4.686s)
+2026-10-16T09:33:20Z [INFO]  ✅ Completed 1 tool steps in 2m25s | Tokens: 27k in / 681 out / 29k total
+[101/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/metrics.ts (2m24.9s) | 29.7k tok - 1 vulnerabilities
+2026-10-16T09:33:21Z [INFO]  ✅ Completed 3 tool steps in 1m59s | Tokens: 27k in / 718 out / 29k total
+[102/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/premiumReward.ts (1m58.8s) | 29.6k tok - 1 vulnerabilities
+2026-10-16T09:33:22Z [INFO]  🔧 [Step 5] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:33:22Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:33:22Z [INFO]  🔧 [Step 6] read_file → …/scoped_target/lib/utils.ts
+2026-10-16T09:33:22Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:33:22Z [INFO]  🔧 [Step 7] grep_search → pattern="lastLoginIp" path=…/scoped_target/models/user.ts
+2026-10-16T09:33:22Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-16T09:33:22Z [INFO]  🔧 [Step 8] grep_search → pattern="httpHeaderXssChallenge" path=…/js_16_full_core_4_argon_deep/scoped_target/data
+2026-10-16T09:33:22Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target/data: no such file or directory (took 0s)
+2026-10-16T09:33:24Z [INFO]  ✅ Completed 1 tool steps in 41s | Tokens: 18k in / 953 out / 19k total
+[103/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/redirect.ts (40.7s) | 19.9k tok - 1 vulnerabilities
+2026-10-16T09:33:25Z [INFO]  ✅ Completed 7 tool steps in 1m36s | Tokens: 55k in / 346 out / 56k total
+[104/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/profileImageFileUpload.ts (1m35.6s) | 56.7k tok - 0 vulnerabilities
+2026-10-16T09:33:27Z [INFO]  🔧 [Step 1] grep_search → pattern="updateUserProfile|/profile" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:27Z [INFO]     ✅ Tool completed: grep_search (took 2ms)
+2026-10-16T09:33:29Z [INFO]     📤 Result submitted (submit 6.34s)
+2026-10-16T09:33:29Z [INFO]  🔧 [Step 1] grep_search → pattern="updateProductReviews" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:29Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+[105/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/search.ts (29.3s) | 13.2k tok - 1 vulnerabilities
+2026-10-16T09:33:32Z [INFO]     📤 Result submitted (submit 4.646s)
+2026-10-16T09:33:35Z [INFO]     📤 Result submitted (submit 5.288s)
+2026-10-16T09:33:35Z [INFO]  🔧 [Step 9] read_file → …/scoped_target/models/user.ts
+2026-10-16T09:33:35Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:33:38Z [INFO]  🔧 [Step 1] grep_search → pattern="(orderHistory|allOrders|toggleDeliveryStatus)" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:38Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-16T09:33:39Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/userProfile.ts
+2026-10-16T09:33:39Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:33:39Z [INFO]  🔧 [Step 1] read_file → …/scoped_target/views/userProfile.pug
+2026-10-16T09:33:39Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:33:40Z [INFO]  🔧 [Step 1] grep_search → pattern="verify\\." path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:40Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:33:41Z [INFO]     📤 Result submitted (submit 5.824s)
+2026-10-16T09:33:43Z [INFO]  ✅ Completed 2 tool steps in 52s | Tokens: 28k in / 1k out / 30k total
+[106/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/resetPassword.ts (51.8s) | 30.4k tok - 1 vulnerabilities
+2026-10-16T09:33:43Z [INFO]     📤 Result submitted (submit 5.092s)
+2026-10-16T09:33:44Z [INFO]     📤 Result submitted (submit 5.007s)
+2026-10-16T09:33:45Z [INFO]     📤 Result submitted (submit 5.002s)
+2026-10-16T09:33:45Z [INFO]     📤 Result submitted (submit 6.037s)
+[107/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/trackOrder.ts (38.9s) | 14.3k tok - 2 vulnerabilities
+[108/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/showProductReviews.ts (47.3s) | 14.5k tok - 1 vulnerabilities
+2026-10-16T09:33:58Z [INFO]  🔧 [Step 10] read_file → …/scoped_target/models/user.ts
+2026-10-16T09:33:58Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:33:59Z [INFO]  🔧 [Step 1] grep_search → pattern="wallet|getWalletBalance|addWalletBalance" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:33:59Z [INFO]     ✅ Tool completed: grep_search (took 4ms)
+2026-10-16T09:34:01Z [INFO]  🔧 [Step 1] read_file → …/scoped_target/lib/codingChallenges.ts
+2026-10-16T09:34:01Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+[109/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/vulnCodeFixes.ts (30.6s) | 7.2k tok - 0 vulnerabilities
+2026-10-16T09:34:03Z [INFO]     📤 Result submitted (submit 5.387s)
+2026-10-16T09:34:04Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/models/user.ts
+2026-10-16T09:34:04Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:34:05Z [INFO]     📤 Result submitted (submit 5.205s)
+2026-10-16T09:34:05Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/updateUserProfile.ts
+2026-10-16T09:34:05Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:34:05Z [INFO]  🔧 [Step 3] read_file → …/scoped_target/routes/profileImageUrlUpload.ts
+2026-10-16T09:34:05Z [INFO]     ✅ Tool completed: read_file (took 0s)
+[110/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/web3Wallet.ts (11.7s) | 5.1k tok - 0 vulnerabilities
+[111/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/videoHandler.ts (39.7s) | 16.4k tok - 1 vulnerabilities
+2026-10-16T09:34:07Z [INFO]     📤 Result submitted (submit 6.106s)
+2026-10-16T09:34:08Z [INFO]  ✅ Completed 1 tool steps in 51s | Tokens: 18k in / 1k out / 20k total
+[112/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/updateProductReviews.ts (51.2s) | 20.6k tok - 2 vulnerabilities
+2026-10-16T09:34:09Z [INFO]     📤 Result submitted (submit 5.069s)
+2026-10-16T09:34:10Z [INFO]     📤 Result submitted (submit 5.179s)
+2026-10-16T09:34:18Z [INFO]  🔧 [Step 1] grep_search → pattern="promotionVideo" path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:34:18Z [INFO]     ✅ Tool completed: grep_search (took 8ms)
+2026-10-16T09:34:18Z [INFO]  🔧 [Step 1] grep_search → pattern="dataErasureResult" path=…/scoped_target/routes/dataErasure.ts
+2026-10-16T09:34:18Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:34:23Z [INFO]  🔧 [Step 1] grep_search → pattern="userProfile\\.pug" path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:34:23Z [INFO]     ✅ Tool completed: grep_search (took 12ms)
+2026-10-16T09:34:23Z [INFO]     📤 Result submitted (submit 5.1s)
+2026-10-16T09:34:23Z [INFO]     📤 Result submitted (submit 5.335s)
+2026-10-16T09:34:26Z [INFO]  ✅ Completed 1 tool steps in 1m0s | Tokens: 50k in / 1k out / 53k total
+[113/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/verify.ts (59.9s) | 53.5k tok - 2 vulnerabilities
+2026-10-16T09:34:28Z [INFO]     📤 Result submitted (submit 5.172s)
+2026-10-16T09:34:30Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/videoHandler.ts
+2026-10-16T09:34:30Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:34:30Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/dataErasure.ts
+2026-10-16T09:34:30Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:34:33Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/userProfile.ts
+2026-10-16T09:34:33Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:34:35Z [INFO]     📤 Result submitted (submit 5.282s)
+2026-10-16T09:34:36Z [INFO]     📤 Result submitted (submit 5.065s)
+2026-10-16T09:34:37Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/models/wallet.ts
+2026-10-16T09:34:37Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:34:37Z [INFO]  🔧 [Step 3] grep_search → pattern="appendUserId" path=…/scoped_target/lib/insecurity.ts
+2026-10-16T09:34:37Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+[114/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/b2bOrder.ts (8m2.6s) | 25.1k tok - 2 vulnerabilities
+2026-10-16T09:34:39Z [INFO]     📤 Result submitted (submit 5.151s)
+2026-10-16T09:34:39Z [INFO]  ✅ Completed 10 tool steps in 1m41s | Tokens: 80k in / 1k out / 84k total
+[115/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/saveLoginIp.ts (1m41s) | 84.2k tok - 1 vulnerabilities
+2026-10-16T09:34:41Z [INFO]  🔧 [Step 1] grep_search → pattern="recycle" path=…/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:34:41Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:34:41Z [INFO]  🔧 [Step 2] read_file → …/js_16_full_core_4_argon_deep/scoped_target/package.json
+2026-10-16T09:34:41Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:34:42Z [INFO]     📤 Result submitted (submit 5.02s)
+2026-10-16T09:34:43Z [INFO]  ✅ Completed 2 tool steps in 35s | Tokens: 16k in / 141 out / 16k total
+[116/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/views/dataErasureResult.hbs (35.4s) | 16.8k tok - 0 vulnerabilities
+2026-10-16T09:34:47Z [INFO]     📤 Result submitted (submit 5.795s)
+2026-10-16T09:34:48Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/lib/insecurity.ts
+2026-10-16T09:34:48Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:34:49Z [INFO]  🔧 [Step 3] list_dir → …/js_16_full_core_4_argon_deep/scoped_target/views
+2026-10-16T09:34:49Z [INFO]     ✅ Tool completed: list_dir (took 0s)
+2026-10-16T09:34:51Z [INFO]  ✅ Completed 2 tool steps in 42s | Tokens: 20k in / 114 out / 20k total
+[117/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/views/promotionVideo.pug (41.6s) | 20.8k tok - 0 vulnerabilities
+2026-10-16T09:34:52Z [INFO]  🔧 [Step 3] read_file → …/js_16_full_core_4_argon_deep/scoped_target/server.ts
+2026-10-16T09:34:52Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:34:52Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/models/recycle.ts
+2026-10-16T09:34:52Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:34:52Z [INFO]  ✅ Completed 3 tool steps in 1m31s | Tokens: 41k in / 1k out / 44k total
+[118/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/updateUserProfile.ts (1m30.7s) | 44.6k tok - 2 vulnerabilities
+2026-10-16T09:34:52Z [INFO]  ✅ Completed 1 tool steps in 1m7s | Tokens: 14k in / 119 out / 15k total
+[119/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/vulnCodeSnippet.ts (1m7.4s) | 15.9k tok - 0 vulnerabilities
+2026-10-16T09:34:53Z [INFO]     📤 Result submitted (submit 5.256s)
+2026-10-16T09:34:55Z [INFO]     📤 Result submitted (submit 6.19s)
+2026-10-16T09:34:57Z [INFO]     📤 Result submitted (submit 5.382s)
+2026-10-16T09:35:10Z [INFO]  🔧 [Step 5] read_file → …/scoped_target/models/index.ts
+2026-10-16T09:35:10Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:35:12Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/routes/resetPassword.ts
+2026-10-16T09:35:12Z [INFO]     ✅ Tool completed: read_file (took 1ms)
+2026-10-16T09:35:13Z [INFO]  ✅ Completed 4 tool steps in 1m22s | Tokens: 25k in / 194 out / 27k total
+[120/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/wallet.ts (1m21.8s) | 27.1k tok - 0 vulnerabilities
+2026-10-16T09:35:16Z [INFO]     📤 Result submitted (submit 5.328s)
+2026-10-16T09:35:19Z [INFO]  🔧 [Step 2] read_file → …/scoped_target/data/mongodb.ts
+2026-10-16T09:35:19Z [WARN]     ⚠️ Tool error: read_file: read error: open /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/.cm_home/artifacts/ChBhYjlhYTFhZGRjYWY1Y2YzEAgaAjBmKgRtYWlu/mongodb.ts: no such file or directory (took 0s)
+2026-10-16T09:35:19Z [INFO]     📤 Result submitted (submit 6.721s)
+2026-10-16T09:35:19Z [INFO]  🔧 [Step 8] read_file → …/scoped_target/routes/userProfile.ts
+2026-10-16T09:35:19Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:35:24Z [INFO]     📤 Result submitted (submit 5.288s)
+2026-10-16T09:35:24Z [INFO]     📤 Result submitted (submit 5.192s)
+2026-10-16T09:35:30Z [INFO]  ✅ Completed 2 tool steps in 2m28s | Tokens: 16k in / 114 out / 17k total
+[121/128 batches] ✅ ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/securityQuestion.ts (2m27.5s) | 17.1k tok - 0 vulnerabilities
+2026-10-16T09:35:47Z [INFO]  ✅ Completed 8 tool steps in 12m25s | Tokens: 120k in / 4k out / 126k total
+[122/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/package.json (12m24.7s) | 126.1k tok - 8 vulnerabilities
+2026-10-16T09:35:51Z [INFO]  🔧 [Step 7] grep_search → pattern="bypassSecurityTrustHtml" path=…/frontend/src/app
+2026-10-16T09:35:51Z [WARN]     ⚠️ Tool error: grep_search: walk error: lstat /usr/local/google/home/hongbocheng/projects/codemender-pipeline/scan_outputs/js_16_full_core_4_argon_deep/scoped_target/frontend/src/app: no such file or directory (took 1ms)
+2026-10-16T09:35:51Z [INFO]  🔧 [Step 8] grep_search → pattern="username" path=…/scoped_target/routes/updateUserProfile.ts
+2026-10-16T09:35:51Z [INFO]     ✅ Tool completed: grep_search (took 0s)
+2026-10-16T09:35:57Z [INFO]     📤 Result submitted (submit 5.45s)
+2026-10-16T09:35:58Z [INFO]  ✅ Completed 3 tool steps in 1m48s | Tokens: 53k in / 1k out / 58k total
+[123/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/views/userProfile.pug (1m48s) | 58.5k tok - 2 vulnerabilities
+2026-10-16T09:35:58Z [INFO]  ✅ Completed 5 tool steps in 3m29s | Tokens: 62k in / 1k out / 66k total
+[124/128 batches] 🚨 ../../scan_outputs/js_16_full_core_4_argon_deep/scoped_target/routes/recycles.ts (3m28.5s) | 66.3k tok - 2 vulnerabilities
+2026-10-16T09:36:37Z [INFO]  🔧 [Step 3] grep_search → pattern="ordersCollection" path=…/scoped_target/routes/order.ts
+2026-10-16T09:36:37Z [INFO]     ✅ Tool completed: grep_search (took 1ms)
+2026-10-16T09:36:42Z [INFO]     📤 Result submitted (submit 5.645s)
+2026-10-16T09:36:47Z [INFO]  🔧 [Step 1] grep_search → pattern="dataErasureForm" path=…/js_16_full_core_4_argon_deep/scoped_target/routes
+2026-10-16T09:36:47Z [INFO]     ✅ Tool completed: grep_search (took 6ms)
+2026-10-16T09:36:53Z [INFO]     📤 Result submitted (submit 5.4s)
+2026-10-16T09:38:02Z [INFO]  🔧 [Step 4] read_file → …/scoped_target/routes/order.ts
+2026-10-16T09:38:02Z [INFO]     ✅ Tool completed: read_file (took 0s)
+2026-10-16T09:38:07Z [INFO]     📤 Result submitted (submit 5.167s)

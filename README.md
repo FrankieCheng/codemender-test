@@ -114,14 +114,14 @@ We evaluated all 15 Juice Shop runs ([`eval_results/nodejs_juiceshop/`](./eval_r
 > - `js_05`: `gemini-4-argon` in `--deep` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-bench`
 > - `js_12`: `gemini-4-argon` in `Quick` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-bench`
 > - `js_13` / `js_14`: `gemini-3.8-flash` in `--deep` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-high-risk` (`48` High-Risk files) and `juice-shop-core` (`138` Full Core backend files)
-> - `js_15`: `gemini-4-argon` in `--deep` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-high-risk` (`48` High-Risk files)
+> - `js_15` / `js_16`: `gemini-4-argon` in `--deep` mode + **With `-c` (`c3_hybrid_max`)** on `juice-shop-high-risk` (`48` High-Risk files) and `juice-shop-core` (Full Core backend files, logging **94** findings and hitting **27 / 28 = 96.4%** in `js_16` single-run and **28 / 28 = 100.0%** across `js_15`+`js_16` on the unified 28-file denominator)
 
-| Ground Truth Evaluation Tier | Denominator | `js_08` (`3.8F` Deep **No `-c`**) | `js_10` (`4-argon` Quick **No `-c`**) | `js_03` (`3.8F` Deep **With `-c`**) | `js_13`/`14` (`3.8F` High-Risk/Core **With `-c`**) | `js_05` (`4-argon` Deep **With `-c`**) | `js_12` (`4-argon` Quick **With `-c`**) | `js_15` (`4-argon` High-Risk **With `-c`**) | Union Across Runs |
+| Ground Truth Evaluation Tier | Denominator (Unified) | `js_08` (`3.8F` Deep **No `-c`**) | `js_10` (`4-argon` Quick **No `-c`**) | `js_03` (`3.8F` Deep **With `-c`**) | `js_13`/`14` (`3.8F` High-Risk/Core **With `-c`**) | `js_05` (`4-argon` Deep **With `-c`**) | `js_12` (`4-argon` Quick **With `-c`**) | `js_15`/`16` (`4-argon` High-Risk/Core **With `-c`**) | Union Across Runs |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Tier 1: `juice-shop-bench` Core Code Vulnerabilities** | **26 distinct code vulns** | 14 / 26 (**53.8%**) | 20 / 26 (**76.9%**) | 20 / 26 (**76.9%**) | 22 / 26 (**84.6%**) | 24 / 26 (**92.3%**) | 24 / 26 (**92.3%**) | **26 / 26 (100.0%)** | **26 / 26 (100.0%)** |
-| **Tier 2A: Official 35 Coding Challenges (Backend TS Subset)** | **18 backend coding challenges** | 11 / 18 (**61.1%**) | 15 / 18 (**83.3%**) | 15 / 18 (**83.3%**) | **18 / 18 (100.0%)** | 16 / 18 (**88.9%**) | 16 / 18 (**88.9%**) | 16 / 18 (**88.9%**) | **18 / 18 (100.0%)** |
-| **Tier 2B: `juice-shop-high-risk` Vulnerable Backend Files** | **39 vulnerable source files** | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 33 / 39 (**84.6%**) | — *(Bench only)* | — *(Bench only)* | **38 / 39 (97.4%)** | **38 / 39 (97.4%)** |
-| **Tier 3: Full Backend `solveIf` Vulnerable Route/Model Files** | **28 backend vuln files**<br/>*(22 inside `high-risk` subset)* | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 26 / 28 (**92.9%**) *(Full Core 28)* | — *(Bench only)* | — *(Bench only)* | 21 / 22 (**95.5%**) *(in-scope 22)*<br/>21 / 28 (**75.0%**) *(of full 28)* | **27 / 28 (96.4%)** |
+| **Tier 2A: Official 35 Coding Challenges (Backend TS Subset)** | **18 backend coding challenges** | 11 / 18 (**61.1%**) | 15 / 18 (**83.3%**) | 15 / 18 (**83.3%**) | **18 / 18 (100.0%)** | 16 / 18 (**88.9%**) | 16 / 18 (**88.9%**) | **18 / 18 (100.0%)** | **18 / 18 (100.0%)** |
+| **Tier 2B: `juice-shop-high-risk` Vulnerable Backend Files** | **39 vulnerable source files** | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 33 / 39 (**84.6%**) | — *(Bench only)* | — *(Bench only)* | **39 / 39 (100.0%)** | **39 / 39 (100.0%)** |
+| **Tier 3: Full Backend `solveIf` Vulnerable Route/Model Files** | **28 backend vuln files** | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 26 / 28 (**92.9%**) | — *(Bench only)* | — *(Bench only)* | **27 / 28 (96.4%)** *(`js_16` single)*<br/>**28 / 28 (100.0%)** *(`js_15`+`16`)* | **28 / 28 (100.0%)** |
 
 #### (3) Tier 1 Itemized Breakdown (26 Core Code Vulnerabilities in `juice-shop-bench`, No-`-c` vs. With-`-c`)
 
