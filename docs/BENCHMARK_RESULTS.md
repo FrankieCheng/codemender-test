@@ -1,6 +1,6 @@
 # CodeMender (`cm v0.14.0`) Tri-Language Vulnerability Scanning Benchmark & Best Practices Report
 
-> **Generated**: 2026-10-15 | **CLI Version**: `cm v0.14.0` (`--sandbox=false`) | **GCP Project**: `cloud-llm-preview1`
+> **Generated**: 2026-10-15 | **CLI Version**: `cm v0.14.0` (`--sandbox=false`)
 > **Total Experiments Executed**: **43 Controlled Runs** (`13` Python WSGI + `15` Node.js/TypeScript + `15` Java/Spring Boot)
 > **Total Vulnerability Instances Logged**: **749 Findings** across SQLite `state.db` & JSON/Table reports
 

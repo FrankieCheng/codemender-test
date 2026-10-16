@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Master Background Benchmark Runner for CodeMender Pipeline (juice-shop & mall)
-Runs in GCP project `cloud-llm-preview1` across:
+Runs across:
 - Models: gemini-3.5-flash, gemini-3.8-flash, gemini-4-argon, gemini-3.8-flash-cyber
 - Modes: Quick Scan vs Specialist-recommended Deep Scan (--deep)
 - Context (-c) Strategies: c0_none, c1_sca, c2_sast_framework, c3_hybrid_max

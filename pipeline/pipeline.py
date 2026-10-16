@@ -17,7 +17,7 @@ Architecture:
 - Stage 2 (run_universal_scan / `scan`):
   1. Isolated `CM_HOME` per run with tailored `config.yaml`.
   2. High-signal isolated scoped target materialization (with `.git` boundary and `PROJECT_FILE_INDEX.md`).
-  3. Controlled execution of `cm -y clean` + `cm -y --sandbox=false find` on `cloud-llm-preview1` with `<= 900s` timeout cap.
+  3. Controlled execution of `cm -y clean` + `cm -y --sandbox=false find` with `<= 900s` timeout cap.
   4. Structured `report.json` and `report.md` generation with automated 11/11 Ground Truth & 0% `safe_join` FP evaluation.
 """
 
@@ -47,7 +47,6 @@ FALLBACK_CM_BIN = BASE_DIR / "bin" / "cm"
 RESULTS_DIR = BASE_DIR / "eval_results"
 SCOPED_TARGETS_DIR = BASE_DIR / "scoped_targets"
 SCAN_OUTPUTS_DIR = BASE_DIR / "scan_outputs"
-GCP_PROJECT = os.environ.get("GOOGLE_CLOUD_PROJECT") or os.environ.get("CLOUDSDK_CORE_PROJECT") or "cloud-llm-preview1"
 MAX_TIMEOUT_SECONDS = 900
 DEFAULT_TIMEOUT_SECONDS = 600
 MAX_MONOREPO_SCOPED_FILES = 40
@@ -2405,7 +2404,6 @@ def _format_markdown_report(report_data: Dict[str, Any]) -> str:
       f"- **Status**: `{report_data.get('status')}` (exit code `{report_data.get('exit_code')}`)",
       f"- **Target Directory**: `{report_data.get('target_dir')}`",
       f"- **CodeMender Binary**: `{report_data.get('cm_bin')}`",
-      f"- **GCP Project**: `{report_data.get('gcp_project')}`",
       f"- **Duration**: `{report_data.get('duration_seconds')}s`",
       f"- **Execution Mode**: `{report_data.get('execution_profile', {}).get('mode')}` "
       f"(model: `{report_data.get('execution_profile', {}).get('recommended_model')}`)",
@@ -2485,8 +2483,6 @@ def run_universal_scan(
   cm_bin = resolve_cm_bin()
 
   env = os.environ.copy()
-  env.setdefault("GOOGLE_CLOUD_PROJECT", GCP_PROJECT)
-  env.setdefault("CLOUDSDK_CORE_PROJECT", GCP_PROJECT)
   env["CM_HOME"] = str(cm_home)
   if exec_prof.get("deep"):
     env["CMOC_DEEP_MAX_TURNS"] = str(exec_prof.get("deep_max_turns", 8))
@@ -2609,7 +2605,6 @@ def run_universal_scan(
       "exit_code": effective_exit_code,
       "target_dir": str(resolved_target),
       "cm_bin": str(cm_bin),
-      "gcp_project": GCP_PROJECT,
       "cm_home": str(cm_home),
       "duration_seconds": duration_seconds,
       "execution_profile": exec_prof,
@@ -2737,8 +2732,6 @@ def run_single_experiment(
 
   cm_bin = resolve_cm_bin()
   env = os.environ.copy()
-  env["GOOGLE_CLOUD_PROJECT"] = GCP_PROJECT
-  env["CLOUDSDK_CORE_PROJECT"] = GCP_PROJECT
   env["CM_HOME"] = str(cm_home)
   env["CMOC_DEEP_MAX_TURNS"] = str(deep_max_turns)
 

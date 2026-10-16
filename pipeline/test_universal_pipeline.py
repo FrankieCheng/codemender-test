@@ -706,7 +706,6 @@ class TestZeroHardcodedRepoRulesAndDryRunCLI(unittest.TestCase):
 
       self.assertEqual(report["status"], "completed")
       self.assertEqual(report["exit_code"], 0)
-      self.assertEqual(report["gcp_project"], "cloud-llm-preview1")
       self.assertEqual(report["execution_profile"]["timeout_seconds"], 900)
       self.assertEqual(report["ground_truth_evaluation"]["gt_hits"], 11)
       self.assertFalse(report["ground_truth_evaluation"]["fp_safe_join"])

@@ -1,7 +1,7 @@
 # CodeMender (`cm v0.14.0`) 跨语言安全扫描基准评测、真实漏洞覆盖率分析与通用流水线实战指南
 
 > **评测规模**：**43 组受控消融实验**（涵盖 **Python WSGI**、**Node.js/TypeScript**、**Java/Spring Boot** 三大语言技术栈，累计检出 **1,654+** 个漏洞实例）+ **C/C++ 与 Go 跨栈实测验证** + **8 组历史基线对比**
-> **运行环境**：`cm v0.14.0` (`--sandbox=false`) | GCP Project: `cloud-llm-preview1`
+> **运行环境**：`cm v0.14.0` (`--sandbox=false`)
 > **核心文档导航**：
 > - 🏛️ **两阶段通用架构深度评审与四大陷阱规避报告**：[`docs/UNIVERSAL_PIPELINE_REVIEW.md`](./docs/UNIVERSAL_PIPELINE_REVIEW.md)
 > - 📊 **完整 43 组消融实验详表**：[`docs/BENCHMARK_RESULTS.md`](./docs/BENCHMARK_RESULTS.md) | ☕ **`macrozheng/mall` 源码审计参考基线（非官方标准答案）**：[`docs/MALL_AUDIT_REFERENCE.md`](./docs/MALL_AUDIT_REFERENCE.md) | 🇺🇸 **英文主报告**：[`README.md`](./README.md)

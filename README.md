@@ -1,7 +1,7 @@
 # CodeMender (`cm v0.14.0`) Cross-Stack Security Benchmark, Ground Truth Coverage Analysis & Universal Pipeline Guide
 
 > **Evaluation Scale**: **43 Controlled Ablation Runs** across **Python WSGI**, **Node.js/TypeScript**, and **Java/Spring Boot** (**1,654+** total findings) + **C/C++ & Go Live Multi-Stack Verification Scans** + **8 Legacy Baseline Runs**
-> **Execution Environment**: `cm v0.14.0` (`--sandbox=false`) | GCP Project: `cloud-llm-preview1`
+> **Execution Environment**: `cm v0.14.0` (`--sandbox=false`)
 > **Quick Navigation**:
 > - 🏛️ **Universal Two-Stage Architecture Review & 4 Trap Mitigations**: [`docs/UNIVERSAL_PIPELINE_REVIEW.md`](./docs/UNIVERSAL_PIPELINE_REVIEW.md)
 > - 📊 **Full 43-Run Ablation Matrix**: [`docs/BENCHMARK_RESULTS.md`](./docs/BENCHMARK_RESULTS.md) | ☕ **`macrozheng/mall` Code Audit Reference (Non-Official Ground Truth)**: [`docs/MALL_AUDIT_REFERENCE.md`](./docs/MALL_AUDIT_REFERENCE.md) | 🇨🇳 **中文主报告与实战指南**: [`README_CN.md`](./README_CN.md)

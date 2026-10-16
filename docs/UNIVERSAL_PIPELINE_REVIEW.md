@@ -1,6 +1,6 @@
 # Architectural Review & Critical Evaluation: Universal Two-Stage CodeMender (`cm v0.14.0`) Auto-Profile & Auto-Scan Security Pipeline
 
-> **Document Version**: 1.0 | **Date**: 2026-10-15 | **Target Engine**: CodeMender CLI `cm v0.14.0` (`--sandbox=false`, GCP Project `cloud-llm-preview1`)
+> **Document Version**: 1.0 | **Date**: 2026-10-15 | **Target Engine**: CodeMender CLI `cm v0.14.0` (`--sandbox=false`)
 > **Empirical Evidence Base**: 43 Controlled Benchmark Runs (`py_01`–`py_13`, `js_01`–`js_15`, `mall_01`–`mall_15`; 749 Logged Findings) + `cm v0.14.0` ELF Binary Disassembly (`0xdc09f0`, `0x23f83c0`, `0x241b700`, `0x241b160`, `0x241ae80`, `0x2406253`)
 
 ---
@@ -334,7 +334,7 @@ flowchart TB
 
     subgraph STAGE2["STAGE 2: Controlled CodeMender Execution & Verification (pipeline.py scan)"]
         direction TB
-        EXEC1["1. Environment & Sandbox Isolation<br/>• Binary: /usr/local/google/home/hongbocheng/bin/cm (v0.14.0)<br/>• GCP Project: cloud-llm-preview1 | Flag: --sandbox=false<br/>• Dedicated CM_HOME per run + git init boundary check"]
+        EXEC1["1. Environment & Sandbox Isolation<br/>• Binary: /usr/local/google/home/hongbocheng/bin/cm (v0.14.0)<br/>• Flag: --sandbox=false<br/>• Dedicated CM_HOME per run + git init boundary check"]
         EXEC2["2. Pre-Scan Cache Purge & Bounded Scan Execution<br/>• Runs cm clean to purge stale state.db cache<br/>• Runs cm -y --sandbox=false find &lt;target&gt; [Quick or --deep] -c &lt;sanitized_prompt&gt;<br/>• Enforces hard wall-clock timeout cap (&lt;= 900s)"]
         EXEC3["3. Dual-Source Finding Extraction & Ground-Truth Verifier<br/>• Extracts findings via cm -y report -f json + SQLite CM_HOME/state.db fallback<br/>• Evaluates 11/11 Ground Truth rules & 0% safe_join FP control when applicable"]
         EXEC1 --> EXEC2 --> EXEC3
@@ -420,7 +420,7 @@ flowchart TB
   ╔══════════════════════════════════════════════════════════════════════════════════════════════╗
   ║ STAGE 2: CONTROLLED CODEMENDER EXECUTION & VERIFICATION (`pipeline.py scan <target>`)        ║
   ╠══════════════════════════════════════════════════════════════════════════════════════════════╣
-  ║  1. Isolated Runtime Setup : `CM_HOME=<run_dir>`, `GOOGLE_CLOUD_PROJECT=cloud-llm-preview1` ║
+  ║  1. Isolated Runtime Setup : `CM_HOME=<run_dir>`                                             ║
   ║  2. Cache Reset            : `/usr/local/google/home/hongbocheng/bin/cm clean`               ║
   ║  3. Bounded Scan Execution : `cm -y --sandbox=false find <target> [flags] -c "<prompt>"`     ║
   ║                              with hard wall-clock timeout cap (`<= 900s`)                    ║
@@ -436,7 +436,7 @@ flowchart TB
 
 Every live Stage 2 scan executed by `pipeline.py` enforces five deterministic operational guardrails:
 1. **Canonical CLI Binary**: Uses `/usr/local/google/home/hongbocheng/bin/cm` (`cm v0.14.0`).
-2. **GCP Project & Non-Interactive Sandbox Configuration**: Exports `GOOGLE_CLOUD_PROJECT=cloud-llm-preview1` and passes `-y --sandbox=false` on every `cm` invocation.
+2. **Non-Interactive Sandbox Configuration**: Passes `-y --sandbox=false` on every `cm` invocation.
 3. **Per-Run Isolated `CM_HOME`**: Allocates an isolated `CM_HOME` directory per scan containing the Stage 1 generated `config.yaml` (`incremental: false`, `max_file_size_kb: 500`, dynamic extensions, and smart exclusions) and runs `cm clean` prior to `cm find` so stale `state.db` findings never bleed across runs.
 4. **Hard Wall-Clock Timeout Cap ($\le 900\text{s}$)**: Enforces a strict subprocess timeout (`<= 900s`, defaulting to `600s`) with process-group termination to prevent runaway background processes.
 5. **Dual-Source Finding Extraction**: Collects structured findings from both `cm -y report -f json` and SQLite `CM_HOME/state.db` (`findings` table), ensuring complete capture even if CLI stdout formatting truncates entries.
