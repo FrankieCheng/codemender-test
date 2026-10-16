@@ -121,7 +121,7 @@ We evaluated all 15 Juice Shop runs ([`eval_results/nodejs_juiceshop/`](./eval_r
 | **Tier 1: `juice-shop-bench` Core Code Vulnerabilities** | **26 distinct code vulns** | 14 / 26 (**53.8%**) | 20 / 26 (**76.9%**) | 20 / 26 (**76.9%**) | 22 / 26 (**84.6%**) | 24 / 26 (**92.3%**) | 24 / 26 (**92.3%**) | **26 / 26 (100.0%)** | **26 / 26 (100.0%)** |
 | **Tier 2A: Official 35 Coding Challenges (Backend TS Subset)** | **18 backend coding challenges** | 11 / 18 (**61.1%**) | 15 / 18 (**83.3%**) | 15 / 18 (**83.3%**) | **18 / 18 (100.0%)** | 16 / 18 (**88.9%**) | 16 / 18 (**88.9%**) | 16 / 18 (**88.9%**) | **18 / 18 (100.0%)** |
 | **Tier 2B: `juice-shop-high-risk` Vulnerable Backend Files** | **39 vulnerable source files** | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 33 / 39 (**84.6%**) | — *(Bench only)* | — *(Bench only)* | **38 / 39 (97.4%)** | **38 / 39 (97.4%)** |
-| **Tier 3: Full Backend `solveIf` Vulnerable Route/Model Files** | **28 backend vuln files** | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 26 / 28 (**92.9%**) | — *(Bench only)* | — *(Bench only)* | 21 / 22 (**95.5%**) | **27 / 28 (96.4%)** |
+| **Tier 3: Full Backend `solveIf` Vulnerable Route/Model Files** | **28 backend vuln files**<br/>*(22 inside `high-risk` subset)* | — *(Bench only)* | — *(Bench only)* | — *(Bench only)* | 26 / 28 (**92.9%**) *(Full Core 28)* | — *(Bench only)* | — *(Bench only)* | 21 / 22 (**95.5%**) *(in-scope 22)*<br/>21 / 28 (**75.0%**) *(of full 28)* | **27 / 28 (96.4%)** |
 
 #### (3) Tier 1 Itemized Breakdown (26 Core Code Vulnerabilities in `juice-shop-bench`, No-`-c` vs. With-`-c`)
 
