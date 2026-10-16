@@ -42,13 +42,12 @@ except ImportError:  # pragma: no cover
   tomllib = None  # type: ignore
 
 BASE_DIR = Path(__file__).resolve().parent
-PRIMARY_CM_BIN = Path("/usr/local/google/home/hongbocheng/bin/cm")
+PRIMARY_CM_BIN = Path.home() / "bin" / "cm"
 FALLBACK_CM_BIN = BASE_DIR / "bin" / "cm"
-CM_BIN = PRIMARY_CM_BIN if PRIMARY_CM_BIN.exists() else FALLBACK_CM_BIN
 RESULTS_DIR = BASE_DIR / "eval_results"
 SCOPED_TARGETS_DIR = BASE_DIR / "scoped_targets"
 SCAN_OUTPUTS_DIR = BASE_DIR / "scan_outputs"
-GCP_PROJECT = "cloud-llm-preview1"
+GCP_PROJECT = os.environ.get("GOOGLE_CLOUD_PROJECT") or os.environ.get("CLOUDSDK_CORE_PROJECT") or "cloud-llm-preview1"
 MAX_TIMEOUT_SECONDS = 900
 DEFAULT_TIMEOUT_SECONDS = 600
 MAX_MONOREPO_SCOPED_FILES = 40
@@ -58,12 +57,21 @@ CONTEXT_PROMPTS: Dict[str, Dict[str, Optional[str]]] = {}
 
 
 def resolve_cm_bin() -> Path:
-  """Resolves the CodeMender CLI binary path, preferring ~/bin/cm with fallback to ./bin/cm."""
+  """Resolves the CodeMender CLI binary path via $CM_BIN, PATH, ~/bin/cm, or ./bin/cm."""
+  env_bin = os.environ.get("CM_BIN")
+  if env_bin and Path(env_bin).exists():
+    return Path(env_bin).resolve()
+  which_cm = shutil.which("cm")
+  if which_cm:
+    return Path(which_cm).resolve()
   if PRIMARY_CM_BIN.exists():
     return PRIMARY_CM_BIN
   if FALLBACK_CM_BIN.exists():
     return FALLBACK_CM_BIN
   return PRIMARY_CM_BIN
+
+
+CM_BIN = resolve_cm_bin()
 
 
 # ============================================================================
@@ -452,11 +460,9 @@ def parse_pom_xml(target: Path) -> List[Dict[str, str]]:
   pom_files: List[Path] = []
   if target.is_file():
     pom_files.append(target)
-    # If this is a child pom.xml and parent directory has a root pom.xml, include root pom first
     parent_dir = target.parent.parent
     if parent_dir != target.parent and (parent_dir / "pom.xml").is_file():
       pom_files.insert(0, parent_dir / "pom.xml")
-    # If this is a root pom.xml with child module directories, include child poms
     for sub in sorted(target.parent.glob("*/pom.xml")):
       if sub not in pom_files:
         pom_files.append(sub)
@@ -464,9 +470,16 @@ def parse_pom_xml(target: Path) -> List[Dict[str, str]]:
     root_pom = target / "pom.xml"
     if root_pom.is_file():
       pom_files.append(root_pom)
-    for sub in sorted(target.glob("*/pom.xml")):
-      if sub not in pom_files:
-        pom_files.append(sub)
+    for root_dir, dirs, files in os.walk(target):
+      dirs[:] = sorted([
+          d for d in dirs
+          if d not in (".git", "node_modules", "vendor", "target", "build", "dist", ".idea", ".mvn")
+          and not d.startswith(".")
+      ])
+      if "pom.xml" in files:
+        cand_pom = Path(root_dir) / "pom.xml"
+        if cand_pom not in pom_files:
+          pom_files.append(cand_pom)
 
   if not pom_files:
     return []
@@ -793,31 +806,47 @@ def parse_manifests(target_dir: Path | str) -> List[Dict[str, str]]:
     return []
 
   all_deps: List[Dict[str, str]] = []
-  # 1. Python
-  for req_name in ("requirements.txt", "src/requirements.txt"):
-    if (tpath / req_name).is_file():
-      all_deps.extend(parse_requirements_txt(tpath / req_name))
-  if (tpath / "pyproject.toml").is_file():
-    all_deps.extend(parse_pyproject_toml(tpath / "pyproject.toml"))
-  # 2. Node.js
-  if (tpath / "package.json").is_file():
-    all_deps.extend(parse_package_json(tpath / "package.json"))
-  # 3. Java Maven / Gradle
-  if (tpath / "pom.xml").is_file() or list(tpath.glob("*/pom.xml")):
+  manifest_skip_dirs = {
+      ".git", ".hg", ".svn", "node_modules", "vendor", "dist", "build", "target",
+      "bin", "obj", ".gradle", ".idea", ".vscode", ".mvn", "__pycache__",
+      "venv", ".venv", "env", "coverage", "test", "tests", "__tests__",
+      "frontend", "client", "web-app", "scoped_targets", "scan_outputs", "eval_results",
+  }
+
+  # 1. Java Maven (already walks multi-module POMs with parent inheritance)
+  if (tpath / "pom.xml").is_file() or list(tpath.glob("*/pom.xml")) or list(tpath.glob("*/*/pom.xml")):
     all_deps.extend(parse_pom_xml(tpath))
-  for gname in ("build.gradle", "build.gradle.kts"):
-    if (tpath / gname).is_file():
-      all_deps.extend(parse_build_gradle(tpath / gname))
-  # 4. Go
-  if (tpath / "go.mod").is_file():
-    all_deps.extend(parse_go_mod(tpath / "go.mod"))
-  # 5. C/C++
-  all_deps.extend(parse_c_cpp_manifests(tpath))
-  # 6. Ruby & PHP
-  if (tpath / "Gemfile").is_file():
-    all_deps.extend(parse_gemfile(tpath / "Gemfile"))
-  if (tpath / "composer.json").is_file():
-    all_deps.extend(parse_composer_json(tpath / "composer.json"))
+
+  # 2. Walk repository up to depth 3 for Python, Node.js, Gradle, Go, C/C++, Ruby, and PHP manifests
+  for root_dir, dirs, files in os.walk(tpath):
+    rel_depth = len(Path(root_dir).relative_to(tpath).parts)
+    if rel_depth > 3:
+      dirs[:] = []
+      continue
+    dirs[:] = sorted([
+        d for d in dirs
+        if d not in manifest_skip_dirs and not d.startswith(".")
+    ])
+    rpath = Path(root_dir)
+    for f in sorted(files):
+      fl = f.lower()
+      fp = rpath / f
+      if fl.startswith("requirements") and fl.endswith(".txt"):
+        all_deps.extend(parse_requirements_txt(fp))
+      elif fl == "pyproject.toml":
+        all_deps.extend(parse_pyproject_toml(fp))
+      elif fl == "package.json":
+        all_deps.extend(parse_package_json(fp))
+      elif fl in ("build.gradle", "build.gradle.kts"):
+        all_deps.extend(parse_build_gradle(fp))
+      elif fl == "go.mod":
+        all_deps.extend(parse_go_mod(fp))
+      elif fl in ("cmakelists.txt", "makefile", "gnumakefile", "configure.ac"):
+        all_deps.extend(parse_c_cpp_manifests(fp))
+      elif fl == "gemfile":
+        all_deps.extend(parse_gemfile(fp))
+      elif fl == "composer.json":
+        all_deps.extend(parse_composer_json(fp))
 
   # Deduplicate preserving order
   deduped: List[Dict[str, str]] = []
@@ -909,10 +938,10 @@ SINK_PATTERNS: List[Tuple[str, re.Pattern]] = [
     )),
     ("jwt_auth", re.compile(
         r"\b(?:jsonwebtoken|express-jwt|jwt\.(?:decode|verify|encode)|Jwts\.parser|"
-        r"JwtTokenUtil)\b"
+        r"JwtTokenUtil|TokenProvider|JwtService)\b"
     )),
     ("password_recovery", re.compile(
-        r"\b(?:resetPassword|SecurityAnswerModel|securityAnswer|forgot[_-]?password|recover[_-]?password)\b"
+        r"\b(?:resetPassword|SecurityAnswerModel|securityAnswer|forgot[_-]?password|recover[_-]?password|updatePassword)\b"
     )),
     ("memory_buffer", re.compile(
         r"\b(?:strcpy|strncpy|strcat|sprintf|vsprintf|gets|memcpy|memmove|sscanf|fscanf|alloca)\s*\("
@@ -928,8 +957,10 @@ GUARD_PATTERNS: List[Tuple[str, re.Pattern]] = [
     ("html_escape", re.compile(r"\b(?:html\.escape|markupsafe\.escape|escapeHtml|DOMPurify\.sanitize)\b")),
 ]
 
-# General Dependency & Sink Advisory Knowledge Base keyed by (package_substring, version_prefixes, optional_sink)
+# General Cross-Ecosystem Dependency & Sink Advisory Knowledge Base
+# Keyed by (package_substring, version_prefixes, optional_sink, advisory_description)
 DEPENDENCY_ADVISORY_KB: List[Tuple[str, Tuple[str, ...], Optional[str], str]] = [
+    # Python / PyPI
     (
         "werkzeug",
         ("0.", "1.", "2.0", "2.1", "2.2.0", "2.2.1", "2.2.2"),
@@ -949,6 +980,25 @@ DEPENDENCY_ADVISORY_KB: List[Tuple[str, Tuple[str, ...], Optional[str], str]] = 
         "predictable debugger PIN generation and interactive console RCE CVE-2024-34069 (CWE-489 and CWE-338)",
     ),
     (
+        "pyyaml",
+        ("3.", "4.", "5.0", "5.1", "5.2", "5.3"),
+        None,
+        "arbitrary code execution via unsafe YAML loading CVE-2020-14343",
+    ),
+    (
+        "jinja2",
+        ("2.", "3.0", "3.1.0", "3.1.1", "3.1.2"),
+        None,
+        "Server-Side Template Injection and sandbox escape vulnerabilities in Jinja2",
+    ),
+    (
+        "django",
+        ("1.", "2.", "3.", "4.0", "4.1"),
+        None,
+        "SQL injection and request parsing vulnerabilities in legacy Django releases",
+    ),
+    # Node.js / NPM
+    (
         "jsonwebtoken",
         ("0.", "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8."),
         None,
@@ -956,13 +1006,13 @@ DEPENDENCY_ADVISORY_KB: List[Tuple[str, Tuple[str, ...], Optional[str], str]] = 
     ),
     (
         "express-jwt",
-        ("0.",),
+        ("0.", "1.", "2.", "3.", "4.", "5."),
         None,
         "legacy express-jwt token validation and algorithm confusion bypasses",
     ),
     (
         "sanitize-html",
-        ("1.",),
+        ("1.", "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6"),
         None,
         "recursive HTML sanitization bypass XSS in legacy sanitize-html versions",
     ),
@@ -977,6 +1027,12 @@ DEPENDENCY_ADVISORY_KB: List[Tuple[str, Tuple[str, ...], Optional[str], str]] = 
         ("1.", "^1."),
         None,
         "JavaScript VM sandbox escape Remote Code Execution in notevil",
+    ),
+    (
+        "vm2",
+        ("3.", "^3."),
+        None,
+        "critical sandbox escape Remote Code Execution CVE-2023-29017 and CVE-2023-37466 in vm2",
     ),
     (
         "js-yaml",
@@ -997,8 +1053,33 @@ DEPENDENCY_ADVISORY_KB: List[Tuple[str, Tuple[str, ...], Optional[str], str]] = 
         "Server-Side Template Injection SSTI and unescaped template rendering in Pug",
     ),
     (
+        "lodash",
+        ("3.", "4.0", "4.1", "4.17.0", "4.17.1", "4.17.15", "4.17.19", "4.17.20"),
+        None,
+        "prototype pollution and command injection in legacy lodash versions",
+    ),
+    # Java / Maven & Gradle
+    (
+        "fastjson",
+        ("1.", "2.0.0", "2.0.1", "2.0.2"),
+        None,
+        "Fastjson autoType remote code execution deserialization vulnerabilities",
+    ),
+    (
+        "jackson-databind",
+        ("2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "2.10", "2.11", "2.12", "2.13"),
+        None,
+        "polymorphic deserialization gadgets and DoS vulnerabilities in jackson-databind",
+    ),
+    (
+        "log4j",
+        ("1.", "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "2.10", "2.11", "2.12", "2.13", "2.14", "2.15", "2.16"),
+        None,
+        "JNDI lookup Remote Code Execution Log4Shell CVE-2021-44228 in Log4j",
+    ),
+    (
         "druid",
-        ("1.1", "1.2"),
+        ("1.0", "1.1", "1.2"),
         None,
         "exposed Alibaba Druid monitor console and SQL wall bypass vulnerabilities",
     ),
@@ -1015,42 +1096,55 @@ DEPENDENCY_ADVISORY_KB: List[Tuple[str, Tuple[str, ...], Optional[str], str]] = 
         "MyBatis XML mapper dollar-sign string substitution SQL Injection (CWE-89) in ORDER BY, LIKE, and IN clauses",
     ),
     (
-        "minio",
-        ("7.", "8."),
+        "jjwt",
+        ("0.6", "0.7", "0.8", "0.9"),
         None,
-        "MinIO object upload unrestricted file types, stored XSS, and path traversal flaws",
+        "weak signing key handling and algorithm verification flaws in legacy JJWT",
     ),
     (
-        "aliyun-sdk-oss",
-        ("2.", "3."),
+        "commons-collections",
+        ("3.0", "3.1", "3.2.0", "3.2.1", "4.0"),
         None,
-        "Aliyun OSS credential exposure and upload callback verification flaws",
+        "unsafe Java object deserialization gadget chain RCE in Apache Commons Collections",
     ),
     (
-        "alipay-sdk-java",
-        ("3.", "4."),
+        "snakeyaml",
+        ("1.",),
         None,
-        "Alipay payment callback signature verification bypass and order tampering",
+        "unsafe YAML constructor remote code execution CVE-2022-1471 in SnakeYAML",
+    ),
+    # C/C++ & Go
+    (
+        "openssl",
+        ("0.", "1.0", "1.1.0", "1.1.1", "3.0.0", "3.0.1", "3.0.2", "3.0.3", "3.0.4", "3.0.5", "3.0.6", "3.0.7"),
+        None,
+        "TLS certificate verification and buffer overflow vulnerabilities in legacy OpenSSL",
+    ),
+    (
+        "curl",
+        ("7.", "8.0", "8.1", "8.2", "8.3"),
+        None,
+        "heap buffer overflow and protocol redirect flaws in legacy libcurl",
     ),
 ]
 
 SINK_AUDIT_DIRECTIVES: Dict[str, str] = {
-    "command_execution": "OS Command Injection via shell execution (CWE-78)",
-    "deserialization": "Insecure Deserialization via binary or pickle or YAML payloads (CWE-502)",
-    "sql_query": "SQL Injection via string formatting or dollar-sign interpolation in database queries (CWE-89)",
+    "command_execution": "OS Command Injection and sandbox escape via shell or VM execution (CWE-78)",
+    "deserialization": "Insecure Deserialization via binary, pickle, YAML, XML, or JSON payloads (CWE-502)",
+    "sql_query": "SQL Injection via string concatenation or dollar-sign interpolation in database queries (CWE-89)",
     "file_read": "Path Traversal and Arbitrary File Read (CWE-22)",
-    "file_upload": "Unrestricted File Upload and Path Traversal File Write (CWE-434 and CWE-22)",
+    "file_upload": "Unrestricted File Upload, Zip Slip archive extraction, and Path Traversal File Write (CWE-434 and CWE-22)",
     "ssrf": "Server-Side Request Forgery SSRF in outbound HTTP proxy requests (CWE-918)",
     "xss": "Reflected and Stored Cross-Site Scripting XSS in HTML responses (CWE-79)",
     "open_redirect": "Open URL Redirect to untrusted external domains (CWE-601)",
-    "debug_console": "Active Debug Console with interactive code execution enabled such as DebuggedApplication with evalex=True (CWE-489)",
-    "cookie_handling": "Session Cookies missing Secure or HttpOnly flags, Host prefix violations, and nameless cookie shadowing (CWE-614 and CVE-2023-46136)",
-    "multipart_parsing": "Unbounded Multipart Form Parsing Denial of Service (CWE-400 and CVE-2023-25577)",
-    "template_injection": "Server-Side Template Injection SSTI (CWE-1336)",
+    "debug_console": "Exposed debug consoles, interactive stack traces, or unauthenticated management/actuator endpoints (CWE-489)",
+    "cookie_handling": "Session Cookies missing Secure or HttpOnly flags, Host prefix violations, and cookie parsing flaws (CWE-614)",
+    "multipart_parsing": "Unbounded Multipart Form Parsing Denial of Service (CWE-400)",
+    "template_injection": "Server-Side Template Injection SSTI and Expression Language injection (CWE-1336 and CWE-917)",
     "xxe_xml": "XML External Entity XXE Injection (CWE-611)",
-    "nosql_injection": "NoSQL Injection in document queries (CWE-943)",
+    "nosql_injection": "NoSQL Injection in document or in-memory queries (CWE-943)",
     "jwt_auth": "Hardcoded JWT secrets, weak signing keys, and token verification bypass (CWE-347 and CWE-798)",
-    "password_recovery": "Weak Password Recovery Mechanism and Broken Authentication via static security questions or unverified password reset flows (CWE-640 and CWE-287)",
+    "password_recovery": "Weak Password Recovery, unverified password reset, and Broken Authentication flows (CWE-640 and CWE-287)",
     "memory_buffer": "Buffer Overflow, out-of-bounds memory write, format string, and integer overflow flaws (CWE-120, CWE-787, and CWE-134)",
 }
 
@@ -1490,7 +1584,7 @@ class RepoProfiler:
   ) -> Tuple[List[str], List[str], List[str], List[str]]:
     """Extracts entrypoints, routes, detected_sinks, and detected_guards across all active files."""
     entrypoints: List[str] = []
-    routes: List[str] = []
+    routes_with_priority: List[Tuple[int, str]] = []
     seen_routes: Set[str] = set()
     detected_sinks: List[str] = []
     seen_sinks: Set[str] = set()
@@ -1502,6 +1596,13 @@ class RepoProfiler:
         "server.ts", "app.ts", "server.js", "app.js", "index.ts", "index.js",
         "main.go", "main.c", "main.cc", "main.cpp", "index.php", "config.ru",
     }
+
+    high_risk_route_keywords = (
+        "login", "auth", "sso", "admin", "user", "member", "password", "reset",
+        "upload", "download", "file", "minio", "oss", "pay", "alipay", "order",
+        "proxy", "search", "query", "lookup", "exec", "ping", "debug", "profile",
+        "restore", "import", "export", "webhook", "callback", "redirect", "navigate",
+    )
 
     for rf in active_files:
       fname = Path(rf).name
@@ -1517,22 +1618,35 @@ class RepoProfiler:
         if rf not in entrypoints:
           entrypoints.append(rf)
 
-      for rpat in ROUTE_PATTERNS:
-        for m in rpat.finditer(content):
-          route_str = sanitize_untrusted_text(m.group(1))
-          if route_str and len(route_str) <= 120 and route_str not in seen_routes:
-            seen_routes.add(route_str)
-            routes.append(route_str)
-
+      file_sinks_count = 0
       for sink_name, spat in SINK_PATTERNS:
-        if sink_name not in seen_sinks and spat.search(content):
-          seen_sinks.add(sink_name)
-          detected_sinks.append(sink_name)
+        if spat.search(content):
+          file_sinks_count += 1
+          if sink_name not in seen_sinks:
+            seen_sinks.add(sink_name)
+            detected_sinks.append(sink_name)
 
       for guard_name, gpat in GUARD_PATTERNS:
         if guard_name not in seen_guards and gpat.search(content):
           seen_guards.add(guard_name)
           detected_guards.append(guard_name)
+
+      for rpat in ROUTE_PATTERNS:
+        for m in rpat.finditer(content):
+          route_str = sanitize_untrusted_text(m.group(1))
+          if route_str and len(route_str) <= 120 and route_str not in seen_routes:
+            seen_routes.add(route_str)
+            r_low = route_str.lower()
+            prio = file_sinks_count * 10
+            if any(kw in r_low for kw in high_risk_route_keywords):
+              prio += 25
+            if r_low in ("/list", "/listall", "/info", "/index", "/health"):
+              prio -= 15
+            routes_with_priority.append((prio, route_str))
+
+    # Sort routes so high-sink / security-critical endpoints appear first while preserving discovery order on ties
+    routes_with_priority.sort(key=lambda item: -item[0])
+    routes = [r for _, r in routes_with_priority]
 
     # Order detected_sinks according to SINK_PATTERNS canonical order
     canonical_sinks = [s for s, _ in SINK_PATTERNS if s in seen_sinks]
@@ -1583,11 +1697,15 @@ class RepoProfiler:
       thin_wrappers: List[Dict[str, Any]],
   ) -> str:
     """
-    Synthesizes the 5-Pillar Hybrid Semantic -c Context Prompt using general
-    package+version+sink advisory rules (zero hardcoded repository names).
+    Synthesizes the 5-Pillar Hybrid Semantic -c Context Prompt using stack-aware
+    package+version+sink advisory rules (zero cross-language contamination).
     """
     lang_str = "/".join(languages[:3]) if languages else "multi-language"
     fw_str = ", ".join(frameworks[:4]) if frameworks else "application"
+    lang_set = set(languages)
+    fw_set = set(frameworks)
+    sink_set = set(detected_sinks)
+    guard_set = set(detected_guards)
 
     # Pillar 0: Index Navigation
     p0 = (
@@ -1596,35 +1714,50 @@ class RepoProfiler:
         "0) First read the project file index markdown document in the root directory to see all target files."
     )
 
-    # Pillar 1: SCA & Dependency CVE Correlation
-    dep_Blurbs: List[str] = []
+    # Pillar 1: SCA & Dependency CVE Correlation (prioritize KB-matched / explicit-version dependencies)
+    prioritized_deps: List[Tuple[int, str]] = []
     matched_advisories: List[str] = []
-    sink_set = set(detected_sinks)
 
-    for d in dependencies[:20]:
+    for d in dependencies:
       dname = d.get("name", "")
       dver = d.get("version", "")
-      # Normalize any .ALL or .RELEASE suffix in version to hyphen
+      if not dname:
+        continue
       dver_clean = re.sub(r"(\d+\.\d+(?:\.\d+)*)\.([A-Za-z][A-Za-z0-9_-]*)\b", r"\1-\2", dver)
-      if dname:
-        dep_Blurbs.append(f"{dname} {dver_clean}".strip())
+      blurb = f"{dname} {dver_clean}".strip()
       dname_low = dname.lower()
+      dep_prio = 0
+      if dver_clean and dver_clean not in ("managed", "latest", "system", "linked"):
+        dep_prio += 5
+      if any(
+           boilerplate in dname_low
+          for boilerplate in ("lombok", "configuration-processor", "generator", "test", "devtools")
+      ):
+        dep_prio -= 20
+
       for kb_pkg, kb_vers, kb_sink, kb_note in DEPENDENCY_ADVISORY_KB:
         if kb_pkg in dname_low:
           ver_match = not kb_vers or any(dver_clean.lstrip("^~>=").startswith(vp) for vp in kb_vers)
           sink_match = kb_sink is None or kb_sink in sink_set
-          if ver_match and sink_match and kb_note not in matched_advisories:
-            matched_advisories.append(kb_note)
+          if ver_match and sink_match:
+            dep_prio += 50
+            if kb_note not in matched_advisories:
+              matched_advisories.append(kb_note)
+
+      prioritized_deps.append((dep_prio, blurb))
+
+    prioritized_deps.sort(key=lambda item: -item[0])
+    dep_Blurbs = [b for _, b in prioritized_deps[:14]]
 
     if dep_Blurbs:
-      dep_list_str = ", ".join(dep_Blurbs[:12])
+      dep_list_str = ", ".join(dep_Blurbs)
       adv_str = (
           f" and correlate them with reachable application sinks ({'; '.join(matched_advisories)})"
           if matched_advisories
           else " and correlate pinned versions with all known public CVEs and reachable exploit sinks"
       )
       p1 = (
-          f"1) Inspect the root dependency manifest files for vulnerable package versions "
+          f"1) Inspect the dependency manifest files for vulnerable package versions "
           f"(such as {dep_list_str}){adv_str}."
       )
     else:
@@ -1634,11 +1767,22 @@ class RepoProfiler:
       )
 
     # Pillar 2: SAST Route, Entrypoint & Sink Taint Audit
-    sink_directives = [
-        SINK_AUDIT_DIRECTIVES[s]
-        for s in detected_sinks
-        if s in SINK_AUDIT_DIRECTIVES
-    ]
+    sink_directives: List[str] = []
+    for s in detected_sinks:
+      if s == "debug_console":
+        if "python" in lang_set or "werkzeug" in fw_set or "flask" in fw_set:
+          sink_directives.append(
+              "Active Debug Console with interactive code execution enabled such as DebuggedApplication with evalex=True (CWE-489)"
+          )
+        elif "java" in lang_set or "spring-boot" in fw_set:
+          sink_directives.append(
+              "Exposed Spring Boot Actuator management endpoints or unauthenticated Druid monitor consoles (CWE-489 and CWE-200)"
+          )
+        else:
+          sink_directives.append(SINK_AUDIT_DIRECTIVES[s])
+      elif s in SINK_AUDIT_DIRECTIVES:
+        sink_directives.append(SINK_AUDIT_DIRECTIVES[s])
+
     if not sink_directives:
       sink_directives = [
           "OS Command Injection (CWE-78)",
@@ -1649,20 +1793,38 @@ class RepoProfiler:
           "XSS (CWE-79)",
           "Memory Buffer Overflow (CWE-120 and CWE-787)",
       ]
-    route_sample = ", ".join(routes[:12]) if routes else "all HTTP, RPC, and CLI entrypoints"
+    route_sample = ", ".join(routes[:14]) if routes else "all HTTP, RPC, and CLI entrypoints"
     p2 = (
         f"2) Trace all untrusted request query parameters, form fields, cookies, headers, and uploaded files "
         f"across endpoints ({route_sample}): identify {', '.join(sink_directives)}."
     )
 
-    # Pillar 3: Configuration, Session & Debugger Audit
-    p3 = (
-        "3) Audit application factory initialization, configuration manifests, active debug consoles "
-        "(such as DebuggedApplication with evalex=True), verbose stack trace error handlers, permissive CORS origins, "
-        "spoofable X-Forwarded-For rate-limit keys, weak security-question password recovery flows (CWE-640), "
-        "session cookie flags (missing Secure or HttpOnly, Host prefix rules), hardcoded credentials or JWT secrets, "
-        "and exposed actuator or management endpoints."
-    )
+    # Pillar 3: Stack-Aware Configuration, Authentication & Business Logic Audit
+    p3_items: List[str] = [
+        "hardcoded credentials, API keys, or JWT secrets",
+        "permissive CORS configurations",
+        "broken access control or IDOR/BOLA privilege escalation",
+    ]
+    if "python" in lang_set or "werkzeug" in fw_set or "flask" in fw_set:
+      p3_items.extend([
+          "active debug consoles (such as DebuggedApplication with evalex=True)",
+          "session cookie flags (missing Secure or HttpOnly, Host prefix rules)",
+      ])
+    if "java" in lang_set or "spring-boot" in fw_set:
+      p3_items.extend([
+          "exposed Spring Boot Actuator or Druid management endpoints",
+          "mass assignment, payment callback verification bypass, and missing transaction rollback guards",
+      ])
+    if "typescript" in lang_set or "javascript" in lang_set or "express" in fw_set:
+      p3_items.extend([
+          "verbose stack trace error handlers and spoofable X-Forwarded-For rate-limit keys",
+          "weak security-question password recovery flows (CWE-640) and JWT algorithm confusion",
+      ])
+    if "c" in lang_set or "cpp" in lang_set or "go" in lang_set:
+      p3_items.extend([
+          "missing bounds checks, integer signedness bugs, and unauthenticated administrative endpoints",
+      ])
+    p3 = f"3) Audit configuration manifests, authentication filters, and business logic for {', '.join(p3_items)}."
 
     # Pillar 4: Thin-Wrapper & Controller-to-View Template Delegation Tracing
     if thin_wrappers:
@@ -1676,13 +1838,22 @@ class RepoProfiler:
           "database mappers, and rendered view templates."
       )
 
-    # Pillar 5: Guard & Sanitizer Verification (0% FP Guardrail + Multi-Sink Completeness)
-    if "safe_join" in detected_guards or detected_guards:
-      guards_str = ", ".join(detected_guards)
+    # Pillar 5: Stack-Aware Guard & Sanitizer Verification (0% FP Guardrail + Multi-Sink Completeness)
+    guard_descriptions: List[str] = []
+    if "safe_join" in guard_set or "secure_filename" in guard_set:
+      guard_descriptions.append("safe_join or secure_filename path confinement checking for None return values")
+    if "realpath" in guard_set or "filepath_clean" in guard_set:
+      guard_descriptions.append("canonical path resolution (realpath or filepath Clean) confined within a base directory")
+    if "parameterized_sql" in guard_set:
+      guard_descriptions.append("parameterized SQL bindings (such as #{} prepared statements vs unsafe ${} string substitution)")
+    if "html_escape" in guard_set:
+      guard_descriptions.append("context-aware HTML escaping or sanitization")
+
+    if guard_descriptions:
+      guards_detail = "; ".join(guard_descriptions)
       p5 = (
-          f"5) Verify whether endpoints using security confinement helpers ({guards_str}, such as safe_join "
-          "checking for None return values or parameterized query bindings) are properly confined to avoid "
-          "false positives on secure download or query handlers. Enumerate every distinct security vulnerability "
+          f"5) Verify whether endpoints using security confinement helpers ({guards_detail}) are properly "
+          "confined to avoid false positives on secure handlers. Enumerate every distinct security vulnerability "
           "across all endpoints, dependency manifests, and multi-sink handlers (reporting each distinct sink "
           "separately even when multiple flaws reside in the same source file) without stopping early."
       )
@@ -1937,13 +2108,15 @@ def score_file_security_signal(rel_path: str, content: str, profile: Dict[str, A
     if rel_path == tw.get("wrapper") or rel_path in tw.get("delegates_to", []):
       score += 850
 
-  # Application & security configuration files
+  # General application & security configuration / authentication / token modules
+  security_module_keywords = (
+      "security", "auth", "token", "jwt", "crypto", "cipher", "secret",
+      "session", "cookie", "cors", "permission", "privilege", "role",
+      "filter", "interceptor", "middleware", "guard", "oauth", "sso",
+  )
   if (
-      fname.startswith("application") and p.suffix.lower() in (".yml", ".yaml", ".properties")
-      or "securityconfig" in fname
-      or "ignoreurls" in fname
-      or "jwttoken" in fname
-      or "insecurity" in fname
+      (fname.startswith("application") and p.suffix.lower() in (".yml", ".yaml", ".properties"))
+      or any(kw in fname for kw in security_module_keywords)
   ):
     score += 800
 
@@ -1992,7 +2165,7 @@ def materialize_isolated_scan_target(
   scoped_dir.mkdir(parents=True, exist_ok=True)
 
   active_files: List[str] = list(profile.get("active_files", []))
-  if len(active_files) > 60:
+  if max_files > 0 and len(active_files) > max(60, max_files):
     scored: List[Tuple[int, str]] = []
     for rf in active_files:
       fp = target_dir / rf
@@ -2017,6 +2190,9 @@ def materialize_isolated_scan_target(
     selected_files = sorted(selected_set)
   else:
     selected_files = list(active_files)
+
+  profile["scoped_files_count"] = len(selected_files)
+  profile["scoped_files"] = selected_files
 
   for rf in selected_files:
     src_f = target_dir / rf
@@ -2253,10 +2429,11 @@ def run_universal_scan(
     model: Optional[str] = None,
     timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
     llm_recon: bool = False,
+    max_files: int = MAX_MONOREPO_SCOPED_FILES,
 ) -> Dict[str, Any]:
   """
   Executes Stage 1 Auto-Profiling followed by Stage 2 CodeMender (`cm clean` + `cm find`)
-  execution in `cloud-llm-preview1` with isolated `CM_HOME` and `<= 900s` timeout cap.
+  execution with isolated `CM_HOME` and `<= 900s` timeout cap.
   Emits `profile.json`, `config.yaml`, `PROJECT_FILE_INDEX.md`, `report.json`, and `report.md`.
   """
   capped_timeout = max(60, min(int(timeout_seconds), MAX_TIMEOUT_SECONDS))
@@ -2284,14 +2461,15 @@ def run_universal_scan(
       target_dir=resolved_target,
       profile=profile,
       scoped_dir=resolved_out / "scoped_target",
+      max_files=max_files,
   )
 
   exec_prof = profile["execution_profile"]
   cm_bin = resolve_cm_bin()
 
   env = os.environ.copy()
-  env["GOOGLE_CLOUD_PROJECT"] = GCP_PROJECT
-  env["CLOUDSDK_CORE_PROJECT"] = GCP_PROJECT
+  env.setdefault("GOOGLE_CLOUD_PROJECT", GCP_PROJECT)
+  env.setdefault("CLOUDSDK_CORE_PROJECT", GCP_PROJECT)
   env["CM_HOME"] = str(cm_home)
   if exec_prof.get("deep"):
     env["CMOC_DEEP_MAX_TURNS"] = str(exec_prof.get("deep_max_turns", 8))
@@ -2741,6 +2919,13 @@ def build_arg_parser() -> argparse.ArgumentParser:
       action="store_true",
       help="Enable optional hybrid LLM reconnaissance pass during Stage 1",
   )
+  parser.add_argument(
+      "--max-files",
+      dest="max_files",
+      type=int,
+      default=MAX_MONOREPO_SCOPED_FILES,
+      help="Max high-signal files to materialize for >60-file monoliths (set 0 to scan all active files)",
+  )
   # Legacy flags for backwards compatibility
   parser.add_argument("--prepare-only", action="store_true", help=argparse.SUPPRESS)
   parser.add_argument("--run-id", type=str, default=None, help=argparse.SUPPRESS)
@@ -2861,6 +3046,7 @@ def main(argv: Optional[List[str]] = None) -> int:
       model=args.model,
       timeout_seconds=args.timeout,
       llm_recon=args.llm_recon,
+      max_files=args.max_files,
   )
   print(json.dumps({
       "status": report_data["status"],
