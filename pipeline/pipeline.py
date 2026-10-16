@@ -57,17 +57,17 @@ CONTEXT_PROMPTS: Dict[str, Dict[str, Optional[str]]] = {}
 
 
 def resolve_cm_bin() -> Path:
-  """Resolves the CodeMender CLI binary path via $CM_BIN, PATH, ~/bin/cm, or ./bin/cm."""
+  """Resolves the CodeMender CLI binary path via $CM_BIN, ~/bin/cm, ./bin/cm, or PATH."""
   env_bin = os.environ.get("CM_BIN")
   if env_bin and Path(env_bin).exists():
     return Path(env_bin).resolve()
-  which_cm = shutil.which("cm")
-  if which_cm:
-    return Path(which_cm).resolve()
   if PRIMARY_CM_BIN.exists():
     return PRIMARY_CM_BIN
   if FALLBACK_CM_BIN.exists():
     return FALLBACK_CM_BIN
+  which_cm = shutil.which("cm")
+  if which_cm:
+    return Path(which_cm).resolve()
   return PRIMARY_CM_BIN
 
 
@@ -2089,54 +2089,76 @@ def score_file_security_signal(rel_path: str, content: str, profile: Dict[str, A
   p = Path(rel_path)
   fname = p.name.lower()
   rel_low = rel_path.lower()
+  is_root_file = "/" not in rel_path
 
-  # Tier S: Dependency manifests, entrypoints, thin wrappers & their delegates
+  # 1. Dependency manifests (prioritize root manifest; submodule manifests lower since profile.json extracts them)
   if fname in (
       "requirements.txt", "pyproject.toml", "package.json", "pom.xml",
       "build.gradle", "build.gradle.kts", "go.mod", "cmakelists.txt",
       "makefile", "gemfile", "composer.json",
   ):
-    score += 1000
-  if rel_path in profile.get("entrypoints", []):
-    score += 900
-  for tw in profile.get("thin_wrappers", []):
-    if rel_path == tw.get("wrapper") or rel_path in tw.get("delegates_to", []):
-      score += 850
+    score += 1200 if is_root_file else 300
 
-  # General application & security configuration / authentication / token modules
+  # 2. Main application entrypoints
+  if rel_path in profile.get("entrypoints", []):
+    score += 950 if is_root_file else 650
+
+  # 3. View template & core parser thin-wrapper pairs (only reward the wrapper and the specific view/parser delegate)
+  is_view_or_parser_file = (
+      p.suffix.lower() in (".pug", ".hbs", ".ejs", ".jsp")
+      or "sansio" in rel_low
+      or "_internal" in rel_low
+  )
+  for tw in profile.get("thin_wrappers", []):
+    delegs = tw.get("delegates_to", [])
+    if is_view_or_parser_file and rel_path in delegs:
+      score += 550
+    elif rel_path == tw.get("wrapper") and Path(rel_path).name not in ("server.ts", "server.js", "app.ts", "app.js"):
+      if any(
+          Path(d).suffix.lower() in (".pug", ".hbs", ".ejs", ".jsp")
+          or "sansio" in d.lower()
+          or "_internal" in d.lower()
+          for d in delegs
+      ):
+        score += 450
+
+  # 4. General application & security configuration / authentication / token / filter modules
   security_module_keywords = (
       "security", "auth", "token", "jwt", "crypto", "cipher", "secret",
-      "session", "cookie", "cors", "permission", "privilege", "role",
-      "filter", "interceptor", "middleware", "guard", "oauth", "sso",
+      "cors", "filter", "interceptor", "middleware", "guard", "oauth", "sso",
   )
-  if (
-      (fname.startswith("application") and p.suffix.lower() in (".yml", ".yaml", ".properties"))
-      or any(kw in fname for kw in security_module_keywords)
-  ):
+  if fname in ("application.yml", "application.yaml", "application.properties"):
+    score += 750
+  elif fname in ("application-dev.yml", "application-prod.yml"):
+    score += 450
+  if any(kw in fname for kw in security_module_keywords) or ("/security/" in rel_low and "config" in fname):
     score += 800
 
-  # Custom DAO XML mappers
+  # 5. Custom DAO XML mappers (especially those with ${} SQL interpolation or dynamic ORDER BY / LIKE)
   if p.suffix.lower() == ".xml" and ("dao/" in rel_low or fname.endswith("dao.xml")):
-    score += 750
-    if "${" in content or "order by" in content.lower() or "like" in content.lower():
-      score += 200
+    if "${" in content:
+      score += 1100
+    elif "order by" in content.lower() or "like" in content.lower():
+      score += 650
+    else:
+      score += 250
 
-  # Route handlers & controllers
+  # 6. Route handlers, controllers, and high-risk functional modules
   if any(seg in rel_low for seg in ("routes/", "controller/", "controllers/", "handlers/", "api/")):
-    score += 500
+    score += 450
+  elif any(seg in rel_low for seg in ("service/impl/", "lib/", "util/", "views/")):
+    score += 300
 
-  # Security / auth / util / service implementations
-  if any(seg in rel_low for seg in ("security/", "auth/", "service/impl/", "lib/", "util/", "models/", "views/")):
-    score += 250
-
-  # Sink density bonus
+  # 7. High-signal security sink density (primary driver for selecting vulnerable handlers/services)
+  sink_hits = 0
   for _sink_name, spat in SINK_PATTERNS:
     if spat.search(content):
-      score += 65
+      sink_hits += 1
+  score += sink_hits * 220
 
-  # Down-rank pure POJO/DTO/VO boilerplate
-  if any(seg in rel_low for seg in ("/dto/", "/domain/", "/vo/", "/bo/")) and score < 200:
-    score -= 150
+  # 8. Down-rank pure POJO/DTO/VO/ORM-model schema boilerplate without sinks
+  if any(seg in rel_low for seg in ("/dto/", "/domain/", "/vo/", "/bo/", "models/")) and sink_hits == 0:
+    score -= 300
 
   return score
 
