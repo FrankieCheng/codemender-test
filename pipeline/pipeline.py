@@ -467,13 +467,14 @@ def parse_pom_xml(target: Path) -> List[Dict[str, str]]:
       if sub not in pom_files:
         pom_files.append(sub)
   elif target.is_dir():
+    pom_skip_dirs = set(DEFAULT_EXCLUDE_DIRS) | {"frontend", "client", "web-app"}
     root_pom = target / "pom.xml"
     if root_pom.is_file():
       pom_files.append(root_pom)
     for root_dir, dirs, files in os.walk(target):
       dirs[:] = sorted([
           d for d in dirs
-          if d not in (".git", "node_modules", "vendor", "target", "build", "dist", ".idea", ".mvn")
+          if d not in pom_skip_dirs
           and not d.startswith(".")
       ])
       if "pom.xml" in files:
@@ -806,16 +807,10 @@ def parse_manifests(target_dir: Path | str) -> List[Dict[str, str]]:
     return []
 
   all_deps: List[Dict[str, str]] = []
-  manifest_skip_dirs = {
-      ".git", ".hg", ".svn", "node_modules", "vendor", "dist", "build", "target",
-      "bin", "obj", ".gradle", ".idea", ".vscode", ".mvn", "__pycache__",
-      "venv", ".venv", "env", "coverage", "test", "tests", "__tests__",
-      "frontend", "client", "web-app", "scoped_targets", "scan_outputs", "eval_results",
-  }
+  manifest_skip_dirs = set(DEFAULT_EXCLUDE_DIRS) | {"frontend", "client", "web-app"}
 
-  # 1. Java Maven (already walks multi-module POMs with parent inheritance)
-  if (tpath / "pom.xml").is_file() or list(tpath.glob("*/pom.xml")) or list(tpath.glob("*/*/pom.xml")):
-    all_deps.extend(parse_pom_xml(tpath))
+  # 1. Java Maven (walks multi-module POMs while respecting DEFAULT_EXCLUDE_DIRS)
+  all_deps.extend(parse_pom_xml(tpath))
 
   # 2. Walk repository up to depth 3 for Python, Node.js, Gradle, Go, C/C++, Ruby, and PHP manifests
   for root_dir, dirs, files in os.walk(tpath):
@@ -1247,7 +1242,7 @@ DEFAULT_EXCLUDE_DIRS: List[str] = [
     "uploads", "storage", "test", "tests", "__tests__", "spec", "cypress",
     "screenshots", "vagrant", "terraform", "infrastructure", "monitoring",
     "document", "docs", "benchmarks", "eval_results", "grounding-truth",
-    "scoped_targets", "scan_outputs", "deck_run", ".agents", ".ai", ".claude",
+    "scoped_targets", "scan_outputs", "deck_run", "pipeline", ".agents", ".ai", ".claude",
     ".codeium", ".continue", ".cursor", ".dependabot", ".github", ".junie",
     ".well-known", "i18n", "rsn", "ftp", "scripts",
 ]
