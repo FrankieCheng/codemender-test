@@ -3,9 +3,10 @@
 > **Evaluation Scale**: **43 Controlled Ablation Runs** across **Python WSGI**, **Node.js/TypeScript**, and **Java/Spring Boot** (**1,654+** total findings) + **C/C++ & Go Live Multi-Stack Verification Scans** + **8 Legacy Baseline Runs**
 > **Execution Environment**: `cm v0.14.0` (`--sandbox=false`)
 > **Quick Navigation**:
+> - 🛡️ **Stage 3 & 4 Automated Vulnerability Verification (`cm verify`) & Remediation (`cm fix`) Report (`fix` branch)**: [`docs/VERIFY_AND_FIX_REPORT.md`](./docs/VERIFY_AND_FIX_REPORT.md)
 > - 🏛️ **Universal Two-Stage Architecture Review & 4 Trap Mitigations**: [`docs/UNIVERSAL_PIPELINE_REVIEW.md`](./docs/UNIVERSAL_PIPELINE_REVIEW.md)
 > - 📊 **Full 43-Run Ablation Matrix**: [`docs/BENCHMARK_RESULTS.md`](./docs/BENCHMARK_RESULTS.md) | ☕ **`macrozheng/mall` Code Audit Reference (Non-Official Ground Truth)**: [`docs/MALL_AUDIT_REFERENCE.md`](./docs/MALL_AUDIT_REFERENCE.md) | 🇨🇳 **中文主报告与实战指南**: [`README_CN.md`](./README_CN.md)
-> - ⚙️ **Universal Zero-Hardcoding Pipeline**: [`pipeline/pipeline.py`](./pipeline/pipeline.py), [`pipeline/test_universal_pipeline.py`](./pipeline/test_universal_pipeline.py), [`pipeline/run_python_benchmarks.py`](./pipeline/run_python_benchmarks.py), [`pipeline/run_all_benchmarks.py`](./pipeline/run_all_benchmarks.py), [`pipeline/generate_report.py`](./pipeline/generate_report.py)
+> - ⚙️ **End-to-End Pipeline (Profile $\rightarrow$ Scan $\rightarrow$ Verify $\rightarrow$ Fix)**: [`pipeline/pipeline.py`](./pipeline/pipeline.py), [`pipeline/run_verify_and_fix.py`](./pipeline/run_verify_and_fix.py), [`pipeline/test_universal_pipeline.py`](./pipeline/test_universal_pipeline.py), [`pipeline/run_python_benchmarks.py`](./pipeline/run_python_benchmarks.py), [`pipeline/run_all_benchmarks.py`](./pipeline/run_all_benchmarks.py), [`pipeline/generate_report.py`](./pipeline/generate_report.py)
 
 ---
 
@@ -275,11 +276,36 @@ python3 pipeline/pipeline.py scan /path/to/your-new-repo --output-dir ./scan_out
 
 ---
 
-## 6. Verification Suite & Repository Structure
+## 6. Stage 3 & Stage 4: End-to-End Automated Vulnerability Verification (`cm verify`) & Remediation (`cm fix`) (`fix` Branch)
+
+Building on Stage 2 `cm find` (`100%` recall across all **11 Ground Truth vulnerabilities / 12 distinct findings** in [`src/app.py`](./src/app.py) and [`src/requirements.txt`](./src/requirements.txt) with `0%` false positives on `/files/secure-download`), we implemented [`pipeline/run_verify_and_fix.py`](./pipeline/run_verify_and_fix.py) on the `fix` branch to run **12 parallel isolated workers executing `cm verify` $\rightarrow$ `cm fix`** (full report in [`docs/VERIFY_AND_FIX_REPORT.md`](./docs/VERIFY_AND_FIX_REPORT.md), raw JSON telemetry in [`eval_results/python_wsgi/py_16_verify_and_fix_summary.json`](./eval_results/python_wsgi/py_16_verify_and_fix_summary.json)):
+
+### 6.1 End-to-End `cm verify` $\rightarrow$ `cm fix` Benchmark Results
+
+| Pipeline Stage & Metric | Empirical Result (`cm v0.14.0`, `gemini-3.8-flash`) | Notes |
+| :--- | :---: | :--- |
+| **Stage 3: `cm verify` Verification Rate (`status=VERIFIED`)** | **12 / 12 (`100.0%`)** | All 12 findings generated complete `.exploit/exploit.sh`, `PLAN.md`, `LOG.md`, `REPORT.md`, and `info.yaml` artifacts |
+| **Stage 3: Generated PoC Exploit Success on Unpatched Code** | **12 / 12 (`100.0%`)** | All 12 `.exploit/exploit.sh` scripts reproduced the vulnerability via `werkzeug.test.Client` (`EXPLOIT SUCCESSFUL`, `rc=0`) |
+| **Stage 4: `cm fix` Automated Patch Generation Rate (`status=FIXED`)** | **12 / 12 (`100.0%`)** | All 12 findings produced verified patches in `state.db` (`patches` table) and modified the target source files |
+| **Stage 4: Post-Fix Regression Verification (Exploits Blocked)** | **12 / 12 (`100.0%`)** | After merging all 12 patches into [`src/app.py`](./src/app.py) and [`src/requirements.txt`](./src/requirements.txt), all 12 `exploit.sh` scripts were blocked (`rc=1`) |
+| **Total 12-Way Parallel Wall-Clock Duration (12 `verify` + 12 `fix`)** | **`665.09s` (`~11.1 min`)** | **8.1× speedup** over sequential single-threaded execution (`~90 min`) |
+
+### 6.2 Four Key Engineering Requirements for Unattended `cm verify` & `cm fix`
+1. **Pass `--bypass-warning` in Non-Interactive Mode**: Unattended `cm verify` and `cm fix` invocations that execute `run_command` must pass `cm -y --bypass-warning --sandbox=false ...` to avoid immediate exit (`rc=1`) on the responsibility warning prompt.
+2. **Pre-Populate Target Runtime Virtualenv on `PATH` + `PYTHONDONTWRITEBYTECODE=1`**: Prepending a virtualenv containing the target's dependencies (`/tmp/cm_py_venv/bin`) prevents verification agents from running slow `find / -name werkzeug` full-filesystem scans when `import werkzeug` fails on system Python.
+3. **Per-Finding Isolated `.cm_home` & Target Workspaces (`worker_cm_XX` / `worker_tgt_XX`)**: Cloning isolated workspaces and rewriting `state.db` paths prevents concurrent `cm verify` / `cm fix` workers from overwriting `.exploit/exploit.sh` or contending on SQLite locks.
+4. **3-Way Patch Merging (`git apply --3way --recount`)**: Because each route handler flaw in `src/app.py` occupies a distinct line range, 3-way git patch application cleanly merges all 12 generated fixes into the unified codebase.
+
+---
+
+## 7. Verification Suite & Repository Structure
 
 ```bash
-# Run the 20-test Unit & Integration Suite (hard regex sanitizer, manifest parsers, ORM filtering, controller-view co-location, AST zero-hardcoding check)
+# 1. Run the 20-test Unit & Integration Suite (hard regex sanitizer, manifest parsers, ORM filtering, controller-view co-location, AST zero-hardcoding check)
 python3 -m unittest -v pipeline/test_universal_pipeline.py
+
+# 2. Run the 12-worker parallel cm verify -> cm fix automated verification & remediation pipeline
+python3 -u pipeline/run_verify_and_fix.py
 ```
 
 ```text
@@ -287,17 +313,19 @@ codemender-test/
 ├── README.md                          # English Flagship Report, Glossary & Universal Pipeline Guide (this file)
 ├── README_CN.md                       # Chinese Flagship Report, Glossary, Ground Truth Analysis & Guide (中文主报告)
 ├── docs/
+│   ├── VERIFY_AND_FIX_REPORT.md       # Stage 3 & 4 Automated Vulnerability Verification (cm verify) & Fix (cm fix) Report
 │   ├── UNIVERSAL_PIPELINE_REVIEW.md   # Deep Technical Review & 4 Failure Trap Mitigations
 │   ├── BENCHMARK_RESULTS.md           # Full 43-run ablation tables & CWE/Ground-Truth breakdown
 │   ├── MALL_AUDIT_REFERENCE.md        # macrozheng/mall Curated Code Audit Reference (Non-Official Ground Truth)
 │   └── CODEMENDER_SHARE_SUMMARY_CN.md # Archived Chinese executive briefing
-├── pipeline/                          # Universal CodeMender v0.14.0 Auto-Profile & Auto-Scan Pipeline
+├── pipeline/                          # Universal CodeMender v0.14.0 Profile, Scan, Verify & Fix Pipeline
 │   ├── pipeline.py                    # Universal Stage 1 Auto-Profiler & Stage 2 Runner (zero hardcoded repo names)
+│   ├── run_verify_and_fix.py          # Parallel 12-worker Stage 3 (cm verify) & Stage 4 (cm fix) Runner
 │   ├── test_universal_pipeline.py     # 20-test unit & integration test suite
-│   ├── run_python_benchmarks.py       # 13-run Python WSGI benchmark + strict Ground Truth (11/11) & safe_join (0% FP) evaluator
-│   ├── run_all_benchmarks.py          # 30-run Node.js (juice-shop) & Java (macrozheng/mall) ablation suite
-│   └── generate_report.py             # Automated Markdown report generator across all 43 runs
-├── src/                               # Target 1: Python Werkzeug WSGI Application (11 Real Vulns + 1 safe_join Control)
+│   ├── run_python_benchmarks.py       # Python WSGI benchmark + strict Ground Truth (11/11) & safe_join (0% FP) evaluator
+│   ├── run_all_benchmarks.py          # Node.js (juice-shop) & Java (macrozheng/mall) ablation suite
+│   └── generate_report.py             # Automated Markdown report generator
+├── src/                               # Target 1: Python Werkzeug WSGI Application (All 12 findings remediated on fix branch)
 │   ├── app.py
 │   └── requirements.txt
 ├── grounding-truth/                   # Ground Truth PoC Exploit & Verification Suite for Python WSGI
@@ -307,8 +335,8 @@ codemender-test/
 │   ├── juice-shop-bench/              # Node.js / TypeScript core benchmark scope (co-located routes + views)
 │   └── mall-bench/                    # Java / Spring Boot + MyBatis core benchmark scope (20 files)
 └── eval_results/                      # Complete Evaluation Artifacts (.log, _report.txt, _report.json, _meta.json)
-    ├── python_wsgi/                   # 13-run cm v0.14.0 Python WSGI matrix (py_01..py_13)
-    ├── nodejs_juiceshop/              # 15-run cm v0.14.0 Node.js/TS OWASP Juice Shop matrix (js_01..js_15)
+    ├── python_wsgi/                   # Python WSGI scan & verify/fix results (py_01..py_16_verify_and_fix_summary.json)
+    ├── nodejs_juiceshop/              # 16-run cm v0.14.0 Node.js/TS OWASP Juice Shop matrix (js_01..js_16)
     ├── java_mall/                     # 15-run cm v0.14.0 Java/Spring Boot macrozheng/mall matrix (mall_01..mall_15)
     └── legacy_v0.7_python/            # Original 8-run quick-mode baseline (run1..run8)
 ```

@@ -3,9 +3,10 @@
 > **评测规模**：**43 组受控消融实验**（涵盖 **Python WSGI**、**Node.js/TypeScript**、**Java/Spring Boot** 三大语言技术栈，累计检出 **1,654+** 个漏洞实例）+ **C/C++ 与 Go 跨栈实测验证** + **8 组历史基线对比**
 > **运行环境**：`cm v0.14.0` (`--sandbox=false`)
 > **核心文档导航**：
+> - 🛡️ **Stage 3 & 4 漏洞自动验证 (`cm verify`) 与自动修复 (`cm fix`) 实战评测报告（`fix` 分支新增）**：[`docs/VERIFY_AND_FIX_REPORT.md`](./docs/VERIFY_AND_FIX_REPORT.md)
 > - 🏛️ **两阶段通用架构深度评审与四大陷阱规避报告**：[`docs/UNIVERSAL_PIPELINE_REVIEW.md`](./docs/UNIVERSAL_PIPELINE_REVIEW.md)
 > - 📊 **完整 43 组消融实验详表**：[`docs/BENCHMARK_RESULTS.md`](./docs/BENCHMARK_RESULTS.md) | ☕ **`macrozheng/mall` 源码审计参考基线（非官方标准答案）**：[`docs/MALL_AUDIT_REFERENCE.md`](./docs/MALL_AUDIT_REFERENCE.md) | 🇺🇸 **英文主报告**：[`README.md`](./README.md)
-> - ⚙️ **两阶段零硬编码自动化流水线**：[`pipeline/pipeline.py`](./pipeline/pipeline.py)、[`pipeline/test_universal_pipeline.py`](./pipeline/test_universal_pipeline.py)、[`pipeline/run_python_benchmarks.py`](./pipeline/run_python_benchmarks.py)、[`pipeline/run_all_benchmarks.py`](./pipeline/run_all_benchmarks.py)、[`pipeline/generate_report.py`](./pipeline/generate_report.py)
+> - ⚙️ **全自动流水线（画像 $\rightarrow$ 扫描 $\rightarrow$ 验证 $\rightarrow$ 修复）**：[`pipeline/pipeline.py`](./pipeline/pipeline.py)、[`pipeline/run_verify_and_fix.py`](./pipeline/run_verify_and_fix.py)、[`pipeline/test_universal_pipeline.py`](./pipeline/test_universal_pipeline.py)、[`pipeline/run_python_benchmarks.py`](./pipeline/run_python_benchmarks.py)、[`pipeline/run_all_benchmarks.py`](./pipeline/run_all_benchmarks.py)、[`pipeline/generate_report.py`](./pipeline/generate_report.py)
 
 ---
 
@@ -343,11 +344,36 @@ python3 pipeline/pipeline.py scan /path/to/your-new-repo --output-dir ./scan_out
 
 ---
 
-## 七、 自动化测试验证与仓库目录结构
+## 七、 Stage 3 & Stage 4：端到端漏洞验证 (`cm verify`) 与自动代码修复 (`cm fix`) 闭环实测（`fix` 分支）
+
+在完成第一阶段 `cm find`（100% 召回 [`src/app.py`](./src/app.py) 与 [`src/requirements.txt`](./src/requirements.txt) 全部 **11 个 Ground Truth 真实漏洞 / 12 个独立检出项**）后，我们在 `fix` 分支进一步构建了 [`pipeline/run_verify_and_fix.py`](./pipeline/run_verify_and_fix.py)，通过 **12 路独立隔离工作区并发执行 `cm verify` 与 `cm fix`**，完成了从漏洞发现、PoC 编写验证、自动补丁生成到回归阻断测试的全链路闭环（完整报告见 [`docs/VERIFY_AND_FIX_REPORT.md`](./docs/VERIFY_AND_FIX_REPORT.md)，原始评测 JSON 见 [`eval_results/python_wsgi/py_16_verify_and_fix_summary.json`](./eval_results/python_wsgi/py_16_verify_and_fix_summary.json)）：
+
+### 7.1 `cm verify` $\rightarrow$ `cm fix` 核心闭环指标
+
+| 评估阶段与核心指标 | 实测结果 (`cm v0.14.0`, `gemini-3.8-flash`) | 关键说明 |
+| :--- | :---: | :--- |
+| **Stage 3：`cm verify` 验证通过率 (`status=VERIFIED`)** | **12 / 12 (`100.0%`)** | 12 个检出项全部生成 `.exploit/exploit.sh`、`PLAN.md`、`LOG.md`、`REPORT.md`、`info.yaml` |
+| **Stage 3：自动生成的 PoC 在未修复代码上触发成功率** | **12 / 12 (`100.0%`)** | 12 个 `.exploit/exploit.sh` 均通过 `werkzeug.test.Client` 动态触发漏洞 (`EXPLOIT SUCCESSFUL`, `rc=0`) |
+| **Stage 4：`cm fix` 自动补丁生成成功率 (`status=FIXED`)** | **12 / 12 (`100.0%`)** | 12 个漏洞全部在 `state.db` 的 `patches` 表生成正式补丁并完成源码修复 |
+| **Stage 4：合并修复后代码阻断全部 12 个 PoC 攻击成功率** | **12 / 12 (`100.0%`)** | 合并至 [`src/app.py`](./src/app.py) 与 [`src/requirements.txt`](./src/requirements.txt) 后，重跑全部 12 个 `exploit.sh` 均被成功阻断 (`rc=1`) |
+| **12 路并发端到端总耗时（12 次 `verify` + 12 次 `fix`）** | **`665.09s` (`~11.1 分钟`)** | 相比单线程串行执行（`~90 分钟`）提速 **8.1 倍** |
+
+### 7.2 无人值守运行 `cm verify` 与 `cm fix` 的四大工程要点
+1. **必传 `--bypass-warning`**：非交互模式下调用 `run_command` 必须传 `cm -y --bypass-warning --sandbox=false verify/fix ...`，否则 CLI 会因责任警告未确认直接报错退出（`rc=1`）。
+2. **注入目标运行环境依赖 (`PATH` 虚拟环境 + `PYTHONDONTWRITEBYTECODE=1`)**：提前将包含目标项目依赖的虚拟环境（如 `/tmp/cm_py_venv/bin`）置于 `PATH` 首位，避免 Agent 因 `import werkzeug` 失败而执行耗时的 `find / -name werkzeug` 全盘搜索。
+3. **每漏洞独立克隆 `.cm_home` 与源码工作区 (`worker_cm_XX` / `worker_tgt_XX`)**：避免多个并发 `cm verify` / `cm fix` 进程在同一个 `.exploit/exploit.sh` 与 `state.db` 上发生写冲突。
+4. **三方合并 (`git apply --3way --recount`) 汇总补丁**：由于 11 个代码漏洞位于 `src/app.py` 各自独立的路由处理函数中，通过 `git apply --3way` 即可将 12 个独立 Worker 生成的补丁归并到主仓库。
+
+---
+
+## 八、 自动化测试验证与仓库目录结构
 
 ```bash
-# 运行 20 项单元与集成测试（覆盖硬正则清洗、多语言依赖解析、ORM 过滤、控制器-模板共置、AST 零硬编码检查）
+# 1. 运行 20 项单元与集成测试（覆盖硬正则清洗、多语言依赖解析、ORM 过滤、控制器-模板共置、AST 零硬编码检查）
 python3 -m unittest -v pipeline/test_universal_pipeline.py
+
+# 2. 运行 12 路并发 cm verify -> cm fix 全自动验证与修复流水线
+python3 -u pipeline/run_verify_and_fix.py
 ```
 
 ```text
@@ -355,17 +381,19 @@ codemender-test/
 ├── README.md                          # 英文主报告与通用流水线文档 (English Flagship Report)
 ├── README_CN.md                       # 中文主报告、术语速查表、Ground Truth 对比与实战指南 (本文档)
 ├── docs/
+│   ├── VERIFY_AND_FIX_REPORT.md       # Stage 3 & 4 漏洞自动验证 (cm verify) 与自动修复 (cm fix) 实战评测报告
 │   ├── UNIVERSAL_PIPELINE_REVIEW.md   # 两阶段通用架构深度评审与四大陷阱规避报告
 │   ├── BENCHMARK_RESULTS.md           # 完整 43 组消融实验详表与 CWE/Ground-Truth 拆解
 │   ├── MALL_AUDIT_REFERENCE.md        # macrozheng/mall 源码安全审计参考基线（非官方标准答案）
 │   └── CODEMENDER_SHARE_SUMMARY_CN.md # 早期中文专题简报归档
-├── pipeline/                          # CodeMender v0.14.0 通用自动画像与扫描流水线
+├── pipeline/                          # CodeMender v0.14.0 通用自动画像、扫描、验证与修复流水线
 │   ├── pipeline.py                    # Stage 1 自动画像器 + Stage 2 隔离扫描器（零仓库名硬编码）
+│   ├── run_verify_and_fix.py          # Stage 3 (cm verify) + Stage 4 (cm fix) 12 路并发验证与修复流水线
 │   ├── test_universal_pipeline.py     # 20 项单元与集成测试套件
-│   ├── run_python_benchmarks.py       # 13 组 Python WSGI 消融实验与 Ground Truth (11/11) 评估器
-│   ├── run_all_benchmarks.py          # 30 组 Node.js (juice-shop) 与 Java (macrozheng/mall) 消融套件
-│   └── generate_report.py             # 43 组实验 Markdown 报告自动生成器
-├── src/                               # 靶标 1：Python Werkzeug WSGI 应用（11 个真实漏洞 + 1 个 safe_join 负样本）
+│   ├── run_python_benchmarks.py       # Python WSGI 消融实验与 Ground Truth (11/11) 评估器
+│   ├── run_all_benchmarks.py          # Node.js (juice-shop) 与 Java (macrozheng/mall) 消融套件
+│   └── generate_report.py             # 实验 Markdown 报告自动生成器
+├── src/                               # 靶标 1：Python Werkzeug WSGI 应用（已在 fix 分支由 cm fix 完成全部 12 项安全修复）
 │   ├── app.py
 │   └── requirements.txt
 ├── grounding-truth/                   # Python WSGI 漏洞动态利用与验证脚本
@@ -374,9 +402,9 @@ codemender-test/
 │   ├── ref-codemender-bench/          # Python WSGI 隔离靶标集（2 个文件）
 │   ├── juice-shop-bench/              # Node.js / TypeScript 核心漏洞集（含共置的路由控制器与视图模板）
 │   └── mall-bench/                    # Java / Spring Boot + MyBatis 核心漏洞集（20 个文件）
-└── eval_results/                      # 全部 43 组实验 + 8 组历史基线完整产物 (.log, _report.json, _meta.json)
-    ├── python_wsgi/                   # Python WSGI 13 组实验结果 (py_01..py_13)
-    ├── nodejs_juiceshop/              # OWASP Juice Shop 15 组实验结果 (js_01..js_15)
+└── eval_results/                      # 全部实验 + 历史基线完整产物 (.log, _report.json, _meta.json)
+    ├── python_wsgi/                   # Python WSGI 扫描与验证/修复结果 (py_01..py_16_verify_and_fix_summary.json)
+    ├── nodejs_juiceshop/              # OWASP Juice Shop 16 组实验结果 (js_01..js_16)
     ├── java_mall/                     # macrozheng/mall 15 组实验结果 (mall_01..mall_15)
     └── legacy_v0.7_python/            # 早期 8 组 Quick 模式历史基线 (run1..run8)
 ```
