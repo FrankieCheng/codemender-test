@@ -393,7 +393,7 @@ codemender-test/
 │   ├── run_python_benchmarks.py       # Python WSGI 消融实验与 Ground Truth (11/11) 评估器
 │   ├── run_all_benchmarks.py          # Node.js (juice-shop) 与 Java (macrozheng/mall) 消融套件
 │   └── generate_report.py             # 实验 Markdown 报告自动生成器
-├── src/                               # 靶标 1：Python Werkzeug WSGI 应用（已在 fix 分支由 cm fix 完成全部 12 项安全修复）
+├── src/                               # 靶标 1：Python Werkzeug WSGI 应用（main 分支保留全部 11 个预置真实漏洞 + CVE 与 1 个 safe_join 负样本；fix 分支为自动修复后代码）
 │   ├── app.py
 │   └── requirements.txt
 ├── grounding-truth/                   # Python WSGI 漏洞动态利用与验证脚本

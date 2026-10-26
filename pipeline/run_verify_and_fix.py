@@ -341,8 +341,21 @@ def main():
       results.append(fut.result())
   results.sort(key=lambda x: x["index"])
 
-  # Apply all generated worker diffs onto REPO_ROOT/src
-  print("[3/3] Applying generated security patches from `cm fix` workers onto `ref-codemender-test/src` ...", flush=True)
+  # Apply all generated worker diffs onto an isolated merged workspace (or REPO_ROOT if --apply-in-place is passed)
+  apply_in_place = "--apply-in-place" in sys.argv
+  merged_target = REPO_ROOT if apply_in_place else (OUT_DIR / "merged_fixed_target")
+  if not apply_in_place:
+    if merged_target.exists():
+      shutil.rmtree(merged_target)
+    shutil.copytree(
+        SCOPED_TARGET,
+        merged_target,
+        ignore=shutil.ignore_patterns(".exploit", "__pycache__", "*.pyc", "PROJECT_FILE_INDEX.md"),
+    )
+    subprocess.run(["git", "add", "-A"], cwd=str(merged_target), capture_output=True)
+    subprocess.run(["git", "commit", "-m", "base unpatched target"], cwd=str(merged_target), capture_output=True)
+
+  print(f"[3/3] Applying generated security patches from `cm fix` workers onto `{merged_target}/src` ...", flush=True)
   applied_patches = []
   failed_patches = []
   for r in results:
@@ -359,7 +372,7 @@ def main():
       patch_path.write_text(diff_text + "\n", encoding="utf-8")
       ap = subprocess.run(
           ["git", "apply", "--3way", "--recount", str(patch_path)],
-          cwd=str(REPO_ROOT),
+          cwd=str(merged_target),
           capture_output=True,
           text=True,
       )
@@ -372,7 +385,7 @@ def main():
 
   final_git_diff = subprocess.run(
       ["git", "diff", "src/"],
-      cwd=str(REPO_ROOT),
+      cwd=str(merged_target),
       capture_output=True,
       text=True,
   ).stdout

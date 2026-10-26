@@ -6,21 +6,16 @@ file storage, search indexing, and network services.
 """
 
 import os
-from html import escape
 import json
 import base64
 import pickle
 import sqlite3
 import subprocess
-import ipaddress
-import socket
-import urllib.parse
 import requests
-from urllib.parse import urlsplit
 from werkzeug.wrappers import Request, Response
 from werkzeug.routing import Map, Rule
-from werkzeug.exceptions import HTTPException, NotFound, RequestEntityTooLarge
-from werkzeug.utils import redirect, secure_filename
+from werkzeug.exceptions import HTTPException, NotFound
+from werkzeug.utils import redirect
 from werkzeug.security import safe_join
 from werkzeug.debug import DebuggedApplication
 
@@ -48,28 +43,6 @@ def init_database() -> sqlite3.Connection:
     )
     conn.commit()
     return conn
-
-
-def is_safe_url(target_url: str) -> bool:
-    """Validate that the URL uses HTTP/HTTPS and resolves to a public, non-internal IP."""
-    try:
-        parsed = urllib.parse.urlparse(target_url)
-        if parsed.scheme not in ("http", "https"):
-            return False
-        hostname = parsed.hostname
-        if not hostname:
-            return False
-        addr_infos = socket.getaddrinfo(hostname, None)
-        if not addr_infos:
-            return False
-        for addr_info in addr_infos:
-            ip_str = addr_info[4][0].split("%")[0]
-            ip = ipaddress.ip_address(ip_str)
-            if not ip.is_global or ip.is_loopback or ip.is_private or ip.is_link_local or ip.is_reserved or ip.is_multicast or ip.is_unspecified:
-                return False
-        return True
-    except Exception:
-        return False
 
 
 class Application:
@@ -123,26 +96,17 @@ class Application:
         files = request.files
         form_data = request.form
         uploaded_count = len(files) + len(form_data)
-        if uploaded_count > 1000:
-            raise RequestEntityTooLarge("Too many multipart fields/files.")
         return Response(f"Processed {uploaded_count} multipart fields/files successfully.", mimetype="text/plain")
 
     def on_upload_raw(self, request: Request) -> Response:
         """Handle direct file uploads and save assets to disk."""
         uploaded = request.files.get("file")
-        if not uploaded or not uploaded.filename:
+        if not uploaded:
             return Response("No file provided", status=400, mimetype="text/plain")
 
-        filename = secure_filename(uploaded.filename)
-        if not filename:
-            return Response("Invalid filename", status=400, mimetype="text/plain")
-
-        destination = safe_join(UPLOAD_DIR, filename)
-        if destination is None:
-            return Response("Invalid filename", status=400, mimetype="text/plain")
-
+        destination = os.path.join(UPLOAD_DIR, uploaded.filename)
         uploaded.save(destination)
-        return Response(f"Saved file to {filename}", mimetype="text/plain")
+        return Response(f"Saved file to {uploaded.filename}", mimetype="text/plain")
 
     def on_auth_session(self, request: Request) -> Response:
         """Handle user session state and authentication tokens."""
@@ -155,22 +119,15 @@ class Application:
         )
         if request.method == "POST":
             new_token = request.form.get("token", "dummy-session-12345")
-            response.set_cookie(
-                "__Host-Session-Token",
-                new_token,
-                path="/",
-                secure=True,
-                httponly=True,
-                samesite="Lax",
-            )
+            response.set_cookie("__Host-Session-Token", new_token, path="/")
         return response
 
     def on_download(self, request: Request) -> Response:
         """Retrieve and stream files from local storage."""
         filename = request.args.get("file", "sample.txt")
-        target_path = safe_join(BASE_STORAGE_DIR, filename)
+        target_path = os.path.join(BASE_STORAGE_DIR, filename)
 
-        if target_path is None or not os.path.exists(target_path):
+        if not os.path.exists(target_path):
             return Response(f"File not found: {filename}", status=404, mimetype="text/plain")
 
         try:
@@ -203,7 +160,7 @@ class Application:
 
         try:
             decoded = base64.b64decode(payload)
-            profile = json.loads(decoded)
+            profile = pickle.loads(decoded)
             return Response(f"Profile restored: {repr(profile)}", mimetype="text/plain")
         except Exception as e:
             return Response(f"Restore failed: {str(e)}", status=400, mimetype="text/plain")
@@ -212,10 +169,10 @@ class Application:
         """Query user account metadata by username."""
         username = request.args.get("username", "")
         cursor = self.db.cursor()
-        query = "SELECT id, username, email, role FROM users WHERE username = ?"
+        query = f"SELECT id, username, email, role FROM users WHERE username = '{username}'"
 
         try:
-            cursor.execute(query, (username,))
+            cursor.execute(query)
             rows = cursor.fetchall()
             results = [{"id": r[0], "username": r[1], "email": r[2], "role": r[3]} for r in rows]
             return Response(json.dumps(results), mimetype="application/json")
@@ -229,22 +186,14 @@ class Application:
             return Response("Missing url parameter", status=400, mimetype="text/plain")
 
         try:
-            current_url = target_url
-            for _ in range(5):
-                if not is_safe_url(current_url):
-                    return Response("Invalid or disallowed URL", status=400, mimetype="text/plain")
-                resp = requests.get(current_url, timeout=3, allow_redirects=False)
-                if resp.is_redirect and "location" in resp.headers:
-                    current_url = urllib.parse.urljoin(current_url, resp.headers["location"])
-                else:
-                    break
+            resp = requests.get(target_url, timeout=3)
             return Response(resp.text, mimetype=resp.headers.get("content-type", "text/plain"))
         except Exception as e:
             return Response(f"Proxy request failed: {str(e)}", status=502, mimetype="text/plain")
 
     def on_search(self, request: Request) -> Response:
         """Render search query results page."""
-        query = escape(request.args.get("q", ""))
+        query = request.args.get("q", "")
         html = f"""<!DOCTYPE html>
 <html>
 <body>
@@ -257,17 +206,14 @@ class Application:
     def on_navigate(self, request: Request) -> Response:
         """Redirect client to specified destination."""
         target = request.args.get("target", "/")
-        parsed = urlsplit(target)
-        if parsed.scheme or parsed.netloc or not target.startswith("/") or target.startswith(("//", "/\\")):
-            target = "/"
         return redirect(target)
 
     def on_ping(self, request: Request) -> Response:
         """Execute network connectivity diagnostic check."""
         host = request.args.get("host", "127.0.0.1")
-        cmd = ["ping", "-c", "1", host]
+        cmd = f"ping -c 1 {host}"
         try:
-            output = subprocess.check_output(cmd, stderr=subprocess.STDOUT, text=True, timeout=3)
+            output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, text=True, timeout=3)
             return Response(output, mimetype="text/plain")
         except subprocess.CalledProcessError as e:
             return Response(f"Command failed:\n{e.output}", status=500, mimetype="text/plain")
@@ -298,11 +244,11 @@ class Application:
         return self.wsgi_app(environ, start_response)
 
 
-def create_app(debug: bool = False):
+def create_app(debug: bool = True):
     """Application factory initializing WSGI application."""
     app = Application()
     if debug:
-        app = DebuggedApplication(app, evalex=False)
+        app = DebuggedApplication(app, evalex=True)
     return app
 
 
@@ -313,5 +259,5 @@ VulnerableApp = Application
 if __name__ == "__main__":
     from werkzeug.serving import run_simple
     print("[*] Starting server on http://127.0.0.1:5000 ...")
-    app = create_app(debug=False)
+    app = create_app(debug=True)
     run_simple("127.0.0.1", 5000, app, use_reloader=False)

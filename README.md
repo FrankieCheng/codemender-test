@@ -325,7 +325,7 @@ codemender-test/
 │   ├── run_python_benchmarks.py       # Python WSGI benchmark + strict Ground Truth (11/11) & safe_join (0% FP) evaluator
 │   ├── run_all_benchmarks.py          # Node.js (juice-shop) & Java (macrozheng/mall) ablation suite
 │   └── generate_report.py             # Automated Markdown report generator
-├── src/                               # Target 1: Python Werkzeug WSGI Application (All 12 findings remediated on fix branch)
+├── src/                               # Target 1: Python Werkzeug WSGI Application (11 GT vulnerabilities + 1 safe_join negative control on main; remediated on fix branch)
 │   ├── app.py
 │   └── requirements.txt
 ├── grounding-truth/                   # Ground Truth PoC Exploit & Verification Suite for Python WSGI
